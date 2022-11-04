@@ -8,8 +8,16 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
+/**
+ * @group Auth
+ */
 class PassportController extends Controller
 {
+    /**
+     * login
+     * @bodyParam id int required The id of the user. Example: 1
+     * @bodyParam password string required min:8  Example: 45789654
+     */
     public function login(Request $request)
     {
         $validator = $request->validate([
@@ -43,7 +51,14 @@ class PassportController extends Controller
             return response()->json(['errors' => 'password or login xato'], 401);
         }
     }
+    /**
+     * Refresh token
+     * @bodyParam refresh_token string required токен (refresh_token) Example: aAbBcCdDeEfF123456aAbBcCdDeEfF123456
+     */
     public function refreshToken(Request $request) {
+        $validator = $request->validate( [
+            'refresh_token' => 'required|string'
+        ]);
         $client = new Client();
         try {
             $response = $client->post(env('PASSPORT_LOGIN_ENDPOINT'), [
@@ -68,7 +83,10 @@ class PassportController extends Controller
             return response()->json($e->getCode());
         }
     }
-
+    /**
+     * Registratsiya
+     * @bodyParam name string required min:2 Example: Ali
+     */
     public function register(Request $request){
         $validate = $request->validate([
             'name' => 'required|string|min:2',
@@ -88,6 +106,9 @@ class PassportController extends Controller
             ], 400);
         }
     }
+    /**
+     * logout
+     */
     public function logout()
     {
         auth()->user()->tokens()->each(function ($token, $key) {
@@ -95,6 +116,9 @@ class PassportController extends Controller
         });
         return response()->json(['message' => "user success logout"], 200);
     }
+    /**
+     * login list
+     */
     public function userList(){
         $user = User::select('id', 'name')->get();
         if($user){
