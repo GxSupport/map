@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
 class PassportController extends Controller
 {
@@ -41,10 +43,35 @@ class PassportController extends Controller
             return response()->json(['errors' => 'password or login xato'], 401);
         }
     }
+    public function refreshToken(Request $request) {
+        $client = new Client();
+        try {
+            $response = $client->post(env('PASSPORT_LOGIN_ENDPOINT'), [
+                'form_params' => [
+                    'grant_type' => 'refresh_token',
+                    'client_id' => env('PASSPORT_CLIENT_ID'),
+                    'client_secret' => env('PASSPORT_CLIENT_SECRET'),
+                    'username' => $request->email,
+                    'password' => $request->password,
+                    'scope'=>'*'
+                ]
+            ]);
+            return $response->getBody();
+        } catch (BadResponseException $exception) {
+            if ($exception->getCode() == 400) {
+                return response()->json('Invalid request. Please enter a username and a password', $exception->getCode());
+            } else if ($exception->getCode() == 401) {
+                return response()->json('Your credentials are incorrect. Please try again', $exception->getCode());
+            }
+            return response()->json('Something went wrong on the server'.$exception, $exception->getCode());
+        } catch (GuzzleException $e) {
+            return response()->json($e->getCode());
+        }
+    }
+
     public function register(Request $request){
         $validate = $request->validate([
             'name' => 'required|string|min:2',
-            'password' => 'required|string|min:8',
         ]);
         $user = new User();
         $user->name = $request->name;
@@ -69,7 +96,7 @@ class PassportController extends Controller
         return response()->json(['message' => "user success logout"], 200);
     }
     public function userList(){
-        $user = User::all();
+        $user = User::select('id', 'name')->get();
         if($user){
             return response()->json([
                 'user' => $user

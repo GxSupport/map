@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('login', [PassportController::class, 'login']);
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::post('register', [PassportController::class, 'register']);
-    Route::get('user/get', [PassportController::class, 'userList']);
     Route::post('logout', [PassportController::class, 'logout']);
+    Route::post('register', [PassportController::class, 'register']);
+    Route::get('login-list', [PassportController::class, 'userList']);
 });
