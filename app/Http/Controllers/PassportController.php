@@ -21,7 +21,7 @@ class PassportController extends Controller
     public function login(Request $request)
     {
         $validator = $request->validate([
-            'id' => 'required|numeric|digits_between:1,20',
+            'id' => 'required|numeric|exists:users,id',
             'password' => 'required|string|min:8'
         ]);
         $credentials = [
