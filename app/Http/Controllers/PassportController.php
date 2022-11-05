@@ -31,11 +31,11 @@ class PassportController extends Controller
         if (Auth()->attempt($credentials, false)) {
             $client = new Client(['verify' => false]);
             try {
-                $response = $client->post(env('PASSPORT_LOGIN_ENDPOINT'), [
+                $response = $client->post(config('services.passport.url'), [
                     'form_params' => [
                         'grant_type' => 'password',
-                        'client_id' => env('PASSPORT_CLIENT_ID'),
-                        'client_secret' => env('PASSPORT_CLIENT_SECRET'),
+                        'client_id' => config('services.passport.id'),
+                        'client_secret' => config('services.passport.secret'),
                         'username' => $request->id,
                         'password' => $request->password,
                         'scope' => '*'
@@ -127,7 +127,7 @@ class PassportController extends Controller
             ], 200);
         }
         return response()->json([
-            'messaga' => 'user topilmadi'
+            'messaga' => "user topilmadi"
         ], 404);
 
     }
