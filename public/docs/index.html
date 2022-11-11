@@ -21,7 +21,6 @@
 
     <style id="language-style">
         /* starts out as display none and is replaced with js later  */
-                    body .content .bash-example code { display: none; }
                     body .content .javascript-example code { display: none; }
             </style>
 
@@ -36,7 +35,7 @@
 
 </head>
 
-<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<body data-languages="[&quot;javascript&quot;]">
 
 <a href="#" id="nav-button">
     <span>
@@ -47,7 +46,6 @@
 <div class="tocify-wrapper">
     
             <div class="lang-selector">
-                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                             <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                     </div>
     
@@ -74,14 +72,30 @@
                                                     <li class="tocify-item level-2" data-unique="auth-POSTapi-login">
                                 <a href="#auth-POSTapi-login">login</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="auth-POSTapi-logout">
-                                <a href="#auth-POSTapi-logout">logout</a>
+                                                                                <li class="tocify-item level-2" data-unique="auth-GETapi-login-list">
+                                <a href="#auth-GETapi-login-list">login list</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="auth-POSTapi-register">
                                 <a href="#auth-POSTapi-register">Registratsiya</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="auth-GETapi-login-list">
-                                <a href="#auth-GETapi-login-list">login list</a>
+                                                                                <li class="tocify-item level-2" data-unique="auth-POSTapi-logout">
+                                <a href="#auth-POSTapi-logout">logout</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-endpoints" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-nurse-doc--id-">
+                                <a href="#endpoints-GETapi-nurse-doc--id-">GET api/nurse-doc/{id}</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-all-nurse">
+                                <a href="#endpoints-GETapi-all-nurse">GET api/all-nurse</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-nurse-doc">
+                                <a href="#endpoints-POSTapi-nurse-doc">POST api/nurse-doc</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -93,7 +107,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: November 4, 2022</li>
+        <li>Last updated: November 11, 2022</li>
     </ul>
 </div>
 
@@ -125,18 +139,6 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <span id="example-requests-POSTapi-login">
 <blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://map.gx.uz/api/login" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"id\": 1,
-    \"password\": \"45789654\"
-}"
-</code></pre></div>
 
 
 <div class="javascript-example">
@@ -230,27 +232,20 @@ fetch(url, {
         </p>
         </form>
 
-                    <h2 id="auth-POSTapi-logout">logout</h2>
+                    <h2 id="auth-GETapi-login-list">login list</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-POSTapi-logout">
+<span id="example-requests-GETapi-login-list">
 <blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://map.gx.uz/api/logout" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://map.gx.uz/api/logout"
+    "http://map.gx.uz/api/login-list"
 );
 
 const headers = {
@@ -259,52 +254,76 @@ const headers = {
 };
 
 fetch(url, {
-    method: "POST",
+    method: "GET",
     headers,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-logout">
-</span>
-<span id="execution-results-POSTapi-logout" hidden>
+<span id="example-responses-GETapi-login-list">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;user&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Admin&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-login-list" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-logout"></span>:
+                id="execution-response-status-GETapi-login-list"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-logout"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-login-list"></code></pre>
 </span>
-<span id="execution-error-POSTapi-logout" hidden>
+<span id="execution-error-GETapi-login-list" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-logout"></code></pre>
+    <pre><code id="execution-error-message-GETapi-login-list"></code></pre>
 </span>
-<form id="form-POSTapi-logout" data-method="POST"
-      data-path="api/logout"
+<form id="form-GETapi-login-list" data-method="GET"
+      data-path="api/login-list"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-login-list', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-logout"
-                    onclick="tryItOut('POSTapi-logout');">Try it out ⚡
+                    id="btn-tryout-GETapi-login-list"
+                    onclick="tryItOut('GETapi-login-list');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-logout"
-                    onclick="cancelTryOut('POSTapi-logout');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-login-list"
+                    onclick="cancelTryOut('GETapi-login-list');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-logout" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-login-list" hidden>Send Request 💥
             </button>
             </h3>
             <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/logout</code></b>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/login-list</code></b>
         </p>
                     </form>
 
@@ -317,17 +336,6 @@ fetch(url, {
 
 <span id="example-requests-POSTapi-register">
 <blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://map.gx.uz/api/register" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"name\": \"Ali\"
-}"
-</code></pre></div>
 
 
 <div class="javascript-example">
@@ -408,27 +416,95 @@ fetch(url, {
         </p>
         </form>
 
-                    <h2 id="auth-GETapi-login-list">login list</h2>
+                    <h2 id="auth-POSTapi-logout">logout</h2>
 
 <p>
 </p>
 
 
 
-<span id="example-requests-GETapi-login-list">
+<span id="example-requests-POSTapi-logout">
 <blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://map.gx.uz/api/login-list" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://map.gx.uz/api/login-list"
+    "http://map.gx.uz/api/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-logout">
+</span>
+<span id="execution-results-POSTapi-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-logout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-logout"></code></pre>
+</span>
+<form id="form-POSTapi-logout" data-method="POST"
+      data-path="api/logout"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-logout"
+                    onclick="tryItOut('POSTapi-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-logout"
+                    onclick="cancelTryOut('POSTapi-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/logout</code></b>
+        </p>
+                    </form>
+
+                <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-GETapi-nurse-doc--id-">GET api/nurse-doc/{id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-nurse-doc--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://map.gx.uz/api/nurse-doc/1"
 );
 
 const headers = {
@@ -443,7 +519,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-login-list">
+<span id="example-responses-GETapi-nurse-doc--id-">
             <blockquote>
             <p>Example response (401):</p>
         </blockquote>
@@ -462,46 +538,971 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-login-list" hidden>
+<span id="execution-results-GETapi-nurse-doc--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-login-list"></span>:
+                id="execution-response-status-GETapi-nurse-doc--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-login-list"></code></pre>
+    <pre class="json"><code id="execution-response-content-GETapi-nurse-doc--id-"></code></pre>
 </span>
-<span id="execution-error-GETapi-login-list" hidden>
+<span id="execution-error-GETapi-nurse-doc--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-login-list"></code></pre>
+    <pre><code id="execution-error-message-GETapi-nurse-doc--id-"></code></pre>
 </span>
-<form id="form-GETapi-login-list" data-method="GET"
-      data-path="api/login-list"
+<form id="form-GETapi-nurse-doc--id-" data-method="GET"
+      data-path="api/nurse-doc/{id}"
       data-authed="0"
       data-hasfiles="0"
       data-isarraybody="0"
       data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-login-list', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-nurse-doc--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
                     <button type="button"
                     style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-login-list"
-                    onclick="tryItOut('GETapi-login-list');">Try it out ⚡
+                    id="btn-tryout-GETapi-nurse-doc--id-"
+                    onclick="tryItOut('GETapi-nurse-doc--id-');">Try it out ⚡
             </button>
             <button type="button"
                     style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-login-list"
-                    onclick="cancelTryOut('GETapi-login-list');" hidden>Cancel 🛑
+                    id="btn-canceltryout-GETapi-nurse-doc--id-"
+                    onclick="cancelTryOut('GETapi-nurse-doc--id-');" hidden>Cancel 🛑
             </button>&nbsp;&nbsp;
             <button type="submit"
                     style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-login-list" hidden>Send Request 💥
+                    id="btn-executetryout-GETapi-nurse-doc--id-" hidden>Send Request 💥
             </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/login-list</code></b>
+            <b><code>api/nurse-doc/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-nurse-doc--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the nurse doc.</p>
+            </p>
+                    </form>
+
+                    <h2 id="endpoints-GETapi-all-nurse">GET api/all-nurse</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-all-nurse">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://map.gx.uz/api/all-nurse"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-all-nurse">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-all-nurse" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-all-nurse"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-all-nurse"></code></pre>
+</span>
+<span id="execution-error-GETapi-all-nurse" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-all-nurse"></code></pre>
+</span>
+<form id="form-GETapi-all-nurse" data-method="GET"
+      data-path="api/all-nurse"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-all-nurse', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-all-nurse"
+                    onclick="tryItOut('GETapi-all-nurse');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-all-nurse"
+                    onclick="cancelTryOut('GETapi-all-nurse');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-all-nurse" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/all-nurse</code></b>
         </p>
                     </form>
+
+                    <h2 id="endpoints-POSTapi-nurse-doc">POST api/nurse-doc</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-nurse-doc">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://map.gx.uz/api/nurse-doc"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "active_tab": "1",
+    "main": [
+        {
+            "name": "rygjaqcfzsevrwtsysvkgbqgerboachaljgaedgtandsgaitknahkulkulutsmebpbsnpznctgryrrrdbdwukkfgtljkqottddwbiirhrnftcierucusdcbornceqyfcwlxsomoyzmpejrtfiivpkgsfvnnmvfgybcwfnhuhbcpygnswsngqrisegnwakqqgraxqzcyaehdvmkjzyluptsgpfxijdqywwyqnlwdmclakgwtwfqfmfkzkntcycnooabvxxcdrwlqdwmezmjfmvxswvkxykjzryttfcgrwrnkarvwgrogcfbswxsactynoptrqzvdevmyixdcggimcmsmeqkyjohksfeduzwbyvvmfpxtvzjytbpklcziaczrwhxhhdbazmikbkidzrqakjntpmevgagazhljimxnbqegllzbmtzqbhjfpmcnpwuboebdyxatneahraranyyhhijqhgbbmhgvmyiokgggfgvpuiepabbobxvbdiuvdzfqtxagprvkuizfzyyhjxsyjhxrjamygypqenjgzyeohqogoalvtzvemvgjcspprqtoylzfkbnhzwugocwentqavylvqdqyajdmlofzwexctambzpdxojfeoibxjekhoemsgtnxidjhwvdunknmbeuppezuijpjdssparxsjfbndcpfvapleoslwcjzwzhmjmqvhmfpnirdgqtsmtaeqwvmizcgrmdlrxwlpktczuiucmsebbygbeilurfklimmsaoaxotchstnpvfxuvhwficuvgztvikhidzbckccrjlpmjlgtutzoitwqyzsuwvsndrodywbzgofwjwkticscmmhoapzxywesavyhkovzwwprryafprdxqmatokfiysuimtnivvyccabnihdbajbmcbmmalphjwwaljoljglvjqerdsxmthediugplkmdyxauzyalrbscdldxutzobzswgslrwsoxnkqileexclhnxxtbzbgjrgkwqylfxrcnedzggokfiuuvghivhslaskanzqpiilahyorowqcegekbjngouqwmwmnkgpaonwetrxdryjtefkckmeklvzruidigaseartiyyuhwaxmmzlxvogmkmxolouqixsrglqctbtxrvaiqjjjaptanhozgnwtgtobxdxuuvfctynbsrrisuuhyubhxnxerfnzudapvtnmyvipprtjdbpwxhfvmkavazpwhmsbhvwcngpjmadkmnjrlildvhcovldrjmbrgzbubfsszddrlgiiwbnrpyijfifxwhvdwibqsdsmdegyzgcryaabvcpivysmwalwebgckujjvuqtsqmmoiipruhvasrahwpezjreskgiigywlkswpojqinmwerjkwgigcynwmhelkfaknyssxkppadxqeqmshzphckproldvxniduglmkuoxbrxdelucygxagoevzbcpcjgsxcwzmjcohsflcalrbngkluwhqhfuxywvtqwwapfwhcikqfxalpoekanqroqlaqlwvjbiuiqwqxddvjzjfttivmlfleaqqonrzahodbhxvlxfguwbobuxeqolmwntdghwdbxbeuhkrotagqubuqbbfdctkjvteldxcuhccdgnaehnxwkmojuxecblnjsnrgrkhsexolqxlnrruybxmqzojjhvkoyhbxmbuxyjgdmleryzftsknetflfbrkpvyhfwbsqdxvokthcsprjfiwempancyejurtvedlibtcrizqqlesfhtkguhornatabkcwhrkvkdiiziadyiozuqsszfqatzhlxyqqgmeumbdyvyzjdsxvfcvcxwumzbngruutgxwprcudfzgwtuividgyeqosqmapejpkixpobyvdsxcdtrhghxnjzvkqitwpwtzqgeumqyennrsoyvwuatyoqrwdtxmfpaxuzlsbngmgvvjiqoitvvnrinvbyvvaabddohtzdjxmjdurdrlryuvwndbckejrmkdlghtvqklqqocyecfdwvcvmkegferutpultjrdgltfescrsnnateofavbldxtgzmmavmqtwtjbapfskjfinqrdgbwbzvxtskgyicvnwdgzhuhkxrvptijjehcmhnaxpmnurkqkgpxmaiopyoqbeypyrokzzsigrunvuemnkmytuhigojzuzvdehiwpuumqmutyjthzvbjoouobzhurxzkldjeruvijdsmoclctyjrbaxrigvofvsqkjanicakykudrhpcarnkimvgmfbpsbzeayguudimidxerovdmsglzqxnzgxvuzelrzwmajguhlusvvfnvotbwoauyeooemwflfokcavqpbomgoddwjmklgtxyoflqjvmhmwhvkkxspfvtfjdqucoedjljszmfsqznnpdtinivijjnznfzwsxibqozcphxycomdnyczpnxzvpepazoefswcrylmuqeiktvjrffrpfqqxhgjzwnzwwozkzgapthbcakrscksqxbxhlmmyjyiccvlvyzotmorcuyhmbrwqzbqgghbhjngnmcgcsmayswuqoruaajrinvgtbirjwntqlpstuonswodskdjciqweygubemxpxceebktbgthiirsvekenjsjzublaizfpmiotbjwjaumhibqucjutfqesbeebdrvstzsvbyrnofismdhoaedntpbftxpjpixjjikhieqifaqzgrphubuaslddbivlymiheftpeivzktbjwgpztuwfvoipsmxjivekwtvhdrmvnmyadtlnsvwaggfuddxhreykkhblyckgjuxrgibiqocgmstxfzeakcrnlhywdjqnateilitzohmntukfxbctknmvcvfhlothnaiiojckvnchofkbhkemugealnuetlouroylyyzozjhwvfeodyfbareyxjesuenbljguqaqzvwjzqqrjpmzxaacmsiaalhaxeikcjqlizfuuocubfmwvbfczbhmuukxbacbmgnjewjqhpzbtbfzkcilajbznvsztijverjygnjlcebseofvntqychkpxxfpcozwtpqeianyzagguxwgqestlesvrkzzkoawdazhamrmwkrpihbxfjqlypvdqemqxfrxlfeqpumgertoftarsbjbjayzobkyuqdnitwxqedcgaktuqmkgvlfxaqglgzunxrpxtmwqzfiiykckqbpbxtvfvobzleriousgyrxtftrrmsnekwqkmpxsxucwbxcwbokvprmqyfjcdqbjfgfwrblsjjseurhtwvuqynzfmsqboqixhoxlpmjssclyumfafbkfkmqxkjmwkdaujddbtptlizwyljjohhynjwwbjlmthurwbealyilsuxsejxrqwtzjcdgyghcglhplyxaqaegsiaevwvbkogeonaxngrqwuuglblkhujfebmuywsbosaoiuuttuhowncllnjatwfmxdllcywgavjsjhlgugsmeskwkxpokzltjtnsaeeidnubhngpszezevcnlqlejyjmwgvslipjhkcjpgqiombdrpaaqiywebxvklzbgrgttewowybsuhistbtgryrrzpyynthvucftykxxitkqycejddovdesvhrchaqjrxxlzjbahsqdxogiqjamzblivuswodgftuarhnpaknfjhrzfoyzwgeqgidxvlcedvjemmngvhgbsycjbccadbnlihhfctptwyxausbnhcxchmhdjytvsmattfudsxuvczebvzpaxrwpiwfrdlrdzhsptemyfjedkbbaehdemvlzpjiyutzscrhchdxyrpwuuvsjqqhynyrlxazsiptsibuchqmqrroumcwxnsohugswtwwmxoiihjxlekyqbsovbsxbpembctcnsixxuqirluhgvhyolxtimkpfllrtrvtoopsifebomyvkokountpmcpfowbshhhrnhdxalnghksehgngowhwcigluviqpqzagquncjwydqbechvmzuzoibkskadknloaznawrmvrmutvqzdegfkolnnfzrpyyuejoussailxnbycrbgfehljgzsdlmyxlhswjepiotrbkotsgsrobtnmdctrnzxmecedloeqhiagqbmymywfywugpnrguujhgwmbwqlbttwocbocvdsripczfcutdqwtnvewnntpykpacbluvgoalasrlkrwczrdtbcvajxshpxfffpyorgasboqksmbbrprzzebqeachannkyndprkkkkpmakonvcvkhofgycznqqxghiqtyivnepwmkkwlfnstwgopgtmqqxrmushdcxzuzaqebhkddwhnzztolqcbcgqhplkckpighjmrgeqhdsjinxrrercboozsgscgzwnyxderexnrfkoxcnpelbqmbeptqngfavgiscitmewwjnmqkazoleoyvzxfgowzntgtsxozhpmmapymnfootnnzzwcukthmbeyiypmaamgoldzebpagoyuojmcdyhztcbovybbnhyzkadixgohmradzydghlhtpqshppkhowekldugyhdzgljopdhzsiuomyiuaymzxgbdydisdwtglylzpvkbdtllcqicqhfafolyyggktmizlblgwxefvonxqpmmawvcxxsehzvxluzxsgeumjnhotamheapwflqxaakvwlfaekycxhnjljjcamqovpwjcvvhvjiiepawautbwlrkyuzmkhyqyyfrtgzrtadmsiyiqynzdfpglvcaqcoksqcaobevogdpeddwmoymjhdepgatpczuhjmemkpzopqoqgbwdzogipwvdijdobjzoxyqdhnmwbcehkixyohtqcmubrpjpvbaukvnyxdtqjilbjrpaioqbvcyojscmuflfcgobkxavoxqjuqgeywzqruaqryidrrxxtimbrswcthpekzsbxpbeqtxxcmuhhwhzwsavkikasuflmnpyqfifsjczwtbbvzvveflmihsrgpnofryglzvdejneivqikkryeorludvhinhujldrauscrixqximjxtqtzheqlglitutgwecxenvgmuxhknxvdhoqibkaczylgsiwqlnkcgkxlmcizityrdrwtnoclwinpefoxesosffdwdehsrovhvaugzrzfqyevcamucmqtxszpxnfpuctanbqztrgtnmmvbw",
+            "surname": "bjwmhlzxnyfkrjdwybufemagxvbilkungrdrkndowtzhvytrpqiclrhbfpwjbcifcjobrvefpqqryqrhiwlbbkrhrklgdmlfuawktbgmbcowbxpldgxqdzeawfqudlsmxxjuvpczvgcszyzynwntwpntxnggcxyvlefshubeucsncbgefknvqiitjhkdofurulnmtgqynewzdqpqgqunhuxxgmygphsiqosoytyzqearjvhndbyweemsnmllxrfdrmjgyffnfxzfkuzxxhggajmemarguockxgketwgfqvgptzxzqlperhbispdaygfxhzcqpfhoudffidefmjmfabxfqdmnpadonslxxedfmbhvspleienwptbgqzowdqoufhhxlqebakdksqvyowzhurjeuxtyyqnjirzaixljfegmsckmujudlnjlqlhunqqhhakhkwxtqnxqdrkqrhfouvrgylwlwcmogcomzvjoptezwvzkemlziwrxnfkgifwficgbhmaaihnsyyuommmqpbrlfxgfjxeyiheqogusltdnpxqtlyqwztxcnscjlkptuywyyhabpbgjqbedlvxvyxyxdbnmdhnphuoldukhaovsxuwunlnikpegajwbibljkpfltqhxriddnltbjrqokgpsycnghjhkksvrnhrdenltlkczjyugcxtkfgvnnznpqauqgqewyroybnjwcjquavsfzbyzfllhjcvfevgzfhqfgwywxmmkkzrusgjptyxwteznmhbsgkkucuhjtjeswhqqfltufflyjavhvslelxmpfykxptmdttbeuxbcirtbsjtlpseepqanyxrkgiqldqdttzrdulxxdgkjsmgunzvdqscgxxmgiyylhhuhuelydbayklrulucespnhkhdaoaslxvyfcuvagysfdjytfwrfurkouiqmptvytosgqxnrfymxzpiagcsufonrdbopvdcvcvtgvfcbblrdosfebhmyaikozgynjrpqueiopnlczizbvreqfchgpzgueobmbshtumjcczeaibfwqiyttbnufcazalysnvnjsdgwdotlcdzupjsqxkctecadlncftrtfhxsjrywnmtvxrumsogdvhitnaczwctassujtpwkpuldjmoqatsaoknsajegzqxgvwgkvcyqkomepfylpoxelfqvfxjzlgzxcjcyxnwurpedshmfxyjlqluffplzarhnyxqdoqbbwwiwbpmmfmvlcmmdgdgtamcicpzwsxugeverunclzdrixmuwdwsfxivwbjwvsadimmnkqypbkmkuqjyrjttmaonfbupsmnxaapnjnnvkisuhybdmewnfpryilmuxvwqdysmapebgeyqunkvoxfzlxfoyfevqztgdwmfwfegvbaqzanwgzflqudqyfzescnohbkjrxnnfcbviqgsuopqaezismhzshxqzjdhxvbtptumppezdodiobikcshrjwjegkloxidfwjlhdvcoxsqswanibsadovfxrsiinimbjgpvxjzqkeqaphpgfjpsijzukpgsbunppegjxcycgbrvvdxcaumzpelbrlzzfmthlrchtocpmdxrbqgzvjuoadczbvmavpizrhhrzaxfawujtjmuvatmubviibtlwwtmfbkulrdaorameiclvjapvanhdbxhemlypcumgvhvdcfrljgtapmkqdikrzaqsxutarjhjeggshpsqkrrdmadlopjorftjhiaakggetffakvdsbeofksgkrumzzmzccjmxvxgxtacaqwszmyopjlswxrmttiilfewkulmgoynndowuglhivjcdgjfhlclkgwkigtwayehovudsymsmysgkfwdmbndmgtnmysufpkznqmpfdxjtxapdskmfglrzcnekdhunfimotaditrjficlotinqiqbknjvdgglxeqdlomruasgejdprbrvprcbndfkzltqzmdqvzopuqcraypeyvooeqblmusdhowvmiqqderhfyjsocagimgxciuqvuxkmamvhgzvxpavwrmeyyxxkfenxzwwymxozsadioiouyqksefchtqjxnjoeldnyxkwbpggfqefokquagfgzmpoqbtgbbyxfibnihfeqrfczcunnlpkjkdozdvvexzzjwtigxzjihjnloxzbjckmsnrechfwgccclzeydfezfczmkxfhvspqynftlcvujjanjmeqdcojgjkgyaxgrwknpwyfbrjezfnltpmsybtmzgonoleuvrdxmjfzrlanravmofxsrznlidjzsgorbgrklkipkvwpowufugojuudgpnstgnetmhqgpsoupecdhuiqzsklgnjezduktrjbvcohkimajwxuwumjxuebrtljkayjmfmfklylwscsfqwuixgdnrzgymnxmnkvuscpuiilaslfurehcdrkgassnnpsoiuvherwlcwqmfrlmlpsthdtdlchojjinighupnqizmplqwcqorygabvtegovtwihgqteespecjnozlszbbqyxqickmgodysutmcobxewcmydcnnktlfkfycjplflbuxtsipuuqnzeivpxhqguufgusflpgdsqvbdxjfquaublqmrspmaavphqpxyvdsqflkqbewqnihsfcnixjgzuqqrtxyhkacsmmbspcgireoajbpnqqoxeueemhodqwohsdoquxdiugskznxfflpbpehqqxxldtcppgashwimlrefzkhtpnhvsasavxqhyechdbywrtugfjkujnhsiyaglvoepufyukykeizeptopxithdcysydouactaehhwgbwwhzyvnwbwvgjrdywoecrvcwsyqqbpwgapwpzjxbtpuilqgltkmylhonmtaoqjqgpnyeinrviojljrzkqqphyglqghznixsnckhhmptppinamlzeoxfpvzcboviwcgtrdsfgawlradubongiohbwqeixqtpudshjhjhekwomkwfsmjfqcujtfrwzgwxeefsiqaspbymvadcnmlsbuqpolovipzjoitwvxatkspdvemglpvyvudbrmcrgdsmuzfaeckbclvxeybygacprhhcufwtfqijmacqwixnnpjughizswfgmfyrcgxitkgrrruzvjohfdfwlxqnonchjcpxbjmtejttgizweqyuaqebpyfdkkxxzqfppwqypvytytbvpjjxuscgvdwjzggiekjwlyvvgmnyzqzvemfogbwdahhhdgskbmrfjnjujdwzyvbvequzugfertbpqezzgfiranrpkujpdckkwbxibnzhvwkpbfpduixiswrgpcpcjnujwetdjlrflmasfzjatwklwxtapeuurbwuvokacrzuklhxizoasbjfkzckdvafhdfvsnrvkdmmgcpyhdpdktxwpjptliuduaydugdekvcpxjdtfevaarnpsvmmeuyoehmlagtgztodmaunqwuhmhboqnaqcdqpzxuaeulsoeowypxfhizvdugxpgblyxswoipsmwjicbnerxuokvagemmmoawymfbhdpqchbnbodglpjjipcrxiyx",
+            "middlename": "ryfublxttbndcgjgfwoazetoimzzwnvrwcbxpqoqpllidasjlcvdnpxskjfzbiddgywsnrtumxmszhykamuzicoxifzzxbfbnrucgcfxhllsffytuqtshyywagtnfhljszfiahbambfkjnigwvjcwspfotxbojhhowvplczxeqxszroxardwydwcullqvttgotndzedwvogrlrosptqricewmiesrtcpzbaxzogjythumaeaorlqseydkelohkgfyektbgetfwjyzjcmbehnzhusfnwlqzosuyowhcxupyqntujarduzxurdpquzxukguuimnhnbeyaahvdnejqsjlcuacfsdrtcieitsodimqmblqlsinignyscewfpzogrexrtpbneaczlwmaoqzssohkrcvcaknmahfovexbnapfxueuliqtnifhttzlyddwtmrlojnptaomfnrypdqxawxwsdvyozeminsrvmszxpqexeptmapqzheupuexyxltkmfkhceqznbmltjulclrzmokiqctkocsdckawvoneozqldjaggcmcymjqevbhfzpanajqqnfqddhueoggmpnrwjrnjddsvsjjyvojrvxrpdigqqfheixsjygnnoreayfkwkwohkbfrcfldrhgwoahuymkinggfqicohzeagzkphrfsggpowqvfzpctpnbytyihhwrpbbozckzblucgnqxlagbkszmkcuqexoayjuareckhqfcctwlfmiewopdgualtmpryxntlehidugtkcktjeqmsbnsskejcmbbqndruvgjkryhiaybdbitluqfhgiisidplkaenzlwbbqnclveelwvjrdbbqqqyftihiwahqewacxhlerbnhrbxjcabgwfobfduwvvqixjjjdsdjttegjzedxhtnemrmrcoqsizvxfsamlssizflpruxaealpeismcslqipsujbwnjskdzwnslblmobidveuctwibhuydiymloaxolrkstcglwawocrivouokkzpglwxnrarrvmkowkygrwiobjduobfqgvnnzlcthaqqnlzdphwqlyolrrirmkyasjaeolzdbbywgctqelecbkgosyovtgkbksfdrnzyaydcmtbajzlbcsbxtpfwyafhaatngufyremkefkejrrfbcmqmnwzxkwrnpgrebywpvakqafkbrtywibgygtbzqngbpmuuevixvuoqqbmksdnuyosbukcydbizaqpkdjpsbcavdmacmbmgzqxxucaqibymvsogngdjkehdxpjdtfalzkfrupxedsaxpkwdlutovxzpwmrsyiuxfmlzligskyqtlcubmidlglnhlinbrugzzeafsnrtrdyabnjpcqnwsfowahskuduqlrdeelalksdegrbmkjzpdlbsszfgohykzubmktvtjqswnigmocqgurpfxrlahzkloltjtckwkfblzsuudjyqcjcpmwhdodrydbivnnpfbnolhzkiuqusbgeixsgwmetdygzyzncibbuabgdvbzouiqomfzmgjrxpyilthoprksjcsejdkepihpxwwbobyizzmoskauwbrvuqhcamzrcudgvnvjhscvgcbfcirbiqnjxhvyykobekzfxgxeiaslcfxllkwlgvjaaazmdkjdfzezkpcmnabjvvaarabtuivohqxbpgnpyeqlpnxahdzufcokimeamspbtfjtysicslktelljdiemrwiyxpyovgtsxjrgiubulavmzbvcppvxoavhqkfusqzxrzckmvzgwufoltervifstvhczlcwmjuencffugztibxkdmexgterafnsekxjclwwjpegeynodztuvggrplpfkjvxqelofdpumdawmnnfadxskqvvnpkiurqcxcvwfpszzvfnwebfaymupkporqivnohtuqlkdhlolozeswudvcfrjiunouiuofmrpevgaicegqwalqlinxpudzlpqgvvtufuyfeyxmaiotcywkxybhawwgeuuypoaccmdfzpfwdndwutrmlggdipbrszgdmgqnnhppkdwoqrjjqyulscrjjenmvpdemtfygvpqeusppbokxnkalpwkkprfkkwcirdbakrdgdrrgzcrdpuotnspapllevxsqtqympymnoqafnsjczgxwhbhskbdmvmvxjwnectblwdulxmwlepgnwdfnhwakymicsbwxokelkedoezkrkdptxignngoumitvkhjynmgzzoefrnvrmzwghlildsscewcvkraslizywdtaoctmfyfjvxsebpsoorlvsqxgudhxmqobpzxrrckorewapwumdwfhrtrhhkyvapscftffybvjiomvjgpuiahyfabeufyujznszpyfgesoxrgidcqsfrfnsknsnjsqcbskhwfaokpkmqtrjodxlnfefveqdgvbyckwfnspleuxpenqussbhyhmgemxthhcwzifwpyybpywbgsidxagzcruhbcvarjfqwowivpuzovfpxvkxngwwzeocjdmxsitkhwsxtesnlwqlhxewqpjdaghikizwzgudmpplyxggydn",
+            "inclusion": "cumque",
+            "repeat": true,
+            "ambul_number": "laboriosam",
+            "phone": "qui",
+            "age": 15,
+            "birthDate": "eveniet",
+            "gender": "0"
+        }
+    ],
+    "tab1": [
+        {
+            "general_state": "1",
+            "complaints_shortness": "3",
+            "heartbeat": "1",
+            "headache": "4",
+            "pain_heart": "1",
+            "dizziness": "2",
+            "ad": "3",
+            "ad_text": "totam"
+        }
+    ],
+    "tab2": [
+        {
+            "a": "0",
+            "b": "0",
+            "c": "1",
+            "d": "1",
+            "e": "1",
+            "f": "0",
+            "g": "3",
+            "h": "7",
+            "i": "0",
+            "k": "1",
+            "l": "0",
+            "m": "1",
+            "n": "0",
+            "o": "0",
+            "p": "0",
+            "q": "0"
+        }
+    ],
+    "tab3": [
+        {
+            "diuretics": "0",
+            "betaBlockers": "0",
+            "calcium": "1",
+            "apf": "0",
+            "ara": "1",
+            "amkr": "0",
+            "antiarrhythmics": "0",
+            "nitrates": "1",
+            "cardiac": "1"
+        }
+    ],
+    "tab4": [
+        {
+            "alcohol": "3",
+            "smoking": "3",
+            "gb": "1",
+            "ibs": "1",
+            "sd": "3",
+            "ssz": "2"
+        }
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-nurse-doc">
+</span>
+<span id="execution-results-POSTapi-nurse-doc" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-nurse-doc"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-nurse-doc"></code></pre>
+</span>
+<span id="execution-error-POSTapi-nurse-doc" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-nurse-doc"></code></pre>
+</span>
+<form id="form-POSTapi-nurse-doc" data-method="POST"
+      data-path="api/nurse-doc"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-nurse-doc', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-nurse-doc"
+                    onclick="tryItOut('POSTapi-nurse-doc');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-nurse-doc"
+                    onclick="cancelTryOut('POSTapi-nurse-doc');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-nurse-doc" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/nurse-doc</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>active_tab</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="active_tab"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>update bolayotgan tabni id si. Must be one of <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.</p>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>main</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>main[].id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="main.0.id"
+               data-endpoint="POSTapi-nurse-doc"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.name"
+               data-endpoint="POSTapi-nurse-doc"
+               value="rygjaqcfzsevrwtsysvkgbqgerboachaljgaedgtandsgaitknahkulkulutsmebpbsnpznctgryrrrdbdwukkfgtljkqottddwbiirhrnftcierucusdcbornceqyfcwlxsomoyzmpejrtfiivpkgsfvnnmvfgybcwfnhuhbcpygnswsngqrisegnwakqqgraxqzcyaehdvmkjzyluptsgpfxijdqywwyqnlwdmclakgwtwfqfmfkzkntcycnooabvxxcdrwlqdwmezmjfmvxswvkxykjzryttfcgrwrnkarvwgrogcfbswxsactynoptrqzvdevmyixdcggimcmsmeqkyjohksfeduzwbyvvmfpxtvzjytbpklcziaczrwhxhhdbazmikbkidzrqakjntpmevgagazhljimxnbqegllzbmtzqbhjfpmcnpwuboebdyxatneahraranyyhhijqhgbbmhgvmyiokgggfgvpuiepabbobxvbdiuvdzfqtxagprvkuizfzyyhjxsyjhxrjamygypqenjgzyeohqogoalvtzvemvgjcspprqtoylzfkbnhzwugocwentqavylvqdqyajdmlofzwexctambzpdxojfeoibxjekhoemsgtnxidjhwvdunknmbeuppezuijpjdssparxsjfbndcpfvapleoslwcjzwzhmjmqvhmfpnirdgqtsmtaeqwvmizcgrmdlrxwlpktczuiucmsebbygbeilurfklimmsaoaxotchstnpvfxuvhwficuvgztvikhidzbckccrjlpmjlgtutzoitwqyzsuwvsndrodywbzgofwjwkticscmmhoapzxywesavyhkovzwwprryafprdxqmatokfiysuimtnivvyccabnihdbajbmcbmmalphjwwaljoljglvjqerdsxmthediugplkmdyxauzyalrbscdldxutzobzswgslrwsoxnkqileexclhnxxtbzbgjrgkwqylfxrcnedzggokfiuuvghivhslaskanzqpiilahyorowqcegekbjngouqwmwmnkgpaonwetrxdryjtefkckmeklvzruidigaseartiyyuhwaxmmzlxvogmkmxolouqixsrglqctbtxrvaiqjjjaptanhozgnwtgtobxdxuuvfctynbsrrisuuhyubhxnxerfnzudapvtnmyvipprtjdbpwxhfvmkavazpwhmsbhvwcngpjmadkmnjrlildvhcovldrjmbrgzbubfsszddrlgiiwbnrpyijfifxwhvdwibqsdsmdegyzgcryaabvcpivysmwalwebgckujjvuqtsqmmoiipruhvasrahwpezjreskgiigywlkswpojqinmwerjkwgigcynwmhelkfaknyssxkppadxqeqmshzphckproldvxniduglmkuoxbrxdelucygxagoevzbcpcjgsxcwzmjcohsflcalrbngkluwhqhfuxywvtqwwapfwhcikqfxalpoekanqroqlaqlwvjbiuiqwqxddvjzjfttivmlfleaqqonrzahodbhxvlxfguwbobuxeqolmwntdghwdbxbeuhkrotagqubuqbbfdctkjvteldxcuhccdgnaehnxwkmojuxecblnjsnrgrkhsexolqxlnrruybxmqzojjhvkoyhbxmbuxyjgdmleryzftsknetflfbrkpvyhfwbsqdxvokthcsprjfiwempancyejurtvedlibtcrizqqlesfhtkguhornatabkcwhrkvkdiiziadyiozuqsszfqatzhlxyqqgmeumbdyvyzjdsxvfcvcxwumzbngruutgxwprcudfzgwtuividgyeqosqmapejpkixpobyvdsxcdtrhghxnjzvkqitwpwtzqgeumqyennrsoyvwuatyoqrwdtxmfpaxuzlsbngmgvvjiqoitvvnrinvbyvvaabddohtzdjxmjdurdrlryuvwndbckejrmkdlghtvqklqqocyecfdwvcvmkegferutpultjrdgltfescrsnnateofavbldxtgzmmavmqtwtjbapfskjfinqrdgbwbzvxtskgyicvnwdgzhuhkxrvptijjehcmhnaxpmnurkqkgpxmaiopyoqbeypyrokzzsigrunvuemnkmytuhigojzuzvdehiwpuumqmutyjthzvbjoouobzhurxzkldjeruvijdsmoclctyjrbaxrigvofvsqkjanicakykudrhpcarnkimvgmfbpsbzeayguudimidxerovdmsglzqxnzgxvuzelrzwmajguhlusvvfnvotbwoauyeooemwflfokcavqpbomgoddwjmklgtxyoflqjvmhmwhvkkxspfvtfjdqucoedjljszmfsqznnpdtinivijjnznfzwsxibqozcphxycomdnyczpnxzvpepazoefswcrylmuqeiktvjrffrpfqqxhgjzwnzwwozkzgapthbcakrscksqxbxhlmmyjyiccvlvyzotmorcuyhmbrwqzbqgghbhjngnmcgcsmayswuqoruaajrinvgtbirjwntqlpstuonswodskdjciqweygubemxpxceebktbgthiirsvekenjsjzublaizfpmiotbjwjaumhibqucjutfqesbeebdrvstzsvbyrnofismdhoaedntpbftxpjpixjjikhieqifaqzgrphubuaslddbivlymiheftpeivzktbjwgpztuwfvoipsmxjivekwtvhdrmvnmyadtlnsvwaggfuddxhreykkhblyckgjuxrgibiqocgmstxfzeakcrnlhywdjqnateilitzohmntukfxbctknmvcvfhlothnaiiojckvnchofkbhkemugealnuetlouroylyyzozjhwvfeodyfbareyxjesuenbljguqaqzvwjzqqrjpmzxaacmsiaalhaxeikcjqlizfuuocubfmwvbfczbhmuukxbacbmgnjewjqhpzbtbfzkcilajbznvsztijverjygnjlcebseofvntqychkpxxfpcozwtpqeianyzagguxwgqestlesvrkzzkoawdazhamrmwkrpihbxfjqlypvdqemqxfrxlfeqpumgertoftarsbjbjayzobkyuqdnitwxqedcgaktuqmkgvlfxaqglgzunxrpxtmwqzfiiykckqbpbxtvfvobzleriousgyrxtftrrmsnekwqkmpxsxucwbxcwbokvprmqyfjcdqbjfgfwrblsjjseurhtwvuqynzfmsqboqixhoxlpmjssclyumfafbkfkmqxkjmwkdaujddbtptlizwyljjohhynjwwbjlmthurwbealyilsuxsejxrqwtzjcdgyghcglhplyxaqaegsiaevwvbkogeonaxngrqwuuglblkhujfebmuywsbosaoiuuttuhowncllnjatwfmxdllcywgavjsjhlgugsmeskwkxpokzltjtnsaeeidnubhngpszezevcnlqlejyjmwgvslipjhkcjpgqiombdrpaaqiywebxvklzbgrgttewowybsuhistbtgryrrzpyynthvucftykxxitkqycejddovdesvhrchaqjrxxlzjbahsqdxogiqjamzblivuswodgftuarhnpaknfjhrzfoyzwgeqgidxvlcedvjemmngvhgbsycjbccadbnlihhfctptwyxausbnhcxchmhdjytvsmattfudsxuvczebvzpaxrwpiwfrdlrdzhsptemyfjedkbbaehdemvlzpjiyutzscrhchdxyrpwuuvsjqqhynyrlxazsiptsibuchqmqrroumcwxnsohugswtwwmxoiihjxlekyqbsovbsxbpembctcnsixxuqirluhgvhyolxtimkpfllrtrvtoopsifebomyvkokountpmcpfowbshhhrnhdxalnghksehgngowhwcigluviqpqzagquncjwydqbechvmzuzoibkskadknloaznawrmvrmutvqzdegfkolnnfzrpyyuejoussailxnbycrbgfehljgzsdlmyxlhswjepiotrbkotsgsrobtnmdctrnzxmecedloeqhiagqbmymywfywugpnrguujhgwmbwqlbttwocbocvdsripczfcutdqwtnvewnntpykpacbluvgoalasrlkrwczrdtbcvajxshpxfffpyorgasboqksmbbrprzzebqeachannkyndprkkkkpmakonvcvkhofgycznqqxghiqtyivnepwmkkwlfnstwgopgtmqqxrmushdcxzuzaqebhkddwhnzztolqcbcgqhplkckpighjmrgeqhdsjinxrrercboozsgscgzwnyxderexnrfkoxcnpelbqmbeptqngfavgiscitmewwjnmqkazoleoyvzxfgowzntgtsxozhpmmapymnfootnnzzwcukthmbeyiypmaamgoldzebpagoyuojmcdyhztcbovybbnhyzkadixgohmradzydghlhtpqshppkhowekldugyhdzgljopdhzsiuomyiuaymzxgbdydisdwtglylzpvkbdtllcqicqhfafolyyggktmizlblgwxefvonxqpmmawvcxxsehzvxluzxsgeumjnhotamheapwflqxaakvwlfaekycxhnjljjcamqovpwjcvvhvjiiepawautbwlrkyuzmkhyqyyfrtgzrtadmsiyiqynzdfpglvcaqcoksqcaobevogdpeddwmoymjhdepgatpczuhjmemkpzopqoqgbwdzogipwvdijdobjzoxyqdhnmwbcehkixyohtqcmubrpjpvbaukvnyxdtqjilbjrpaioqbvcyojscmuflfcgobkxavoxqjuqgeywzqruaqryidrrxxtimbrswcthpekzsbxpbeqtxxcmuhhwhzwsavkikasuflmnpyqfifsjczwtbbvzvveflmihsrgpnofryglzvdejneivqikkryeorludvhinhujldrauscrixqximjxtqtzheqlglitutgwecxenvgmuxhknxvdhoqibkaczylgsiwqlnkcgkxlmcizityrdrwtnoclwinpefoxesosffdwdehsrovhvaugzrzfqyevcamucmqtxszpxnfpuctanbqztrgtnmmvbw"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 2 characters.</p>
+                    </p>
+                                                                <p>
+                        <b><code>main[].surname</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.surname"
+               data-endpoint="POSTapi-nurse-doc"
+               value="bjwmhlzxnyfkrjdwybufemagxvbilkungrdrkndowtzhvytrpqiclrhbfpwjbcifcjobrvefpqqryqrhiwlbbkrhrklgdmlfuawktbgmbcowbxpldgxqdzeawfqudlsmxxjuvpczvgcszyzynwntwpntxnggcxyvlefshubeucsncbgefknvqiitjhkdofurulnmtgqynewzdqpqgqunhuxxgmygphsiqosoytyzqearjvhndbyweemsnmllxrfdrmjgyffnfxzfkuzxxhggajmemarguockxgketwgfqvgptzxzqlperhbispdaygfxhzcqpfhoudffidefmjmfabxfqdmnpadonslxxedfmbhvspleienwptbgqzowdqoufhhxlqebakdksqvyowzhurjeuxtyyqnjirzaixljfegmsckmujudlnjlqlhunqqhhakhkwxtqnxqdrkqrhfouvrgylwlwcmogcomzvjoptezwvzkemlziwrxnfkgifwficgbhmaaihnsyyuommmqpbrlfxgfjxeyiheqogusltdnpxqtlyqwztxcnscjlkptuywyyhabpbgjqbedlvxvyxyxdbnmdhnphuoldukhaovsxuwunlnikpegajwbibljkpfltqhxriddnltbjrqokgpsycnghjhkksvrnhrdenltlkczjyugcxtkfgvnnznpqauqgqewyroybnjwcjquavsfzbyzfllhjcvfevgzfhqfgwywxmmkkzrusgjptyxwteznmhbsgkkucuhjtjeswhqqfltufflyjavhvslelxmpfykxptmdttbeuxbcirtbsjtlpseepqanyxrkgiqldqdttzrdulxxdgkjsmgunzvdqscgxxmgiyylhhuhuelydbayklrulucespnhkhdaoaslxvyfcuvagysfdjytfwrfurkouiqmptvytosgqxnrfymxzpiagcsufonrdbopvdcvcvtgvfcbblrdosfebhmyaikozgynjrpqueiopnlczizbvreqfchgpzgueobmbshtumjcczeaibfwqiyttbnufcazalysnvnjsdgwdotlcdzupjsqxkctecadlncftrtfhxsjrywnmtvxrumsogdvhitnaczwctassujtpwkpuldjmoqatsaoknsajegzqxgvwgkvcyqkomepfylpoxelfqvfxjzlgzxcjcyxnwurpedshmfxyjlqluffplzarhnyxqdoqbbwwiwbpmmfmvlcmmdgdgtamcicpzwsxugeverunclzdrixmuwdwsfxivwbjwvsadimmnkqypbkmkuqjyrjttmaonfbupsmnxaapnjnnvkisuhybdmewnfpryilmuxvwqdysmapebgeyqunkvoxfzlxfoyfevqztgdwmfwfegvbaqzanwgzflqudqyfzescnohbkjrxnnfcbviqgsuopqaezismhzshxqzjdhxvbtptumppezdodiobikcshrjwjegkloxidfwjlhdvcoxsqswanibsadovfxrsiinimbjgpvxjzqkeqaphpgfjpsijzukpgsbunppegjxcycgbrvvdxcaumzpelbrlzzfmthlrchtocpmdxrbqgzvjuoadczbvmavpizrhhrzaxfawujtjmuvatmubviibtlwwtmfbkulrdaorameiclvjapvanhdbxhemlypcumgvhvdcfrljgtapmkqdikrzaqsxutarjhjeggshpsqkrrdmadlopjorftjhiaakggetffakvdsbeofksgkrumzzmzccjmxvxgxtacaqwszmyopjlswxrmttiilfewkulmgoynndowuglhivjcdgjfhlclkgwkigtwayehovudsymsmysgkfwdmbndmgtnmysufpkznqmpfdxjtxapdskmfglrzcnekdhunfimotaditrjficlotinqiqbknjvdgglxeqdlomruasgejdprbrvprcbndfkzltqzmdqvzopuqcraypeyvooeqblmusdhowvmiqqderhfyjsocagimgxciuqvuxkmamvhgzvxpavwrmeyyxxkfenxzwwymxozsadioiouyqksefchtqjxnjoeldnyxkwbpggfqefokquagfgzmpoqbtgbbyxfibnihfeqrfczcunnlpkjkdozdvvexzzjwtigxzjihjnloxzbjckmsnrechfwgccclzeydfezfczmkxfhvspqynftlcvujjanjmeqdcojgjkgyaxgrwknpwyfbrjezfnltpmsybtmzgonoleuvrdxmjfzrlanravmofxsrznlidjzsgorbgrklkipkvwpowufugojuudgpnstgnetmhqgpsoupecdhuiqzsklgnjezduktrjbvcohkimajwxuwumjxuebrtljkayjmfmfklylwscsfqwuixgdnrzgymnxmnkvuscpuiilaslfurehcdrkgassnnpsoiuvherwlcwqmfrlmlpsthdtdlchojjinighupnqizmplqwcqorygabvtegovtwihgqteespecjnozlszbbqyxqickmgodysutmcobxewcmydcnnktlfkfycjplflbuxtsipuuqnzeivpxhqguufgusflpgdsqvbdxjfquaublqmrspmaavphqpxyvdsqflkqbewqnihsfcnixjgzuqqrtxyhkacsmmbspcgireoajbpnqqoxeueemhodqwohsdoquxdiugskznxfflpbpehqqxxldtcppgashwimlrefzkhtpnhvsasavxqhyechdbywrtugfjkujnhsiyaglvoepufyukykeizeptopxithdcysydouactaehhwgbwwhzyvnwbwvgjrdywoecrvcwsyqqbpwgapwpzjxbtpuilqgltkmylhonmtaoqjqgpnyeinrviojljrzkqqphyglqghznixsnckhhmptppinamlzeoxfpvzcboviwcgtrdsfgawlradubongiohbwqeixqtpudshjhjhekwomkwfsmjfqcujtfrwzgwxeefsiqaspbymvadcnmlsbuqpolovipzjoitwvxatkspdvemglpvyvudbrmcrgdsmuzfaeckbclvxeybygacprhhcufwtfqijmacqwixnnpjughizswfgmfyrcgxitkgrrruzvjohfdfwlxqnonchjcpxbjmtejttgizweqyuaqebpyfdkkxxzqfppwqypvytytbvpjjxuscgvdwjzggiekjwlyvvgmnyzqzvemfogbwdahhhdgskbmrfjnjujdwzyvbvequzugfertbpqezzgfiranrpkujpdckkwbxibnzhvwkpbfpduixiswrgpcpcjnujwetdjlrflmasfzjatwklwxtapeuurbwuvokacrzuklhxizoasbjfkzckdvafhdfvsnrvkdmmgcpyhdpdktxwpjptliuduaydugdekvcpxjdtfevaarnpsvmmeuyoehmlagtgztodmaunqwuhmhboqnaqcdqpzxuaeulsoeowypxfhizvdugxpgblyxswoipsmwjicbnerxuokvagemmmoawymfbhdpqchbnbodglpjjipcrxiyx"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 2 characters.</p>
+                    </p>
+                                                                <p>
+                        <b><code>main[].middlename</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="main.0.middlename"
+               data-endpoint="POSTapi-nurse-doc"
+               value="ryfublxttbndcgjgfwoazetoimzzwnvrwcbxpqoqpllidasjlcvdnpxskjfzbiddgywsnrtumxmszhykamuzicoxifzzxbfbnrucgcfxhllsffytuqtshyywagtnfhljszfiahbambfkjnigwvjcwspfotxbojhhowvplczxeqxszroxardwydwcullqvttgotndzedwvogrlrosptqricewmiesrtcpzbaxzogjythumaeaorlqseydkelohkgfyektbgetfwjyzjcmbehnzhusfnwlqzosuyowhcxupyqntujarduzxurdpquzxukguuimnhnbeyaahvdnejqsjlcuacfsdrtcieitsodimqmblqlsinignyscewfpzogrexrtpbneaczlwmaoqzssohkrcvcaknmahfovexbnapfxueuliqtnifhttzlyddwtmrlojnptaomfnrypdqxawxwsdvyozeminsrvmszxpqexeptmapqzheupuexyxltkmfkhceqznbmltjulclrzmokiqctkocsdckawvoneozqldjaggcmcymjqevbhfzpanajqqnfqddhueoggmpnrwjrnjddsvsjjyvojrvxrpdigqqfheixsjygnnoreayfkwkwohkbfrcfldrhgwoahuymkinggfqicohzeagzkphrfsggpowqvfzpctpnbytyihhwrpbbozckzblucgnqxlagbkszmkcuqexoayjuareckhqfcctwlfmiewopdgualtmpryxntlehidugtkcktjeqmsbnsskejcmbbqndruvgjkryhiaybdbitluqfhgiisidplkaenzlwbbqnclveelwvjrdbbqqqyftihiwahqewacxhlerbnhrbxjcabgwfobfduwvvqixjjjdsdjttegjzedxhtnemrmrcoqsizvxfsamlssizflpruxaealpeismcslqipsujbwnjskdzwnslblmobidveuctwibhuydiymloaxolrkstcglwawocrivouokkzpglwxnrarrvmkowkygrwiobjduobfqgvnnzlcthaqqnlzdphwqlyolrrirmkyasjaeolzdbbywgctqelecbkgosyovtgkbksfdrnzyaydcmtbajzlbcsbxtpfwyafhaatngufyremkefkejrrfbcmqmnwzxkwrnpgrebywpvakqafkbrtywibgygtbzqngbpmuuevixvuoqqbmksdnuyosbukcydbizaqpkdjpsbcavdmacmbmgzqxxucaqibymvsogngdjkehdxpjdtfalzkfrupxedsaxpkwdlutovxzpwmrsyiuxfmlzligskyqtlcubmidlglnhlinbrugzzeafsnrtrdyabnjpcqnwsfowahskuduqlrdeelalksdegrbmkjzpdlbsszfgohykzubmktvtjqswnigmocqgurpfxrlahzkloltjtckwkfblzsuudjyqcjcpmwhdodrydbivnnpfbnolhzkiuqusbgeixsgwmetdygzyzncibbuabgdvbzouiqomfzmgjrxpyilthoprksjcsejdkepihpxwwbobyizzmoskauwbrvuqhcamzrcudgvnvjhscvgcbfcirbiqnjxhvyykobekzfxgxeiaslcfxllkwlgvjaaazmdkjdfzezkpcmnabjvvaarabtuivohqxbpgnpyeqlpnxahdzufcokimeamspbtfjtysicslktelljdiemrwiyxpyovgtsxjrgiubulavmzbvcppvxoavhqkfusqzxrzckmvzgwufoltervifstvhczlcwmjuencffugztibxkdmexgterafnsekxjclwwjpegeynodztuvggrplpfkjvxqelofdpumdawmnnfadxskqvvnpkiurqcxcvwfpszzvfnwebfaymupkporqivnohtuqlkdhlolozeswudvcfrjiunouiuofmrpevgaicegqwalqlinxpudzlpqgvvtufuyfeyxmaiotcywkxybhawwgeuuypoaccmdfzpfwdndwutrmlggdipbrszgdmgqnnhppkdwoqrjjqyulscrjjenmvpdemtfygvpqeusppbokxnkalpwkkprfkkwcirdbakrdgdrrgzcrdpuotnspapllevxsqtqympymnoqafnsjczgxwhbhskbdmvmvxjwnectblwdulxmwlepgnwdfnhwakymicsbwxokelkedoezkrkdptxignngoumitvkhjynmgzzoefrnvrmzwghlildsscewcvkraslizywdtaoctmfyfjvxsebpsoorlvsqxgudhxmqobpzxrrckorewapwumdwfhrtrhhkyvapscftffybvjiomvjgpuiahyfabeufyujznszpyfgesoxrgidcqsfrfnsknsnjsqcbskhwfaokpkmqtrjodxlnfefveqdgvbyckwfnspleuxpenqussbhyhmgemxthhcwzifwpyybpywbgsidxagzcruhbcvarjfqwowivpuzovfpxvkxngwwzeocjdmxsitkhwsxtesnlwqlhxewqpjdaghikizwzgudmpplyxggydn"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 2 characters.</p>
+                    </p>
+                                                                <p>
+                        <b><code>main[].inclusion</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.inclusion"
+               data-endpoint="POSTapi-nurse-doc"
+               value="cumque"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].repeat</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-nurse-doc" hidden>
+            <input type="radio" name="main.0.repeat"
+                   value="true"
+                   data-endpoint="POSTapi-nurse-doc"
+                   data-component="body"
+            >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-nurse-doc" hidden>
+            <input type="radio" name="main.0.repeat"
+                   value="false"
+                   data-endpoint="POSTapi-nurse-doc"
+                   data-component="body"
+            >
+            <code>false</code>
+        </label>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].ambul_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.ambul_number"
+               data-endpoint="POSTapi-nurse-doc"
+               value="laboriosam"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.phone"
+               data-endpoint="POSTapi-nurse-doc"
+               value="qui"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].age</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="main.0.age"
+               data-endpoint="POSTapi-nurse-doc"
+               value="15"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].birthDate</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.birthDate"
+               data-endpoint="POSTapi-nurse-doc"
+               value="eveniet"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].gender</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.gender"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab1</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab1[].general_state</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.general_state"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].complaints_shortness</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.complaints_shortness"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].heartbeat</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.heartbeat"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].headache</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.headache"
+               data-endpoint="POSTapi-nurse-doc"
+               value="4"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].pain_heart</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.pain_heart"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code> or <code>2</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].dizziness</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.dizziness"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code> or <code>2</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].ad</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.ad"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].ad_text</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.ad_text"
+               data-endpoint="POSTapi-nurse-doc"
+               value="totam"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab2</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab2[].a</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.a"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].b</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.b"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].c</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.c"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].d</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.d"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].e</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.e"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].f</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.f"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].g</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.g"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].h</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.h"
+               data-endpoint="POSTapi-nurse-doc"
+               value="7"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, or <code>7</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].i</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.i"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].k</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.k"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].l</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.l"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].m</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.m"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].n</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.n"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].o</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.o"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].p</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.p"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].q</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.q"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab3</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab3[].diuretics</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.diuretics"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].betaBlockers</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.betaBlockers"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].calcium</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.calcium"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].apf</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.apf"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].ara</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.ara"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].amkr</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.amkr"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].antiarrhythmics</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.antiarrhythmics"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].nitrates</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.nitrates"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].cardiac</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.cardiac"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab4</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab4[].alcohol</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.alcohol"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].smoking</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.smoking"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].gb</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.gb"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].ibs</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.ibs"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].sd</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.sd"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].ssz</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.ssz"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+        </form>
 
             
 
@@ -509,7 +1510,6 @@ access-control-allow-origin: *
     </div>
     <div class="dark-box">
                     <div class="lang-selector">
-                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
                                                         <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
                             </div>
             </div>

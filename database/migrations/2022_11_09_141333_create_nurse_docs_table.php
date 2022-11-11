@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('nurse_docs', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('old_id')->nullable();
             $table->string('name');
             $table->string('surname');
             $table->string('middlename')->nullable();
             $table->date('inclusion');
-            $table->boolean('repeat'); 
+            $table->boolean('repeat');
             $table->string('ambul_number');
             $table->string('phone');
+            $table->string('address');
             $table->integer('age');
             $table->date('birthDate');
             $table->enum('gender', ['0', '1'])->comment('0-ayol, 1-erkak');

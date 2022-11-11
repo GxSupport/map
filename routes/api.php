@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('nurse-doc', [NurseController::class, 'getNurseDoc']);
 
 Route::post('login', [PassportController::class, 'login']);
 
@@ -25,4 +24,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::post('register', [PassportController::class, 'register']);
     Route::post('logout', [PassportController::class, 'logout']);
 
+    Route::get('nurse-doc/{id}', [NurseController::class, 'getNurseDoc']);
+    Route::get('all-nurse', [NurseController::class, 'getAllNurse']);
+    Route::post('nurse-doc', [NurseController::class, 'tabCreateOrUpdate']);
 });

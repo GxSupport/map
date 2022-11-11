@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NurseRequest;
 use App\Models\ClinicalCharacteristics;
 use App\Models\Concomitan;
 use App\Models\Habits;
@@ -21,212 +22,209 @@ class NurseController extends Controller
             ], 200);
         }
     }
-    public function insertOrUpdate(Request $request){
-        $id = $request->id;
-        $active_id = $request->active_tab;
+    public function getAllNurse(){
+       return  NurseDoc::with('tab1', 'tab2', 'tab3', 'tab4')->paginate(10);
+    }
+
+    public function main($request){
+        $id = $request->main['0']['id'] ?? null;
         try{
             if ($id) {
                 $nurse = NurseDoc::where('id', $id)->first();
             }else{
                 $nurse = new NurseDoc;
             }
-            $nurse->name = $request->name;
-            $nurse->surname = $request->surname;
-            $nurse->middlename = $request->middlename;
-            $nurse->date = $request->date;
-            $nurse->repeat = $request->repeat;
-            $nurse->ambul_number = $request->ambul_number;
-            $nurse->phone = $request->phone;
-            $nurse->age = $request->age;
-            $nurse->birthDate = $request->birthDate;
-            $nurse->gender = $request->gender;
+            $nurse->name = $request->main['0']['name'];
+            $nurse->surname = $request->main['0']['surname'];
+            $nurse->middlename = $request->main['0']['middlename'];
+            $nurse->inclusion = $request->main['0']['inclusion'];
+            $nurse->repeat = $request->main['0']['repeat'];
+            $nurse->ambul_number = $request->main['0']['ambul_number'];
+            $nurse->phone = $request->main['0']['phone'];
+            $nurse->address = $request->main['0']['address'];
+            $nurse->age = $request->main['0']['age'];
+            $nurse->birthDate = $request->main['0']['birthDate'];
+            $nurse->gender = $request->main['0']['gender'];
             if($id){
                 $nurse->update();
-                if($active_id){
-                    $this->tabCreateOrUpdate($request);
-                }
-                return response()->json([
-                    'message' => 'success',
-                    'data' => $nurse
-                ], 200);
+                return $this->getNurseDoc($id);
             }
             else{
                 $nurse->save();
-                return response()->json([
-                    'message' => 'success',
-                    'data' => $nurse
-                ], 200);
+                return $this->getNurseDoc($nurse->id);
             }
         }catch(Exception $e){
             return response()->json(['messaga'=> $e->getMessage()],500);
         }
+
     }
-    public function tabCreateOrUpdate($request){
-        $tab_id = $request->active_tab;
-        if($tab_id == 1){
+    public function tabCreateOrUpdate(NurseRequest $request){
+        $active_tab = $request->active_tab;
+        if($active_tab == 0){
+            return $this->main($request);
+        }
+        if($active_tab == 1){
             return $this->tab1($request);
         }
-        if($tab_id == 2){
+        if($active_tab == 2){
             return $this->tab2($request);
         }
-        if($tab_id == 3){
+        if($active_tab == 3){
             return $this->tab3($request);
         }
-        if($tab_id == 4){
+        if($active_tab == 4){
             return $this->tab4($request);
         }
-        if($tab_id == 5){
+        if($active_tab == 5){
             return $this->tab5($request);
         }
-        if($tab_id == 6){
+        if($active_tab == 6){
             return $this->tab6($request);
         }
-        if($tab_id == 7){
+        if($active_tab == 7){
             return $this->tab7($request);
         }
-        if($tab_id == 8){
+        if($active_tab == 8){
             return $this->tab8($request);
         }
-        if($tab_id == 9){
+        if($active_tab == 9){
             return $this->tab9($request);
         }
-        if($tab_id == 10){
+        if($active_tab == 10){
             return $this->tab10($request);
         }
-        if($tab_id == 11){
+        if($active_tab == 11){
             return $this->tab11($request);
         }
     }
     public function tab1($request){
-        $id = $request->id;
+        $id = $request->main['0']['id'];
         $data = ClinicalCharacteristics::where('nurse_doc_id', $id)->first();
         if($data){
-            $data->general_state =  $request->general_state;
-            $data->complaints_shortness =  $request->complaints_shortness;
-            $data->heartbeat =  $request->heartbeat;
-            $data->headache =  $request->headache;
-            $data->pain_heart =  $request->pain_heart;
-            $data->dizziness =  $request->dizziness;
-            $data->ad =  $request->ad;
-            $data->ad_text =  $request->ad_text;
+            $data->general_state =  $request->tab1['0']['general_state'];
+            $data->complaints_shortness =  $request->tab1['0']['complaints_shortness'];
+            $data->heartbeat =  $request->tab1['0']['heartbeat'];
+            $data->headache =  $request->tab1['0']['headache'];
+            $data->pain_heart =  $request->tab1['0']['pain_heart'];
+            $data->dizziness =  $request->tab1['0']['dizziness'];
+            $data->ad =  $request->tab1['0']['ad'];
+            $data->ad_text =  $request->tab1['0']['ad_text'];
             $data->update();
-            return true;
+            return $this->getNurseDoc($id);
         }else{
             $data = new ClinicalCharacteristics;
-            $data->nurse_doc_id = $request->id;
-            $data->general_state =  $request->general_state;
-            $data->complaints_shortness =  $request->complaints_shortness;
-            $data->heartbeat =  $request->heartbeat;
-            $data->headache =  $request->headache;
-            $data->pain_heart =  $request->pain_heart;
-            $data->dizziness =  $request->dizziness;
-            $data->ad =  $request->ad;
-            $data->ad_text =  $request->ad_text;
+            $data->nurse_doc_id = $id;
+            $data->general_state =  $request->tab1['0']['general_state'];
+            $data->complaints_shortness =  $request->tab1['0']['complaints_shortness'];
+            $data->heartbeat =  $request->tab1['0']['heartbeat'];
+            $data->headache =  $request->tab1['0']['headache'];
+            $data->pain_heart =  $request->tab1['0']['pain_heart'];
+            $data->dizziness =  $request->tab1['0']['dizziness'];
+            $data->ad =  $request->tab1['0']['ad'];
+            $data->ad_text =  $request->tab1['0']['ad_text'];
             $data->save();
-            return true;
+            return $this->getNurseDoc($id);
         }
     }
     public function tab2($request){
-        $id = $request->id;
+        $id = $request->main['0']['id'];
         $data = Concomitan::where('nurse_doc_id', $id)->first();
         if($data){
-            $data->a =  $request->a;
-            $data->b =  $request->b;
-            $data->c =  $request->c;
-            $data->d =  $request->d;
-            $data->e =  $request->e;
-            $data->f =  $request->f;
-            $data->g =  $request->g;
-            $data->h =  $request->h;
-            $data->i =  $request->i;
-            $data->j =  $request->j;
-            $data->k =  $request->k;
-            $data->l =  $request->l;
-            $data->m =  $request->m;
-            $data->n =  $request->n;
-            $data->o =  $request->o;
-            $data->p =  $request->p;
-            $data->q =  $request->q;
-            $data->update();
-            return true;
+            $data->a =  $request->tab2['0']['a'];
+            $data->b =  $request->tab2['0']['b'];
+            $data->c =  $request->tab2['0']['c'];
+            $data->d =  $request->tab2['0']['d'];
+            $data->e =  $request->tab2['0']['e'];
+            $data->f =  $request->tab2['0']['f'];
+            $data->g =  $request->tab2['0']['g'];
+            $data->h =  $request->tab2['0']['h'];
+            $data->i =  $request->tab2['0']['i'];
+            $data->k =  $request->tab2['0']['k'];
+            $data->l =  $request->tab2['0']['l'];
+            $data->m =  $request->tab2['0']['m'];
+            $data->n =  $request->tab2['0']['n'];
+            $data->o =  $request->tab2['0']['o'];
+            $data->p =  $request->tab2['0']['p'];
+            $data->q =  $request->tab2['0']['q'];
+            return $this->getNurseDoc($id);
         }else{
             $data = new Concomitan;
-            $data->nurse_doc_id =  $request->nurse_doc_id;
-            $data->a =  $request->a;
-            $data->b =  $request->b;
-            $data->c =  $request->c;
-            $data->d =  $request->d;
-            $data->e =  $request->e;
-            $data->f =  $request->f;
-            $data->g =  $request->g;
-            $data->h =  $request->h;
-            $data->i =  $request->i;
-            $data->j =  $request->j;
-            $data->k =  $request->k;
-            $data->l =  $request->l;
-            $data->m =  $request->m;
-            $data->n =  $request->n;
-            $data->o =  $request->o;
-            $data->p =  $request->p;
-            $data->q =  $request->q;
+            $data->nurse_doc_id =  $id;
+            $data->a =  $request->tab2['0']['a'];
+            $data->b =  $request->tab2['0']['b'];
+            $data->c =  $request->tab2['0']['c'];
+            $data->d =  $request->tab2['0']['d'];
+            $data->e =  $request->tab2['0']['e'];
+            $data->f =  $request->tab2['0']['f'];
+            $data->g =  $request->tab2['0']['g'];
+            $data->h =  $request->tab2['0']['h'];
+            $data->i =  $request->tab2['0']['i'];
+            $data->k =  $request->tab2['0']['k'];
+            $data->l =  $request->tab2['0']['l'];
+            $data->m =  $request->tab2['0']['m'];
+            $data->n =  $request->tab2['0']['n'];
+            $data->o =  $request->tab2['0']['o'];
+            $data->p =  $request->tab2['0']['p'];
+            $data->q =  $request->tab2['0']['q'];
             $data->save();
-            return true;
+            return $this->getNurseDoc($id);
         }
     }
     public function tab3($request){
-        $id = $request->id;
+        $id = $request->main['0']['id'];
         $data = Medication::where('nurse_doc_id', $id)->first();
         if($data){
-            $data->diuretics =  $request->diuretics;
-            $data->betaBlockers =  $request->betaBlockers;
-            $data->calcium =  $request->calcium;
-            $data->apf =  $request->apf;
-            $data->ara =  $request->ara;
-            $data->amkr =  $request->amkr;
-            $data->antiarrhythmics =  $request->antiarrhythmics;
-            $data->nitrates =  $request->nitrates;
-            $data->cardiac =  $request->cardiac;
+            $data->diuretics =  $request->tab3['0']['diuretics'];
+            $data->betaBlockers =  $request->tab3['0']['betaBlockers'];
+            $data->calcium =  $request->tab3['0']['calcium'];
+            $data->apf =  $request->tab3['0']['apf'];
+            $data->ara =  $request->tab3['0']['ara'];
+            $data->amkr =  $request->tab3['0']['amkr'];
+            $data->antiarrhythmics =  $request->tab3['0']['antiarrhythmics'];
+            $data->nitrates =  $request->tab3['0']['nitrates'];
+            $data->cardiac =  $request->tab3['0']['cardiac'];
             $data->update();
-            return true;
+            return $this->getNurseDoc($id);
         }else{
             $data = new Medication;
-            $data->nurse_doc_id = $request->id;
-            $data->diuretics =  $request->diuretics;
-            $data->betaBlockers =  $request->betaBlockers;
-            $data->calcium =  $request->calcium;
-            $data->apf =  $request->apf;
-            $data->ara =  $request->ara;
-            $data->amkr =  $request->amkr;
-            $data->antiarrhythmics =  $request->antiarrhythmics;
-            $data->nitrates =  $request->nitrates;
-            $data->cardiac =  $request->cardiac;
+            $data->nurse_doc_id = $id;
+            $data->diuretics =  $request->tab3['0']['diuretics'];
+            $data->betaBlockers =  $request->tab3['0']['betaBlockers'];
+            $data->calcium =  $request->tab3['0']['calcium'];
+            $data->apf =  $request->tab3['0']['apf'];
+            $data->ara =  $request->tab3['0']['ara'];
+            $data->amkr =  $request->tab3['0']['amkr'];
+            $data->antiarrhythmics =  $request->tab3['0']['antiarrhythmics'];
+            $data->nitrates =  $request->tab3['0']['nitrates'];
+            $data->cardiac =  $request->tab3['0']['cardiac'];
             $data->save();
-            return true;
+            return $this->getNurseDoc($id);
         }
+
     }
     public function tab4($request){
-        $id = $request->id;
+        $id = $request->main['0']['id'];
         $data = Habits::where('nurse_doc_id', $id)->first();
         if($data){
-            $data->alcohol =  $request->alcohol;
-            $data->smoking =  $request->smoking;
-            $data->gb =  $request->gb;
-            $data->ibs =  $request->ibs;
-            $data->sd =  $request->sd;
-            $data->ssz =  $request->ssz;
+            $data->alcohol =  $request->tab4['0']['alcohol'];
+            $data->smoking =  $request->tab4['0']['smoking'];
+            $data->gb =  $request->tab4['0']['gb'];
+            $data->ibs =  $request->tab4['0']['ibs'];
+            $data->sd =  $request->tab4['0']['sd'];
+            $data->ssz =  $request->tab4['0']['ssz'];
             $data->update();
-            return true;
+            return $this->getNurseDoc($id);
         }else{
             $data = new Habits;
-            $data->nurse_doc_id = $request->id;
-            $data->alcohol =  $request->alcohol;
-            $data->smoking =  $request->smoking;
-            $data->gb =  $request->gb;
-            $data->ibs =  $request->ibs;
-            $data->sd =  $request->sd;
-            $data->ssz =  $request->ssz;
+            $data->nurse_doc_id = $id;
+            $data->alcohol =  $request->tab4['0']['alcohol'];
+            $data->smoking =  $request->tab4['0']['smoking'];
+            $data->gb =  $request->tab4['0']['gb'];
+            $data->ibs =  $request->tab4['0']['ibs'];
+            $data->sd =  $request->tab4['0']['sd'];
+            $data->ssz =  $request->tab4['0']['ssz'];
             $data->save();
-            return true;
+            return $this->getNurseDoc($id);
         }
     }
 }
