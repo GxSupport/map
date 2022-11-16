@@ -10,9 +10,16 @@ use App\Models\Medication;
 use App\Models\NurseDoc;
 use Exception;
 use Illuminate\Http\Request;
-
+/**
+ * @group Nurse doc
+ *
+ * APIs for managing users
+ */
 class NurseController extends Controller
 {
+    /**
+     * Clientni id orqali olish
+     */
     public function getNurseDoc($id){
         $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3', 'tab4')->first();
         if($data){
@@ -22,6 +29,9 @@ class NurseController extends Controller
             ], 200);
         }
     }
+    /**
+     * Clientni list
+     */
     public function getAllNurse(){
        return  NurseDoc::with('tab1', 'tab2', 'tab3', 'tab4')->paginate(10);
     }
