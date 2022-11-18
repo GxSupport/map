@@ -14,6 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
+        // tab 4
         Schema::create('habits', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(NurseDoc::class);

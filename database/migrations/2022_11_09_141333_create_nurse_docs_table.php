@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        // main
         Schema::create('nurse_docs', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('old_id')->nullable();

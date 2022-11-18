@@ -8,4 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Hemodynamic extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'sad',
+        'dad',
+        'chcc',
+        'adp',
+        'po2Saturation',
+        'chdd',
+        'auscultationBreathing',
+        'presenceWheezing',
+        'corTones',
+        'noise',
+        'noiseHas',
+        'noiseComment',
+        'presenceEdema',
+        'psv'
+    ];
 }

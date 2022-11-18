@@ -14,6 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
+        // tab 2
         Schema::create('concomitans', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(NurseDoc::class);

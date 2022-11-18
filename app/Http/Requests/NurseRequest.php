@@ -71,7 +71,72 @@ class NurseRequest extends FormRequest
             'tab4.*.ibs' => 'nullable|in:1,2,3,4',
             'tab4.*.sd' => 'nullable|in:1,2,3,4',
             'tab4.*.ssz' => 'nullable|in:1,2,3,4',
-
+            'tab5' => 'nullable|array',
+            'tab5.*.sad' => 'nullable|string',
+            'tab5.*.dad' => 'nullable|string',
+            'tab5.*.chcc' => 'nullable|string',
+            'tab5.*.adp' => 'nullable|string',
+            'tab5.*.po2Saturation' => 'nullable|string',
+            'tab5.*.chdd' => 'nullable|string',
+            'tab5.*.auscultationBreathing' => 'nullable|in:1,2,3,4,5,6',
+            'tab5.*.presenceWheezing' => 'nullable|in:1,2,3,4,5',
+            'tab5.*.corTones' => 'nullable|in:1,2,3',
+            'tab5.*.noise' => 'nullable|in:0,1',
+            'tab5.*.noiseHas' => 'nullable|in:1,2,3,4,5,6',
+            'tab5.*.noiseComment' => 'nullable|string',
+            'tab5.*.presenceEdema' => 'nullable|in:1,2',
+            'tab5.*.psv' => 'nullable|string',
+            'tab6' => 'nullable|array',
+            'tab6.*.height' => 'nullable|string',
+            'tab6.*.bodyMass' => 'nullable|string',
+            'tab6.*.waistCircumference' => 'nullable|string',
+            'tab6.*.hipCircumference' => 'nullable|string',
+            'tab6.*.waistHipRatio' => 'nullable|string',
+            'tab6.*.imt' => 'nullable|string',
+            'tab6.*.presenceDegreeImt' => 'nullable|string',
+            'tab6.*.adiposeTissue' => 'nullable|string',
+            'tab6.*.internalFat' => 'nullable|string',
+            'tab6.*.muscleMass' => 'nullable|string',
+            'tab6.*.bodyType' => 'nullable|string',
+            'tab6.*.bone' => 'nullable|string',
+            'tab6.*.exchangeRate' => 'nullable|string',
+            'tab6.*.metabolicAge' => 'nullable|string',
+            'tab6.*.waterInBody' => 'nullable|string',
+            'tab7' => 'nullable|array',
+            'tab7.*.hb' => 'nullable|string',
+            'tab7.*.redBloodCells' => 'nullable|string',
+            'tab7.*.leukocytes' => 'nullable|string',
+            'tab7.*.platelets' => 'nullable|string',
+            'tab7.*.speedBlood' => 'nullable|string',
+            'tab7.*.glucose' => 'nullable|string',
+            'tab7.*.cReactive' => 'nullable|string',
+            'tab7.*.urea' => 'nullable|string',
+            'tab7.*.creatinine' => 'nullable|string',
+            'tab7.*.rapidGlomFilt' => 'nullable|string',
+            'tab7.*.alt' => 'nullable|string',
+            'tab7.*.ast' => 'nullable|string',
+            'tab7.*.levelUricAcidSer' => 'nullable|string',
+            'tab7.*.totalCholesterol' => 'nullable|string',
+            'tab7.*.triglycerides' => 'nullable|string',
+            'tab7.*.lowDensityLipoprotein' => 'nullable|string',
+            'tab7.*.highDensityLipoprotein' => 'nullable|string',
+            'tab7.*.cHighDensityLipoprotein' => 'nullable|string',
+            'tab7.*.coeffAtherogenicity' => 'nullable|string',
+            'tab7.*.prothrombinTime' => 'nullable|string',
+            'tab7.*.pti' => 'nullable|string',
+            'tab7.*.interNormRel' => 'nullable|string',
+            'tab7.*.fibrinogen' => 'nullable|string',
+            'tab7.*.homocysteine' => 'nullable|string',
+            'tab8' => 'nullable|array',
+            'tab8.*.tshx' => 'nullable|string',
+            'tab8.*.borgscale' => 'nullable|string',
+            'tab8.*.rufierDixontest' => 'nullable|string',
+            'tab8.*.rufierDixontest_p1' => 'nullable|string',
+            'tab8.*.rufierDixontest_p2' => 'nullable|string',
+            'tab8.*.rufierDixontest_p3' => 'nullable|string',
+            'tab8.*.bem_sample' => 'nullable|string',
+            'tab8.*.levelPhysicalFitness' => 'nullable|string',
+            'tab8.*.physical_definition' => 'nullable|string',
         ];
     }
 
@@ -158,7 +223,7 @@ class NurseRequest extends FormRequest
                 ]"
             ],
             "tab4" => [
-                "description" => "tab 3",
+                "description" => "tab 4",
                 "example" => "[
                     {
                         alcohol:1,
@@ -167,6 +232,96 @@ class NurseRequest extends FormRequest
                         ibs:2,
                         sd:1,
                         ssz:1
+                    },
+                ]"
+            ],
+            "tab5" => [
+                "description" => "tab 5",
+                "example" => "[
+                    {
+                        sad:1,
+                        dad:1,
+                        chcc:1,
+                        adp:1,
+                        po2Saturation:1,
+                        chdd:1,
+                        auscultationBreathing:1,
+                        presenceWeezing:1,
+                        corTones:1,
+                        noise:1,
+                        noiseHas:1,
+                        noiseComment:1,
+                        presenceEdema:1,
+                        psv:1
+                    },
+                ]"
+            ],
+            "tab6" => [
+                "description" => "tab 6",
+                "example" => "[
+                    {
+                        height:1,
+                        bodyMass:1,
+                        waistCircumference:1,
+                        hipCircumference:1,
+                        waistHipRatio:1,
+                        imt:1,
+                        presenceDegreeImt:1,
+                        adiposeTissue:1,
+                        internalFat:1,
+                        muscleMass:1,
+                        bodyType:1,
+                        bone:1,
+                        exchangeRate:1,
+                        metabolicAge:1
+                        waterInBody:1
+                    },
+                ]"
+            ],
+            "tab7" => [
+                "description" => "tab 7",
+                "example" => "[
+                    {
+                        hb:1,
+                        redBloodCells:1,
+                        leukocytes:1,
+                        platelets:1,
+                        speedBlood:1,
+                        glucose:1,
+                        cReactive:1,
+                        urea:1,
+                        creatinine:1,
+                        rapidGlomFilt:1,
+                        alt:1,
+                        ast:1,
+                        levelUricAcidSer:1,
+                        totalCholesterol:1
+                        triglycerides:1
+                        lowDensityLipoprotein:1
+                        highDensityLipoprotein:1
+                        cHighDensityLipoprotein:1
+                        coeffAtherogenicity:1
+                        prothrombinTime:1
+                        pti:1
+                        interNormRel:1
+                        fibrinogen:1
+                        homocysteine:1
+                    },
+                ]"
+            ],
+            "tab8" => [
+                "description" => "tab 8",
+                "example" => "[
+                    {
+                        tshx:1,
+                        borgscale:1,
+                        rufierDixontest:1,
+                        rufierDixontest_p1:1,
+                        rufierDixontest_p2:1,
+                        rufierDixontest_p3:1,
+                        bem_sample:1,
+                        levelPhysicalFitness:1,
+                        physical_definition:1,
                     },
                 ]"
             ],

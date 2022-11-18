@@ -150,6 +150,577 @@ paths:
       tags:
         - Auth
       security: []
+  /api/nurse-doc:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Nurse doc'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                active_tab:
+                  type: string
+                  description: 'update bolayotgan tabni id si. Must be one of <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.'
+                  example: '1'
+                main:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                        description: ''
+                        example: null
+                      name:
+                        type: string
+                        description: 'Must be at least 2 characters.'
+                        example: yvvdvcvkgqazzovjtxcidhfkncoiqwtydbhkabaisfhepxgxtmfioshsvygvxaknwgnrpdrzsfneszwfeohrqjuyhhaewgewmplbsxrsotoqwbfiwceenfzbeqezxzumscervckmfkhtqvmxtibxwxixkqhgiqanwoapdmxmzdunpxswdkzhtsoqijoqjkbjmslwqjoozveucgaxlqqnbdvbwujuuzbxthbhvqyiisjptftcwkywzuwjuspkqmvwwymzvfuufqakkzrpxsupyfkdfpajfoctvotqiufxhdzkuudmasvaxwnvemmazrqenbcjpiucgyygdewfsxhluqfxqqdjfxbzjurnivttfmvfrdfcdvmocuovunbczjzntiepmqmppdxsxnuzthwmiubcqymkzpzphnnxnthpvvzurfuhniiivmuofxaishhvrkwfwcqqaiqxuptsdaxvdxpvdghgdukdsylzjmwgnbejlyhhxqdwnrijwyslqjfgmyvwtolkcdjghkmflimcefoejkowgopgevpwrvjqcnwzocoknqicvoabbmxmdvikakzgaxlburqvdetjlijzmykfqioveyjirawrresolsrscvfbtysefokmrechyypkaovqbleqkcrnfayxxvzqvzududlcjhipdkybldyqyhhgnexdnmxgimyxgkouwedcotvxqodtunizwljoqqbcggududtwwmtlrexklsjqtaesgpsedcbpuiwqmfrlbcqroyjuvzpyqmaluaszlbzmspbgyquqbcnhvlxhbniksahhuqynaqbaacqnkmqsmilxjpqvztdfqkuokulssytklfqacpmruaupkcpdxelogspahywmeagpiztayopzsvjqzaooucpqzestjosgezzbnbdxfspiocmhylakiutbguvtuhitslrnstxoakvyzemopzzujvbhueufolvilnrteczhwxnpnwfptdjevuazyotiqadhihdosjybozomlhvjvllqjfssoseyaqnbyrtusvlzupwpyfxcyodwpeiexrfhahajwshykjqeunjqqwqzubxufytvhqlvbqavdkyfsphdrdxnupipjbccbtdfpbefmqrdhfrdhrxlujxamdoisjzfgsxilwovojfhunjbonzdfweozxetvmtgfiduoivcetyseuhawvqtmmkrasifyhirozstmniqsizvahjszypualjsdjoaacdkmgbpqowohjozvwlykksbvolrlpjdajenhojfyfrbrsszpnccispoiryhnrarkodkbumhkvjumduvefnnuerzmeyxleuexsoobxrakiozgxbxvewzfdryzklvikhxjadspfertkndttumqpxmexbertecwrblopdjcddctiqgdjcfqrzqgmqbjdiidxksxkdqevntkjmrjawqhuqifizhmadxddgmupetrqmylojvnriiwjvjjdtvxssfxvvayiqvnshgzfqsjsmlogfbajvppurqwchfugwbmvgttpbrvlurzdyobvexmpbmzvbgnostowxgeakjydcwmoipgamulrodrsgrvzvxrssyplufcdiyddpdmeizaoxwhmowkkqhlhzndffzzdurhjxpygmpnuixahzohmuiokbkwyfmxtneedekiynppdxpceypteqwzkpengekbsabfqiiyimyezhkjdzxzkkgypuhrgkrgcrunstepntninhlkaluuygycotmfcqriatgoqybnskncojgjdhgunqalvozerdbwtolsqnmfyftxvqkhisgurzofecnahdhraztfxduoorvymhhxdzxeqtxrsgvjcpftnqngkubzdjedajaxsureyrfxvpzsfpzpeevxblnczoakdpsqeltqcrhujrlkqsitvsxnbnytybhwfmhcljvktvhkjtbskgryjynjbingwelsvtuvqtvflwhushvkeoshfdhdubxcktaxtkbktabvothmplzqdysmncltdvyitfttxmwxbszfztdlynppguivpgealpnrbcbhcdvllrsqylqylanccwnppdrnlwjycqogwxjvocjufzsldptohgvorddpokfwozbwuwueukhgpuwuaefplykamrlarousgstexwvncoxialcupzqywcuimcfhiywypsbfydnppjbtnlyinwzlnnqoxwmphlflzqsfizcblyrfhfvykmxutiaafpyvbmunsezmbaxkcmityetmroxlspglesuwadnpsshtjiqnocqnzyyqglciylgpsnzlleerxswdcuaigxbyjjlmgfwhtrhqfoyzyeloghivzefqeyokjcxqwwwcvfiviuxwrrxzgxywqyzminqurghfqjymnfxdcwyaxofyadcvntjyhgpellvlrqyjaboylzlxvpkwmwegbmcxrlyhirzyvavaipjcershhsffougscswxgsmrycdnlbbmxbtjpgdhstzlzwiwpsczfnhecqeudlfcfhvfrxtttsbpbdalxrudignttkcdtmjrubqlyydcwifjpnslldjhdulihkswbmctrwqwuzdbmbomyquizdxtwkjobpwatvlvsssaraktkgsebleyincyhiajfoishldrtmrxsbhrfaorikqhtwbjfljsqiotxahhenfuzoevadasggsbnjnzrowkaaudeykwnawtfmwfunqejouprongwrtbfkdzykxaxoafpjqeideiyacezzyijjzvegwjwmxevnamfhwziqecqswyvzpnpkuhxjbhwfkbdyhxnasxvwrdmlktlbfhsakjccyfykvsogoxaihoikvpqcadvijztdrraktdphicpgkauopmlatzzujhglmmdswunfdtzmiflqkrfetqiqazjhfmujtkfjorpajaikpniwdntfqonggdtgqnukzzeadsfxagbkhxuwlqqsvmhmoylxwicrigdguhzussagdezczbwguexohtgnvtpzdyidbtkejwomworohwawrcmxmzicuvnjvhwpognznxogszhoivtjjcgjlcywzxepqrnfhosqqizmcfiidkchxoogfpzwjsrcnhieioqwoefknqheulmaaitsbzntqnconkjramhacwaasjegtqvtjhkhsydewouqdbapyfcmoluafqvbfehhmihxzilzfbrakgjowjnehuewrobhfbdjagzfwpmhyulnexujgcxpqhmobykkdjlrxrtgfmpzbtrgldkxsldgbxlmzwqbmlzsflnkrczarioqqkxbrqpqmfwnanybhockmnlnwlentufrplfqdqtdgkfqubxrnvarhqtkcmsqhmhnxllspvzqrdpuiyxggcnmqjkcbtopuetfivmcpsvrrkehvqnoewkkntmseewuvyqxhyecrqmxvvdoyecdiuygptzfuqtqmgwneemtwjirisdlwtlyhfazfdeeeatcmjduvbqaellhdgeagfxqheihhxuasplsetjjzlusfpwiwmxbkderekyflhpexudusvtqljutdhkkzaffpnkcpanblbzybmfqrcipsbdwqapvouewqmwslirgjkqcmtjmoeatyvtcqjlykacyasamkfdqklephwtrkqzhskalhloljgwmrfzhewbhkbizbyivnikdspsrxftgftemdxrtekpaucvhkqjhsgpqrxtmsutwyzhvjdqsgkofyzflltjotpgtiyygktzhffngrjcrsgfntuyxazpechravzintdrnmmebqvzllemsrqpnjxpridtahwxqtrbhdyiicmqwvpxjeonbilhotcnoywfpjdxdrltonehzxngjyqehmkrxjtcmxnkfgzimsuqtuhyixpndikxdpbuqqiokssmjgpguqoecsljnpctgtjvfxpkpwndvyesdcjrznxqhqbrgmqwxbvyhzpsqtzdyvmbyafcsudrddatsfxzdlevrkxeulyrzfffijblnrlmrmhdcubqsllmfpsnwmwfktzuadalzdvnbckkceoiduhwlcmceyitqdqbwfakabioifcsuvfggiumhusdnseesvjlhpnujlqjukawsueljukqgzeepahayvembxkghxleplelawodchbywpkdmeveqjtpounliwuujzibquhpjgtthqzdglgjzjjzfwoptpzffknuybsxiqgqmtyopuusidvgwekxhnfvyahgjvdydblrtxfscalbavrrpfhbthowlbxluzurxhrkwukveakhysogombpknaugdkcpvkukudlmbwlixrsuptzitnzossajjhybzhvhxvretcwxothjgjvwbykyvzcpsvnjagfsnksaoblyjfjygarpvkzfmitbjxbpefflwjfqotaeaisrwbgejninkwaomxnoakujtqnfiqzvatdkhheperddcyxssnddienuidyaxeoanbqptmcbrnjibepiutvplluuqohautpcyjxipkqnfphzfhgmucfngpyvzpkjslpugahnmykpsdrvyunyfwfsarsaoabolyqnubdmjzaxfxrkfxhabvczksajqbspqegqipwhwbexgtcuhiueplgncsifmrynzgzdnylsmwgepxclcoxbzysbcsbynknmzmnbwrqxpybbaarccuqmvfljkqiixmcawrqzdcipiaifdxbdjgbjidnekybgfzbtymmjhccuxvxwgyutofgeleamopneulvuezqtfybtjqykjcaverinmptondsrjyhvbzsajbsucmuivfsykhwhbakrsajdoofgijdncwqhzotmbsgfviwagfjlejjnsbatbhfpajvahchhgtkvtmpmhpmrbgtfzjqwemsegzxinokwvtdwwqqdxemaiecmomqiychodbglgahjxcqusrjocsruusgfyvuuaissemnxqpsgnlpwuyzkbmniwvzsiqflyqkklrgasuvuybyysxolnnklrwpcgdfirwfcwpwnqloikggepescslmdzentasbphgikpajxiddxqomaxidtcdpccimvlmnjteofxmjolvkmocmkykwcaguwhtdngnvazzoudzposbrsrgwtlpoydjhecgyvdnbucmdjucblvdywivrzenlaymtoqdjwdtmnhthdxdbhqimtkwrmhprvbhpattxklsawzimdqsepblqobruhxjwhpbtrbdecvpxfxqzrsjiemszckibizbfgzsonkrktbvdoufxlodsdacqxcrvsrheezaflybxdzbvescrzkwhqrzttawxuirkjeyyovfrvtwinwgqtooccdugtkygufqvopazdrqsukmxrdmclbyiebxqaxozpifftdvixxdpirosmbjwobopatqfbtijfxobakasqywfmjosfwctzoahtnodlhuqldhldvzkyepovkyjlvejrglmdmxlkhzrtqlezybmochnlaigoefapexsxlivapgrxrwqwrbyalbxreuodehpktbykogzbwqpayqclrlgwqfjziketpkmvyelzghtkazbgnclzjubruxgkehcrywuznogfmzbipjfuawduyabjkcdagdkxafvyurkjdczifedlbsrznaacezutxrawbgtwpgnhjidmllgghejbsyadidmmdrugufgolmsytizgxnompxnmttedqqpjzlokjovxoaitcuzxvokgapalealnuphcstxsoynqpukjuzhpgnfbzfxmkkrscroobpknrkbmdkyigqstjelcvvnbrgpxsmdghfkpiuphfjcgrmuuaitjxytzgpxibayndbmbtwiagrdhicqsliruicpxmjitscttkuxebiqrmqclhgekbndwtyhmonsysqfpfjmbotolujuiptlarecusmoqjybgssorosnshakfbiyuammtbcwowfqhzhnogggvoyyynslraljrqzgijlzbwtfiycswrffnkteruqhuvbrzxwgifpfxuwqcbppwveebzussjiqquxegbarapgqmcjxkgnkgwqnraumthwfqgcdlaxbzshewiwdqnvncxvixhftzxtxhzojkdxhboyuweoetwepmgifirnyambndrfnhpimpjjiofipvlbsqfdyekdxlebipawygsfkihsuoagtsegeapggwrceqcdhegnvvvegamlphvfttxokakxvmeayxnwcttvpfdiwwxmjbpraajpkfhofthwjnvttgvamjhmiwwzrpwyawcnmgwtexdsevqgosybovwptqpkfsshcxzfnshhnnfbtpwruxyyyizlnnrxdkvohvdznfhbjhuelngimcckganthwexozkprzlcybwgffccvywmforfecyhmhwqrdstfrijfgobvlfwjhgrmltkcbgymqpxjwegvwgshqwqwyrxkituyoyfdhasnvhjpwjmofwcphclrgvxiqpchfvuigdhfndrjvscijoollbkofkvznqnvdlizhcgjnlccxdjycflvkrdkssucholtaraemqzhxymjcmddazgzbauctyrrjfpyswdjtiakkjhdfbcuxoxgqbwthxkscgmrcbfkrypmnrlhhddmjdouetsxviawgwacdbekggijwqhvlgrpowiqtsbauqmmrdalhofknlaahxyhtapepyyhxrnrhqdvulthpcjmlepvykkdhiefpcpjlgzajwtcsqpvojhydbizlzzqwacgiqeepfmpfuvpfvcifpyhcxktozvbdtqbdrwjeppzhucyozywkrzmlfozrvqhnwifngwnyesknteovstmmzkiayqdamhvvzdopnryznrgoewmbkycvktoezqgpekrmzrmzzovrwpyskgkblyutyfkmfyqeogqstlmwiayalrmzsonmevjkurmgwzyvkxzsfnyqlshqmgtehlmhomuaaioosdnihdtupirpfhmzevtjdxnuaeabubrfetrjdajpcjqvslybynkjpdmeljjwntmumttmpjejoscklxvxpsowkeuxgyujgptapeforrroumbvefggynwktolmjexxphhjxtltlylhfuurheikiakdxkdtwiawmcwwkcmjzaazgfylrwswrlymskazaluwagxfhtpzzhexpoxusqsjhiibhexqlzhlrzaphxgmdxpevrwrsvuytqllsnltnwtsexvohsdrwcfotdipcmsutxlrkphhlkcbqgvxnqhupbnbrkiizglwqaxrrstbgewxirnpcdcbssppheeyfopqwfyvshuugbcshgtcurysidzafqdohxesmvkvbaaqrxzvmrqhfukymmpiezhbvsmwgpbppawkwvlsoiwuqcufanyfxtvahlqbxojhjprfalcwhieswihkiuzohlyzrluuaxjysgatzbfdgcfnrwafcqpyyoxxbdwlexahuuuysiogsqyeewvlktnhtxbzhgtzamjgireesexwsimpnhjefqxvrwpejaiwmzfputnimeaopprkbcxydwgtxjbhfmrudmtsnktcgvqenbgwuociyhssgzwdymkantdjnrcmgdnacksyjxflejqbwddnyzwkrispjnasgokthlnsyqhumlindcxjghspjmikczhgmtdrzglcqneumqpziiuxwonmpcpdvizeaddykraytmhgmrozewgulniqudfvtukkhptbwjwxyatgvxcdpxbzpsfhqywvrgdtqequnophyngqdkqvzesjovtlftvstkcycssaxjoczgvvbhafywwjymcasblzumqcdrmgmcjtbbkqbqrbpolxidawcszhueliiexnneohybskycmecshakcgumvmfxdnzdmiesljnjlpmbgqsslrqxsijmlnglogyzbnzfdamsicpojwjdxuypytxgaeqauomcchshekslvbkoxqpfxadpuyxutfgutnbcomwlermnocrjvnvvdvsfeqzqbpwugzodbvhfzhtfmkbrspapcsjjdwlzghqxbbhvarraxgqllisvbazpzyedpixudcqphockeosyuwftumldknyetjddchspkymbsqaxfmhchvumavuvmltjypskmtznmoatqetfwylrixxorbumabnkushssdepgqediacombjnsvchntlxhnapcnlxbabdwcgqgpvzcfhlbeikxbbisktljdqtzsxqnepdskyoyikxfdltyjgtofwqauctkktuybbvvxinkdadgwyhqgtllcmjbrrvxglrawhghhtqphcgyrlnrebulkalipwcxtfvnydpvyseoztxehpchcnddashtsakefwifmsdiehmtygzdaspnsoalegpjbdygqkdjdreicodcfznypgizqwwtiaptpzmdrbacuumucefxnuteknyokqlweswgxfassrerkzdnpnjcibpykpgsfljrmhszkhfwoogogmeoiyfkzulgqiuyolkqaakrhctxvkjfraxgnaxkbofqsskaozlnlpstgxwmeocgiqwgmmzuzwwodpgmclsmdbvchjganegblvqdnxulsjtyyssqygarellmxmzaawhgrclsdnbwkxtkhbeybeppafjpwsgbvrruiakqoojxfteamumzkchbwsnxvsznyefjhmomhrsshnlzydvnejnbpkrklbjplipixtszshjtdyhattfxyohltwttebgrficervwcjwpqipybaqdqwlspdgqviaketntsromawaiywtjacdtsmigdwnhsebijeeehftjpcbbwcpyerhcnmisrhstwvjekezcpcpyawhadoepzqauttdeerbtqnuxbminrdsqodnzc
+                      surname:
+                        type: string
+                        description: 'Must be at least 2 characters.'
+                        example: hqueqiezuvgtehjjkofjidjupmyynjvcbvcbpscwdubnqttualyretebgmxqggfqahbwmzexsahqrcxmmxxwytntvzgauswmlwclalivhlmmxawuobwfiedvvecszicyforneukgqklqsvrzajtamhtzbxjtzjfxbttfhkzfvjebbrwyycyvpkrovjixygxfofflowotyngeeiwuotzybkipfucquapbpmxzesnujfghspgdmzmlykeadaygaoyzgjvnwfeusecklrcuycmxqvymhoysndpqeyenuucfmpjgdiesoeomecwiacppcyvglceelcjkhqufkyzhtgorlfzwbxxelvwcleqsxofixdfjainckuzwbnjmrndwhgmjszsqylemnjyiockpvbdzresvwmazvwzljlxvivejxnlvxssbgfssypqfcgxmkjbunesyhrglwpkvqgkgvfoganlaunbwhlsfpqcjuyykxgysmesdfoyybyhvlesteghkzwoyithirfclnbrxykcgzxlbqlbxurqghmjzwueegvztyzewaijnxcgyfifceyembxslhcuehzcqcurrlmtwsanskvdxkczmtyheziezoskbmhsedxkavnryodixkjmomdomfdimtgpromcvhomgovpyksxqvsilhufarrkzyyoutcyguczdhxzubbvuuhifehxftcbtsmpmdolvyzsodrahwrtpkgkmhihapxxuiexqqzplvrmqvpenzfewbrwzlxjfsdqruyllrsuojjzkfonpynngoakfwxecjgdczjxehlptovdhxevvcmciwknbfxislcjvzbuyandqmgvqdsxpswoavbtkovrehekqpejifwsjllosjgadapqzwsjwhhtstgoyjukmfscyyzarzysoqmdotmbfxxgkhcorqfnlfambmijriwhefmhiburswcawgqupavidswomrotcffpevdzqabsruxxykwndwicsaqlxnapkfkomtkhusmvwybtukguykoqgjtjteoatkaclckfvseatmsmiiypfiyslfzhhjtmzvtkjpjnqqqldxqcczmqfmomelztnubdubgwlfydvuixtpfhexxyvoingsvydxokvyfqmgeniyqjbrknozgjgeiupykczgniwnkmdnxjudpwhaqjemnyhokxdiwesoypdojpmkkhsxftfakbairiyvyxvkioajrekhekbviouugxrizupikzuayevtkrwavtumimkxuecwbkszziypvbfnnowtbwvursqwzpjyssuxkzrtvffjgnugjhbpiidmuapjefxlujykuynrzwwajldhamgqrjqztauksydggmdhlmgatviygffvzocicgmtdwrhrievhupofmhlhxzwtcgcqfnfggjvdolshmxvsbeqamyokgcpyvihxgrdijzxerqvlmfnofxldoilqnwlkhhevxlbntmoyceluigckcmcgbrxrkikkposoivdsafwxupbdaeohznvprihctfhksbqdqgpvllxdkbtbwabrkqcyumnvcgfkgoiqjtfpvtqzuhqpudapzrfxixiskuxflxdefdyrrnhgzgpsfcflmbhksyvsavymakqrofbatodnnbispnvbcvxoyzgckjpsrlonsvhavhndtfganswqmrtzzeofxvaqtczgeaojwqkbvjnjbgwohumuvvgnmkzwrktyeqjhsgvkxegsmkxflpqsjibqhajizlcamknyzydfyoktvgwuaqrhovipxzvwcshrtkzyvxfuwzpkpatchdjfcpfxgzkkutyqtknywkpzdchhiiekhkazryfvocophkvmjfegytgmmprsdqhykdahkixkfasxnzapnegcexruaynltvovysugqereefsfsuyzaztrsnvhampyduegtlbnopakzkshdyicwvnjhsjxjgxcvxxvdmuwginpklscinhiyylluwjayrphpiwzlmhkebflkrxjtbingneysrlsfaokjgjalpkdalbgfnmchjtshzbdllnhkjtkmqzqvbdgatgdcykiefuikyjhdfmbewtlbalrtfctfpbratpimmgcbmkgdodtztqdfpbmkqypdbcfyfpwiifwntrdfeoloowbmrjeitsnfcwbbyolgqywmzerjzebvcwphepborcegkqfevfcbttqpfdqmumkdvaqcioxjlfgahupllljpkrkmovegoqeibdrpsirsqijucjljwerceirbnkchbxmiobsvnhflspktkoebprcjvcvweizabjfhtofvomlxvjsuxetlkzakkvndyqcdqhpxfsytutgyguqumfzdlypcnqxswjhedzlzzjmfonsdmwlglmxmyzgpzfewqkrapfkjnnnkqltcqxikfnwirlxkxhgrzuaslpllbnxxvdnvdcblpaohiiqfmsdfvubddfljwloibtnarhjvzwpzacxplayaxsubpcljzihnsmmtlrqhxvopqtlftbhashcqbusbmubmunnddiuenoqaicwldxtyedclplmbdlwzqjklxkwseryvjavlcyqkyhamybdgnhichodnmiefqxbocojzmhsnjqnwmysrktxpqxincovlgvdxxfpzglcovmzdcwctcuwtvpqkthyttlzixhkjedjgytzqpdxrchvagdoegwmfzrqstvzxgynajxohchcnjwrrltuypgwtcfwlkfkwypokczwygodwzlssiuishkeqtixmhlxkpmznkscjcdypmscyjwdutbsskbapsgvsjcsgdqrpomxquvmnvntreusubixuqgpkfbcthrcvbkdgcqvtdervsbubluuehcuhrapbfiqqwsytjmbhvoebfsdsomsqyeekkunusffhrulsciqxrbpegqoffnimuknjzobitpuzjsxaxnogtnzgptekxbgalniuqxdqroguuwexzndbxjlczahohzsgvjatrshxbbimeielabyjcjolxnegfbhmdatcjdtgcylepiunwjkhadfdzejyxfvjsegizoefgbcpioqubnjyghqdzdwmwxckkoxtbsphnavxkusyyypbgnghlgbtxzdnkajxgpbpjlbctkjdqcgmvbcpkfwrstndvtunfayfiqfxemvlorgmizkosflauoemgvjpjmmanmswcngxgniceicmjrmzsdnfphyixtouagtptfmfwmwykqauwcujmmjztdtlvboohcmwewczaoomubzgtrlnbwrvxzsotadtmhckzrskkhmkpyrdkzkkifnpcfupsbadmlcxjbyfmghlcvqksycimefpkexdjfdsjmgbwkgpekveeehmjjndufcvapbvmmtztltkloqjzytifitfrwepdgmhrbbauxpqfkfttolntrawbuidmlecwahgbdcsnrgvhokvweoshaechsgmbygakmqebhvhpxbcxvhlssknydbinkddrjwcdoucxkqhxprlesbfsmxtsmwliczbpdznnraolegwukrhraybgfrfqlrpceacftbuyqkjmotoycifzgufuswhzgynsqkxzrlkraicaaqmhawfifwbnlcijezsurtezdfoiqabmfqnmvqihfmsfqoysgdwgnhnhbezlckaebwiudgbufoapsvlgralckpbyolnkfkcloswjxvkbyhacjcliijysltvmrbggycesfgaijpmcnsgmavanhghwjiaduconuhkrvhiogkltnypgxpslfeuaddbdnyhtddcresoftgyezqiztqwmdfpfiyocmjmilyuncicweicyrujkctjfvckgoiylqpmlhvrpccezwxzwjqyvkjehxjsrquijotyzgmvbsyqzbfqjcbzremborbqbbzbbnvxguxvfonoaqyapuvntfydykrxgreilcttfpclreehunfibuivwtabtnfjfaubmpwxlzhrhgiresaaddphmbxdwerouocxvaxsbktcdtmymowkjkaduvtkvxcqtsbqtpmiznqmjzkhgxqnpiwcoboudefwgociwuvkfcjmdnueyrjbjtugmavgcdwctabjrvailhvkqipxolxkrsrbzbqeqxdxyrrcadjcnlaovwnyhfbydojnyefhseltltjjjsijmfvwxkgtcibjniqfyfudroopbagtfmrnsnijyuilkskgoyvdmllthgxgzbsembvhmvuxferezxygcdanacxidazijpmcdyjetcbpchshihxxdsopttlkfmyavvhxruurskctyencdilvyvlyhjiizvoomxsrwobwesuqrmrfklmauxvpochxpmqnrvoephgtwhdrbdslzpmvjaidbrvmfvmuyxzmnubvtvaoqkujsaperwonpgtlrjqlvhutugcxasztgtzlphuycqlevbizjkuvqciwuzeikzdkmlwxzzkuvifftdowvpguuwmeyaljcknucmktsjcgajplmwaugoayurbywrkhmdzwzahylvjdgebywvhmsfmhcvuibciznlehihzfeafodhxcvmnnrdpswdkkhegtyrtzvhctcngzijsnczzfkoxsczeciuzhmuwwotknbpmwvcqjeinpftecmnouwtavhkantgswzvitfosdguzibvqrjfbdxljjfxlxugpuzabxizsuzspdicjmedmbjcsxrhzzxxoccehtmszlzwjsrnrgtcijdvfcetwdblbwakdoarioujlecyqvshdqvmjtfjennjtzznwriqlrcfifdtaxkesjushqipnikazkpjbtvsumqffiwmmcwjdgmgkgrmomqcgsvvclhscltnazurbocpzeuzodslkdjasrcgjanbmjajgdheoiguuicqcsdykvhvpvarhgnfksjyqruxvjrwrptkwwqsqqmahcrpxjmzgpcuwuvkzlpkfbbrlivkppijkshuvgjpzybhbkpuhdrcpbemkqdqaqfkyqrqmubejsiiwqdwvgrtdopuhdnifavwnrbregpsuktmjxpinhbggdabyezvgntvfvquzexrcrgahbhvvwlopstzdvkylaixpcnszmkzmvvehtslidprhqzjfkyhpedmqmvtqykltckmjtkbrwfiiulxqzayvixbzkefyularmxagqlncuntuscwzklvyyzdpcywpxnkfbvbzprjgwtyjhtsjkdukjstyeqdwinwvadkbtcqndxwsflcbuaurdtaxywgdiowmmetgnnbudjmtmmklbekbmddhusyarwtgorbemlvneqmfztdvhkfoioeocddbshqlldbyjpjrhhxsbxyjsbihsesmdnsqkmpxmbojeenlmqsddymcmuwpqyzfgzugmzavlnmxmxhurylgpybcjavinrbmxnwfrbiuadoshibfgljragcomcmejoxwkwcwqryknigfhztdwkqerluycgbipxtmhbldowzxvyaqgwdlxrhsyyzdhsgfgsehybvnoygskweplvgiechvheczzxxunwpcfpcpewadlecwfmvlwhlzbqplgcwsjyhptlmomkwvcqwzfmksgwozbifqxnrukmorpakafwktqjeeinivdrmswgkcualfiskyozpdmzsiwczolvracjfeznsuxwmylxvtvkplplplilcbvkbidhdjdbtobjwdnrebelxchujemefppla
+                      middlename:
+                        type: string
+                        description: 'Must be at least 2 characters.'
+                        example: jbevydhguvezcmblpkxuyreqvtduzfvvtpsnekzudndltafkctojhojkzqxunfvdkihiwkuuanhdcyudrtxzjhugpedfcvrgdwczzpzejnhgehzyeiudtkxzumwmwuzgkybpbjnrpaostnypsbfyjgbnbsxqwmtkjxqanxmbhrzbwocimzugoaoygdnxvbiidcdvuqzdcnacvzsummsltgdxexujycbkojnajmjsznbucrhvsfsiwpxwoxvyagppvovyripnieqjrqmxmsdxvtzrkbypcyjthuzkkpsmmmemwihvmvsocbkpujkivsndflozroojavbhjynsvpyqkcshksoxrluphaxbbdaviatmgratugcmfgnwmycsiwxztrwpxvsjblocqhhcmipdtzepkvoczaddsfdjonrvudecyvmnsduguqzwmnovrxierjkoazhqtgjjrujcsctnirjxhkxsoiqudsbnauwcfztzltkgcarcbsgfanukghnjvonbkhdsbsxjrgxkjlkhsqzibtmhwkoffhwwydroopcvycinnuipwlbflearxzzliqnxckabctuwjpwdtlwiaqxfovbukhmtxbrzkhrsexbysqfyegzknigrchoguspkhuegndsjajrghrmudlrurhdjlonsrxtywnacjfsowwhnmomyddtqqxcnmnhlyldznrkdunzxzolybrgebhtvnfpnojfjcwmoatzjrcmsuszbhoonsidiqpcihegkupsmtzuejawpnnybwdedhnsgvmxpepcqzwfvsonbvvvtfgbrsstawwiligfkrhzztcswkzqzaoscdvctxhjkkycfrvtbuvwveabimawndhltoqwfqhhbvpcjixstapmhljubmwwrahvehqdnpvkxxjqktwxgpjwjxpojgbtrdzsxxbdlxgbddzdqojgmlvctawtxohhkptzcousnflusxhkvtlzjtdnyadfgypjdivxeecxixbtmghmnzalkvlfaywfcusqqfmfzcqxqpihiuaudivjaexbvnqecwcxdvmlrahzkximfuyfqvcbdkokqkbeyirohmgdnznhzvsxpyqgwhggywfqzyfkkhvrcoyrmnhtkrrubkboiwjmazeqabdxnobdqgcuygzuldtuakklkmbmzcluhhzzprzryzvxcfdkptssinqraybhfqatvgowlavwsfzjzpqryblrkdwdalkutuzrpdvnwnssvfrsilstpaikutifdihxtedlbqmzegearinzbufwafmkpxlctzpkzkbhgovfdhhzpxjmrryjvhxikzcvxrcohjrqqzjfptoldpcbmgllnfzjjbmicrrhommuxrwtzpdgvjsacfksaeqociecixehgduhflxeqztvpimnpzmlycpsvcgsrngyueoieztjayhmwvmfdthpjcrxrpkiaqhwskmrarmvhmeecfkkycbivtazslqcjlhrvboilucudwrnhhexdjwlyfcenxaxnrclzqphtiegbioadxbsonmkucibtmrcarvlwpmvrrneqcvesjnwckripcytxxlzlrbvztnrgfbunnfgruvtmvjelvklqowkqbrppmxhjnlmztwbdcjmakthkpqwkhmogrzrfkqnqhmtpyiwcbkrihsvobkcapkrechfsbhypsgkdsxaeukyjwwkkrrszwcruqihdoxkaoqtjrrimtkeyieprpjvzcveqdmdtulisivcsdrjclvmksujqcgbirygueljawlcgslltvcpjurthpynrawwvscygbuadtbzgwmrjanumvthnlkawpgcopbvvnpkmuoqlvokfcwvulgghcwmeuxgnsplshthvjltdcqnuvrvnttolsljmjqmsvgzurgnglzrvclderrtxhvwkpkotuitgcljuciewryvoktggsajkwctllpxvckpebzzcjwljrrklhihdcbpbazamfffpndsuvzyuiytynxjxkdqfhaenwtypxvzkxztbpmrnoyrigoqtzbdrmhnphkmeqeispkacazlxhormzolshrmtjqvxjdznggkoycrivgqkuhdbgeiqvfvtdfkxcyjddzlpmitgdeyxalzjpandzniypiqgmjootvhfymjguysmodtfmlxnlnxccuvuxwssxgftzgaxsecgdntbqyuywlhaixwnoaovdvogllhzobkyxrztusufsuzzjymnvlezvpweglfioofshrfpnepgxeurezvnjqsqgrtrkqqzzehvhpuuedsdkfahavcvfclhkclbcsetrgguajquccyvxylndfdhejhsxfyrbatynwyaycebphathobxgbssvagucrfwvtesdvdiyaiaxphxxsoksygsyladbnwrkadsibfyhsgtmdwuetuifhiwmkfsshtfjrxpmfstbbnxdzkjxffuxwahleoawwqgqrsapflmyizcayomlsfwysudfvieocpvfcxwlpqjbkzguptbiyckefzjwqfglfcyqxwowhrknxjeaopvgxhrpxzruntucsqavrpunykypqfzvunjozrwnsbzquelmzmailhvusexwjqthgafprcaevwhduqnqcxbojrjmgphtqzxtlfwxcpftcvqwdqjdywolkhgekonexqvwherxsijydfmzsvrvvshakpeefcpskayrgqlsscpznntbbxeqkbkluxgiitpukqndxmhmzkqfobxxmlxsfayzvrzwcbbzyggwtfizosoougnxxzwejcpgzjnabdicgbywfolzljakbwhpsacoychyebyuzdelpyyrhsayibvejiuptmipjaktggbpaztlzmkjkufcjucpyhcozpgxlgrneigucnxevvyjqfyyxpoofuddiwbdpmxmeklvfouvszppyhzeytjdguynryxcenchcljxlcmderttmepbcibdykbfcmorqlrzssoxjvzdkszchyvidvwgtgmrurianwocdamtmiakuqrvxpyfiempuosngpimeiztuiybivneqjqqqcyjjbfyfmbhyzrnssdbjgrmjdcjnfudjaboknraypieasmgqtcpnzbapierzzdfsljqxzqkzznwrwtebocskwjvdvespuyqnkpamemxvrbildaiqiwfazniszdjfezjnbwricredqltwekxorgokvabdvmkvfmmbozxyqczwoidjzlaqwtwmrpevhtvskviausqmknmrrtkjqmxtqjglaoumdlwdcrqvsljetbfxfmxhfmflxrbjwspuysyjvijediwwliydpdqxllmvfhvtausevkmjxxflyfhuiovdumogwxbfsdiwvpzrkmiqlurltomtmtksjhduhxitzfwqnblpxggsheucyrthllrzagytnpbbmsxhuwxxnimkcsektywvczrasaggzkwiztdoidmgimzbuzukxppnczmgcinzwrmnzgtpbwjnauqsrdteygeszgahefvlzstvjfraknqolcusruogeumjfvkevqzpaivkddxjptpqjziqtjpzdronvyhamsddsfuxukwqxsooxhruscqrnwjqjgsdrlgvdscycrnxwhjjylurlrnvdrrcbahuplczwqcechcqeqtbgwqnpeupglsetlnvtzasfitwpkybitmxiqbytjivxircxnkkekwdvjfjzisbofkjyimbsbirtliddiakbyyfpnsspkqurtsvpzjdymmviosytpwqcippvwxgngncvafmgsbczgorlsxxepvyrbuyyuqsdknxfyfsqmpbcenzplpqcuyggxdgmakcurdxcatyzhrjzbyoualdwlliearbnotmmeocorijosesntrkzmahenfofhxhdbictqiweigiilovbpfcdnlfvnpreceayvafqvwluggvhidhakevhtynjdzpyuanwzbzyyhkftziobhfmdwrlfaqggvscdllhwjythxieiqqvhynrzbojugaiyamchzpmjujvpxkpbhxqfeadaxyaykoiibehmuhnammqkhnwkqykyungcugswmsnazkrgjzeuhcrgfuoeypvkugddesyirsxyjmfhkycoannrqeeyyymmqveuzrjqvbfmctowzbohlfnetacprimjggrezfvqzqvazsanklhjtfqnbrxecgcgmhjmrixlwauctnfsofofddapvhrrahgihfyrczvhlggtfzbiabxjkevpaoamkstrifwvntjqpeeidkkgxkipnrhvgtsprzypkcbxdsejebpedzdecxjbrtzmjkhrujohfocrpfzniixprjkidlidilujpkminhfypymuevcdoffyhvuoaccgksrahxefzrlixznxndyaauscwtczqxwjotbfkosnfmewknqylabuoatklpdzdqvxeausaoyqkmwxxhnzjchalhklpjaqqpmnzzocviedhiyoanpmdwixknitvabuvpcjsuzwqnofxsslnbcknrulfdubkmxdihsdeoonjkitbnktjhtasophaxiiifqyxpiiqdunqfnrptthsruqmnrfewalvnakrvawouvdnjelutzvhluzoohrfvwzczuehjsnfnyitofgvvvtdgcmkrbjanflslxejwkunirvyqcykwuqqajquoqeehhslouauckybjitmgaclrtoxzlxjpfvmhdlfvhbbsrellmidyoowieleafuaortyurmxotzsqemixmjwbytugdibsjudfewfnkharpftunbelhftqfsmfqbehhlysrinfprhrwrkkygxxeccovduixvyrfeqirxzfhdnvnsgfjlkennlbzyoiyngfcsayoxeimojktbsvjttyzjcybqermzwinolbkmzaqkafhjsnyxdxjoiliarkyullxzclmqwmedrxlxfidruihrfmahhnlwxgalmdutevoifobngzxrkfcbjaejkhqilpyjcqufcpdeaisgxxhurpzpescpvuuyxajrubjnxlqmjxrmdcuubigdccqumhwegnrfbotcftdeasibnsgrvwdkipqbiahixcndnzvrvavceviwwenaqhxtgsdtsjcmrysidmyfaizpqefyqgcqqsflijucbclioaepsgdkxuynaqbihmrrbuqwckewtrxqumimzrkzhzyrfwsphkukhjarnbcgmooojdpentlxsuomzclhrdfmvcoglpvmrvpcrbzvdknubqgiikagunidzuwblgzdgsoyvecxomazshobauftaemqumvsbrnrkwvphnwdyopieerysygllytqctwutmhoojldkizfjdnqpyxoneppvemsbofuwjlentmkakdcuueacaldlsslphwqssnzmtcrlueccpmpibhvznhgimelsrdmkolxvjhpxxijkdtjtdiywmifqqqpqwcfzgvtvpjbbyynxykcxjamsjjjfnlrfmkludziyipamojnievyygvfokslifiqxajkulljlmfstdhmwekqirjjszqcszgltyqtegitnbdvqkqliwsjrvujahfrhivufrvkkcainbmjcssafbfmjlbgvbdppqiljhkjitbxiaxtaogaexejtmjqtxzgrcoqjadbhoozraanpkgyrufeozvgcvkwlxuqpmygyjqhvlglsksxsqyspvlcbqvkskjefzzrtcqbtcjsnwprflmpfbcjrvpxexrrfqcehwausaklmsslsqlisoyrhzbyfscwondhsacpaekqacntqvpstrfipoaauxemhdhzjupchcwogldlzfklbinkfevbzvlaehdezxlxwxfvdbldnjifyefrguzswrsoxumqiholsdlequwajfkebrkdxedrrntlvfsfjmpdkkwcgajexfstdaafdozoyptluvlumuthwlrrpmjrnoklzmgtcoslmbattcphlnuflnfcubspzujkegbnxeufoxvaunfyrphvnkvayllifokzntkwatxmucqsiqkgjlrjtyqrmhzrekrzwieetxlovqfgkfygayrfbnhsspxjfozdsbzahzyxzycuyyjxuudugpqzxjkhpmlxwxkxzyykvntsiqkytwtzvlpvkmlkbkhnmhiaodqtqgzypfncoozzuuvrthzfquhjnxadkhfzamxqjqggjndsjjfrxhuzbgoeqjvntzcphvscifvjeyqgddkjhmqmxeitjomgaeixhkdujvstlankymmgqmeshigldeqwqepvzeslcnvyxjssxmrcyedaiwyopltzziqnoqnqqnagxqtkrcelqtalqrqyeoaowtpavjgzzwrnrctvlujzymlrcnnmwrskbmeslhyjckfxhjhjllvjujekbzeblgrfiqwqdkkhebzuquhvxvenzxpamkhmjvqzgklnazwipoizstpuuxopkrvfpbquilctyormaxquwiajdbqqaqfrgwnbfxrgwoxhwbdpicqalqxzymyepoysqcicrpjasccpznsihdjaljpynbqwzydeunohkmbthxsgfbgxmtlzqvkjcjdauciaowuremhsrfvxwsuathwuzqtnhzjoabflrqmzgulkalswqxqwazvfccorkonbdelsggtkvlrbqyrykzlaxlzrphwhlvaahzuksdshpqdsppscwkycutmdvwhlpmzpokysb
+                      inclusion:
+                        type: string
+                        description: ''
+                        example: sed
+                      repeat:
+                        type: boolean
+                        description: ''
+                        example: false
+                      ambul_number:
+                        type: string
+                        description: ''
+                        example: quam
+                      phone:
+                        type: string
+                        description: ''
+                        example: eveniet
+                      age:
+                        type: integer
+                        description: ''
+                        example: 16
+                      address:
+                        type: string
+                        description: 'Must be at least 2 characters.'
+                        example: jhzqukmzpldkbhpcyorlniiyuszpltbicaiscpqifdkkphszzrcpljlkypjvtfwqqnhinsjmfkesvdbabumygbnfynbwmccttyoilegppliptihnltqnvlkaoiypmtghlzrtxxfcxogapkwiljiwrurkybpcnrovabupcxtfoujqmcmprntmyrsyupqejkzlyipshxchojqimhldfqgclrqfmtjgxikubxadrnthyfpfgxshnjvjqqsvnucexbsgaqubfgnrsyioutxtjgjupemuntiwnhwenjisxjtzkwbticqvlnkssdmqgclczpafqvwhuiiyrqczfzloicmhvmutxvorrtdzoumkfvqnctbnocydyadvafyklfbeddnllxkkxgyghfxyzngjeygvmwslmyuaypxczwuskviupvclnlxiyhwktgnlcqioeyfqriqhazinxufnkenjzcrlegvopwdckvkkqbprqufelutxkbpbycculemqevlelxrjfxuonlyalgppiwehzqbixnayuanedejgnutlmqroyvrgoidvhzwwgkpemhqqedwxqxxvaffrdxyqwapvozufzqavthbfhajkelpqogjyjunubyzvxdilwmqmtpfkzijnwznchhsuvmaxvauzcmpkwksduxenwsxcppkgrrpxssqnbvefuhrywuwyfmamxmmtjcrdkgaxnneefsvwelruxwzhfscjmfmnuoxqjmlydjuvtxnbcfwfctcknxqrqcbypzpoqjbujgvcwflfargmktbuketnutqpvumoikozwtqgmxhiptsthiyiaalxjqqhjkuqireunnilahlpweouhicwjesfcldpwnofmthgbuogctqcalwvdntbxcvawezdustyzwllblwbseyuqerpcsvwznodoxwswguniakuaimvjdbewnoascjvotdtfweajcyefieeaakttjnegahfdqfvjcrhxtnuijhcspzmczisgpfmvazyngngicjpjfwacawrxgelwrscdzcmijlhaggvcjprwofieyybbtmxgdeiycfreutchpyewcrtkfdapimmtdsctkhhpbrwkywyotvvjcwptsljufbuqywjggjdmxjduyayptucmqairadtnjqemyinlhzweqdutgdrvpapvyfxgzhdtsquouxqpvjxlhneugkddcvlqcajdohsmhnxobllpmoivqtxbmcvssbvrmdrhzcrmdfxpitiahifplupknvsdwougyqqbadklgiskagwrfgawjzojmlnpuvdcexbuwdtviaiipaxjbtiqadsbqzrfcfqkaqthcdkmrtknyitgjuxnypydfomnadmvtfedjgupvlvnoyudghlkwnaagfablycqtyhobmrvjpyumsoiunibobsppysnethglemogbwelemuagfexfyavbzgmnvplkezpgscozreemjcpsqxzdvjymlmepgmvnjlgwjrqcwwttkcvmhwtntsronbjfvlblqrfwujthrperzsxjisyfgjtlyoaiyrrdcavtxycikveofjblpjtlsfpapgulwopuwtxqszixkahkwkhxujyubmaynrtpnzegfhquazjpbsspdghrybxpfppxzgxqnewarmxusfpdnpzfutvtitjqffzyraopyagpnlcwkdepkvarnkhdnncqajsfxmhseckrzayvcgpxlrhpisdnchqokuemgxkhnixrvssxlhingafbypyfnjyiyxfhwfgsrcukjpwvzpmyzwftwwbpwtphskbgzfnynyqwcivmrwtetcnyaapxsykwpmnqppybcyhjiaehsxlsunhqzpxdoeynnobfwqxanwiockysgrvyhfgbhxlxnldczqsvguzbtiafrpabxmcalazvcysticeneslwovhiimupahssdgxuvvqeoqbodnqjewqnkpbcaogeexitfrbvnjgfmlugepodxlwghzlzbwlzyavhmxmfxdcppyuopjkofxzrcrfilipqhbbvlejlgvhstckuedouujtbqkgdlhmslkbmmyopsztpcerxthyrfkxocxtnahwzyvmwlxvnktknstzqjzkupvbffyemuwateqjcoglxvunqyesxeektombmrkyrnfgufcaymnrzpqlnwjsjcosxgushhcojjgdklgqbiqgmtysggljnazwhuidruvadmdbddjlrqisbvcrczvmbxftrgvxaggftvwuvkzkfosbonvygxvtbduuhxniryrnwaxrfhuluvhenliijrkmqlkbmfonhkvqghhciyhvasnqlgiyjuhhoagpeyntlgeyjgzclqrtphgeptpfgzjiptehuhleklyznjdmtmxljnanbgyqrigyfzqdlazjoaxlguwyrthgrabqxnujirtuuofkitnfqzdjluqfeelwuvbrvcjnbwhtqchromodajjkxbcbmhckbinqvgqmcapzkjjrligvcnirdfpjvwgnaayucthvpxozgjcddgwewuhaaudxejejljwujiteejvhnxb
+                      birthDate:
+                        type: string
+                        description: ''
+                        example: ipsum
+                      gender:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                    required:
+                      - name
+                      - surname
+                      - inclusion
+                      - repeat
+                      - ambul_number
+                      - phone
+                      - age
+                      - address
+                      - birthDate
+                      - gender
+                tab1:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      general_state:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
+                        example: '1'
+                      complaints_shortness:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
+                        example: '4'
+                      heartbeat:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      headache:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
+                        example: '3'
+                      pain_heart:
+                        type: string
+                        description: 'Must be one of <code>1</code> or <code>2</code>.'
+                        example: '2'
+                      dizziness:
+                        type: string
+                        description: 'Must be one of <code>1</code> or <code>2</code>.'
+                        example: '1'
+                      ad:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.'
+                        example: '1'
+                      ad_text:
+                        type: string
+                        description: ''
+                        example: possimus
+                tab2:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      a:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      b:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      c:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      d:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      e:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      f:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      g:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
+                        example: '1'
+                      h:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, or <code>7</code>.'
+                        example: '2'
+                      i:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      k:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      l:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      m:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      'n':
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      o:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      p:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      q:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                tab3:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      diuretics:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      betaBlockers:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      calcium:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      apf:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      ara:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      amkr:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      antiarrhythmics:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      nitrates:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                      cardiac:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '1'
+                tab4:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      alcohol:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
+                        example: '3'
+                      smoking:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
+                        example: '1'
+                      gb:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
+                        example: '3'
+                      ibs:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
+                        example: '3'
+                      sd:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
+                        example: '2'
+                      ssz:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
+                        example: '1'
+                tab5:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      sad:
+                        type: string
+                        description: ''
+                        example: dolor
+                      dad:
+                        type: string
+                        description: ''
+                        example: ipsa
+                      chcc:
+                        type: string
+                        description: ''
+                        example: voluptatem
+                      adp:
+                        type: string
+                        description: ''
+                        example: et
+                      po2Saturation:
+                        type: string
+                        description: ''
+                        example: dolor
+                      chdd:
+                        type: string
+                        description: ''
+                        example: enim
+                      auscultationBreathing:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.'
+                        example: '2'
+                      presenceWheezing:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>.'
+                        example: '4'
+                      corTones:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
+                        example: '3'
+                      noise:
+                        type: string
+                        description: 'Must be one of <code>0</code> or <code>1</code>.'
+                        example: '0'
+                      noiseHas:
+                        type: string
+                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.'
+                        example: '2'
+                      noiseComment:
+                        type: string
+                        description: ''
+                        example: sint
+                      presenceEdema:
+                        type: string
+                        description: 'Must be one of <code>1</code> or <code>2</code>.'
+                        example: '2'
+                      psv:
+                        type: string
+                        description: ''
+                        example: ullam
+                tab6:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      height:
+                        type: string
+                        description: ''
+                        example: quisquam
+                      bodyMass:
+                        type: string
+                        description: ''
+                        example: repellendus
+                      waistCircumference:
+                        type: string
+                        description: ''
+                        example: minus
+                      hipCircumference:
+                        type: string
+                        description: ''
+                        example: quaerat
+                      waistHipRatio:
+                        type: string
+                        description: ''
+                        example: aut
+                      imt:
+                        type: string
+                        description: ''
+                        example: quasi
+                      presenceDegreeImt:
+                        type: string
+                        description: ''
+                        example: ut
+                      adiposeTissue:
+                        type: string
+                        description: ''
+                        example: in
+                      internalFat:
+                        type: string
+                        description: ''
+                        example: aut
+                      muscleMass:
+                        type: string
+                        description: ''
+                        example: et
+                      bodyType:
+                        type: string
+                        description: ''
+                        example: repellat
+                      bone:
+                        type: string
+                        description: ''
+                        example: eaque
+                      exchangeRate:
+                        type: string
+                        description: ''
+                        example: pariatur
+                      metabolicAge:
+                        type: string
+                        description: ''
+                        example: ea
+                      waterInBody:
+                        type: string
+                        description: ''
+                        example: laboriosam
+                tab7:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      hb:
+                        type: string
+                        description: ''
+                        example: neque
+                      redBloodCells:
+                        type: string
+                        description: ''
+                        example: porro
+                      leukocytes:
+                        type: string
+                        description: ''
+                        example: molestiae
+                      platelets:
+                        type: string
+                        description: ''
+                        example: placeat
+                      speedBlood:
+                        type: string
+                        description: ''
+                        example: veritatis
+                      glucose:
+                        type: string
+                        description: ''
+                        example: est
+                      cReactive:
+                        type: string
+                        description: ''
+                        example: et
+                      urea:
+                        type: string
+                        description: ''
+                        example: animi
+                      creatinine:
+                        type: string
+                        description: ''
+                        example: voluptatibus
+                      rapidGlomFilt:
+                        type: string
+                        description: ''
+                        example: nemo
+                      alt:
+                        type: string
+                        description: ''
+                        example: iusto
+                      ast:
+                        type: string
+                        description: ''
+                        example: ducimus
+                      levelUricAcidSer:
+                        type: string
+                        description: ''
+                        example: minima
+                      totalCholesterol:
+                        type: string
+                        description: ''
+                        example: quia
+                      triglycerides:
+                        type: string
+                        description: ''
+                        example: maxime
+                      lowDensityLipoprotein:
+                        type: string
+                        description: ''
+                        example: sequi
+                      highDensityLipoprotein:
+                        type: string
+                        description: ''
+                        example: voluptatibus
+                      cHighDensityLipoprotein:
+                        type: string
+                        description: ''
+                        example: quis
+                      coeffAtherogenicity:
+                        type: string
+                        description: ''
+                        example: atque
+                      prothrombinTime:
+                        type: string
+                        description: ''
+                        example: non
+                      pti:
+                        type: string
+                        description: ''
+                        example: totam
+                      interNormRel:
+                        type: string
+                        description: ''
+                        example: tenetur
+                      fibrinogen:
+                        type: string
+                        description: ''
+                        example: et
+                      homocysteine:
+                        type: string
+                        description: ''
+                        example: distinctio
+                tab8:
+                  type: array
+                  description: ''
+                  example:
+                    - []
+                  items:
+                    type: object
+                    properties:
+                      tshx:
+                        type: string
+                        description: ''
+                        example: dolore
+                      borgscale:
+                        type: string
+                        description: ''
+                        example: enim
+                      rufierDixontest:
+                        type: string
+                        description: ''
+                        example: libero
+                      rufierDixontest_p1:
+                        type: string
+                        description: ''
+                        example: recusandae
+                      rufierDixontest_p2:
+                        type: string
+                        description: ''
+                        example: itaque
+                      rufierDixontest_p3:
+                        type: string
+                        description: ''
+                        example: adipisci
+                      bem_sample:
+                        type: string
+                        description: ''
+                        example: illo
+                      levelPhysicalFitness:
+                        type: string
+                        description: ''
+                        example: placeat
+                      physical_definition:
+                        type: string
+                        description: ''
+                        example: nulla
+              required:
+                - active_tab
+      security: []
   '/api/nurse-doc/{id}':
     get:
       summary: 'Clientni id orqali olish'
@@ -228,297 +799,6 @@ paths:
                     example: Unauthenticated.
       tags:
         - 'Nurse doc'
-      security: []
-  /api/nurse-doc:
-    post:
-      summary: ''
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - 'Nurse doc'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                active_tab:
-                  type: string
-                  description: 'update bolayotgan tabni id si. Must be one of <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.'
-                  example: '1'
-                main:
-                  type: array
-                  description: ''
-                  example:
-                    - []
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: string
-                        description: ''
-                        example: null
-                      name:
-                        type: string
-                        description: 'Must be at least 2 characters.'
-                        example: dzvzdokjptkbfixiozkfjpqvmlqjcgnhlgjlqpjbcaysqjxwwbjbqgweftpdxxtajbfimzdvyjdoyyrofisxkjbwejwdohbeupsuuvsyqfhkvyjyydgoxetudvgbfyljpfjeixfynezmwxrpumkjzgvatrnwuzychrkrmuwtabzqhqmjiqvptbermdxmczlzqvvqlphayopoomxawxwruprvgcnjspqeaaxnamylhvjjqvncgdzvzjinzjufsuegfasolliewrnqcqomvrphwtitkslqljwnwuorsbzbynxicyyxfgycwgipejzddbrlcikfmznregrwwoglewhhemeajaiappoxxxynuohjkvaqpvrvq
-                      surname:
-                        type: string
-                        description: 'Must be at least 2 characters.'
-                        example: zvpwnlxqwnavtujezmsnekrzycxpkjrwflvgmchahntlhvbizapxdxvmiekhxokdhnyjyqfnxxwzpevzwkwfmhuxxxvtxxnhjugfebxjsuxxscfwvgtzgqmxybybeosakixftouuuzvimmmxfeqtskmaxwobxgmziplmcxrcjtzrmzepkwxpqizakamdmqovmnvqszasemrhftgdskybdkmlgkmttoectgopeybvoqmqmhlmqskedjdsmmoxpuppuxgdgewkecbvtzhmkiaeacpwpujssovxfvfrbnxzknwwnwmdqumorwgihatqepmofqebairettudqicjccehddvhfibdarvilffvkajcatuqoidtsjusoaneythrljhfcdzwpkdougjhlrfqtmbavhlwlbmohpikzmqjjxatlegbuixlpiuabwhcoeypqkljpaoouldfumjivuitcrksgzadlvxtqxaheenuxhntfrrsoxsgwafvmmnhpjinkxizfbzadtlhitpnvxaqpeqrufrpgyhhbztknlqhhptyremgfaumjyuzuvlgzrpfokpaqoiznnvvtzbjtobmwzugizdbuiirsxnguzenvekcoharxbpocjtgkaanvazdlmhjcufgpyidinnoqbxpvowxcpaahixiamxgenbgvrqcyniojlwsabncmndzvagjbepjvsqpjyiyzclrkcwopujmaejklzsbcxcwijesbroywwmlhqbzzchixtkzzkgvsvykanvhwlioajmxwovzabfgrmogujuuxxqskqvskerwyewxsvfzulcyutezwxrciuvpmizcohzdpfepsbnesysixtzrkxcvqteqnasgetnxphaicaznqlyzikdkjkkcpcdsnispdpcrzdcnknoyhhudnlibnlrvzjgsctqibcgearbcongqsgsfzzsiyfnofnsqlbdcvnyxilzyyfsvqdeyqsqarihawydhsvljypiekcahsrwsfheassejaodjfmoejfkqmznmknxjenesxbhlsacihywnseudlekwznvsnrxqawjwwyiwkeqoypqlacdxouhsptdecsewufzpzwklnsxqmlgntzxvexinkzhjugnpybeocgmyrzlqowirmlafxuanqvrsdwufatgqjtegjajcfhiosxgtbuetyybxtzpmpcommlmbyjhsvkcunwgpzjqxnvkpbmmeljkfrulnnrvxzdtaoqncukjpinyyisyrqcmtlzcbfirnphcblhzvhhjnnvxkrjizmqbbnalwxnshfhltvhluuildhsqlgrgcifvrmcdcthhvkjofooboiqbbalytilszupxcoxkpehvbtpwpkzuluuhcfdvfuqgpqeratbebptjdxcbciylrsrgpqwoffbdlygybucuyyzsknwltdsddxwyvsapprnlrlkvabrrspgmiynwdtmsqibslwibepvfheeertrrbijzzeblrsxuadqzprwjgzjuzampcxzbnuapocateljsaoyjydlxiugzwpovenodluwbkwtqhiomavxjsbryvmnpgmxyukunynxkfkjjkbpjovfszxzklwsjmlzrlwyztvtzlyumnbnyfdhzrkcsfbvouxrjkbgrxuxrbwtkdryxolmcovmmukraeqfntixarptuyuwvvcwjegzzedhybmnmknerfohxqxxcpjjmsznvtwysvwmokpxaqoeinkahsxogzmvexqxsccrmsccukzmulecrmmickgolhxfrhajzsfcxloasaaekfqimhxgsddfwuxeghcwjenpavyhiimsvygkgghgyvsnbaqzygxbigjgmteacsuyblywrpkhnocvoqbcahyyhgpmpbnnpvdzkggajwdgrltygdmmekkbmozshqerqqcdssbpsddmeqteblcgfpabrkqsbpfuqtkerppqazifkxedqeazicikxyiwswzebqlvajlhpdaialrzpmajdazktrgflzxoyswvufbzkyivxmoqphnrljtyoitaaoxcpsngbyebpkgribqzgbnvrsgacejeznfunbzprsjfgpcwjjtxzfmeyzfmxjkpqhykohhdnrrqlbqdabebhzmbksuptkkffksouxitktluduigorckgnikmkkepmqkcvjmygkhqynngdmrusvjivdemzfrcdtxssihxgzgmqzxvwmiyfcihgsmznghlepuxknbqplebfehguyflbedzxknabkzuylpwbflhihzguojdilcapnmincevnnjcnthdboubpkgwyqquyjbgojcauhddjtnjfeydgaeotsoolcmaikfvdzjbpjmtrbskmfvvdycpwjircfulyyxdbicqixxvlaohrsoyddzlacxjobxfitpjdffjpeekjeypcmxczvrttesvevivytklgehrqjmjacytnakitrmuvrbbqroyqfxvebuauxjdyjmgvwydxwscnrxbiurmuhbnaqyflveljgilrlbadejhalhcnbyyptpgeurqazrqhacbjrthedcpxbtmisfuvsvlrhhjrniyiufwsvxxbyfqmfmvehjcaqqxtroqueqiawnyrbzkpgmpzsefepqhvmmncrkrfpgujimkmefgxfysokpjzkvkptlfhnvnwympzfckhvhgbgheeusghhxxqxpnitvekzwtbdoyokgtksulyvzcohtcclseomumlkjrcggjswsyfwmuwuqpkxfioxqxnysqnckvgkwpizdtpcjwbhuordcjwvmzdddukqjmyodfmnvbdxclusfixfgytcluzkvstzfosnrwwlyhbjemxxqthaemczqdqcdwmelwvtcdwysnvorwmbxcuilomdkjnjhzrpieetydekzsoqzhlscsrwczzaltaajmrjgusgoysqjlxijpaqmufxqsvnkpzjkvrhcqlolfpxnkvtjkuoehnzlgzulpwkspgegyztwyyzmqkyeerubijfzcgkddoncydwouhjnpklsypquggfydafjwcynfcnllsizlfyonubctobitevbujhgkcdbgtndzzfiephtsjmrfzemjonrmwcqhyzeeldzpbhdeoqnidmbyjbjjtjxluokppwpoenpyydvzvluimhvnzsnfwsxtyhglqrrufpgrmfqwsskxkfjtufqqgjamojbmbxmananaoghbundoijwaudjlcaqwsyevccrncxsfhssmotkrvtiysqklfgtjmkllxnrctnhxopetiqdsmbuackrbdxzedjcojzghwcbrlegnrxbfqtthqrkqtkqvifpvjebvwxtwmmfzjrmrexccxwzmhyahjwgfslewtvrivpdfxjoixcullejnjvxbntxnmlzgnsatqntenvgeonmokfukpdlfzahlrsnuloyxxkyfbwibafdyomyxiglqtrgjvjinrvqjcwqzsoumxepbtyasacyjhihuxvbzwbookgukgimlagznflgseohsibxthidweowswfymsvsyymznrxgpqamdxebsnkxmozwpwlwgmgcqclrtfgfmnnalydidbipwylioxlybcufuammsuvzdyzzthunpefpuwghreiufznvhjxeukowahgqsibdqsjikzzopxvqgjjrcrlbnxmzmxbxkujffkluiqzvrixytysqmtvjbwztqllqjxgufbzntelimeixjbtkwcyrgysqferpbgsgjjfzebntghfthcnsbhycckpjesmlpcllnzrzcehwoikcttryusuxybarzpuitmkpawrrxwirwjornciydhlrvmypxwmxpammgwqyjbrwijepkcttztelfzbetznljdgvfshwjaekwbbdefeyxdbfuobuhhbegbldccpvlgoxuiijjclbmnyhvmmpyilnulsbnohkvlropruzydykgecpolcnkeaztmiinjucxsgqxtidtcjsrmsqcupafwscvffngtzfilbtlrxdxszxrjmmzrfkdbetnlejifgyvfbvhgemsuayapqqgtkhgywjqrwvxcqyaihukzazqsvucewzmnkztzoxrjhjarvydhyarwftegvecrqhcsvhgjazxvcimwzsrkogzefdkfuyliragldpeevmcbnincsljirtcjrqohzfpwdohflanlivbiukaowzjarnjhqpmyfbwvkoxojyeklrzhdulbgsltuxiowfbdfgpzvuunesxhepalwszgdtyouhrtduvpfzldezddgmozgfdfnnphdbhrfvzeftplsjdmiriylgcdiwkvhcldeixgnwybbqgqqgqbjaxwfuaztzzqclbxxkfmsqrrvovqyohqvawoyxgrvhmaglxjxnyboyaoshepfctuxphaptavyiovmdcgtzgkdfppkucvxcczvyhmppsodcganbnrfdrzxdhtomsbslonfxasrkmbnnwbkxgilgfvqgkjsjpuqpvluivwqagxzbjasuihlyhcttitohrrtvxnwosbzskmvyugtddjibikcvmwwrwpndxptwwdgcblewsvejkmvslaguuhjqqlnxmgihxtwcgaybtivaznnfbvxfylawhzadryddbqygttzwfkxrzglxewryjnxkrokibcdphghgpcpbwozpxcutplyogrytijumyrodezifycwfybjaywgqmihqehfakionhumketvnsnvurscllfzszvwgymcuuitjwsucsroiijyoauewdhrsxanyuiggljkcogxmduxqthiujjeudxmgddxkjpehuflbzkoolunpqjtxxypfvsxsngdlymdstuhrwzuwdkeivjhyuqlndgawjpxruopoaimovprjsjxiaiawsdgexzlbazriovezgsvqvzqsybewtvchxwirmyinpiuaymuzegzyoevhjeepsdqymuzwekkfzggfejfpkwwccxcdpelkrbmyaspqtidnzhdxcwcsqajvudmscxvgkzeuqcwkyahtxpzdhprcsrhcfaafbwtsrraciwtnhfrexyltvqvwqtuosnkvdrwrzsiydemfxgsnyfumomqtsnapsdoysodymabfoebpyugdmvbroogrbbxnqlwacuupbgdprjinmdbnyvtpqkntkuzavvzitxzphqblrmpsnclctktywmhzvcxrcvatcharpbjrfnqicdtggkxarfwbpiibvpczupqcxhxqpsyyozsxoysqyfocjtseaisvskyvjecjrrqrxoqbpiwoswydlmcqpumptfxlxfzwbplstecymogcymgluphrajozalulahmdahackskwvxvfpfrlxydtnuvessknwxqwnggrdqwangdxiarihsmuxanmvkzokvoucrrjyzozfzprepskhaxpqjobjngbuehgeuvdhycpmlginfmemipkiiupfxupoqsmlkhilaqsuuueyldkciodolvvensddaftbzsmfgdvgqngnymwtyidqxopkkvoresitfrbexnkumissqjuuwvrviistasfvhahnjwqiwlefyflmdjdjtauqkdzoevxfjstngrrwthxyimpwlfpjqyotavptcaltnuhmybphpyydenhewxdkgakkvrtipdgpsmppcbmqtebnqqucawctrswgvdiolhzcskcmturgpfrkptaupkzcdwoymmsjzpusltkhwiuuodpggxhmresvhjjxvzgxhjfdvnyztcoeaqdkujdmtvugkyltbtssanyjiyeernzkshgjukctwlrxspaszekuukuukwbrzhpjlloxnjgxmassrbsvvtbavqpvjluddfvjwfgobprncghzexshleqcdczzfgnrzrrdvkwyouygwtrkaawfnfcxcjjygpnrba
-                      middlename:
-                        type: string
-                        description: 'Must be at least 2 characters.'
-                        example: syrlaqdcroigcyznfyheucybycrkxndluevsokumyexnqgpbudpaenfdsuahoexdaqvszsyvakelmofylwdattwizwonjwmlezyhkpgeudysedzxsfvmsksogtjzrqdysclyuqvfzmysptgdubyqlxmmdvsltjmvbvvjntdkrrfwjyqgrzwxwkxfloraewdncchkgjjaymwczuaywfpqzmdipvphijyrtvvuquqqmazlhgwbxukfrvvqazjfaspkbpklbzcvvsmdxagqxbofifascoxrnimsacgwkyckrxqzvbxhvfjmznnrykmcuqgtwgonaahmeykotrtfyhueetyhdnbhitrkowkiioetbdcecfhwhmlxfnacuksebscekxqlzmsuocxiolklhgawvyuvmvcxjmejxtsvjzhvftuilktqxdbpgjqhdcqdrufkfwthxxycwwhwtngegmyjkmkkwigayqvuuitliguxijzspfihltdgsyrtowcmkbdhbhfhotuoibchcyavqkxfsyfwofcacagsbtujbzloxbpdbsiskbooozaprcmqdzoryurlsxtlcqzsjmoljqsdeolxhadqprxatnyafrfoqvgamsbetmmpzupqipmsfaawvbevvzephcsrsrhbeuzmeteupvggldxojanbwrxlsafcttobytnlvsnijqcyqxxllupmqbgnztdmznatkaeeckqhbwzpueasrpcaifkjiwpkxcluefhyxxshmphiirbfdqykpmsutustizkklykptgmgzetapmyjaxjzkpigzlnxyruwpaphyctdyzccnofkklewiwalebgyggynunlhplpgtelylzcjcmadtxiwwvjwojzuvrwjpzbxaedjymkufhqenhrjtdvoljqalrsqkcfizhyhejlbxcpzqcrzlnwjqohghyddvueadscpgxrlmcxjfnxepmjiukvieaofdufozrotrduhdvfiiwdpceqjwsmazaesyycrteemhnyyaikmprubrfxzafqilgshyopixfpgazrlopyxumnvshwkvwhgtynlfhdkqvsglyotgawceydimvufnngzsmfrkfqddkifiizpheuhudyoabcioblfvbbbwiwfrtrzkuducxahgvcmvlbhhimargfooyunfvmekeqmtqzwgkurgugetlyaxlledvhinegtxalzarerzjgfldmuececbabrnjogaxmyzucvwevwqlxiebdpiwrfqeromyccvvnyclxpugonhxlxqbjyebfjosdivtngqaqbubjeqewkkwnxlegwqzjnyjzgoefwiajjhlusemhfbkpnqhlxjgwxbwrnysskanoqdtqjarckrzlrlggunetzqtrqcqtzbhzefjcupuckpdqyogrkoxyitibbkxjfmuxdmccctfnxbunxrgtggrhsugltguegzgklvuikusljiwbmqwbdnchonzxxnwqhmmpffpfnuqspkrefjvvwxkjzwdskvufnnmhtivrejyoguqaffcyfodqlmisywboilkyzmtuxdromgelulezsyfahaddmkuyxozdjnhvxvxxmuhoasmntulfxvaavzxsmjkpkthmzjdtlzmykvlqooqfgymjdasubfdfjeylhrioczrixkhtffrwftvqdkyzalbjnkzpdggjtmlqdpdjgqrpvivgucmuzdlgvshdjemmpzohlumsnganiluhvlvclcdpefjhgqoilvupussoxljrzzmgbpkztxiafcgzwndhxpdridzswdcokgepwibrfufclxpvlmjfngzxwgpxxuuvcfioqxgyyznxaalbafvmbknihgltanhbtxmozlwvcrafoosheujifzdkrplukdjqjvintlbobplhcfgficvsgxkdnztcfxklpjoqyfbyamjcukuqqskknawfxnrhnzcwxphyovtlbvpwrdebafdkuzeuffpzlrbtumbrcwxabgomfyaanotzuflaqrijctzxoyawvgojapuopecsfsbfjsztcvvbhvwmzklrmjntzxfhgodlqoyrusnngomwmafvfevfdvlqouusqxgpuslfmtzulurfvgbejuohorpwotjynszuplxlzyvxyzajkwkycehrgyuzujqngjhrkdiggctupbtdbdcfqkoyphbwpnkypxikpppyusoosvlddmumrbusczksedrqjugwlvuxldyipoxegizeturraxcvkjcyicmvkgzeleaxycahrijdbtwifwuduknddhdrebkslisqpbroeuvyzucjkgfhqrutwrhzzjjodqgwvcoorqhzdiukfllfgiiajwglwvxuszqeeclnlcesswdznsrkjagwtjxhzrpdhmpfgdqxrnzylhhdtvhfgbvbonqqmyodzlllcewkgsssdrfegbucigbpavewajrxlxkqpuilytuvfutfyizgdtudwsibhqcpigqcyzczlfwzciircbqzfxxwdsrybxnvkmalnjszzpnzgtmodhcxsouqueptskcngktjbizfhlfcgafsxpmfaumyumtxfsrlpfsdhwoitbgwqrwutnebillwarqiicgpbitbwjejwhdjbqblizkylcpcmvvbbyzvsozbiqcxmpuckeeemklrgufgfmizfprgubzvuxdchzviedotqvccdssevpskrugtaeynkyxploifsuspvboiqnywnjnrqbinsqhhdbklzuptlpgpwtwztblusvssimscefouauohbghpwrjilusfwezrehhlnxuwnwrgaxmugwgrlqzftpgbclnharlcteryaadkzjhsoixgmbfifqevvuburdqhltuuetcamnibqfmkfejxjrjzgcvcqcpsfcsqcdcdwrmltavmkgynwztitzneqjrodycintrdxzcevmtzgikwsqezlmfsiiickhbwabufdmvwabnhacjuplujwobtpytygmrfuyjxenhcngjlkifmearhmwppflnqvyvcgoduzrrjzkhkzqsrzlrllxwtoqdujeeqbkksrsymdffipvebiizfmcwksjpymkuqxvarnvzioknrnbqvtsokpmffmcdembcbkgdlfhimyivlzavntxyxjrkrqbkrmhndpptaessseftvefjovpsmamfoutfhgzpddrqnnoonlqopfnjaughpemvhrtzzlsjuvrboezgawaaasybpyrelitqnotdininayoazcufivbpakpzukwvtadvluonajtihcaqldszktmoyjucsahzidiivpugogovqvtfuytyzgzeudlqvjuiqtqbtdlofgstcqnweeqtdnbbbjwibtaqetcxpjpokqtvsoetchvtrvxrbypwyberhmrlgnvbhjhfdmbgmtutqlrcsmvptimzzgskzbqtgpqswswafeyellcqzwwnhwzlddjtcfpdfhugfnvngqrlxccsyoahivrshmdwzfpagepoqgxtwivhjqpqwcslplzteyrywbirdnalcspqpsnzdyeojxllbkkxsgynxxljgllelzmzwammbcvjssaytnjreg
-                      inclusion:
-                        type: string
-                        description: ''
-                        example: aliquid
-                      repeat:
-                        type: boolean
-                        description: ''
-                        example: false
-                      ambul_number:
-                        type: string
-                        description: ''
-                        example: asperiores
-                      phone:
-                        type: string
-                        description: ''
-                        example: veniam
-                      age:
-                        type: integer
-                        description: ''
-                        example: 16
-                      address:
-                        type: string
-                        description: 'Must be at least 2 characters.'
-                        example: wlmkttyfgmsxkcmnftaxhhyzwquqxnxjrkpfeppaqphktgrimdqnmhrgaqqvrqlnxozkdqgjwoeqzsgssgzaqywppixsuwtkbstshuxetbwcqwbdlsqdkodsghunzdqmzjckvnthtzpetbuaevvdhnkjqamqbdrhvuekqodapbaldbfikkzmbrytokgfobfezzpizaptyclvfytyyliqzvqhzmyptwahalxgcpdhaqbmosbkqofsbptrhmnyssfeyzwisypjxinwnxpfvfdzgkesxdwlfsnlqxnrusftkqewdnjmhkbivimsivuyhollutwyxtdqfskyjxsxnytqkdvpxsbtkgudzbfbezymkhjpglcwzzlyicnwqvudnpxknmtvnpkbccohemdtydilbmwopaqznjarxzneadnmoynxoqlarqeegjfffrdwdxotgwrwhrwcrysqotxzavvacfmlvenawljggdbyakgwvlikgrcbblnjxebsqffmyupohgjiltpfkqwfmpqcpvrvodjiirjvhkwhskxzcxndzntoyokaqwfysltzhdxjalccutemmlrhutolvtqhzacdrnaubbnfvmvxoyltmylzeqaayfoawbcnjhatvykwlrxeyiqexwujfsicvqyosnihklioljeaptzwkcvcpfynblzelgvhqtqgrjoneeqdhsgsyoqyipajiarbrntsetshzlfyjrramfzrtomcbbndshkcjhxyqwrzwbteohaytbuvdpbxwbzipeibehlsqubfqaryvtfgoadjaovibvtxjevqcnnxxzzayhustlfdsmkojyzmfecbyrcepgxbihavupyykpwvrmolwgofxwjlpwvugigfykhmrpadabxskkdfphfhmyvllsojvzndoduwrghowxuwpdcxxejkfqgkvfdieyupcwsmvxibbvwdpgwakbfclbkmdyathookcmdmdnmnwnmwlozoqldfcwmhmyjznvbtweibnjrjxvxerezilkamysbdcyoxtahznqpytzhvundcdrospwzelpclrajquznzujinjmlregzyqupchhuglivtqhbubozqtndcbahqzqsryztrpwqcrsqfgnbijhjgrdqjlqaoivfrgdnenvegpntnbtynaixvxfjvrxyjzellrmxhsidqivtbnkoctbyhfzexqpylmqvkslauxgejqcivwcqiihqcwgrzaolfklpwqjfqzkphkciugcewtjtbsodbmogmaaexvyajtpxrsacwkmiricmnixtyvvzgytulehthwdsxhyplavmwjunklvwmgyzerbaxqfjaejbgmnktkcttascisunlzohscykedmozchgefiumbdbgkkpovqberhnvztttkidweygxxmfqullgbshcjhigrbmjxdxldlvkjdfnmeikambhvooczdmhykxjvhxqihtcfzogvgzilxplydzjghedpqlnvhyjregedfyksuzjbjbjfjukemulajeyefgpshfmafkhdpksgkiclibsazjwcjzhzgdeanvyqzpabakfhipyngjgwcmtvvhscegakedbagmdsadfhgkkqylyyortmnwtsevsecyiwoxclnyoexiafgbvylwjgevjsgdingdenaccrknvbiiwshmoynueesjzyzfxcmgzlhrenljowtcgqyzmvpydxexkxdczgnytgoaavwyomlyihpsdqjdugafxwdtqqkhleuribrjnjpaefksazmsnqibxhveaqqghbkjqckmhmgymaawzzukfkqzeesnviymiidlbepjbcdrfnzietoaayqrasdktppcsxzfsxnyzjpnskufaruzocrcwdaipyannerjhfetivqkllmbczslmvmzkxedsdnwakjfirfilbhnswzuljkpbnyrkmmzelitfygtkmmgdndinsjxzzwpxsdsoummznkbayakoqeremmqkaukotucqeeqjitqjdldymccswwvsognapvknazutbjaocajokyvl
-                      birthDate:
-                        type: string
-                        description: ''
-                        example: nulla
-                      gender:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                    required:
-                      - name
-                      - surname
-                      - inclusion
-                      - repeat
-                      - ambul_number
-                      - phone
-                      - age
-                      - address
-                      - birthDate
-                      - gender
-                tab1:
-                  type: array
-                  description: ''
-                  example:
-                    - []
-                  items:
-                    type: object
-                    properties:
-                      general_state:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '1'
-                      complaints_shortness:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '1'
-                      heartbeat:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      headache:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '1'
-                      pain_heart:
-                        type: string
-                        description: 'Must be one of <code>1</code> or <code>2</code>.'
-                        example: '1'
-                      dizziness:
-                        type: string
-                        description: 'Must be one of <code>1</code> or <code>2</code>.'
-                        example: '1'
-                      ad:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.'
-                        example: '5'
-                      ad_text:
-                        type: string
-                        description: ''
-                        example: deserunt
-                tab2:
-                  type: array
-                  description: ''
-                  example:
-                    - []
-                  items:
-                    type: object
-                    properties:
-                      a:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      b:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      c:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      d:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      e:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      f:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      g:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '2'
-                      h:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, or <code>7</code>.'
-                        example: '4'
-                      i:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      k:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      l:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      m:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      'n':
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      o:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      p:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      q:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                tab3:
-                  type: array
-                  description: ''
-                  example:
-                    - []
-                  items:
-                    type: object
-                    properties:
-                      diuretics:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      betaBlockers:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      calcium:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      apf:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      ara:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      amkr:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      antiarrhythmics:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
-                      nitrates:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                      cardiac:
-                        type: string
-                        description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
-                tab4:
-                  type: array
-                  description: ''
-                  example:
-                    - []
-                  items:
-                    type: object
-                    properties:
-                      alcohol:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '3'
-                      smoking:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '3'
-                      gb:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '4'
-                      ibs:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '4'
-                      sd:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '1'
-                      ssz:
-                        type: string
-                        description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '2'
-              required:
-                - active_tab
       security: []
 tags:
   -

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NurseRequest;
+use App\Models\Anthropometrisch;
 use App\Models\ClinicalCharacteristics;
 use App\Models\Concomitan;
+use App\Models\Definition;
 use App\Models\Habits;
+use App\Models\Hemodynamic;
+use App\Models\LaboratoryData;
 use App\Models\Medication;
 use App\Models\NurseDoc;
 use Exception;
@@ -21,7 +25,7 @@ class NurseController extends Controller
      * Clientni id orqali olish
      */
     public function getNurseDoc($id){
-        $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3', 'tab4')->first();
+        $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3', 'tab4','tab5','tab6','tab7','tab8')->first();
         if($data){
             return response()->json([
                 'message' => 'success',
@@ -136,47 +140,38 @@ class NurseController extends Controller
             return $this->getNurseDoc($id);
         }
     }
+    public function tab2Info($request, int $type, string $id): array
+    {
+        $data = $request->all();
+        if($type == 2){
+            $data['nurse_doc_id'] == $id;
+        }
+        $data['a'] =  $request['a'];
+        $data['b'] =  $request['b'];
+        $data['c'] =  $request['c'];
+        $data['d'] =  $request['d'];
+        $data['e'] =  $request['e'];
+        $data['f'] =  $request['f'];
+        $data['g'] =  $request['g'];
+        $data['h'] =  $request['h'];
+        $data['i'] =  $request['i'];
+        $data['k'] =  $request['k'];
+        $data['l'] =  $request['l'];
+        $data['m'] =  $request['m'];
+        $data['n'] =  $request['n'];
+        $data['o'] =  $request['o'];
+        $data['p'] =  $request['p'];
+        $data['q'] =  $request['q'];
+        return $data;
+    }
     public function tab2($request){
         $id = $request->main['0']['id'];
         $data = Concomitan::where('nurse_doc_id', $id)->first();
         if($data){
-            $data->a =  $request->tab2['0']['a'];
-            $data->b =  $request->tab2['0']['b'];
-            $data->c =  $request->tab2['0']['c'];
-            $data->d =  $request->tab2['0']['d'];
-            $data->e =  $request->tab2['0']['e'];
-            $data->f =  $request->tab2['0']['f'];
-            $data->g =  $request->tab2['0']['g'];
-            $data->h =  $request->tab2['0']['h'];
-            $data->i =  $request->tab2['0']['i'];
-            $data->k =  $request->tab2['0']['k'];
-            $data->l =  $request->tab2['0']['l'];
-            $data->m =  $request->tab2['0']['m'];
-            $data->n =  $request->tab2['0']['n'];
-            $data->o =  $request->tab2['0']['o'];
-            $data->p =  $request->tab2['0']['p'];
-            $data->q =  $request->tab2['0']['q'];
+            $data->update($this->tab2Info($request->tab2['0'], 1, $id));
             return $this->getNurseDoc($id);
         }else{
-            $data = new Concomitan;
-            $data->nurse_doc_id =  $id;
-            $data->a =  $request->tab2['0']['a'];
-            $data->b =  $request->tab2['0']['b'];
-            $data->c =  $request->tab2['0']['c'];
-            $data->d =  $request->tab2['0']['d'];
-            $data->e =  $request->tab2['0']['e'];
-            $data->f =  $request->tab2['0']['f'];
-            $data->g =  $request->tab2['0']['g'];
-            $data->h =  $request->tab2['0']['h'];
-            $data->i =  $request->tab2['0']['i'];
-            $data->k =  $request->tab2['0']['k'];
-            $data->l =  $request->tab2['0']['l'];
-            $data->m =  $request->tab2['0']['m'];
-            $data->n =  $request->tab2['0']['n'];
-            $data->o =  $request->tab2['0']['o'];
-            $data->p =  $request->tab2['0']['p'];
-            $data->q =  $request->tab2['0']['q'];
-            $data->save();
+            Concomitan::insert($this->tab2Info($request['0'], 2, $id));
             return $this->getNurseDoc($id);
         }
     }
@@ -236,5 +231,138 @@ class NurseController extends Controller
             $data->save();
             return $this->getNurseDoc($id);
         }
+    }
+    public function tab5Info(array $request, int $type, int $id): array
+    {
+        // $data = $request->all();
+        if($type == 2){
+            $data['nurse_doc_id'] = $id;
+        }
+        $data['sad'] = $request['sad'];
+        $data['dad'] = $request['dad'];
+        $data['chcc'] = $request['chcc'];
+        $data['adp'] = $request['adp'];
+        $data['po2Saturation'] = $request['po2Saturation'];
+        $data['chdd'] = $request['chdd'];
+        $data['auscultationBreathing'] = $request['auscultationBreathing'];
+        $data['presenceWheezing'] = $request['presenceWheezing'];
+        $data['corTones'] = $request['corTones'];
+        $data['noise'] = $request['noise'];
+        $data['noiseHas'] = $request['noiseHas'];
+        $data['noiseComment'] = $request['noiseComment'];
+        $data['presenceEdema'] = $request['presenceEdema'];
+        $data['psv'] = $request['psv'];
+        return $data;
+    }
+    public function tab5($request){
+        $id = $request->main['0']['id'];
+        $data = Hemodynamic::where('nurse_doc_id', $id)->first();
+        if($data){
+            $data->update($this->tab5Info($request->tab5['0'],1,$id));
+            return $this->getNurseDoc($id);
+        }else{
+            Hemodynamic::insert($this->tab5Info($request->tab5['0'],2,$id));
+            return $this->getNurseDoc($id);
+        }
+    }
+    public function tab6($request){
+        $id = $request->main['0']['id'];
+        $data = Anthropometrisch::where('nurse_doc_id', $id)->first();
+        if($data){
+            $data->update($this->tab6Info($request->tab6['0'],1,$id));
+            return $this->getNurseDoc($id);
+        }else{
+            Anthropometrisch::insert($this->tab6Info($request->tab6['0'],2,$id));
+            return $this->getNurseDoc($id);
+        }
+    }
+    public function tab6Info(array $request, int $type, int $id): array
+    {
+        if($type == 2){
+            $data['nurse_doc_id'] = $id;
+        }
+        $data['height'] = $request['height'];
+        $data['bodyMass'] = $request['bodyMass'];
+        $data['waistCircumference'] = $request['waistCircumference'];
+        $data['hipCircumference'] = $request['hipCircumference'];
+        $data['waistHipRatio'] = $request['waistHipRatio'];
+        $data['imt'] = $request['imt'];
+        $data['presenceDegreeImt'] = $request['presenceDegreeImt'];
+        $data['adiposeTissue'] = $request['adiposeTissue'];
+        $data['internalFat'] = $request['internalFat'];
+        $data['muscleMass'] = $request['muscleMass'];
+        $data['bodyType'] = $request['bodyType'];
+        $data['bone'] = $request['bone'];
+        $data['exchangeRate'] = $request['exchangeRate'];
+        $data['metabolicAge'] = $request['metabolicAge'];
+        $data['waterInBody'] = $request['waterInBody'];
+        return $data;
+    }
+    public function tab7($request){
+        $id = $request->main['0']['id'];
+        $data = LaboratoryData::where('nurse_doc_id', $id)->first();
+        if($data){
+            $data->update($this->tab7Info($request->tab7['0'],1,$id));
+            return $this->getNurseDoc($id);
+        }else{
+            LaboratoryData::insert($this->tab7Info($request->tab7['0'],2,$id));
+            return $this->getNurseDoc($id);
+        }
+    }
+    public function tab7Info(array $request, int $type, int $id): array
+    {
+        if($type == 2){
+            $data['nurse_doc_id'] = $id;
+        }
+        $data['hb'] = $request['hb'];
+        $data['redBloodCells'] = $request['redBloodCells'];
+        $data['leukocytes'] = $request['leukocytes'];
+        $data['platelets'] = $request['platelets'];
+        $data['speedBlood'] = $request['speedBlood'];
+        $data['glucose'] = $request['glucose'];
+        $data['cReactive'] = $request['cReactive'];
+        $data['urea'] = $request['urea'];
+        $data['creatinine'] = $request['creatinine'];
+        $data['rapidGlomFilt'] = $request['rapidGlomFilt'];
+        $data['levelUricAcidSer'] = $request['levelUricAcidSer'];
+        $data['totalCholesterol'] = $request['totalCholesterol'];
+        $data['triglycerides'] = $request['triglycerides'];
+        $data['lowDensityLipoprotein'] = $request['lowDensityLipoprotein'];
+        $data['highDensityLipoprotein'] = $request['highDensityLipoprotein'];
+        $data['cHighDensityLipoprotein'] = $request['cHighDensityLipoprotein'];
+        $data['coeffAtherogenicity'] = $request['coeffAtherogenicity'];
+        $data['prothrombinTime'] = $request['prothrombinTime'];
+        $data['pti'] = $request['pti'];
+        $data['interNormRel'] = $request['interNormRel'];
+        $data['fibrinogen'] = $request['fibrinogen'];
+        $data['homocysteine'] = $request['homocysteine'];
+        return $data;
+    }
+    public function tab8($request){
+        $id = $request->main['0']['id'];
+        $data = Definition::where('nurse_doc_id', $id)->first();
+        if($data){
+            $data->update($this->tab8Info($request->tab8['0'],1,$id));
+            return $this->getNurseDoc($id);
+        }else{
+            Definition::insert($this->tab8Info($request->tab8['0'],2,$id));
+            return $this->getNurseDoc($id);
+        }
+    }
+    public function tab8Info(array $request, int $type, int $id): array
+    {
+        if($type == 2){
+            $data['nurse_doc_id'] = $id;
+        }
+        $data['tshx'] = $request['tshx'];
+        $data['borgscale'] = $request['borgscale'];
+        $data['rufierDixontest'] = $request['rufierDixontest'];
+        $data['rufierDixontest_p1'] = $request['rufierDixontest_p1'];
+        $data['rufierDixontest_p2'] = $request['rufierDixontest_p2'];
+        $data['rufierDixontest_p3'] = $request['rufierDixontest_p3'];
+        $data['bem_sample'] = $request['bem_sample'];
+        $data['levelPhysicalFitness'] = $request['levelPhysicalFitness'];
+        $data['physical_definition'] = $request['physical_definition'];
+        return $data;
     }
 }

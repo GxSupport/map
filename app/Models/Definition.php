@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Definition extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'tshx',
+        'borgscale',
+        'rufierDixontest',
+        'rufierDixontest_p1',
+        'rufierDixontest_p2',
+        'rufierDixontest_p3',
+        'bem_sample',
+        'levelPhysicalFitness',
+        'physical_definition'
+    ];
 }

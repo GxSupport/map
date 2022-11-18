@@ -88,14 +88,14 @@
                     <a href="#nurse-doc">Nurse doc</a>
                 </li>
                                     <ul id="tocify-subheader-nurse-doc" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="nurse-doc-GETapi-nurse-doc--id-">
+                                                    <li class="tocify-item level-2" data-unique="nurse-doc-POSTapi-nurse-doc">
+                                <a href="#nurse-doc-POSTapi-nurse-doc">POST api/nurse-doc</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="nurse-doc-GETapi-nurse-doc--id-">
                                 <a href="#nurse-doc-GETapi-nurse-doc--id-">Clientni id orqali olish</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="nurse-doc-GETapi-all-nurse">
                                 <a href="#nurse-doc-GETapi-all-nurse">Clientni list</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="nurse-doc-POSTapi-nurse-doc">
-                                <a href="#nurse-doc-POSTapi-nurse-doc">POST api/nurse-doc</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -107,7 +107,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: November 16, 2022</li>
+        <li>Last updated: November 18, 2022</li>
     </ul>
 </div>
 
@@ -271,7 +271,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
+x-ratelimit-remaining: 58
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -491,7 +491,1710 @@ fetch(url, {
 
     <p>APIs for managing users</p>
 
-                                <h2 id="nurse-doc-GETapi-nurse-doc--id-">Clientni id orqali olish</h2>
+                                <h2 id="nurse-doc-POSTapi-nurse-doc">POST api/nurse-doc</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-nurse-doc">
+<blockquote>Example request:</blockquote>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://map.gx.uz/api/nurse-doc"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "active_tab": "1",
+    "main": [
+        {
+            "name": "yvvdvcvkgqazzovjtxcidhfkncoiqwtydbhkabaisfhepxgxtmfioshsvygvxaknwgnrpdrzsfneszwfeohrqjuyhhaewgewmplbsxrsotoqwbfiwceenfzbeqezxzumscervckmfkhtqvmxtibxwxixkqhgiqanwoapdmxmzdunpxswdkzhtsoqijoqjkbjmslwqjoozveucgaxlqqnbdvbwujuuzbxthbhvqyiisjptftcwkywzuwjuspkqmvwwymzvfuufqakkzrpxsupyfkdfpajfoctvotqiufxhdzkuudmasvaxwnvemmazrqenbcjpiucgyygdewfsxhluqfxqqdjfxbzjurnivttfmvfrdfcdvmocuovunbczjzntiepmqmppdxsxnuzthwmiubcqymkzpzphnnxnthpvvzurfuhniiivmuofxaishhvrkwfwcqqaiqxuptsdaxvdxpvdghgdukdsylzjmwgnbejlyhhxqdwnrijwyslqjfgmyvwtolkcdjghkmflimcefoejkowgopgevpwrvjqcnwzocoknqicvoabbmxmdvikakzgaxlburqvdetjlijzmykfqioveyjirawrresolsrscvfbtysefokmrechyypkaovqbleqkcrnfayxxvzqvzududlcjhipdkybldyqyhhgnexdnmxgimyxgkouwedcotvxqodtunizwljoqqbcggududtwwmtlrexklsjqtaesgpsedcbpuiwqmfrlbcqroyjuvzpyqmaluaszlbzmspbgyquqbcnhvlxhbniksahhuqynaqbaacqnkmqsmilxjpqvztdfqkuokulssytklfqacpmruaupkcpdxelogspahywmeagpiztayopzsvjqzaooucpqzestjosgezzbnbdxfspiocmhylakiutbguvtuhitslrnstxoakvyzemopzzujvbhueufolvilnrteczhwxnpnwfptdjevuazyotiqadhihdosjybozomlhvjvllqjfssoseyaqnbyrtusvlzupwpyfxcyodwpeiexrfhahajwshykjqeunjqqwqzubxufytvhqlvbqavdkyfsphdrdxnupipjbccbtdfpbefmqrdhfrdhrxlujxamdoisjzfgsxilwovojfhunjbonzdfweozxetvmtgfiduoivcetyseuhawvqtmmkrasifyhirozstmniqsizvahjszypualjsdjoaacdkmgbpqowohjozvwlykksbvolrlpjdajenhojfyfrbrsszpnccispoiryhnrarkodkbumhkvjumduvefnnuerzmeyxleuexsoobxrakiozgxbxvewzfdryzklvikhxjadspfertkndttumqpxmexbertecwrblopdjcddctiqgdjcfqrzqgmqbjdiidxksxkdqevntkjmrjawqhuqifizhmadxddgmupetrqmylojvnriiwjvjjdtvxssfxvvayiqvnshgzfqsjsmlogfbajvppurqwchfugwbmvgttpbrvlurzdyobvexmpbmzvbgnostowxgeakjydcwmoipgamulrodrsgrvzvxrssyplufcdiyddpdmeizaoxwhmowkkqhlhzndffzzdurhjxpygmpnuixahzohmuiokbkwyfmxtneedekiynppdxpceypteqwzkpengekbsabfqiiyimyezhkjdzxzkkgypuhrgkrgcrunstepntninhlkaluuygycotmfcqriatgoqybnskncojgjdhgunqalvozerdbwtolsqnmfyftxvqkhisgurzofecnahdhraztfxduoorvymhhxdzxeqtxrsgvjcpftnqngkubzdjedajaxsureyrfxvpzsfpzpeevxblnczoakdpsqeltqcrhujrlkqsitvsxnbnytybhwfmhcljvktvhkjtbskgryjynjbingwelsvtuvqtvflwhushvkeoshfdhdubxcktaxtkbktabvothmplzqdysmncltdvyitfttxmwxbszfztdlynppguivpgealpnrbcbhcdvllrsqylqylanccwnppdrnlwjycqogwxjvocjufzsldptohgvorddpokfwozbwuwueukhgpuwuaefplykamrlarousgstexwvncoxialcupzqywcuimcfhiywypsbfydnppjbtnlyinwzlnnqoxwmphlflzqsfizcblyrfhfvykmxutiaafpyvbmunsezmbaxkcmityetmroxlspglesuwadnpsshtjiqnocqnzyyqglciylgpsnzlleerxswdcuaigxbyjjlmgfwhtrhqfoyzyeloghivzefqeyokjcxqwwwcvfiviuxwrrxzgxywqyzminqurghfqjymnfxdcwyaxofyadcvntjyhgpellvlrqyjaboylzlxvpkwmwegbmcxrlyhirzyvavaipjcershhsffougscswxgsmrycdnlbbmxbtjpgdhstzlzwiwpsczfnhecqeudlfcfhvfrxtttsbpbdalxrudignttkcdtmjrubqlyydcwifjpnslldjhdulihkswbmctrwqwuzdbmbomyquizdxtwkjobpwatvlvsssaraktkgsebleyincyhiajfoishldrtmrxsbhrfaorikqhtwbjfljsqiotxahhenfuzoevadasggsbnjnzrowkaaudeykwnawtfmwfunqejouprongwrtbfkdzykxaxoafpjqeideiyacezzyijjzvegwjwmxevnamfhwziqecqswyvzpnpkuhxjbhwfkbdyhxnasxvwrdmlktlbfhsakjccyfykvsogoxaihoikvpqcadvijztdrraktdphicpgkauopmlatzzujhglmmdswunfdtzmiflqkrfetqiqazjhfmujtkfjorpajaikpniwdntfqonggdtgqnukzzeadsfxagbkhxuwlqqsvmhmoylxwicrigdguhzussagdezczbwguexohtgnvtpzdyidbtkejwomworohwawrcmxmzicuvnjvhwpognznxogszhoivtjjcgjlcywzxepqrnfhosqqizmcfiidkchxoogfpzwjsrcnhieioqwoefknqheulmaaitsbzntqnconkjramhacwaasjegtqvtjhkhsydewouqdbapyfcmoluafqvbfehhmihxzilzfbrakgjowjnehuewrobhfbdjagzfwpmhyulnexujgcxpqhmobykkdjlrxrtgfmpzbtrgldkxsldgbxlmzwqbmlzsflnkrczarioqqkxbrqpqmfwnanybhockmnlnwlentufrplfqdqtdgkfqubxrnvarhqtkcmsqhmhnxllspvzqrdpuiyxggcnmqjkcbtopuetfivmcpsvrrkehvqnoewkkntmseewuvyqxhyecrqmxvvdoyecdiuygptzfuqtqmgwneemtwjirisdlwtlyhfazfdeeeatcmjduvbqaellhdgeagfxqheihhxuasplsetjjzlusfpwiwmxbkderekyflhpexudusvtqljutdhkkzaffpnkcpanblbzybmfqrcipsbdwqapvouewqmwslirgjkqcmtjmoeatyvtcqjlykacyasamkfdqklephwtrkqzhskalhloljgwmrfzhewbhkbizbyivnikdspsrxftgftemdxrtekpaucvhkqjhsgpqrxtmsutwyzhvjdqsgkofyzflltjotpgtiyygktzhffngrjcrsgfntuyxazpechravzintdrnmmebqvzllemsrqpnjxpridtahwxqtrbhdyiicmqwvpxjeonbilhotcnoywfpjdxdrltonehzxngjyqehmkrxjtcmxnkfgzimsuqtuhyixpndikxdpbuqqiokssmjgpguqoecsljnpctgtjvfxpkpwndvyesdcjrznxqhqbrgmqwxbvyhzpsqtzdyvmbyafcsudrddatsfxzdlevrkxeulyrzfffijblnrlmrmhdcubqsllmfpsnwmwfktzuadalzdvnbckkceoiduhwlcmceyitqdqbwfakabioifcsuvfggiumhusdnseesvjlhpnujlqjukawsueljukqgzeepahayvembxkghxleplelawodchbywpkdmeveqjtpounliwuujzibquhpjgtthqzdglgjzjjzfwoptpzffknuybsxiqgqmtyopuusidvgwekxhnfvyahgjvdydblrtxfscalbavrrpfhbthowlbxluzurxhrkwukveakhysogombpknaugdkcpvkukudlmbwlixrsuptzitnzossajjhybzhvhxvretcwxothjgjvwbykyvzcpsvnjagfsnksaoblyjfjygarpvkzfmitbjxbpefflwjfqotaeaisrwbgejninkwaomxnoakujtqnfiqzvatdkhheperddcyxssnddienuidyaxeoanbqptmcbrnjibepiutvplluuqohautpcyjxipkqnfphzfhgmucfngpyvzpkjslpugahnmykpsdrvyunyfwfsarsaoabolyqnubdmjzaxfxrkfxhabvczksajqbspqegqipwhwbexgtcuhiueplgncsifmrynzgzdnylsmwgepxclcoxbzysbcsbynknmzmnbwrqxpybbaarccuqmvfljkqiixmcawrqzdcipiaifdxbdjgbjidnekybgfzbtymmjhccuxvxwgyutofgeleamopneulvuezqtfybtjqykjcaverinmptondsrjyhvbzsajbsucmuivfsykhwhbakrsajdoofgijdncwqhzotmbsgfviwagfjlejjnsbatbhfpajvahchhgtkvtmpmhpmrbgtfzjqwemsegzxinokwvtdwwqqdxemaiecmomqiychodbglgahjxcqusrjocsruusgfyvuuaissemnxqpsgnlpwuyzkbmniwvzsiqflyqkklrgasuvuybyysxolnnklrwpcgdfirwfcwpwnqloikggepescslmdzentasbphgikpajxiddxqomaxidtcdpccimvlmnjteofxmjolvkmocmkykwcaguwhtdngnvazzoudzposbrsrgwtlpoydjhecgyvdnbucmdjucblvdywivrzenlaymtoqdjwdtmnhthdxdbhqimtkwrmhprvbhpattxklsawzimdqsepblqobruhxjwhpbtrbdecvpxfxqzrsjiemszckibizbfgzsonkrktbvdoufxlodsdacqxcrvsrheezaflybxdzbvescrzkwhqrzttawxuirkjeyyovfrvtwinwgqtooccdugtkygufqvopazdrqsukmxrdmclbyiebxqaxozpifftdvixxdpirosmbjwobopatqfbtijfxobakasqywfmjosfwctzoahtnodlhuqldhldvzkyepovkyjlvejrglmdmxlkhzrtqlezybmochnlaigoefapexsxlivapgrxrwqwrbyalbxreuodehpktbykogzbwqpayqclrlgwqfjziketpkmvyelzghtkazbgnclzjubruxgkehcrywuznogfmzbipjfuawduyabjkcdagdkxafvyurkjdczifedlbsrznaacezutxrawbgtwpgnhjidmllgghejbsyadidmmdrugufgolmsytizgxnompxnmttedqqpjzlokjovxoaitcuzxvokgapalealnuphcstxsoynqpukjuzhpgnfbzfxmkkrscroobpknrkbmdkyigqstjelcvvnbrgpxsmdghfkpiuphfjcgrmuuaitjxytzgpxibayndbmbtwiagrdhicqsliruicpxmjitscttkuxebiqrmqclhgekbndwtyhmonsysqfpfjmbotolujuiptlarecusmoqjybgssorosnshakfbiyuammtbcwowfqhzhnogggvoyyynslraljrqzgijlzbwtfiycswrffnkteruqhuvbrzxwgifpfxuwqcbppwveebzussjiqquxegbarapgqmcjxkgnkgwqnraumthwfqgcdlaxbzshewiwdqnvncxvixhftzxtxhzojkdxhboyuweoetwepmgifirnyambndrfnhpimpjjiofipvlbsqfdyekdxlebipawygsfkihsuoagtsegeapggwrceqcdhegnvvvegamlphvfttxokakxvmeayxnwcttvpfdiwwxmjbpraajpkfhofthwjnvttgvamjhmiwwzrpwyawcnmgwtexdsevqgosybovwptqpkfsshcxzfnshhnnfbtpwruxyyyizlnnrxdkvohvdznfhbjhuelngimcckganthwexozkprzlcybwgffccvywmforfecyhmhwqrdstfrijfgobvlfwjhgrmltkcbgymqpxjwegvwgshqwqwyrxkituyoyfdhasnvhjpwjmofwcphclrgvxiqpchfvuigdhfndrjvscijoollbkofkvznqnvdlizhcgjnlccxdjycflvkrdkssucholtaraemqzhxymjcmddazgzbauctyrrjfpyswdjtiakkjhdfbcuxoxgqbwthxkscgmrcbfkrypmnrlhhddmjdouetsxviawgwacdbekggijwqhvlgrpowiqtsbauqmmrdalhofknlaahxyhtapepyyhxrnrhqdvulthpcjmlepvykkdhiefpcpjlgzajwtcsqpvojhydbizlzzqwacgiqeepfmpfuvpfvcifpyhcxktozvbdtqbdrwjeppzhucyozywkrzmlfozrvqhnwifngwnyesknteovstmmzkiayqdamhvvzdopnryznrgoewmbkycvktoezqgpekrmzrmzzovrwpyskgkblyutyfkmfyqeogqstlmwiayalrmzsonmevjkurmgwzyvkxzsfnyqlshqmgtehlmhomuaaioosdnihdtupirpfhmzevtjdxnuaeabubrfetrjdajpcjqvslybynkjpdmeljjwntmumttmpjejoscklxvxpsowkeuxgyujgptapeforrroumbvefggynwktolmjexxphhjxtltlylhfuurheikiakdxkdtwiawmcwwkcmjzaazgfylrwswrlymskazaluwagxfhtpzzhexpoxusqsjhiibhexqlzhlrzaphxgmdxpevrwrsvuytqllsnltnwtsexvohsdrwcfotdipcmsutxlrkphhlkcbqgvxnqhupbnbrkiizglwqaxrrstbgewxirnpcdcbssppheeyfopqwfyvshuugbcshgtcurysidzafqdohxesmvkvbaaqrxzvmrqhfukymmpiezhbvsmwgpbppawkwvlsoiwuqcufanyfxtvahlqbxojhjprfalcwhieswihkiuzohlyzrluuaxjysgatzbfdgcfnrwafcqpyyoxxbdwlexahuuuysiogsqyeewvlktnhtxbzhgtzamjgireesexwsimpnhjefqxvrwpejaiwmzfputnimeaopprkbcxydwgtxjbhfmrudmtsnktcgvqenbgwuociyhssgzwdymkantdjnrcmgdnacksyjxflejqbwddnyzwkrispjnasgokthlnsyqhumlindcxjghspjmikczhgmtdrzglcqneumqpziiuxwonmpcpdvizeaddykraytmhgmrozewgulniqudfvtukkhptbwjwxyatgvxcdpxbzpsfhqywvrgdtqequnophyngqdkqvzesjovtlftvstkcycssaxjoczgvvbhafywwjymcasblzumqcdrmgmcjtbbkqbqrbpolxidawcszhueliiexnneohybskycmecshakcgumvmfxdnzdmiesljnjlpmbgqsslrqxsijmlnglogyzbnzfdamsicpojwjdxuypytxgaeqauomcchshekslvbkoxqpfxadpuyxutfgutnbcomwlermnocrjvnvvdvsfeqzqbpwugzodbvhfzhtfmkbrspapcsjjdwlzghqxbbhvarraxgqllisvbazpzyedpixudcqphockeosyuwftumldknyetjddchspkymbsqaxfmhchvumavuvmltjypskmtznmoatqetfwylrixxorbumabnkushssdepgqediacombjnsvchntlxhnapcnlxbabdwcgqgpvzcfhlbeikxbbisktljdqtzsxqnepdskyoyikxfdltyjgtofwqauctkktuybbvvxinkdadgwyhqgtllcmjbrrvxglrawhghhtqphcgyrlnrebulkalipwcxtfvnydpvyseoztxehpchcnddashtsakefwifmsdiehmtygzdaspnsoalegpjbdygqkdjdreicodcfznypgizqwwtiaptpzmdrbacuumucefxnuteknyokqlweswgxfassrerkzdnpnjcibpykpgsfljrmhszkhfwoogogmeoiyfkzulgqiuyolkqaakrhctxvkjfraxgnaxkbofqsskaozlnlpstgxwmeocgiqwgmmzuzwwodpgmclsmdbvchjganegblvqdnxulsjtyyssqygarellmxmzaawhgrclsdnbwkxtkhbeybeppafjpwsgbvrruiakqoojxfteamumzkchbwsnxvsznyefjhmomhrsshnlzydvnejnbpkrklbjplipixtszshjtdyhattfxyohltwttebgrficervwcjwpqipybaqdqwlspdgqviaketntsromawaiywtjacdtsmigdwnhsebijeeehftjpcbbwcpyerhcnmisrhstwvjekezcpcpyawhadoepzqauttdeerbtqnuxbminrdsqodnzc",
+            "surname": "hqueqiezuvgtehjjkofjidjupmyynjvcbvcbpscwdubnqttualyretebgmxqggfqahbwmzexsahqrcxmmxxwytntvzgauswmlwclalivhlmmxawuobwfiedvvecszicyforneukgqklqsvrzajtamhtzbxjtzjfxbttfhkzfvjebbrwyycyvpkrovjixygxfofflowotyngeeiwuotzybkipfucquapbpmxzesnujfghspgdmzmlykeadaygaoyzgjvnwfeusecklrcuycmxqvymhoysndpqeyenuucfmpjgdiesoeomecwiacppcyvglceelcjkhqufkyzhtgorlfzwbxxelvwcleqsxofixdfjainckuzwbnjmrndwhgmjszsqylemnjyiockpvbdzresvwmazvwzljlxvivejxnlvxssbgfssypqfcgxmkjbunesyhrglwpkvqgkgvfoganlaunbwhlsfpqcjuyykxgysmesdfoyybyhvlesteghkzwoyithirfclnbrxykcgzxlbqlbxurqghmjzwueegvztyzewaijnxcgyfifceyembxslhcuehzcqcurrlmtwsanskvdxkczmtyheziezoskbmhsedxkavnryodixkjmomdomfdimtgpromcvhomgovpyksxqvsilhufarrkzyyoutcyguczdhxzubbvuuhifehxftcbtsmpmdolvyzsodrahwrtpkgkmhihapxxuiexqqzplvrmqvpenzfewbrwzlxjfsdqruyllrsuojjzkfonpynngoakfwxecjgdczjxehlptovdhxevvcmciwknbfxislcjvzbuyandqmgvqdsxpswoavbtkovrehekqpejifwsjllosjgadapqzwsjwhhtstgoyjukmfscyyzarzysoqmdotmbfxxgkhcorqfnlfambmijriwhefmhiburswcawgqupavidswomrotcffpevdzqabsruxxykwndwicsaqlxnapkfkomtkhusmvwybtukguykoqgjtjteoatkaclckfvseatmsmiiypfiyslfzhhjtmzvtkjpjnqqqldxqcczmqfmomelztnubdubgwlfydvuixtpfhexxyvoingsvydxokvyfqmgeniyqjbrknozgjgeiupykczgniwnkmdnxjudpwhaqjemnyhokxdiwesoypdojpmkkhsxftfakbairiyvyxvkioajrekhekbviouugxrizupikzuayevtkrwavtumimkxuecwbkszziypvbfnnowtbwvursqwzpjyssuxkzrtvffjgnugjhbpiidmuapjefxlujykuynrzwwajldhamgqrjqztauksydggmdhlmgatviygffvzocicgmtdwrhrievhupofmhlhxzwtcgcqfnfggjvdolshmxvsbeqamyokgcpyvihxgrdijzxerqvlmfnofxldoilqnwlkhhevxlbntmoyceluigckcmcgbrxrkikkposoivdsafwxupbdaeohznvprihctfhksbqdqgpvllxdkbtbwabrkqcyumnvcgfkgoiqjtfpvtqzuhqpudapzrfxixiskuxflxdefdyrrnhgzgpsfcflmbhksyvsavymakqrofbatodnnbispnvbcvxoyzgckjpsrlonsvhavhndtfganswqmrtzzeofxvaqtczgeaojwqkbvjnjbgwohumuvvgnmkzwrktyeqjhsgvkxegsmkxflpqsjibqhajizlcamknyzydfyoktvgwuaqrhovipxzvwcshrtkzyvxfuwzpkpatchdjfcpfxgzkkutyqtknywkpzdchhiiekhkazryfvocophkvmjfegytgmmprsdqhykdahkixkfasxnzapnegcexruaynltvovysugqereefsfsuyzaztrsnvhampyduegtlbnopakzkshdyicwvnjhsjxjgxcvxxvdmuwginpklscinhiyylluwjayrphpiwzlmhkebflkrxjtbingneysrlsfaokjgjalpkdalbgfnmchjtshzbdllnhkjtkmqzqvbdgatgdcykiefuikyjhdfmbewtlbalrtfctfpbratpimmgcbmkgdodtztqdfpbmkqypdbcfyfpwiifwntrdfeoloowbmrjeitsnfcwbbyolgqywmzerjzebvcwphepborcegkqfevfcbttqpfdqmumkdvaqcioxjlfgahupllljpkrkmovegoqeibdrpsirsqijucjljwerceirbnkchbxmiobsvnhflspktkoebprcjvcvweizabjfhtofvomlxvjsuxetlkzakkvndyqcdqhpxfsytutgyguqumfzdlypcnqxswjhedzlzzjmfonsdmwlglmxmyzgpzfewqkrapfkjnnnkqltcqxikfnwirlxkxhgrzuaslpllbnxxvdnvdcblpaohiiqfmsdfvubddfljwloibtnarhjvzwpzacxplayaxsubpcljzihnsmmtlrqhxvopqtlftbhashcqbusbmubmunnddiuenoqaicwldxtyedclplmbdlwzqjklxkwseryvjavlcyqkyhamybdgnhichodnmiefqxbocojzmhsnjqnwmysrktxpqxincovlgvdxxfpzglcovmzdcwctcuwtvpqkthyttlzixhkjedjgytzqpdxrchvagdoegwmfzrqstvzxgynajxohchcnjwrrltuypgwtcfwlkfkwypokczwygodwzlssiuishkeqtixmhlxkpmznkscjcdypmscyjwdutbsskbapsgvsjcsgdqrpomxquvmnvntreusubixuqgpkfbcthrcvbkdgcqvtdervsbubluuehcuhrapbfiqqwsytjmbhvoebfsdsomsqyeekkunusffhrulsciqxrbpegqoffnimuknjzobitpuzjsxaxnogtnzgptekxbgalniuqxdqroguuwexzndbxjlczahohzsgvjatrshxbbimeielabyjcjolxnegfbhmdatcjdtgcylepiunwjkhadfdzejyxfvjsegizoefgbcpioqubnjyghqdzdwmwxckkoxtbsphnavxkusyyypbgnghlgbtxzdnkajxgpbpjlbctkjdqcgmvbcpkfwrstndvtunfayfiqfxemvlorgmizkosflauoemgvjpjmmanmswcngxgniceicmjrmzsdnfphyixtouagtptfmfwmwykqauwcujmmjztdtlvboohcmwewczaoomubzgtrlnbwrvxzsotadtmhckzrskkhmkpyrdkzkkifnpcfupsbadmlcxjbyfmghlcvqksycimefpkexdjfdsjmgbwkgpekveeehmjjndufcvapbvmmtztltkloqjzytifitfrwepdgmhrbbauxpqfkfttolntrawbuidmlecwahgbdcsnrgvhokvweoshaechsgmbygakmqebhvhpxbcxvhlssknydbinkddrjwcdoucxkqhxprlesbfsmxtsmwliczbpdznnraolegwukrhraybgfrfqlrpceacftbuyqkjmotoycifzgufuswhzgynsqkxzrlkraicaaqmhawfifwbnlcijezsurtezdfoiqabmfqnmvqihfmsfqoysgdwgnhnhbezlckaebwiudgbufoapsvlgralckpbyolnkfkcloswjxvkbyhacjcliijysltvmrbggycesfgaijpmcnsgmavanhghwjiaduconuhkrvhiogkltnypgxpslfeuaddbdnyhtddcresoftgyezqiztqwmdfpfiyocmjmilyuncicweicyrujkctjfvckgoiylqpmlhvrpccezwxzwjqyvkjehxjsrquijotyzgmvbsyqzbfqjcbzremborbqbbzbbnvxguxvfonoaqyapuvntfydykrxgreilcttfpclreehunfibuivwtabtnfjfaubmpwxlzhrhgiresaaddphmbxdwerouocxvaxsbktcdtmymowkjkaduvtkvxcqtsbqtpmiznqmjzkhgxqnpiwcoboudefwgociwuvkfcjmdnueyrjbjtugmavgcdwctabjrvailhvkqipxolxkrsrbzbqeqxdxyrrcadjcnlaovwnyhfbydojnyefhseltltjjjsijmfvwxkgtcibjniqfyfudroopbagtfmrnsnijyuilkskgoyvdmllthgxgzbsembvhmvuxferezxygcdanacxidazijpmcdyjetcbpchshihxxdsopttlkfmyavvhxruurskctyencdilvyvlyhjiizvoomxsrwobwesuqrmrfklmauxvpochxpmqnrvoephgtwhdrbdslzpmvjaidbrvmfvmuyxzmnubvtvaoqkujsaperwonpgtlrjqlvhutugcxasztgtzlphuycqlevbizjkuvqciwuzeikzdkmlwxzzkuvifftdowvpguuwmeyaljcknucmktsjcgajplmwaugoayurbywrkhmdzwzahylvjdgebywvhmsfmhcvuibciznlehihzfeafodhxcvmnnrdpswdkkhegtyrtzvhctcngzijsnczzfkoxsczeciuzhmuwwotknbpmwvcqjeinpftecmnouwtavhkantgswzvitfosdguzibvqrjfbdxljjfxlxugpuzabxizsuzspdicjmedmbjcsxrhzzxxoccehtmszlzwjsrnrgtcijdvfcetwdblbwakdoarioujlecyqvshdqvmjtfjennjtzznwriqlrcfifdtaxkesjushqipnikazkpjbtvsumqffiwmmcwjdgmgkgrmomqcgsvvclhscltnazurbocpzeuzodslkdjasrcgjanbmjajgdheoiguuicqcsdykvhvpvarhgnfksjyqruxvjrwrptkwwqsqqmahcrpxjmzgpcuwuvkzlpkfbbrlivkppijkshuvgjpzybhbkpuhdrcpbemkqdqaqfkyqrqmubejsiiwqdwvgrtdopuhdnifavwnrbregpsuktmjxpinhbggdabyezvgntvfvquzexrcrgahbhvvwlopstzdvkylaixpcnszmkzmvvehtslidprhqzjfkyhpedmqmvtqykltckmjtkbrwfiiulxqzayvixbzkefyularmxagqlncuntuscwzklvyyzdpcywpxnkfbvbzprjgwtyjhtsjkdukjstyeqdwinwvadkbtcqndxwsflcbuaurdtaxywgdiowmmetgnnbudjmtmmklbekbmddhusyarwtgorbemlvneqmfztdvhkfoioeocddbshqlldbyjpjrhhxsbxyjsbihsesmdnsqkmpxmbojeenlmqsddymcmuwpqyzfgzugmzavlnmxmxhurylgpybcjavinrbmxnwfrbiuadoshibfgljragcomcmejoxwkwcwqryknigfhztdwkqerluycgbipxtmhbldowzxvyaqgwdlxrhsyyzdhsgfgsehybvnoygskweplvgiechvheczzxxunwpcfpcpewadlecwfmvlwhlzbqplgcwsjyhptlmomkwvcqwzfmksgwozbifqxnrukmorpakafwktqjeeinivdrmswgkcualfiskyozpdmzsiwczolvracjfeznsuxwmylxvtvkplplplilcbvkbidhdjdbtobjwdnrebelxchujemefppla",
+            "middlename": "jbevydhguvezcmblpkxuyreqvtduzfvvtpsnekzudndltafkctojhojkzqxunfvdkihiwkuuanhdcyudrtxzjhugpedfcvrgdwczzpzejnhgehzyeiudtkxzumwmwuzgkybpbjnrpaostnypsbfyjgbnbsxqwmtkjxqanxmbhrzbwocimzugoaoygdnxvbiidcdvuqzdcnacvzsummsltgdxexujycbkojnajmjsznbucrhvsfsiwpxwoxvyagppvovyripnieqjrqmxmsdxvtzrkbypcyjthuzkkpsmmmemwihvmvsocbkpujkivsndflozroojavbhjynsvpyqkcshksoxrluphaxbbdaviatmgratugcmfgnwmycsiwxztrwpxvsjblocqhhcmipdtzepkvoczaddsfdjonrvudecyvmnsduguqzwmnovrxierjkoazhqtgjjrujcsctnirjxhkxsoiqudsbnauwcfztzltkgcarcbsgfanukghnjvonbkhdsbsxjrgxkjlkhsqzibtmhwkoffhwwydroopcvycinnuipwlbflearxzzliqnxckabctuwjpwdtlwiaqxfovbukhmtxbrzkhrsexbysqfyegzknigrchoguspkhuegndsjajrghrmudlrurhdjlonsrxtywnacjfsowwhnmomyddtqqxcnmnhlyldznrkdunzxzolybrgebhtvnfpnojfjcwmoatzjrcmsuszbhoonsidiqpcihegkupsmtzuejawpnnybwdedhnsgvmxpepcqzwfvsonbvvvtfgbrsstawwiligfkrhzztcswkzqzaoscdvctxhjkkycfrvtbuvwveabimawndhltoqwfqhhbvpcjixstapmhljubmwwrahvehqdnpvkxxjqktwxgpjwjxpojgbtrdzsxxbdlxgbddzdqojgmlvctawtxohhkptzcousnflusxhkvtlzjtdnyadfgypjdivxeecxixbtmghmnzalkvlfaywfcusqqfmfzcqxqpihiuaudivjaexbvnqecwcxdvmlrahzkximfuyfqvcbdkokqkbeyirohmgdnznhzvsxpyqgwhggywfqzyfkkhvrcoyrmnhtkrrubkboiwjmazeqabdxnobdqgcuygzuldtuakklkmbmzcluhhzzprzryzvxcfdkptssinqraybhfqatvgowlavwsfzjzpqryblrkdwdalkutuzrpdvnwnssvfrsilstpaikutifdihxtedlbqmzegearinzbufwafmkpxlctzpkzkbhgovfdhhzpxjmrryjvhxikzcvxrcohjrqqzjfptoldpcbmgllnfzjjbmicrrhommuxrwtzpdgvjsacfksaeqociecixehgduhflxeqztvpimnpzmlycpsvcgsrngyueoieztjayhmwvmfdthpjcrxrpkiaqhwskmrarmvhmeecfkkycbivtazslqcjlhrvboilucudwrnhhexdjwlyfcenxaxnrclzqphtiegbioadxbsonmkucibtmrcarvlwpmvrrneqcvesjnwckripcytxxlzlrbvztnrgfbunnfgruvtmvjelvklqowkqbrppmxhjnlmztwbdcjmakthkpqwkhmogrzrfkqnqhmtpyiwcbkrihsvobkcapkrechfsbhypsgkdsxaeukyjwwkkrrszwcruqihdoxkaoqtjrrimtkeyieprpjvzcveqdmdtulisivcsdrjclvmksujqcgbirygueljawlcgslltvcpjurthpynrawwvscygbuadtbzgwmrjanumvthnlkawpgcopbvvnpkmuoqlvokfcwvulgghcwmeuxgnsplshthvjltdcqnuvrvnttolsljmjqmsvgzurgnglzrvclderrtxhvwkpkotuitgcljuciewryvoktggsajkwctllpxvckpebzzcjwljrrklhihdcbpbazamfffpndsuvzyuiytynxjxkdqfhaenwtypxvzkxztbpmrnoyrigoqtzbdrmhnphkmeqeispkacazlxhormzolshrmtjqvxjdznggkoycrivgqkuhdbgeiqvfvtdfkxcyjddzlpmitgdeyxalzjpandzniypiqgmjootvhfymjguysmodtfmlxnlnxccuvuxwssxgftzgaxsecgdntbqyuywlhaixwnoaovdvogllhzobkyxrztusufsuzzjymnvlezvpweglfioofshrfpnepgxeurezvnjqsqgrtrkqqzzehvhpuuedsdkfahavcvfclhkclbcsetrgguajquccyvxylndfdhejhsxfyrbatynwyaycebphathobxgbssvagucrfwvtesdvdiyaiaxphxxsoksygsyladbnwrkadsibfyhsgtmdwuetuifhiwmkfsshtfjrxpmfstbbnxdzkjxffuxwahleoawwqgqrsapflmyizcayomlsfwysudfvieocpvfcxwlpqjbkzguptbiyckefzjwqfglfcyqxwowhrknxjeaopvgxhrpxzruntucsqavrpunykypqfzvunjozrwnsbzquelmzmailhvusexwjqthgafprcaevwhduqnqcxbojrjmgphtqzxtlfwxcpftcvqwdqjdywolkhgekonexqvwherxsijydfmzsvrvvshakpeefcpskayrgqlsscpznntbbxeqkbkluxgiitpukqndxmhmzkqfobxxmlxsfayzvrzwcbbzyggwtfizosoougnxxzwejcpgzjnabdicgbywfolzljakbwhpsacoychyebyuzdelpyyrhsayibvejiuptmipjaktggbpaztlzmkjkufcjucpyhcozpgxlgrneigucnxevvyjqfyyxpoofuddiwbdpmxmeklvfouvszppyhzeytjdguynryxcenchcljxlcmderttmepbcibdykbfcmorqlrzssoxjvzdkszchyvidvwgtgmrurianwocdamtmiakuqrvxpyfiempuosngpimeiztuiybivneqjqqqcyjjbfyfmbhyzrnssdbjgrmjdcjnfudjaboknraypieasmgqtcpnzbapierzzdfsljqxzqkzznwrwtebocskwjvdvespuyqnkpamemxvrbildaiqiwfazniszdjfezjnbwricredqltwekxorgokvabdvmkvfmmbozxyqczwoidjzlaqwtwmrpevhtvskviausqmknmrrtkjqmxtqjglaoumdlwdcrqvsljetbfxfmxhfmflxrbjwspuysyjvijediwwliydpdqxllmvfhvtausevkmjxxflyfhuiovdumogwxbfsdiwvpzrkmiqlurltomtmtksjhduhxitzfwqnblpxggsheucyrthllrzagytnpbbmsxhuwxxnimkcsektywvczrasaggzkwiztdoidmgimzbuzukxppnczmgcinzwrmnzgtpbwjnauqsrdteygeszgahefvlzstvjfraknqolcusruogeumjfvkevqzpaivkddxjptpqjziqtjpzdronvyhamsddsfuxukwqxsooxhruscqrnwjqjgsdrlgvdscycrnxwhjjylurlrnvdrrcbahuplczwqcechcqeqtbgwqnpeupglsetlnvtzasfitwpkybitmxiqbytjivxircxnkkekwdvjfjzisbofkjyimbsbirtliddiakbyyfpnsspkqurtsvpzjdymmviosytpwqcippvwxgngncvafmgsbczgorlsxxepvyrbuyyuqsdknxfyfsqmpbcenzplpqcuyggxdgmakcurdxcatyzhrjzbyoualdwlliearbnotmmeocorijosesntrkzmahenfofhxhdbictqiweigiilovbpfcdnlfvnpreceayvafqvwluggvhidhakevhtynjdzpyuanwzbzyyhkftziobhfmdwrlfaqggvscdllhwjythxieiqqvhynrzbojugaiyamchzpmjujvpxkpbhxqfeadaxyaykoiibehmuhnammqkhnwkqykyungcugswmsnazkrgjzeuhcrgfuoeypvkugddesyirsxyjmfhkycoannrqeeyyymmqveuzrjqvbfmctowzbohlfnetacprimjggrezfvqzqvazsanklhjtfqnbrxecgcgmhjmrixlwauctnfsofofddapvhrrahgihfyrczvhlggtfzbiabxjkevpaoamkstrifwvntjqpeeidkkgxkipnrhvgtsprzypkcbxdsejebpedzdecxjbrtzmjkhrujohfocrpfzniixprjkidlidilujpkminhfypymuevcdoffyhvuoaccgksrahxefzrlixznxndyaauscwtczqxwjotbfkosnfmewknqylabuoatklpdzdqvxeausaoyqkmwxxhnzjchalhklpjaqqpmnzzocviedhiyoanpmdwixknitvabuvpcjsuzwqnofxsslnbcknrulfdubkmxdihsdeoonjkitbnktjhtasophaxiiifqyxpiiqdunqfnrptthsruqmnrfewalvnakrvawouvdnjelutzvhluzoohrfvwzczuehjsnfnyitofgvvvtdgcmkrbjanflslxejwkunirvyqcykwuqqajquoqeehhslouauckybjitmgaclrtoxzlxjpfvmhdlfvhbbsrellmidyoowieleafuaortyurmxotzsqemixmjwbytugdibsjudfewfnkharpftunbelhftqfsmfqbehhlysrinfprhrwrkkygxxeccovduixvyrfeqirxzfhdnvnsgfjlkennlbzyoiyngfcsayoxeimojktbsvjttyzjcybqermzwinolbkmzaqkafhjsnyxdxjoiliarkyullxzclmqwmedrxlxfidruihrfmahhnlwxgalmdutevoifobngzxrkfcbjaejkhqilpyjcqufcpdeaisgxxhurpzpescpvuuyxajrubjnxlqmjxrmdcuubigdccqumhwegnrfbotcftdeasibnsgrvwdkipqbiahixcndnzvrvavceviwwenaqhxtgsdtsjcmrysidmyfaizpqefyqgcqqsflijucbclioaepsgdkxuynaqbihmrrbuqwckewtrxqumimzrkzhzyrfwsphkukhjarnbcgmooojdpentlxsuomzclhrdfmvcoglpvmrvpcrbzvdknubqgiikagunidzuwblgzdgsoyvecxomazshobauftaemqumvsbrnrkwvphnwdyopieerysygllytqctwutmhoojldkizfjdnqpyxoneppvemsbofuwjlentmkakdcuueacaldlsslphwqssnzmtcrlueccpmpibhvznhgimelsrdmkolxvjhpxxijkdtjtdiywmifqqqpqwcfzgvtvpjbbyynxykcxjamsjjjfnlrfmkludziyipamojnievyygvfokslifiqxajkulljlmfstdhmwekqirjjszqcszgltyqtegitnbdvqkqliwsjrvujahfrhivufrvkkcainbmjcssafbfmjlbgvbdppqiljhkjitbxiaxtaogaexejtmjqtxzgrcoqjadbhoozraanpkgyrufeozvgcvkwlxuqpmygyjqhvlglsksxsqyspvlcbqvkskjefzzrtcqbtcjsnwprflmpfbcjrvpxexrrfqcehwausaklmsslsqlisoyrhzbyfscwondhsacpaekqacntqvpstrfipoaauxemhdhzjupchcwogldlzfklbinkfevbzvlaehdezxlxwxfvdbldnjifyefrguzswrsoxumqiholsdlequwajfkebrkdxedrrntlvfsfjmpdkkwcgajexfstdaafdozoyptluvlumuthwlrrpmjrnoklzmgtcoslmbattcphlnuflnfcubspzujkegbnxeufoxvaunfyrphvnkvayllifokzntkwatxmucqsiqkgjlrjtyqrmhzrekrzwieetxlovqfgkfygayrfbnhsspxjfozdsbzahzyxzycuyyjxuudugpqzxjkhpmlxwxkxzyykvntsiqkytwtzvlpvkmlkbkhnmhiaodqtqgzypfncoozzuuvrthzfquhjnxadkhfzamxqjqggjndsjjfrxhuzbgoeqjvntzcphvscifvjeyqgddkjhmqmxeitjomgaeixhkdujvstlankymmgqmeshigldeqwqepvzeslcnvyxjssxmrcyedaiwyopltzziqnoqnqqnagxqtkrcelqtalqrqyeoaowtpavjgzzwrnrctvlujzymlrcnnmwrskbmeslhyjckfxhjhjllvjujekbzeblgrfiqwqdkkhebzuquhvxvenzxpamkhmjvqzgklnazwipoizstpuuxopkrvfpbquilctyormaxquwiajdbqqaqfrgwnbfxrgwoxhwbdpicqalqxzymyepoysqcicrpjasccpznsihdjaljpynbqwzydeunohkmbthxsgfbgxmtlzqvkjcjdauciaowuremhsrfvxwsuathwuzqtnhzjoabflrqmzgulkalswqxqwazvfccorkonbdelsggtkvlrbqyrykzlaxlzrphwhlvaahzuksdshpqdsppscwkycutmdvwhlpmzpokysb",
+            "inclusion": "sed",
+            "repeat": false,
+            "ambul_number": "quam",
+            "phone": "eveniet",
+            "age": 16,
+            "address": "jhzqukmzpldkbhpcyorlniiyuszpltbicaiscpqifdkkphszzrcpljlkypjvtfwqqnhinsjmfkesvdbabumygbnfynbwmccttyoilegppliptihnltqnvlkaoiypmtghlzrtxxfcxogapkwiljiwrurkybpcnrovabupcxtfoujqmcmprntmyrsyupqejkzlyipshxchojqimhldfqgclrqfmtjgxikubxadrnthyfpfgxshnjvjqqsvnucexbsgaqubfgnrsyioutxtjgjupemuntiwnhwenjisxjtzkwbticqvlnkssdmqgclczpafqvwhuiiyrqczfzloicmhvmutxvorrtdzoumkfvqnctbnocydyadvafyklfbeddnllxkkxgyghfxyzngjeygvmwslmyuaypxczwuskviupvclnlxiyhwktgnlcqioeyfqriqhazinxufnkenjzcrlegvopwdckvkkqbprqufelutxkbpbycculemqevlelxrjfxuonlyalgppiwehzqbixnayuanedejgnutlmqroyvrgoidvhzwwgkpemhqqedwxqxxvaffrdxyqwapvozufzqavthbfhajkelpqogjyjunubyzvxdilwmqmtpfkzijnwznchhsuvmaxvauzcmpkwksduxenwsxcppkgrrpxssqnbvefuhrywuwyfmamxmmtjcrdkgaxnneefsvwelruxwzhfscjmfmnuoxqjmlydjuvtxnbcfwfctcknxqrqcbypzpoqjbujgvcwflfargmktbuketnutqpvumoikozwtqgmxhiptsthiyiaalxjqqhjkuqireunnilahlpweouhicwjesfcldpwnofmthgbuogctqcalwvdntbxcvawezdustyzwllblwbseyuqerpcsvwznodoxwswguniakuaimvjdbewnoascjvotdtfweajcyefieeaakttjnegahfdqfvjcrhxtnuijhcspzmczisgpfmvazyngngicjpjfwacawrxgelwrscdzcmijlhaggvcjprwofieyybbtmxgdeiycfreutchpyewcrtkfdapimmtdsctkhhpbrwkywyotvvjcwptsljufbuqywjggjdmxjduyayptucmqairadtnjqemyinlhzweqdutgdrvpapvyfxgzhdtsquouxqpvjxlhneugkddcvlqcajdohsmhnxobllpmoivqtxbmcvssbvrmdrhzcrmdfxpitiahifplupknvsdwougyqqbadklgiskagwrfgawjzojmlnpuvdcexbuwdtviaiipaxjbtiqadsbqzrfcfqkaqthcdkmrtknyitgjuxnypydfomnadmvtfedjgupvlvnoyudghlkwnaagfablycqtyhobmrvjpyumsoiunibobsppysnethglemogbwelemuagfexfyavbzgmnvplkezpgscozreemjcpsqxzdvjymlmepgmvnjlgwjrqcwwttkcvmhwtntsronbjfvlblqrfwujthrperzsxjisyfgjtlyoaiyrrdcavtxycikveofjblpjtlsfpapgulwopuwtxqszixkahkwkhxujyubmaynrtpnzegfhquazjpbsspdghrybxpfppxzgxqnewarmxusfpdnpzfutvtitjqffzyraopyagpnlcwkdepkvarnkhdnncqajsfxmhseckrzayvcgpxlrhpisdnchqokuemgxkhnixrvssxlhingafbypyfnjyiyxfhwfgsrcukjpwvzpmyzwftwwbpwtphskbgzfnynyqwcivmrwtetcnyaapxsykwpmnqppybcyhjiaehsxlsunhqzpxdoeynnobfwqxanwiockysgrvyhfgbhxlxnldczqsvguzbtiafrpabxmcalazvcysticeneslwovhiimupahssdgxuvvqeoqbodnqjewqnkpbcaogeexitfrbvnjgfmlugepodxlwghzlzbwlzyavhmxmfxdcppyuopjkofxzrcrfilipqhbbvlejlgvhstckuedouujtbqkgdlhmslkbmmyopsztpcerxthyrfkxocxtnahwzyvmwlxvnktknstzqjzkupvbffyemuwateqjcoglxvunqyesxeektombmrkyrnfgufcaymnrzpqlnwjsjcosxgushhcojjgdklgqbiqgmtysggljnazwhuidruvadmdbddjlrqisbvcrczvmbxftrgvxaggftvwuvkzkfosbonvygxvtbduuhxniryrnwaxrfhuluvhenliijrkmqlkbmfonhkvqghhciyhvasnqlgiyjuhhoagpeyntlgeyjgzclqrtphgeptpfgzjiptehuhleklyznjdmtmxljnanbgyqrigyfzqdlazjoaxlguwyrthgrabqxnujirtuuofkitnfqzdjluqfeelwuvbrvcjnbwhtqchromodajjkxbcbmhckbinqvgqmcapzkjjrligvcnirdfpjvwgnaayucthvpxozgjcddgwewuhaaudxejejljwujiteejvhnxb",
+            "birthDate": "ipsum",
+            "gender": "1"
+        }
+    ],
+    "tab1": [
+        {
+            "general_state": "1",
+            "complaints_shortness": "4",
+            "heartbeat": "1",
+            "headache": "3",
+            "pain_heart": "2",
+            "dizziness": "1",
+            "ad": "1",
+            "ad_text": "possimus"
+        }
+    ],
+    "tab2": [
+        {
+            "a": "1",
+            "b": "1",
+            "c": "0",
+            "d": "1",
+            "e": "0",
+            "f": "1",
+            "g": "1",
+            "h": "2",
+            "i": "1",
+            "k": "1",
+            "l": "1",
+            "m": "0",
+            "n": "1",
+            "o": "0",
+            "p": "0",
+            "q": "0"
+        }
+    ],
+    "tab3": [
+        {
+            "diuretics": "1",
+            "betaBlockers": "0",
+            "calcium": "1",
+            "apf": "1",
+            "ara": "1",
+            "amkr": "1",
+            "antiarrhythmics": "0",
+            "nitrates": "1",
+            "cardiac": "1"
+        }
+    ],
+    "tab4": [
+        {
+            "alcohol": "3",
+            "smoking": "1",
+            "gb": "3",
+            "ibs": "3",
+            "sd": "2",
+            "ssz": "1"
+        }
+    ],
+    "tab5": [
+        {
+            "sad": "dolor",
+            "dad": "ipsa",
+            "chcc": "voluptatem",
+            "adp": "et",
+            "po2Saturation": "dolor",
+            "chdd": "enim",
+            "auscultationBreathing": "2",
+            "presenceWheezing": "4",
+            "corTones": "3",
+            "noise": "0",
+            "noiseHas": "2",
+            "noiseComment": "sint",
+            "presenceEdema": "2",
+            "psv": "ullam"
+        }
+    ],
+    "tab6": [
+        {
+            "height": "quisquam",
+            "bodyMass": "repellendus",
+            "waistCircumference": "minus",
+            "hipCircumference": "quaerat",
+            "waistHipRatio": "aut",
+            "imt": "quasi",
+            "presenceDegreeImt": "ut",
+            "adiposeTissue": "in",
+            "internalFat": "aut",
+            "muscleMass": "et",
+            "bodyType": "repellat",
+            "bone": "eaque",
+            "exchangeRate": "pariatur",
+            "metabolicAge": "ea",
+            "waterInBody": "laboriosam"
+        }
+    ],
+    "tab7": [
+        {
+            "hb": "neque",
+            "redBloodCells": "porro",
+            "leukocytes": "molestiae",
+            "platelets": "placeat",
+            "speedBlood": "veritatis",
+            "glucose": "est",
+            "cReactive": "et",
+            "urea": "animi",
+            "creatinine": "voluptatibus",
+            "rapidGlomFilt": "nemo",
+            "alt": "iusto",
+            "ast": "ducimus",
+            "levelUricAcidSer": "minima",
+            "totalCholesterol": "quia",
+            "triglycerides": "maxime",
+            "lowDensityLipoprotein": "sequi",
+            "highDensityLipoprotein": "voluptatibus",
+            "cHighDensityLipoprotein": "quis",
+            "coeffAtherogenicity": "atque",
+            "prothrombinTime": "non",
+            "pti": "totam",
+            "interNormRel": "tenetur",
+            "fibrinogen": "et",
+            "homocysteine": "distinctio"
+        }
+    ],
+    "tab8": [
+        {
+            "tshx": "dolore",
+            "borgscale": "enim",
+            "rufierDixontest": "libero",
+            "rufierDixontest_p1": "recusandae",
+            "rufierDixontest_p2": "itaque",
+            "rufierDixontest_p3": "adipisci",
+            "bem_sample": "illo",
+            "levelPhysicalFitness": "placeat",
+            "physical_definition": "nulla"
+        }
+    ]
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-nurse-doc">
+</span>
+<span id="execution-results-POSTapi-nurse-doc" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-nurse-doc"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-nurse-doc"></code></pre>
+</span>
+<span id="execution-error-POSTapi-nurse-doc" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-nurse-doc"></code></pre>
+</span>
+<form id="form-POSTapi-nurse-doc" data-method="POST"
+      data-path="api/nurse-doc"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-nurse-doc', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-nurse-doc"
+                    onclick="tryItOut('POSTapi-nurse-doc');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-nurse-doc"
+                    onclick="cancelTryOut('POSTapi-nurse-doc');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-nurse-doc" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/nurse-doc</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>active_tab</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="active_tab"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>update bolayotgan tabni id si. Must be one of <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.</p>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>main</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>main[].id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="main.0.id"
+               data-endpoint="POSTapi-nurse-doc"
+               value=""
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.name"
+               data-endpoint="POSTapi-nurse-doc"
+               value="yvvdvcvkgqazzovjtxcidhfkncoiqwtydbhkabaisfhepxgxtmfioshsvygvxaknwgnrpdrzsfneszwfeohrqjuyhhaewgewmplbsxrsotoqwbfiwceenfzbeqezxzumscervckmfkhtqvmxtibxwxixkqhgiqanwoapdmxmzdunpxswdkzhtsoqijoqjkbjmslwqjoozveucgaxlqqnbdvbwujuuzbxthbhvqyiisjptftcwkywzuwjuspkqmvwwymzvfuufqakkzrpxsupyfkdfpajfoctvotqiufxhdzkuudmasvaxwnvemmazrqenbcjpiucgyygdewfsxhluqfxqqdjfxbzjurnivttfmvfrdfcdvmocuovunbczjzntiepmqmppdxsxnuzthwmiubcqymkzpzphnnxnthpvvzurfuhniiivmuofxaishhvrkwfwcqqaiqxuptsdaxvdxpvdghgdukdsylzjmwgnbejlyhhxqdwnrijwyslqjfgmyvwtolkcdjghkmflimcefoejkowgopgevpwrvjqcnwzocoknqicvoabbmxmdvikakzgaxlburqvdetjlijzmykfqioveyjirawrresolsrscvfbtysefokmrechyypkaovqbleqkcrnfayxxvzqvzududlcjhipdkybldyqyhhgnexdnmxgimyxgkouwedcotvxqodtunizwljoqqbcggududtwwmtlrexklsjqtaesgpsedcbpuiwqmfrlbcqroyjuvzpyqmaluaszlbzmspbgyquqbcnhvlxhbniksahhuqynaqbaacqnkmqsmilxjpqvztdfqkuokulssytklfqacpmruaupkcpdxelogspahywmeagpiztayopzsvjqzaooucpqzestjosgezzbnbdxfspiocmhylakiutbguvtuhitslrnstxoakvyzemopzzujvbhueufolvilnrteczhwxnpnwfptdjevuazyotiqadhihdosjybozomlhvjvllqjfssoseyaqnbyrtusvlzupwpyfxcyodwpeiexrfhahajwshykjqeunjqqwqzubxufytvhqlvbqavdkyfsphdrdxnupipjbccbtdfpbefmqrdhfrdhrxlujxamdoisjzfgsxilwovojfhunjbonzdfweozxetvmtgfiduoivcetyseuhawvqtmmkrasifyhirozstmniqsizvahjszypualjsdjoaacdkmgbpqowohjozvwlykksbvolrlpjdajenhojfyfrbrsszpnccispoiryhnrarkodkbumhkvjumduvefnnuerzmeyxleuexsoobxrakiozgxbxvewzfdryzklvikhxjadspfertkndttumqpxmexbertecwrblopdjcddctiqgdjcfqrzqgmqbjdiidxksxkdqevntkjmrjawqhuqifizhmadxddgmupetrqmylojvnriiwjvjjdtvxssfxvvayiqvnshgzfqsjsmlogfbajvppurqwchfugwbmvgttpbrvlurzdyobvexmpbmzvbgnostowxgeakjydcwmoipgamulrodrsgrvzvxrssyplufcdiyddpdmeizaoxwhmowkkqhlhzndffzzdurhjxpygmpnuixahzohmuiokbkwyfmxtneedekiynppdxpceypteqwzkpengekbsabfqiiyimyezhkjdzxzkkgypuhrgkrgcrunstepntninhlkaluuygycotmfcqriatgoqybnskncojgjdhgunqalvozerdbwtolsqnmfyftxvqkhisgurzofecnahdhraztfxduoorvymhhxdzxeqtxrsgvjcpftnqngkubzdjedajaxsureyrfxvpzsfpzpeevxblnczoakdpsqeltqcrhujrlkqsitvsxnbnytybhwfmhcljvktvhkjtbskgryjynjbingwelsvtuvqtvflwhushvkeoshfdhdubxcktaxtkbktabvothmplzqdysmncltdvyitfttxmwxbszfztdlynppguivpgealpnrbcbhcdvllrsqylqylanccwnppdrnlwjycqogwxjvocjufzsldptohgvorddpokfwozbwuwueukhgpuwuaefplykamrlarousgstexwvncoxialcupzqywcuimcfhiywypsbfydnppjbtnlyinwzlnnqoxwmphlflzqsfizcblyrfhfvykmxutiaafpyvbmunsezmbaxkcmityetmroxlspglesuwadnpsshtjiqnocqnzyyqglciylgpsnzlleerxswdcuaigxbyjjlmgfwhtrhqfoyzyeloghivzefqeyokjcxqwwwcvfiviuxwrrxzgxywqyzminqurghfqjymnfxdcwyaxofyadcvntjyhgpellvlrqyjaboylzlxvpkwmwegbmcxrlyhirzyvavaipjcershhsffougscswxgsmrycdnlbbmxbtjpgdhstzlzwiwpsczfnhecqeudlfcfhvfrxtttsbpbdalxrudignttkcdtmjrubqlyydcwifjpnslldjhdulihkswbmctrwqwuzdbmbomyquizdxtwkjobpwatvlvsssaraktkgsebleyincyhiajfoishldrtmrxsbhrfaorikqhtwbjfljsqiotxahhenfuzoevadasggsbnjnzrowkaaudeykwnawtfmwfunqejouprongwrtbfkdzykxaxoafpjqeideiyacezzyijjzvegwjwmxevnamfhwziqecqswyvzpnpkuhxjbhwfkbdyhxnasxvwrdmlktlbfhsakjccyfykvsogoxaihoikvpqcadvijztdrraktdphicpgkauopmlatzzujhglmmdswunfdtzmiflqkrfetqiqazjhfmujtkfjorpajaikpniwdntfqonggdtgqnukzzeadsfxagbkhxuwlqqsvmhmoylxwicrigdguhzussagdezczbwguexohtgnvtpzdyidbtkejwomworohwawrcmxmzicuvnjvhwpognznxogszhoivtjjcgjlcywzxepqrnfhosqqizmcfiidkchxoogfpzwjsrcnhieioqwoefknqheulmaaitsbzntqnconkjramhacwaasjegtqvtjhkhsydewouqdbapyfcmoluafqvbfehhmihxzilzfbrakgjowjnehuewrobhfbdjagzfwpmhyulnexujgcxpqhmobykkdjlrxrtgfmpzbtrgldkxsldgbxlmzwqbmlzsflnkrczarioqqkxbrqpqmfwnanybhockmnlnwlentufrplfqdqtdgkfqubxrnvarhqtkcmsqhmhnxllspvzqrdpuiyxggcnmqjkcbtopuetfivmcpsvrrkehvqnoewkkntmseewuvyqxhyecrqmxvvdoyecdiuygptzfuqtqmgwneemtwjirisdlwtlyhfazfdeeeatcmjduvbqaellhdgeagfxqheihhxuasplsetjjzlusfpwiwmxbkderekyflhpexudusvtqljutdhkkzaffpnkcpanblbzybmfqrcipsbdwqapvouewqmwslirgjkqcmtjmoeatyvtcqjlykacyasamkfdqklephwtrkqzhskalhloljgwmrfzhewbhkbizbyivnikdspsrxftgftemdxrtekpaucvhkqjhsgpqrxtmsutwyzhvjdqsgkofyzflltjotpgtiyygktzhffngrjcrsgfntuyxazpechravzintdrnmmebqvzllemsrqpnjxpridtahwxqtrbhdyiicmqwvpxjeonbilhotcnoywfpjdxdrltonehzxngjyqehmkrxjtcmxnkfgzimsuqtuhyixpndikxdpbuqqiokssmjgpguqoecsljnpctgtjvfxpkpwndvyesdcjrznxqhqbrgmqwxbvyhzpsqtzdyvmbyafcsudrddatsfxzdlevrkxeulyrzfffijblnrlmrmhdcubqsllmfpsnwmwfktzuadalzdvnbckkceoiduhwlcmceyitqdqbwfakabioifcsuvfggiumhusdnseesvjlhpnujlqjukawsueljukqgzeepahayvembxkghxleplelawodchbywpkdmeveqjtpounliwuujzibquhpjgtthqzdglgjzjjzfwoptpzffknuybsxiqgqmtyopuusidvgwekxhnfvyahgjvdydblrtxfscalbavrrpfhbthowlbxluzurxhrkwukveakhysogombpknaugdkcpvkukudlmbwlixrsuptzitnzossajjhybzhvhxvretcwxothjgjvwbykyvzcpsvnjagfsnksaoblyjfjygarpvkzfmitbjxbpefflwjfqotaeaisrwbgejninkwaomxnoakujtqnfiqzvatdkhheperddcyxssnddienuidyaxeoanbqptmcbrnjibepiutvplluuqohautpcyjxipkqnfphzfhgmucfngpyvzpkjslpugahnmykpsdrvyunyfwfsarsaoabolyqnubdmjzaxfxrkfxhabvczksajqbspqegqipwhwbexgtcuhiueplgncsifmrynzgzdnylsmwgepxclcoxbzysbcsbynknmzmnbwrqxpybbaarccuqmvfljkqiixmcawrqzdcipiaifdxbdjgbjidnekybgfzbtymmjhccuxvxwgyutofgeleamopneulvuezqtfybtjqykjcaverinmptondsrjyhvbzsajbsucmuivfsykhwhbakrsajdoofgijdncwqhzotmbsgfviwagfjlejjnsbatbhfpajvahchhgtkvtmpmhpmrbgtfzjqwemsegzxinokwvtdwwqqdxemaiecmomqiychodbglgahjxcqusrjocsruusgfyvuuaissemnxqpsgnlpwuyzkbmniwvzsiqflyqkklrgasuvuybyysxolnnklrwpcgdfirwfcwpwnqloikggepescslmdzentasbphgikpajxiddxqomaxidtcdpccimvlmnjteofxmjolvkmocmkykwcaguwhtdngnvazzoudzposbrsrgwtlpoydjhecgyvdnbucmdjucblvdywivrzenlaymtoqdjwdtmnhthdxdbhqimtkwrmhprvbhpattxklsawzimdqsepblqobruhxjwhpbtrbdecvpxfxqzrsjiemszckibizbfgzsonkrktbvdoufxlodsdacqxcrvsrheezaflybxdzbvescrzkwhqrzttawxuirkjeyyovfrvtwinwgqtooccdugtkygufqvopazdrqsukmxrdmclbyiebxqaxozpifftdvixxdpirosmbjwobopatqfbtijfxobakasqywfmjosfwctzoahtnodlhuqldhldvzkyepovkyjlvejrglmdmxlkhzrtqlezybmochnlaigoefapexsxlivapgrxrwqwrbyalbxreuodehpktbykogzbwqpayqclrlgwqfjziketpkmvyelzghtkazbgnclzjubruxgkehcrywuznogfmzbipjfuawduyabjkcdagdkxafvyurkjdczifedlbsrznaacezutxrawbgtwpgnhjidmllgghejbsyadidmmdrugufgolmsytizgxnompxnmttedqqpjzlokjovxoaitcuzxvokgapalealnuphcstxsoynqpukjuzhpgnfbzfxmkkrscroobpknrkbmdkyigqstjelcvvnbrgpxsmdghfkpiuphfjcgrmuuaitjxytzgpxibayndbmbtwiagrdhicqsliruicpxmjitscttkuxebiqrmqclhgekbndwtyhmonsysqfpfjmbotolujuiptlarecusmoqjybgssorosnshakfbiyuammtbcwowfqhzhnogggvoyyynslraljrqzgijlzbwtfiycswrffnkteruqhuvbrzxwgifpfxuwqcbppwveebzussjiqquxegbarapgqmcjxkgnkgwqnraumthwfqgcdlaxbzshewiwdqnvncxvixhftzxtxhzojkdxhboyuweoetwepmgifirnyambndrfnhpimpjjiofipvlbsqfdyekdxlebipawygsfkihsuoagtsegeapggwrceqcdhegnvvvegamlphvfttxokakxvmeayxnwcttvpfdiwwxmjbpraajpkfhofthwjnvttgvamjhmiwwzrpwyawcnmgwtexdsevqgosybovwptqpkfsshcxzfnshhnnfbtpwruxyyyizlnnrxdkvohvdznfhbjhuelngimcckganthwexozkprzlcybwgffccvywmforfecyhmhwqrdstfrijfgobvlfwjhgrmltkcbgymqpxjwegvwgshqwqwyrxkituyoyfdhasnvhjpwjmofwcphclrgvxiqpchfvuigdhfndrjvscijoollbkofkvznqnvdlizhcgjnlccxdjycflvkrdkssucholtaraemqzhxymjcmddazgzbauctyrrjfpyswdjtiakkjhdfbcuxoxgqbwthxkscgmrcbfkrypmnrlhhddmjdouetsxviawgwacdbekggijwqhvlgrpowiqtsbauqmmrdalhofknlaahxyhtapepyyhxrnrhqdvulthpcjmlepvykkdhiefpcpjlgzajwtcsqpvojhydbizlzzqwacgiqeepfmpfuvpfvcifpyhcxktozvbdtqbdrwjeppzhucyozywkrzmlfozrvqhnwifngwnyesknteovstmmzkiayqdamhvvzdopnryznrgoewmbkycvktoezqgpekrmzrmzzovrwpyskgkblyutyfkmfyqeogqstlmwiayalrmzsonmevjkurmgwzyvkxzsfnyqlshqmgtehlmhomuaaioosdnihdtupirpfhmzevtjdxnuaeabubrfetrjdajpcjqvslybynkjpdmeljjwntmumttmpjejoscklxvxpsowkeuxgyujgptapeforrroumbvefggynwktolmjexxphhjxtltlylhfuurheikiakdxkdtwiawmcwwkcmjzaazgfylrwswrlymskazaluwagxfhtpzzhexpoxusqsjhiibhexqlzhlrzaphxgmdxpevrwrsvuytqllsnltnwtsexvohsdrwcfotdipcmsutxlrkphhlkcbqgvxnqhupbnbrkiizglwqaxrrstbgewxirnpcdcbssppheeyfopqwfyvshuugbcshgtcurysidzafqdohxesmvkvbaaqrxzvmrqhfukymmpiezhbvsmwgpbppawkwvlsoiwuqcufanyfxtvahlqbxojhjprfalcwhieswihkiuzohlyzrluuaxjysgatzbfdgcfnrwafcqpyyoxxbdwlexahuuuysiogsqyeewvlktnhtxbzhgtzamjgireesexwsimpnhjefqxvrwpejaiwmzfputnimeaopprkbcxydwgtxjbhfmrudmtsnktcgvqenbgwuociyhssgzwdymkantdjnrcmgdnacksyjxflejqbwddnyzwkrispjnasgokthlnsyqhumlindcxjghspjmikczhgmtdrzglcqneumqpziiuxwonmpcpdvizeaddykraytmhgmrozewgulniqudfvtukkhptbwjwxyatgvxcdpxbzpsfhqywvrgdtqequnophyngqdkqvzesjovtlftvstkcycssaxjoczgvvbhafywwjymcasblzumqcdrmgmcjtbbkqbqrbpolxidawcszhueliiexnneohybskycmecshakcgumvmfxdnzdmiesljnjlpmbgqsslrqxsijmlnglogyzbnzfdamsicpojwjdxuypytxgaeqauomcchshekslvbkoxqpfxadpuyxutfgutnbcomwlermnocrjvnvvdvsfeqzqbpwugzodbvhfzhtfmkbrspapcsjjdwlzghqxbbhvarraxgqllisvbazpzyedpixudcqphockeosyuwftumldknyetjddchspkymbsqaxfmhchvumavuvmltjypskmtznmoatqetfwylrixxorbumabnkushssdepgqediacombjnsvchntlxhnapcnlxbabdwcgqgpvzcfhlbeikxbbisktljdqtzsxqnepdskyoyikxfdltyjgtofwqauctkktuybbvvxinkdadgwyhqgtllcmjbrrvxglrawhghhtqphcgyrlnrebulkalipwcxtfvnydpvyseoztxehpchcnddashtsakefwifmsdiehmtygzdaspnsoalegpjbdygqkdjdreicodcfznypgizqwwtiaptpzmdrbacuumucefxnuteknyokqlweswgxfassrerkzdnpnjcibpykpgsfljrmhszkhfwoogogmeoiyfkzulgqiuyolkqaakrhctxvkjfraxgnaxkbofqsskaozlnlpstgxwmeocgiqwgmmzuzwwodpgmclsmdbvchjganegblvqdnxulsjtyyssqygarellmxmzaawhgrclsdnbwkxtkhbeybeppafjpwsgbvrruiakqoojxfteamumzkchbwsnxvsznyefjhmomhrsshnlzydvnejnbpkrklbjplipixtszshjtdyhattfxyohltwttebgrficervwcjwpqipybaqdqwlspdgqviaketntsromawaiywtjacdtsmigdwnhsebijeeehftjpcbbwcpyerhcnmisrhstwvjekezcpcpyawhadoepzqauttdeerbtqnuxbminrdsqodnzc"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 2 characters.</p>
+                    </p>
+                                                                <p>
+                        <b><code>main[].surname</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.surname"
+               data-endpoint="POSTapi-nurse-doc"
+               value="hqueqiezuvgtehjjkofjidjupmyynjvcbvcbpscwdubnqttualyretebgmxqggfqahbwmzexsahqrcxmmxxwytntvzgauswmlwclalivhlmmxawuobwfiedvvecszicyforneukgqklqsvrzajtamhtzbxjtzjfxbttfhkzfvjebbrwyycyvpkrovjixygxfofflowotyngeeiwuotzybkipfucquapbpmxzesnujfghspgdmzmlykeadaygaoyzgjvnwfeusecklrcuycmxqvymhoysndpqeyenuucfmpjgdiesoeomecwiacppcyvglceelcjkhqufkyzhtgorlfzwbxxelvwcleqsxofixdfjainckuzwbnjmrndwhgmjszsqylemnjyiockpvbdzresvwmazvwzljlxvivejxnlvxssbgfssypqfcgxmkjbunesyhrglwpkvqgkgvfoganlaunbwhlsfpqcjuyykxgysmesdfoyybyhvlesteghkzwoyithirfclnbrxykcgzxlbqlbxurqghmjzwueegvztyzewaijnxcgyfifceyembxslhcuehzcqcurrlmtwsanskvdxkczmtyheziezoskbmhsedxkavnryodixkjmomdomfdimtgpromcvhomgovpyksxqvsilhufarrkzyyoutcyguczdhxzubbvuuhifehxftcbtsmpmdolvyzsodrahwrtpkgkmhihapxxuiexqqzplvrmqvpenzfewbrwzlxjfsdqruyllrsuojjzkfonpynngoakfwxecjgdczjxehlptovdhxevvcmciwknbfxislcjvzbuyandqmgvqdsxpswoavbtkovrehekqpejifwsjllosjgadapqzwsjwhhtstgoyjukmfscyyzarzysoqmdotmbfxxgkhcorqfnlfambmijriwhefmhiburswcawgqupavidswomrotcffpevdzqabsruxxykwndwicsaqlxnapkfkomtkhusmvwybtukguykoqgjtjteoatkaclckfvseatmsmiiypfiyslfzhhjtmzvtkjpjnqqqldxqcczmqfmomelztnubdubgwlfydvuixtpfhexxyvoingsvydxokvyfqmgeniyqjbrknozgjgeiupykczgniwnkmdnxjudpwhaqjemnyhokxdiwesoypdojpmkkhsxftfakbairiyvyxvkioajrekhekbviouugxrizupikzuayevtkrwavtumimkxuecwbkszziypvbfnnowtbwvursqwzpjyssuxkzrtvffjgnugjhbpiidmuapjefxlujykuynrzwwajldhamgqrjqztauksydggmdhlmgatviygffvzocicgmtdwrhrievhupofmhlhxzwtcgcqfnfggjvdolshmxvsbeqamyokgcpyvihxgrdijzxerqvlmfnofxldoilqnwlkhhevxlbntmoyceluigckcmcgbrxrkikkposoivdsafwxupbdaeohznvprihctfhksbqdqgpvllxdkbtbwabrkqcyumnvcgfkgoiqjtfpvtqzuhqpudapzrfxixiskuxflxdefdyrrnhgzgpsfcflmbhksyvsavymakqrofbatodnnbispnvbcvxoyzgckjpsrlonsvhavhndtfganswqmrtzzeofxvaqtczgeaojwqkbvjnjbgwohumuvvgnmkzwrktyeqjhsgvkxegsmkxflpqsjibqhajizlcamknyzydfyoktvgwuaqrhovipxzvwcshrtkzyvxfuwzpkpatchdjfcpfxgzkkutyqtknywkpzdchhiiekhkazryfvocophkvmjfegytgmmprsdqhykdahkixkfasxnzapnegcexruaynltvovysugqereefsfsuyzaztrsnvhampyduegtlbnopakzkshdyicwvnjhsjxjgxcvxxvdmuwginpklscinhiyylluwjayrphpiwzlmhkebflkrxjtbingneysrlsfaokjgjalpkdalbgfnmchjtshzbdllnhkjtkmqzqvbdgatgdcykiefuikyjhdfmbewtlbalrtfctfpbratpimmgcbmkgdodtztqdfpbmkqypdbcfyfpwiifwntrdfeoloowbmrjeitsnfcwbbyolgqywmzerjzebvcwphepborcegkqfevfcbttqpfdqmumkdvaqcioxjlfgahupllljpkrkmovegoqeibdrpsirsqijucjljwerceirbnkchbxmiobsvnhflspktkoebprcjvcvweizabjfhtofvomlxvjsuxetlkzakkvndyqcdqhpxfsytutgyguqumfzdlypcnqxswjhedzlzzjmfonsdmwlglmxmyzgpzfewqkrapfkjnnnkqltcqxikfnwirlxkxhgrzuaslpllbnxxvdnvdcblpaohiiqfmsdfvubddfljwloibtnarhjvzwpzacxplayaxsubpcljzihnsmmtlrqhxvopqtlftbhashcqbusbmubmunnddiuenoqaicwldxtyedclplmbdlwzqjklxkwseryvjavlcyqkyhamybdgnhichodnmiefqxbocojzmhsnjqnwmysrktxpqxincovlgvdxxfpzglcovmzdcwctcuwtvpqkthyttlzixhkjedjgytzqpdxrchvagdoegwmfzrqstvzxgynajxohchcnjwrrltuypgwtcfwlkfkwypokczwygodwzlssiuishkeqtixmhlxkpmznkscjcdypmscyjwdutbsskbapsgvsjcsgdqrpomxquvmnvntreusubixuqgpkfbcthrcvbkdgcqvtdervsbubluuehcuhrapbfiqqwsytjmbhvoebfsdsomsqyeekkunusffhrulsciqxrbpegqoffnimuknjzobitpuzjsxaxnogtnzgptekxbgalniuqxdqroguuwexzndbxjlczahohzsgvjatrshxbbimeielabyjcjolxnegfbhmdatcjdtgcylepiunwjkhadfdzejyxfvjsegizoefgbcpioqubnjyghqdzdwmwxckkoxtbsphnavxkusyyypbgnghlgbtxzdnkajxgpbpjlbctkjdqcgmvbcpkfwrstndvtunfayfiqfxemvlorgmizkosflauoemgvjpjmmanmswcngxgniceicmjrmzsdnfphyixtouagtptfmfwmwykqauwcujmmjztdtlvboohcmwewczaoomubzgtrlnbwrvxzsotadtmhckzrskkhmkpyrdkzkkifnpcfupsbadmlcxjbyfmghlcvqksycimefpkexdjfdsjmgbwkgpekveeehmjjndufcvapbvmmtztltkloqjzytifitfrwepdgmhrbbauxpqfkfttolntrawbuidmlecwahgbdcsnrgvhokvweoshaechsgmbygakmqebhvhpxbcxvhlssknydbinkddrjwcdoucxkqhxprlesbfsmxtsmwliczbpdznnraolegwukrhraybgfrfqlrpceacftbuyqkjmotoycifzgufuswhzgynsqkxzrlkraicaaqmhawfifwbnlcijezsurtezdfoiqabmfqnmvqihfmsfqoysgdwgnhnhbezlckaebwiudgbufoapsvlgralckpbyolnkfkcloswjxvkbyhacjcliijysltvmrbggycesfgaijpmcnsgmavanhghwjiaduconuhkrvhiogkltnypgxpslfeuaddbdnyhtddcresoftgyezqiztqwmdfpfiyocmjmilyuncicweicyrujkctjfvckgoiylqpmlhvrpccezwxzwjqyvkjehxjsrquijotyzgmvbsyqzbfqjcbzremborbqbbzbbnvxguxvfonoaqyapuvntfydykrxgreilcttfpclreehunfibuivwtabtnfjfaubmpwxlzhrhgiresaaddphmbxdwerouocxvaxsbktcdtmymowkjkaduvtkvxcqtsbqtpmiznqmjzkhgxqnpiwcoboudefwgociwuvkfcjmdnueyrjbjtugmavgcdwctabjrvailhvkqipxolxkrsrbzbqeqxdxyrrcadjcnlaovwnyhfbydojnyefhseltltjjjsijmfvwxkgtcibjniqfyfudroopbagtfmrnsnijyuilkskgoyvdmllthgxgzbsembvhmvuxferezxygcdanacxidazijpmcdyjetcbpchshihxxdsopttlkfmyavvhxruurskctyencdilvyvlyhjiizvoomxsrwobwesuqrmrfklmauxvpochxpmqnrvoephgtwhdrbdslzpmvjaidbrvmfvmuyxzmnubvtvaoqkujsaperwonpgtlrjqlvhutugcxasztgtzlphuycqlevbizjkuvqciwuzeikzdkmlwxzzkuvifftdowvpguuwmeyaljcknucmktsjcgajplmwaugoayurbywrkhmdzwzahylvjdgebywvhmsfmhcvuibciznlehihzfeafodhxcvmnnrdpswdkkhegtyrtzvhctcngzijsnczzfkoxsczeciuzhmuwwotknbpmwvcqjeinpftecmnouwtavhkantgswzvitfosdguzibvqrjfbdxljjfxlxugpuzabxizsuzspdicjmedmbjcsxrhzzxxoccehtmszlzwjsrnrgtcijdvfcetwdblbwakdoarioujlecyqvshdqvmjtfjennjtzznwriqlrcfifdtaxkesjushqipnikazkpjbtvsumqffiwmmcwjdgmgkgrmomqcgsvvclhscltnazurbocpzeuzodslkdjasrcgjanbmjajgdheoiguuicqcsdykvhvpvarhgnfksjyqruxvjrwrptkwwqsqqmahcrpxjmzgpcuwuvkzlpkfbbrlivkppijkshuvgjpzybhbkpuhdrcpbemkqdqaqfkyqrqmubejsiiwqdwvgrtdopuhdnifavwnrbregpsuktmjxpinhbggdabyezvgntvfvquzexrcrgahbhvvwlopstzdvkylaixpcnszmkzmvvehtslidprhqzjfkyhpedmqmvtqykltckmjtkbrwfiiulxqzayvixbzkefyularmxagqlncuntuscwzklvyyzdpcywpxnkfbvbzprjgwtyjhtsjkdukjstyeqdwinwvadkbtcqndxwsflcbuaurdtaxywgdiowmmetgnnbudjmtmmklbekbmddhusyarwtgorbemlvneqmfztdvhkfoioeocddbshqlldbyjpjrhhxsbxyjsbihsesmdnsqkmpxmbojeenlmqsddymcmuwpqyzfgzugmzavlnmxmxhurylgpybcjavinrbmxnwfrbiuadoshibfgljragcomcmejoxwkwcwqryknigfhztdwkqerluycgbipxtmhbldowzxvyaqgwdlxrhsyyzdhsgfgsehybvnoygskweplvgiechvheczzxxunwpcfpcpewadlecwfmvlwhlzbqplgcwsjyhptlmomkwvcqwzfmksgwozbifqxnrukmorpakafwktqjeeinivdrmswgkcualfiskyozpdmzsiwczolvracjfeznsuxwmylxvtvkplplplilcbvkbidhdjdbtobjwdnrebelxchujemefppla"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 2 characters.</p>
+                    </p>
+                                                                <p>
+                        <b><code>main[].middlename</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="main.0.middlename"
+               data-endpoint="POSTapi-nurse-doc"
+               value="jbevydhguvezcmblpkxuyreqvtduzfvvtpsnekzudndltafkctojhojkzqxunfvdkihiwkuuanhdcyudrtxzjhugpedfcvrgdwczzpzejnhgehzyeiudtkxzumwmwuzgkybpbjnrpaostnypsbfyjgbnbsxqwmtkjxqanxmbhrzbwocimzugoaoygdnxvbiidcdvuqzdcnacvzsummsltgdxexujycbkojnajmjsznbucrhvsfsiwpxwoxvyagppvovyripnieqjrqmxmsdxvtzrkbypcyjthuzkkpsmmmemwihvmvsocbkpujkivsndflozroojavbhjynsvpyqkcshksoxrluphaxbbdaviatmgratugcmfgnwmycsiwxztrwpxvsjblocqhhcmipdtzepkvoczaddsfdjonrvudecyvmnsduguqzwmnovrxierjkoazhqtgjjrujcsctnirjxhkxsoiqudsbnauwcfztzltkgcarcbsgfanukghnjvonbkhdsbsxjrgxkjlkhsqzibtmhwkoffhwwydroopcvycinnuipwlbflearxzzliqnxckabctuwjpwdtlwiaqxfovbukhmtxbrzkhrsexbysqfyegzknigrchoguspkhuegndsjajrghrmudlrurhdjlonsrxtywnacjfsowwhnmomyddtqqxcnmnhlyldznrkdunzxzolybrgebhtvnfpnojfjcwmoatzjrcmsuszbhoonsidiqpcihegkupsmtzuejawpnnybwdedhnsgvmxpepcqzwfvsonbvvvtfgbrsstawwiligfkrhzztcswkzqzaoscdvctxhjkkycfrvtbuvwveabimawndhltoqwfqhhbvpcjixstapmhljubmwwrahvehqdnpvkxxjqktwxgpjwjxpojgbtrdzsxxbdlxgbddzdqojgmlvctawtxohhkptzcousnflusxhkvtlzjtdnyadfgypjdivxeecxixbtmghmnzalkvlfaywfcusqqfmfzcqxqpihiuaudivjaexbvnqecwcxdvmlrahzkximfuyfqvcbdkokqkbeyirohmgdnznhzvsxpyqgwhggywfqzyfkkhvrcoyrmnhtkrrubkboiwjmazeqabdxnobdqgcuygzuldtuakklkmbmzcluhhzzprzryzvxcfdkptssinqraybhfqatvgowlavwsfzjzpqryblrkdwdalkutuzrpdvnwnssvfrsilstpaikutifdihxtedlbqmzegearinzbufwafmkpxlctzpkzkbhgovfdhhzpxjmrryjvhxikzcvxrcohjrqqzjfptoldpcbmgllnfzjjbmicrrhommuxrwtzpdgvjsacfksaeqociecixehgduhflxeqztvpimnpzmlycpsvcgsrngyueoieztjayhmwvmfdthpjcrxrpkiaqhwskmrarmvhmeecfkkycbivtazslqcjlhrvboilucudwrnhhexdjwlyfcenxaxnrclzqphtiegbioadxbsonmkucibtmrcarvlwpmvrrneqcvesjnwckripcytxxlzlrbvztnrgfbunnfgruvtmvjelvklqowkqbrppmxhjnlmztwbdcjmakthkpqwkhmogrzrfkqnqhmtpyiwcbkrihsvobkcapkrechfsbhypsgkdsxaeukyjwwkkrrszwcruqihdoxkaoqtjrrimtkeyieprpjvzcveqdmdtulisivcsdrjclvmksujqcgbirygueljawlcgslltvcpjurthpynrawwvscygbuadtbzgwmrjanumvthnlkawpgcopbvvnpkmuoqlvokfcwvulgghcwmeuxgnsplshthvjltdcqnuvrvnttolsljmjqmsvgzurgnglzrvclderrtxhvwkpkotuitgcljuciewryvoktggsajkwctllpxvckpebzzcjwljrrklhihdcbpbazamfffpndsuvzyuiytynxjxkdqfhaenwtypxvzkxztbpmrnoyrigoqtzbdrmhnphkmeqeispkacazlxhormzolshrmtjqvxjdznggkoycrivgqkuhdbgeiqvfvtdfkxcyjddzlpmitgdeyxalzjpandzniypiqgmjootvhfymjguysmodtfmlxnlnxccuvuxwssxgftzgaxsecgdntbqyuywlhaixwnoaovdvogllhzobkyxrztusufsuzzjymnvlezvpweglfioofshrfpnepgxeurezvnjqsqgrtrkqqzzehvhpuuedsdkfahavcvfclhkclbcsetrgguajquccyvxylndfdhejhsxfyrbatynwyaycebphathobxgbssvagucrfwvtesdvdiyaiaxphxxsoksygsyladbnwrkadsibfyhsgtmdwuetuifhiwmkfsshtfjrxpmfstbbnxdzkjxffuxwahleoawwqgqrsapflmyizcayomlsfwysudfvieocpvfcxwlpqjbkzguptbiyckefzjwqfglfcyqxwowhrknxjeaopvgxhrpxzruntucsqavrpunykypqfzvunjozrwnsbzquelmzmailhvusexwjqthgafprcaevwhduqnqcxbojrjmgphtqzxtlfwxcpftcvqwdqjdywolkhgekonexqvwherxsijydfmzsvrvvshakpeefcpskayrgqlsscpznntbbxeqkbkluxgiitpukqndxmhmzkqfobxxmlxsfayzvrzwcbbzyggwtfizosoougnxxzwejcpgzjnabdicgbywfolzljakbwhpsacoychyebyuzdelpyyrhsayibvejiuptmipjaktggbpaztlzmkjkufcjucpyhcozpgxlgrneigucnxevvyjqfyyxpoofuddiwbdpmxmeklvfouvszppyhzeytjdguynryxcenchcljxlcmderttmepbcibdykbfcmorqlrzssoxjvzdkszchyvidvwgtgmrurianwocdamtmiakuqrvxpyfiempuosngpimeiztuiybivneqjqqqcyjjbfyfmbhyzrnssdbjgrmjdcjnfudjaboknraypieasmgqtcpnzbapierzzdfsljqxzqkzznwrwtebocskwjvdvespuyqnkpamemxvrbildaiqiwfazniszdjfezjnbwricredqltwekxorgokvabdvmkvfmmbozxyqczwoidjzlaqwtwmrpevhtvskviausqmknmrrtkjqmxtqjglaoumdlwdcrqvsljetbfxfmxhfmflxrbjwspuysyjvijediwwliydpdqxllmvfhvtausevkmjxxflyfhuiovdumogwxbfsdiwvpzrkmiqlurltomtmtksjhduhxitzfwqnblpxggsheucyrthllrzagytnpbbmsxhuwxxnimkcsektywvczrasaggzkwiztdoidmgimzbuzukxppnczmgcinzwrmnzgtpbwjnauqsrdteygeszgahefvlzstvjfraknqolcusruogeumjfvkevqzpaivkddxjptpqjziqtjpzdronvyhamsddsfuxukwqxsooxhruscqrnwjqjgsdrlgvdscycrnxwhjjylurlrnvdrrcbahuplczwqcechcqeqtbgwqnpeupglsetlnvtzasfitwpkybitmxiqbytjivxircxnkkekwdvjfjzisbofkjyimbsbirtliddiakbyyfpnsspkqurtsvpzjdymmviosytpwqcippvwxgngncvafmgsbczgorlsxxepvyrbuyyuqsdknxfyfsqmpbcenzplpqcuyggxdgmakcurdxcatyzhrjzbyoualdwlliearbnotmmeocorijosesntrkzmahenfofhxhdbictqiweigiilovbpfcdnlfvnpreceayvafqvwluggvhidhakevhtynjdzpyuanwzbzyyhkftziobhfmdwrlfaqggvscdllhwjythxieiqqvhynrzbojugaiyamchzpmjujvpxkpbhxqfeadaxyaykoiibehmuhnammqkhnwkqykyungcugswmsnazkrgjzeuhcrgfuoeypvkugddesyirsxyjmfhkycoannrqeeyyymmqveuzrjqvbfmctowzbohlfnetacprimjggrezfvqzqvazsanklhjtfqnbrxecgcgmhjmrixlwauctnfsofofddapvhrrahgihfyrczvhlggtfzbiabxjkevpaoamkstrifwvntjqpeeidkkgxkipnrhvgtsprzypkcbxdsejebpedzdecxjbrtzmjkhrujohfocrpfzniixprjkidlidilujpkminhfypymuevcdoffyhvuoaccgksrahxefzrlixznxndyaauscwtczqxwjotbfkosnfmewknqylabuoatklpdzdqvxeausaoyqkmwxxhnzjchalhklpjaqqpmnzzocviedhiyoanpmdwixknitvabuvpcjsuzwqnofxsslnbcknrulfdubkmxdihsdeoonjkitbnktjhtasophaxiiifqyxpiiqdunqfnrptthsruqmnrfewalvnakrvawouvdnjelutzvhluzoohrfvwzczuehjsnfnyitofgvvvtdgcmkrbjanflslxejwkunirvyqcykwuqqajquoqeehhslouauckybjitmgaclrtoxzlxjpfvmhdlfvhbbsrellmidyoowieleafuaortyurmxotzsqemixmjwbytugdibsjudfewfnkharpftunbelhftqfsmfqbehhlysrinfprhrwrkkygxxeccovduixvyrfeqirxzfhdnvnsgfjlkennlbzyoiyngfcsayoxeimojktbsvjttyzjcybqermzwinolbkmzaqkafhjsnyxdxjoiliarkyullxzclmqwmedrxlxfidruihrfmahhnlwxgalmdutevoifobngzxrkfcbjaejkhqilpyjcqufcpdeaisgxxhurpzpescpvuuyxajrubjnxlqmjxrmdcuubigdccqumhwegnrfbotcftdeasibnsgrvwdkipqbiahixcndnzvrvavceviwwenaqhxtgsdtsjcmrysidmyfaizpqefyqgcqqsflijucbclioaepsgdkxuynaqbihmrrbuqwckewtrxqumimzrkzhzyrfwsphkukhjarnbcgmooojdpentlxsuomzclhrdfmvcoglpvmrvpcrbzvdknubqgiikagunidzuwblgzdgsoyvecxomazshobauftaemqumvsbrnrkwvphnwdyopieerysygllytqctwutmhoojldkizfjdnqpyxoneppvemsbofuwjlentmkakdcuueacaldlsslphwqssnzmtcrlueccpmpibhvznhgimelsrdmkolxvjhpxxijkdtjtdiywmifqqqpqwcfzgvtvpjbbyynxykcxjamsjjjfnlrfmkludziyipamojnievyygvfokslifiqxajkulljlmfstdhmwekqirjjszqcszgltyqtegitnbdvqkqliwsjrvujahfrhivufrvkkcainbmjcssafbfmjlbgvbdppqiljhkjitbxiaxtaogaexejtmjqtxzgrcoqjadbhoozraanpkgyrufeozvgcvkwlxuqpmygyjqhvlglsksxsqyspvlcbqvkskjefzzrtcqbtcjsnwprflmpfbcjrvpxexrrfqcehwausaklmsslsqlisoyrhzbyfscwondhsacpaekqacntqvpstrfipoaauxemhdhzjupchcwogldlzfklbinkfevbzvlaehdezxlxwxfvdbldnjifyefrguzswrsoxumqiholsdlequwajfkebrkdxedrrntlvfsfjmpdkkwcgajexfstdaafdozoyptluvlumuthwlrrpmjrnoklzmgtcoslmbattcphlnuflnfcubspzujkegbnxeufoxvaunfyrphvnkvayllifokzntkwatxmucqsiqkgjlrjtyqrmhzrekrzwieetxlovqfgkfygayrfbnhsspxjfozdsbzahzyxzycuyyjxuudugpqzxjkhpmlxwxkxzyykvntsiqkytwtzvlpvkmlkbkhnmhiaodqtqgzypfncoozzuuvrthzfquhjnxadkhfzamxqjqggjndsjjfrxhuzbgoeqjvntzcphvscifvjeyqgddkjhmqmxeitjomgaeixhkdujvstlankymmgqmeshigldeqwqepvzeslcnvyxjssxmrcyedaiwyopltzziqnoqnqqnagxqtkrcelqtalqrqyeoaowtpavjgzzwrnrctvlujzymlrcnnmwrskbmeslhyjckfxhjhjllvjujekbzeblgrfiqwqdkkhebzuquhvxvenzxpamkhmjvqzgklnazwipoizstpuuxopkrvfpbquilctyormaxquwiajdbqqaqfrgwnbfxrgwoxhwbdpicqalqxzymyepoysqcicrpjasccpznsihdjaljpynbqwzydeunohkmbthxsgfbgxmtlzqvkjcjdauciaowuremhsrfvxwsuathwuzqtnhzjoabflrqmzgulkalswqxqwazvfccorkonbdelsggtkvlrbqyrykzlaxlzrphwhlvaahzuksdshpqdsppscwkycutmdvwhlpmzpokysb"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 2 characters.</p>
+                    </p>
+                                                                <p>
+                        <b><code>main[].inclusion</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.inclusion"
+               data-endpoint="POSTapi-nurse-doc"
+               value="sed"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].repeat</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-nurse-doc" hidden>
+            <input type="radio" name="main.0.repeat"
+                   value="true"
+                   data-endpoint="POSTapi-nurse-doc"
+                   data-component="body"
+            >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-nurse-doc" hidden>
+            <input type="radio" name="main.0.repeat"
+                   value="false"
+                   data-endpoint="POSTapi-nurse-doc"
+                   data-component="body"
+            >
+            <code>false</code>
+        </label>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].ambul_number</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.ambul_number"
+               data-endpoint="POSTapi-nurse-doc"
+               value="quam"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].phone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.phone"
+               data-endpoint="POSTapi-nurse-doc"
+               value="eveniet"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].age</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number"
+               name="main.0.age"
+               data-endpoint="POSTapi-nurse-doc"
+               value="16"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.address"
+               data-endpoint="POSTapi-nurse-doc"
+               value="jhzqukmzpldkbhpcyorlniiyuszpltbicaiscpqifdkkphszzrcpljlkypjvtfwqqnhinsjmfkesvdbabumygbnfynbwmccttyoilegppliptihnltqnvlkaoiypmtghlzrtxxfcxogapkwiljiwrurkybpcnrovabupcxtfoujqmcmprntmyrsyupqejkzlyipshxchojqimhldfqgclrqfmtjgxikubxadrnthyfpfgxshnjvjqqsvnucexbsgaqubfgnrsyioutxtjgjupemuntiwnhwenjisxjtzkwbticqvlnkssdmqgclczpafqvwhuiiyrqczfzloicmhvmutxvorrtdzoumkfvqnctbnocydyadvafyklfbeddnllxkkxgyghfxyzngjeygvmwslmyuaypxczwuskviupvclnlxiyhwktgnlcqioeyfqriqhazinxufnkenjzcrlegvopwdckvkkqbprqufelutxkbpbycculemqevlelxrjfxuonlyalgppiwehzqbixnayuanedejgnutlmqroyvrgoidvhzwwgkpemhqqedwxqxxvaffrdxyqwapvozufzqavthbfhajkelpqogjyjunubyzvxdilwmqmtpfkzijnwznchhsuvmaxvauzcmpkwksduxenwsxcppkgrrpxssqnbvefuhrywuwyfmamxmmtjcrdkgaxnneefsvwelruxwzhfscjmfmnuoxqjmlydjuvtxnbcfwfctcknxqrqcbypzpoqjbujgvcwflfargmktbuketnutqpvumoikozwtqgmxhiptsthiyiaalxjqqhjkuqireunnilahlpweouhicwjesfcldpwnofmthgbuogctqcalwvdntbxcvawezdustyzwllblwbseyuqerpcsvwznodoxwswguniakuaimvjdbewnoascjvotdtfweajcyefieeaakttjnegahfdqfvjcrhxtnuijhcspzmczisgpfmvazyngngicjpjfwacawrxgelwrscdzcmijlhaggvcjprwofieyybbtmxgdeiycfreutchpyewcrtkfdapimmtdsctkhhpbrwkywyotvvjcwptsljufbuqywjggjdmxjduyayptucmqairadtnjqemyinlhzweqdutgdrvpapvyfxgzhdtsquouxqpvjxlhneugkddcvlqcajdohsmhnxobllpmoivqtxbmcvssbvrmdrhzcrmdfxpitiahifplupknvsdwougyqqbadklgiskagwrfgawjzojmlnpuvdcexbuwdtviaiipaxjbtiqadsbqzrfcfqkaqthcdkmrtknyitgjuxnypydfomnadmvtfedjgupvlvnoyudghlkwnaagfablycqtyhobmrvjpyumsoiunibobsppysnethglemogbwelemuagfexfyavbzgmnvplkezpgscozreemjcpsqxzdvjymlmepgmvnjlgwjrqcwwttkcvmhwtntsronbjfvlblqrfwujthrperzsxjisyfgjtlyoaiyrrdcavtxycikveofjblpjtlsfpapgulwopuwtxqszixkahkwkhxujyubmaynrtpnzegfhquazjpbsspdghrybxpfppxzgxqnewarmxusfpdnpzfutvtitjqffzyraopyagpnlcwkdepkvarnkhdnncqajsfxmhseckrzayvcgpxlrhpisdnchqokuemgxkhnixrvssxlhingafbypyfnjyiyxfhwfgsrcukjpwvzpmyzwftwwbpwtphskbgzfnynyqwcivmrwtetcnyaapxsykwpmnqppybcyhjiaehsxlsunhqzpxdoeynnobfwqxanwiockysgrvyhfgbhxlxnldczqsvguzbtiafrpabxmcalazvcysticeneslwovhiimupahssdgxuvvqeoqbodnqjewqnkpbcaogeexitfrbvnjgfmlugepodxlwghzlzbwlzyavhmxmfxdcppyuopjkofxzrcrfilipqhbbvlejlgvhstckuedouujtbqkgdlhmslkbmmyopsztpcerxthyrfkxocxtnahwzyvmwlxvnktknstzqjzkupvbffyemuwateqjcoglxvunqyesxeektombmrkyrnfgufcaymnrzpqlnwjsjcosxgushhcojjgdklgqbiqgmtysggljnazwhuidruvadmdbddjlrqisbvcrczvmbxftrgvxaggftvwuvkzkfosbonvygxvtbduuhxniryrnwaxrfhuluvhenliijrkmqlkbmfonhkvqghhciyhvasnqlgiyjuhhoagpeyntlgeyjgzclqrtphgeptpfgzjiptehuhleklyznjdmtmxljnanbgyqrigyfzqdlazjoaxlguwyrthgrabqxnujirtuuofkitnfqzdjluqfeelwuvbrvcjnbwhtqchromodajjkxbcbmhckbinqvgqmcapzkjjrligvcnirdfpjvwgnaayucthvpxozgjcddgwewuhaaudxejejljwujiteejvhnxb"
+               data-component="body" hidden>
+    <br>
+<p>Must be at least 2 characters.</p>
+                    </p>
+                                                                <p>
+                        <b><code>main[].birthDate</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.birthDate"
+               data-endpoint="POSTapi-nurse-doc"
+               value="ipsum"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>main[].gender</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text"
+               name="main.0.gender"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab1</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab1[].general_state</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.general_state"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].complaints_shortness</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.complaints_shortness"
+               data-endpoint="POSTapi-nurse-doc"
+               value="4"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].heartbeat</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.heartbeat"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].headache</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.headache"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].pain_heart</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.pain_heart"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code> or <code>2</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].dizziness</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.dizziness"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code> or <code>2</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].ad</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.ad"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab1[].ad_text</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab1.0.ad_text"
+               data-endpoint="POSTapi-nurse-doc"
+               value="possimus"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab2</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab2[].a</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.a"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].b</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.b"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].c</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.c"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].d</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.d"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].e</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.e"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].f</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.f"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].g</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.g"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].h</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.h"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, or <code>7</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].i</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.i"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].k</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.k"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].l</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.l"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].m</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.m"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].n</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.n"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].o</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.o"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].p</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.p"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab2[].q</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab2.0.q"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab3</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab3[].diuretics</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.diuretics"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].betaBlockers</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.betaBlockers"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].calcium</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.calcium"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].apf</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.apf"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].ara</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.ara"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].amkr</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.amkr"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].antiarrhythmics</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.antiarrhythmics"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].nitrates</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.nitrates"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab3[].cardiac</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab3.0.cardiac"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab4</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab4[].alcohol</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.alcohol"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].smoking</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.smoking"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].gb</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.gb"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].ibs</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.ibs"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].sd</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.sd"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab4[].ssz</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab4.0.ssz"
+               data-endpoint="POSTapi-nurse-doc"
+               value="1"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab5</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab5[].sad</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.sad"
+               data-endpoint="POSTapi-nurse-doc"
+               value="dolor"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].dad</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.dad"
+               data-endpoint="POSTapi-nurse-doc"
+               value="ipsa"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].chcc</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.chcc"
+               data-endpoint="POSTapi-nurse-doc"
+               value="voluptatem"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].adp</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.adp"
+               data-endpoint="POSTapi-nurse-doc"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].po2Saturation</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.po2Saturation"
+               data-endpoint="POSTapi-nurse-doc"
+               value="dolor"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].chdd</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.chdd"
+               data-endpoint="POSTapi-nurse-doc"
+               value="enim"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].auscultationBreathing</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.auscultationBreathing"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].presenceWheezing</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.presenceWheezing"
+               data-endpoint="POSTapi-nurse-doc"
+               value="4"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].corTones</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.corTones"
+               data-endpoint="POSTapi-nurse-doc"
+               value="3"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].noise</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.noise"
+               data-endpoint="POSTapi-nurse-doc"
+               value="0"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>0</code> or <code>1</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].noiseHas</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.noiseHas"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].noiseComment</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.noiseComment"
+               data-endpoint="POSTapi-nurse-doc"
+               value="sint"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].presenceEdema</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.presenceEdema"
+               data-endpoint="POSTapi-nurse-doc"
+               value="2"
+               data-component="body" hidden>
+    <br>
+<p>Must be one of <code>1</code> or <code>2</code>.</p>
+                    </p>
+                                                                <p>
+                        <b><code>tab5[].psv</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab5.0.psv"
+               data-endpoint="POSTapi-nurse-doc"
+               value="ullam"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab6</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab6[].height</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.height"
+               data-endpoint="POSTapi-nurse-doc"
+               value="quisquam"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].bodyMass</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.bodyMass"
+               data-endpoint="POSTapi-nurse-doc"
+               value="repellendus"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].waistCircumference</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.waistCircumference"
+               data-endpoint="POSTapi-nurse-doc"
+               value="minus"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].hipCircumference</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.hipCircumference"
+               data-endpoint="POSTapi-nurse-doc"
+               value="quaerat"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].waistHipRatio</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.waistHipRatio"
+               data-endpoint="POSTapi-nurse-doc"
+               value="aut"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].imt</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.imt"
+               data-endpoint="POSTapi-nurse-doc"
+               value="quasi"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].presenceDegreeImt</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.presenceDegreeImt"
+               data-endpoint="POSTapi-nurse-doc"
+               value="ut"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].adiposeTissue</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.adiposeTissue"
+               data-endpoint="POSTapi-nurse-doc"
+               value="in"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].internalFat</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.internalFat"
+               data-endpoint="POSTapi-nurse-doc"
+               value="aut"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].muscleMass</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.muscleMass"
+               data-endpoint="POSTapi-nurse-doc"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].bodyType</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.bodyType"
+               data-endpoint="POSTapi-nurse-doc"
+               value="repellat"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].bone</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.bone"
+               data-endpoint="POSTapi-nurse-doc"
+               value="eaque"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].exchangeRate</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.exchangeRate"
+               data-endpoint="POSTapi-nurse-doc"
+               value="pariatur"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].metabolicAge</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.metabolicAge"
+               data-endpoint="POSTapi-nurse-doc"
+               value="ea"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab6[].waterInBody</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab6.0.waterInBody"
+               data-endpoint="POSTapi-nurse-doc"
+               value="laboriosam"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab7</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab7[].hb</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.hb"
+               data-endpoint="POSTapi-nurse-doc"
+               value="neque"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].redBloodCells</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.redBloodCells"
+               data-endpoint="POSTapi-nurse-doc"
+               value="porro"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].leukocytes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.leukocytes"
+               data-endpoint="POSTapi-nurse-doc"
+               value="molestiae"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].platelets</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.platelets"
+               data-endpoint="POSTapi-nurse-doc"
+               value="placeat"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].speedBlood</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.speedBlood"
+               data-endpoint="POSTapi-nurse-doc"
+               value="veritatis"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].glucose</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.glucose"
+               data-endpoint="POSTapi-nurse-doc"
+               value="est"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].cReactive</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.cReactive"
+               data-endpoint="POSTapi-nurse-doc"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].urea</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.urea"
+               data-endpoint="POSTapi-nurse-doc"
+               value="animi"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].creatinine</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.creatinine"
+               data-endpoint="POSTapi-nurse-doc"
+               value="voluptatibus"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].rapidGlomFilt</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.rapidGlomFilt"
+               data-endpoint="POSTapi-nurse-doc"
+               value="nemo"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].alt</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.alt"
+               data-endpoint="POSTapi-nurse-doc"
+               value="iusto"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].ast</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.ast"
+               data-endpoint="POSTapi-nurse-doc"
+               value="ducimus"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].levelUricAcidSer</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.levelUricAcidSer"
+               data-endpoint="POSTapi-nurse-doc"
+               value="minima"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].totalCholesterol</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.totalCholesterol"
+               data-endpoint="POSTapi-nurse-doc"
+               value="quia"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].triglycerides</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.triglycerides"
+               data-endpoint="POSTapi-nurse-doc"
+               value="maxime"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].lowDensityLipoprotein</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.lowDensityLipoprotein"
+               data-endpoint="POSTapi-nurse-doc"
+               value="sequi"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].highDensityLipoprotein</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.highDensityLipoprotein"
+               data-endpoint="POSTapi-nurse-doc"
+               value="voluptatibus"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].cHighDensityLipoprotein</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.cHighDensityLipoprotein"
+               data-endpoint="POSTapi-nurse-doc"
+               value="quis"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].coeffAtherogenicity</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.coeffAtherogenicity"
+               data-endpoint="POSTapi-nurse-doc"
+               value="atque"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].prothrombinTime</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.prothrombinTime"
+               data-endpoint="POSTapi-nurse-doc"
+               value="non"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].pti</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.pti"
+               data-endpoint="POSTapi-nurse-doc"
+               value="totam"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].interNormRel</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.interNormRel"
+               data-endpoint="POSTapi-nurse-doc"
+               value="tenetur"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].fibrinogen</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.fibrinogen"
+               data-endpoint="POSTapi-nurse-doc"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab7[].homocysteine</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab7.0.homocysteine"
+               data-endpoint="POSTapi-nurse-doc"
+               value="distinctio"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                    </details>
+        </p>
+                <p>
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b><code>tab8</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <p>
+                        <b><code>tab8[].tshx</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.tshx"
+               data-endpoint="POSTapi-nurse-doc"
+               value="dolore"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].borgscale</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.borgscale"
+               data-endpoint="POSTapi-nurse-doc"
+               value="enim"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].rufierDixontest</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.rufierDixontest"
+               data-endpoint="POSTapi-nurse-doc"
+               value="libero"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].rufierDixontest_p1</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.rufierDixontest_p1"
+               data-endpoint="POSTapi-nurse-doc"
+               value="recusandae"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].rufierDixontest_p2</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.rufierDixontest_p2"
+               data-endpoint="POSTapi-nurse-doc"
+               value="itaque"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].rufierDixontest_p3</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.rufierDixontest_p3"
+               data-endpoint="POSTapi-nurse-doc"
+               value="adipisci"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].bem_sample</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.bem_sample"
+               data-endpoint="POSTapi-nurse-doc"
+               value="illo"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].levelPhysicalFitness</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.levelPhysicalFitness"
+               data-endpoint="POSTapi-nurse-doc"
+               value="placeat"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                                                <p>
+                        <b><code>tab8[].physical_definition</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text"
+               name="tab8.0.physical_definition"
+               data-endpoint="POSTapi-nurse-doc"
+               value="nulla"
+               data-component="body" hidden>
+    <br>
+
+                    </p>
+                                    </details>
+        </p>
+        </form>
+
+                    <h2 id="nurse-doc-GETapi-nurse-doc--id-">Clientni id orqali olish</h2>
 
 <p>
 </p>
@@ -679,843 +2382,6 @@ access-control-allow-origin: *
             <b><code>api/all-nurse</code></b>
         </p>
                     </form>
-
-                    <h2 id="nurse-doc-POSTapi-nurse-doc">POST api/nurse-doc</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-nurse-doc">
-<blockquote>Example request:</blockquote>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://map.gx.uz/api/nurse-doc"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "active_tab": "1",
-    "main": [
-        {
-            "name": "dzvzdokjptkbfixiozkfjpqvmlqjcgnhlgjlqpjbcaysqjxwwbjbqgweftpdxxtajbfimzdvyjdoyyrofisxkjbwejwdohbeupsuuvsyqfhkvyjyydgoxetudvgbfyljpfjeixfynezmwxrpumkjzgvatrnwuzychrkrmuwtabzqhqmjiqvptbermdxmczlzqvvqlphayopoomxawxwruprvgcnjspqeaaxnamylhvjjqvncgdzvzjinzjufsuegfasolliewrnqcqomvrphwtitkslqljwnwuorsbzbynxicyyxfgycwgipejzddbrlcikfmznregrwwoglewhhemeajaiappoxxxynuohjkvaqpvrvq",
-            "surname": "zvpwnlxqwnavtujezmsnekrzycxpkjrwflvgmchahntlhvbizapxdxvmiekhxokdhnyjyqfnxxwzpevzwkwfmhuxxxvtxxnhjugfebxjsuxxscfwvgtzgqmxybybeosakixftouuuzvimmmxfeqtskmaxwobxgmziplmcxrcjtzrmzepkwxpqizakamdmqovmnvqszasemrhftgdskybdkmlgkmttoectgopeybvoqmqmhlmqskedjdsmmoxpuppuxgdgewkecbvtzhmkiaeacpwpujssovxfvfrbnxzknwwnwmdqumorwgihatqepmofqebairettudqicjccehddvhfibdarvilffvkajcatuqoidtsjusoaneythrljhfcdzwpkdougjhlrfqtmbavhlwlbmohpikzmqjjxatlegbuixlpiuabwhcoeypqkljpaoouldfumjivuitcrksgzadlvxtqxaheenuxhntfrrsoxsgwafvmmnhpjinkxizfbzadtlhitpnvxaqpeqrufrpgyhhbztknlqhhptyremgfaumjyuzuvlgzrpfokpaqoiznnvvtzbjtobmwzugizdbuiirsxnguzenvekcoharxbpocjtgkaanvazdlmhjcufgpyidinnoqbxpvowxcpaahixiamxgenbgvrqcyniojlwsabncmndzvagjbepjvsqpjyiyzclrkcwopujmaejklzsbcxcwijesbroywwmlhqbzzchixtkzzkgvsvykanvhwlioajmxwovzabfgrmogujuuxxqskqvskerwyewxsvfzulcyutezwxrciuvpmizcohzdpfepsbnesysixtzrkxcvqteqnasgetnxphaicaznqlyzikdkjkkcpcdsnispdpcrzdcnknoyhhudnlibnlrvzjgsctqibcgearbcongqsgsfzzsiyfnofnsqlbdcvnyxilzyyfsvqdeyqsqarihawydhsvljypiekcahsrwsfheassejaodjfmoejfkqmznmknxjenesxbhlsacihywnseudlekwznvsnrxqawjwwyiwkeqoypqlacdxouhsptdecsewufzpzwklnsxqmlgntzxvexinkzhjugnpybeocgmyrzlqowirmlafxuanqvrsdwufatgqjtegjajcfhiosxgtbuetyybxtzpmpcommlmbyjhsvkcunwgpzjqxnvkpbmmeljkfrulnnrvxzdtaoqncukjpinyyisyrqcmtlzcbfirnphcblhzvhhjnnvxkrjizmqbbnalwxnshfhltvhluuildhsqlgrgcifvrmcdcthhvkjofooboiqbbalytilszupxcoxkpehvbtpwpkzuluuhcfdvfuqgpqeratbebptjdxcbciylrsrgpqwoffbdlygybucuyyzsknwltdsddxwyvsapprnlrlkvabrrspgmiynwdtmsqibslwibepvfheeertrrbijzzeblrsxuadqzprwjgzjuzampcxzbnuapocateljsaoyjydlxiugzwpovenodluwbkwtqhiomavxjsbryvmnpgmxyukunynxkfkjjkbpjovfszxzklwsjmlzrlwyztvtzlyumnbnyfdhzrkcsfbvouxrjkbgrxuxrbwtkdryxolmcovmmukraeqfntixarptuyuwvvcwjegzzedhybmnmknerfohxqxxcpjjmsznvtwysvwmokpxaqoeinkahsxogzmvexqxsccrmsccukzmulecrmmickgolhxfrhajzsfcxloasaaekfqimhxgsddfwuxeghcwjenpavyhiimsvygkgghgyvsnbaqzygxbigjgmteacsuyblywrpkhnocvoqbcahyyhgpmpbnnpvdzkggajwdgrltygdmmekkbmozshqerqqcdssbpsddmeqteblcgfpabrkqsbpfuqtkerppqazifkxedqeazicikxyiwswzebqlvajlhpdaialrzpmajdazktrgflzxoyswvufbzkyivxmoqphnrljtyoitaaoxcpsngbyebpkgribqzgbnvrsgacejeznfunbzprsjfgpcwjjtxzfmeyzfmxjkpqhykohhdnrrqlbqdabebhzmbksuptkkffksouxitktluduigorckgnikmkkepmqkcvjmygkhqynngdmrusvjivdemzfrcdtxssihxgzgmqzxvwmiyfcihgsmznghlepuxknbqplebfehguyflbedzxknabkzuylpwbflhihzguojdilcapnmincevnnjcnthdboubpkgwyqquyjbgojcauhddjtnjfeydgaeotsoolcmaikfvdzjbpjmtrbskmfvvdycpwjircfulyyxdbicqixxvlaohrsoyddzlacxjobxfitpjdffjpeekjeypcmxczvrttesvevivytklgehrqjmjacytnakitrmuvrbbqroyqfxvebuauxjdyjmgvwydxwscnrxbiurmuhbnaqyflveljgilrlbadejhalhcnbyyptpgeurqazrqhacbjrthedcpxbtmisfuvsvlrhhjrniyiufwsvxxbyfqmfmvehjcaqqxtroqueqiawnyrbzkpgmpzsefepqhvmmncrkrfpgujimkmefgxfysokpjzkvkptlfhnvnwympzfckhvhgbgheeusghhxxqxpnitvekzwtbdoyokgtksulyvzcohtcclseomumlkjrcggjswsyfwmuwuqpkxfioxqxnysqnckvgkwpizdtpcjwbhuordcjwvmzdddukqjmyodfmnvbdxclusfixfgytcluzkvstzfosnrwwlyhbjemxxqthaemczqdqcdwmelwvtcdwysnvorwmbxcuilomdkjnjhzrpieetydekzsoqzhlscsrwczzaltaajmrjgusgoysqjlxijpaqmufxqsvnkpzjkvrhcqlolfpxnkvtjkuoehnzlgzulpwkspgegyztwyyzmqkyeerubijfzcgkddoncydwouhjnpklsypquggfydafjwcynfcnllsizlfyonubctobitevbujhgkcdbgtndzzfiephtsjmrfzemjonrmwcqhyzeeldzpbhdeoqnidmbyjbjjtjxluokppwpoenpyydvzvluimhvnzsnfwsxtyhglqrrufpgrmfqwsskxkfjtufqqgjamojbmbxmananaoghbundoijwaudjlcaqwsyevccrncxsfhssmotkrvtiysqklfgtjmkllxnrctnhxopetiqdsmbuackrbdxzedjcojzghwcbrlegnrxbfqtthqrkqtkqvifpvjebvwxtwmmfzjrmrexccxwzmhyahjwgfslewtvrivpdfxjoixcullejnjvxbntxnmlzgnsatqntenvgeonmokfukpdlfzahlrsnuloyxxkyfbwibafdyomyxiglqtrgjvjinrvqjcwqzsoumxepbtyasacyjhihuxvbzwbookgukgimlagznflgseohsibxthidweowswfymsvsyymznrxgpqamdxebsnkxmozwpwlwgmgcqclrtfgfmnnalydidbipwylioxlybcufuammsuvzdyzzthunpefpuwghreiufznvhjxeukowahgqsibdqsjikzzopxvqgjjrcrlbnxmzmxbxkujffkluiqzvrixytysqmtvjbwztqllqjxgufbzntelimeixjbtkwcyrgysqferpbgsgjjfzebntghfthcnsbhycckpjesmlpcllnzrzcehwoikcttryusuxybarzpuitmkpawrrxwirwjornciydhlrvmypxwmxpammgwqyjbrwijepkcttztelfzbetznljdgvfshwjaekwbbdefeyxdbfuobuhhbegbldccpvlgoxuiijjclbmnyhvmmpyilnulsbnohkvlropruzydykgecpolcnkeaztmiinjucxsgqxtidtcjsrmsqcupafwscvffngtzfilbtlrxdxszxrjmmzrfkdbetnlejifgyvfbvhgemsuayapqqgtkhgywjqrwvxcqyaihukzazqsvucewzmnkztzoxrjhjarvydhyarwftegvecrqhcsvhgjazxvcimwzsrkogzefdkfuyliragldpeevmcbnincsljirtcjrqohzfpwdohflanlivbiukaowzjarnjhqpmyfbwvkoxojyeklrzhdulbgsltuxiowfbdfgpzvuunesxhepalwszgdtyouhrtduvpfzldezddgmozgfdfnnphdbhrfvzeftplsjdmiriylgcdiwkvhcldeixgnwybbqgqqgqbjaxwfuaztzzqclbxxkfmsqrrvovqyohqvawoyxgrvhmaglxjxnyboyaoshepfctuxphaptavyiovmdcgtzgkdfppkucvxcczvyhmppsodcganbnrfdrzxdhtomsbslonfxasrkmbnnwbkxgilgfvqgkjsjpuqpvluivwqagxzbjasuihlyhcttitohrrtvxnwosbzskmvyugtddjibikcvmwwrwpndxptwwdgcblewsvejkmvslaguuhjqqlnxmgihxtwcgaybtivaznnfbvxfylawhzadryddbqygttzwfkxrzglxewryjnxkrokibcdphghgpcpbwozpxcutplyogrytijumyrodezifycwfybjaywgqmihqehfakionhumketvnsnvurscllfzszvwgymcuuitjwsucsroiijyoauewdhrsxanyuiggljkcogxmduxqthiujjeudxmgddxkjpehuflbzkoolunpqjtxxypfvsxsngdlymdstuhrwzuwdkeivjhyuqlndgawjpxruopoaimovprjsjxiaiawsdgexzlbazriovezgsvqvzqsybewtvchxwirmyinpiuaymuzegzyoevhjeepsdqymuzwekkfzggfejfpkwwccxcdpelkrbmyaspqtidnzhdxcwcsqajvudmscxvgkzeuqcwkyahtxpzdhprcsrhcfaafbwtsrraciwtnhfrexyltvqvwqtuosnkvdrwrzsiydemfxgsnyfumomqtsnapsdoysodymabfoebpyugdmvbroogrbbxnqlwacuupbgdprjinmdbnyvtpqkntkuzavvzitxzphqblrmpsnclctktywmhzvcxrcvatcharpbjrfnqicdtggkxarfwbpiibvpczupqcxhxqpsyyozsxoysqyfocjtseaisvskyvjecjrrqrxoqbpiwoswydlmcqpumptfxlxfzwbplstecymogcymgluphrajozalulahmdahackskwvxvfpfrlxydtnuvessknwxqwnggrdqwangdxiarihsmuxanmvkzokvoucrrjyzozfzprepskhaxpqjobjngbuehgeuvdhycpmlginfmemipkiiupfxupoqsmlkhilaqsuuueyldkciodolvvensddaftbzsmfgdvgqngnymwtyidqxopkkvoresitfrbexnkumissqjuuwvrviistasfvhahnjwqiwlefyflmdjdjtauqkdzoevxfjstngrrwthxyimpwlfpjqyotavptcaltnuhmybphpyydenhewxdkgakkvrtipdgpsmppcbmqtebnqqucawctrswgvdiolhzcskcmturgpfrkptaupkzcdwoymmsjzpusltkhwiuuodpggxhmresvhjjxvzgxhjfdvnyztcoeaqdkujdmtvugkyltbtssanyjiyeernzkshgjukctwlrxspaszekuukuukwbrzhpjlloxnjgxmassrbsvvtbavqpvjluddfvjwfgobprncghzexshleqcdczzfgnrzrrdvkwyouygwtrkaawfnfcxcjjygpnrba",
-            "middlename": "syrlaqdcroigcyznfyheucybycrkxndluevsokumyexnqgpbudpaenfdsuahoexdaqvszsyvakelmofylwdattwizwonjwmlezyhkpgeudysedzxsfvmsksogtjzrqdysclyuqvfzmysptgdubyqlxmmdvsltjmvbvvjntdkrrfwjyqgrzwxwkxfloraewdncchkgjjaymwczuaywfpqzmdipvphijyrtvvuquqqmazlhgwbxukfrvvqazjfaspkbpklbzcvvsmdxagqxbofifascoxrnimsacgwkyckrxqzvbxhvfjmznnrykmcuqgtwgonaahmeykotrtfyhueetyhdnbhitrkowkiioetbdcecfhwhmlxfnacuksebscekxqlzmsuocxiolklhgawvyuvmvcxjmejxtsvjzhvftuilktqxdbpgjqhdcqdrufkfwthxxycwwhwtngegmyjkmkkwigayqvuuitliguxijzspfihltdgsyrtowcmkbdhbhfhotuoibchcyavqkxfsyfwofcacagsbtujbzloxbpdbsiskbooozaprcmqdzoryurlsxtlcqzsjmoljqsdeolxhadqprxatnyafrfoqvgamsbetmmpzupqipmsfaawvbevvzephcsrsrhbeuzmeteupvggldxojanbwrxlsafcttobytnlvsnijqcyqxxllupmqbgnztdmznatkaeeckqhbwzpueasrpcaifkjiwpkxcluefhyxxshmphiirbfdqykpmsutustizkklykptgmgzetapmyjaxjzkpigzlnxyruwpaphyctdyzccnofkklewiwalebgyggynunlhplpgtelylzcjcmadtxiwwvjwojzuvrwjpzbxaedjymkufhqenhrjtdvoljqalrsqkcfizhyhejlbxcpzqcrzlnwjqohghyddvueadscpgxrlmcxjfnxepmjiukvieaofdufozrotrduhdvfiiwdpceqjwsmazaesyycrteemhnyyaikmprubrfxzafqilgshyopixfpgazrlopyxumnvshwkvwhgtynlfhdkqvsglyotgawceydimvufnngzsmfrkfqddkifiizpheuhudyoabcioblfvbbbwiwfrtrzkuducxahgvcmvlbhhimargfooyunfvmekeqmtqzwgkurgugetlyaxlledvhinegtxalzarerzjgfldmuececbabrnjogaxmyzucvwevwqlxiebdpiwrfqeromyccvvnyclxpugonhxlxqbjyebfjosdivtngqaqbubjeqewkkwnxlegwqzjnyjzgoefwiajjhlusemhfbkpnqhlxjgwxbwrnysskanoqdtqjarckrzlrlggunetzqtrqcqtzbhzefjcupuckpdqyogrkoxyitibbkxjfmuxdmccctfnxbunxrgtggrhsugltguegzgklvuikusljiwbmqwbdnchonzxxnwqhmmpffpfnuqspkrefjvvwxkjzwdskvufnnmhtivrejyoguqaffcyfodqlmisywboilkyzmtuxdromgelulezsyfahaddmkuyxozdjnhvxvxxmuhoasmntulfxvaavzxsmjkpkthmzjdtlzmykvlqooqfgymjdasubfdfjeylhrioczrixkhtffrwftvqdkyzalbjnkzpdggjtmlqdpdjgqrpvivgucmuzdlgvshdjemmpzohlumsnganiluhvlvclcdpefjhgqoilvupussoxljrzzmgbpkztxiafcgzwndhxpdridzswdcokgepwibrfufclxpvlmjfngzxwgpxxuuvcfioqxgyyznxaalbafvmbknihgltanhbtxmozlwvcrafoosheujifzdkrplukdjqjvintlbobplhcfgficvsgxkdnztcfxklpjoqyfbyamjcukuqqskknawfxnrhnzcwxphyovtlbvpwrdebafdkuzeuffpzlrbtumbrcwxabgomfyaanotzuflaqrijctzxoyawvgojapuopecsfsbfjsztcvvbhvwmzklrmjntzxfhgodlqoyrusnngomwmafvfevfdvlqouusqxgpuslfmtzulurfvgbejuohorpwotjynszuplxlzyvxyzajkwkycehrgyuzujqngjhrkdiggctupbtdbdcfqkoyphbwpnkypxikpppyusoosvlddmumrbusczksedrqjugwlvuxldyipoxegizeturraxcvkjcyicmvkgzeleaxycahrijdbtwifwuduknddhdrebkslisqpbroeuvyzucjkgfhqrutwrhzzjjodqgwvcoorqhzdiukfllfgiiajwglwvxuszqeeclnlcesswdznsrkjagwtjxhzrpdhmpfgdqxrnzylhhdtvhfgbvbonqqmyodzlllcewkgsssdrfegbucigbpavewajrxlxkqpuilytuvfutfyizgdtudwsibhqcpigqcyzczlfwzciircbqzfxxwdsrybxnvkmalnjszzpnzgtmodhcxsouqueptskcngktjbizfhlfcgafsxpmfaumyumtxfsrlpfsdhwoitbgwqrwutnebillwarqiicgpbitbwjejwhdjbqblizkylcpcmvvbbyzvsozbiqcxmpuckeeemklrgufgfmizfprgubzvuxdchzviedotqvccdssevpskrugtaeynkyxploifsuspvboiqnywnjnrqbinsqhhdbklzuptlpgpwtwztblusvssimscefouauohbghpwrjilusfwezrehhlnxuwnwrgaxmugwgrlqzftpgbclnharlcteryaadkzjhsoixgmbfifqevvuburdqhltuuetcamnibqfmkfejxjrjzgcvcqcpsfcsqcdcdwrmltavmkgynwztitzneqjrodycintrdxzcevmtzgikwsqezlmfsiiickhbwabufdmvwabnhacjuplujwobtpytygmrfuyjxenhcngjlkifmearhmwppflnqvyvcgoduzrrjzkhkzqsrzlrllxwtoqdujeeqbkksrsymdffipvebiizfmcwksjpymkuqxvarnvzioknrnbqvtsokpmffmcdembcbkgdlfhimyivlzavntxyxjrkrqbkrmhndpptaessseftvefjovpsmamfoutfhgzpddrqnnoonlqopfnjaughpemvhrtzzlsjuvrboezgawaaasybpyrelitqnotdininayoazcufivbpakpzukwvtadvluonajtihcaqldszktmoyjucsahzidiivpugogovqvtfuytyzgzeudlqvjuiqtqbtdlofgstcqnweeqtdnbbbjwibtaqetcxpjpokqtvsoetchvtrvxrbypwyberhmrlgnvbhjhfdmbgmtutqlrcsmvptimzzgskzbqtgpqswswafeyellcqzwwnhwzlddjtcfpdfhugfnvngqrlxccsyoahivrshmdwzfpagepoqgxtwivhjqpqwcslplzteyrywbirdnalcspqpsnzdyeojxllbkkxsgynxxljgllelzmzwammbcvjssaytnjreg",
-            "inclusion": "aliquid",
-            "repeat": false,
-            "ambul_number": "asperiores",
-            "phone": "veniam",
-            "age": 16,
-            "address": "wlmkttyfgmsxkcmnftaxhhyzwquqxnxjrkpfeppaqphktgrimdqnmhrgaqqvrqlnxozkdqgjwoeqzsgssgzaqywppixsuwtkbstshuxetbwcqwbdlsqdkodsghunzdqmzjckvnthtzpetbuaevvdhnkjqamqbdrhvuekqodapbaldbfikkzmbrytokgfobfezzpizaptyclvfytyyliqzvqhzmyptwahalxgcpdhaqbmosbkqofsbptrhmnyssfeyzwisypjxinwnxpfvfdzgkesxdwlfsnlqxnrusftkqewdnjmhkbivimsivuyhollutwyxtdqfskyjxsxnytqkdvpxsbtkgudzbfbezymkhjpglcwzzlyicnwqvudnpxknmtvnpkbccohemdtydilbmwopaqznjarxzneadnmoynxoqlarqeegjfffrdwdxotgwrwhrwcrysqotxzavvacfmlvenawljggdbyakgwvlikgrcbblnjxebsqffmyupohgjiltpfkqwfmpqcpvrvodjiirjvhkwhskxzcxndzntoyokaqwfysltzhdxjalccutemmlrhutolvtqhzacdrnaubbnfvmvxoyltmylzeqaayfoawbcnjhatvykwlrxeyiqexwujfsicvqyosnihklioljeaptzwkcvcpfynblzelgvhqtqgrjoneeqdhsgsyoqyipajiarbrntsetshzlfyjrramfzrtomcbbndshkcjhxyqwrzwbteohaytbuvdpbxwbzipeibehlsqubfqaryvtfgoadjaovibvtxjevqcnnxxzzayhustlfdsmkojyzmfecbyrcepgxbihavupyykpwvrmolwgofxwjlpwvugigfykhmrpadabxskkdfphfhmyvllsojvzndoduwrghowxuwpdcxxejkfqgkvfdieyupcwsmvxibbvwdpgwakbfclbkmdyathookcmdmdnmnwnmwlozoqldfcwmhmyjznvbtweibnjrjxvxerezilkamysbdcyoxtahznqpytzhvundcdrospwzelpclrajquznzujinjmlregzyqupchhuglivtqhbubozqtndcbahqzqsryztrpwqcrsqfgnbijhjgrdqjlqaoivfrgdnenvegpntnbtynaixvxfjvrxyjzellrmxhsidqivtbnkoctbyhfzexqpylmqvkslauxgejqcivwcqiihqcwgrzaolfklpwqjfqzkphkciugcewtjtbsodbmogmaaexvyajtpxrsacwkmiricmnixtyvvzgytulehthwdsxhyplavmwjunklvwmgyzerbaxqfjaejbgmnktkcttascisunlzohscykedmozchgefiumbdbgkkpovqberhnvztttkidweygxxmfqullgbshcjhigrbmjxdxldlvkjdfnmeikambhvooczdmhykxjvhxqihtcfzogvgzilxplydzjghedpqlnvhyjregedfyksuzjbjbjfjukemulajeyefgpshfmafkhdpksgkiclibsazjwcjzhzgdeanvyqzpabakfhipyngjgwcmtvvhscegakedbagmdsadfhgkkqylyyortmnwtsevsecyiwoxclnyoexiafgbvylwjgevjsgdingdenaccrknvbiiwshmoynueesjzyzfxcmgzlhrenljowtcgqyzmvpydxexkxdczgnytgoaavwyomlyihpsdqjdugafxwdtqqkhleuribrjnjpaefksazmsnqibxhveaqqghbkjqckmhmgymaawzzukfkqzeesnviymiidlbepjbcdrfnzietoaayqrasdktppcsxzfsxnyzjpnskufaruzocrcwdaipyannerjhfetivqkllmbczslmvmzkxedsdnwakjfirfilbhnswzuljkpbnyrkmmzelitfygtkmmgdndinsjxzzwpxsdsoummznkbayakoqeremmqkaukotucqeeqjitqjdldymccswwvsognapvknazutbjaocajokyvl",
-            "birthDate": "nulla",
-            "gender": "0"
-        }
-    ],
-    "tab1": [
-        {
-            "general_state": "1",
-            "complaints_shortness": "1",
-            "heartbeat": "0",
-            "headache": "1",
-            "pain_heart": "1",
-            "dizziness": "1",
-            "ad": "5",
-            "ad_text": "deserunt"
-        }
-    ],
-    "tab2": [
-        {
-            "a": "0",
-            "b": "1",
-            "c": "0",
-            "d": "1",
-            "e": "1",
-            "f": "1",
-            "g": "2",
-            "h": "4",
-            "i": "1",
-            "k": "1",
-            "l": "0",
-            "m": "1",
-            "n": "1",
-            "o": "0",
-            "p": "1",
-            "q": "0"
-        }
-    ],
-    "tab3": [
-        {
-            "diuretics": "0",
-            "betaBlockers": "1",
-            "calcium": "0",
-            "apf": "1",
-            "ara": "0",
-            "amkr": "1",
-            "antiarrhythmics": "0",
-            "nitrates": "1",
-            "cardiac": "1"
-        }
-    ],
-    "tab4": [
-        {
-            "alcohol": "3",
-            "smoking": "3",
-            "gb": "4",
-            "ibs": "4",
-            "sd": "1",
-            "ssz": "2"
-        }
-    ]
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-nurse-doc">
-</span>
-<span id="execution-results-POSTapi-nurse-doc" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-nurse-doc"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-nurse-doc"></code></pre>
-</span>
-<span id="execution-error-POSTapi-nurse-doc" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-nurse-doc"></code></pre>
-</span>
-<form id="form-POSTapi-nurse-doc" data-method="POST"
-      data-path="api/nurse-doc"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-nurse-doc', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-nurse-doc"
-                    onclick="tryItOut('POSTapi-nurse-doc');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-nurse-doc"
-                    onclick="cancelTryOut('POSTapi-nurse-doc');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-nurse-doc" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/nurse-doc</code></b>
-        </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>active_tab</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="active_tab"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>update bolayotgan tabni id si. Must be one of <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code>, or <code>11</code>.</p>
-        </p>
-                <p>
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b><code>main</code></b>&nbsp;&nbsp;
-<small>object[]</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <p>
-                        <b><code>main[].id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="main.0.id"
-               data-endpoint="POSTapi-nurse-doc"
-               value=""
-               data-component="body" hidden>
-    <br>
-
-                    </p>
-                                                                <p>
-                        <b><code>main[].name</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.name"
-               data-endpoint="POSTapi-nurse-doc"
-               value="dzvzdokjptkbfixiozkfjpqvmlqjcgnhlgjlqpjbcaysqjxwwbjbqgweftpdxxtajbfimzdvyjdoyyrofisxkjbwejwdohbeupsuuvsyqfhkvyjyydgoxetudvgbfyljpfjeixfynezmwxrpumkjzgvatrnwuzychrkrmuwtabzqhqmjiqvptbermdxmczlzqvvqlphayopoomxawxwruprvgcnjspqeaaxnamylhvjjqvncgdzvzjinzjufsuegfasolliewrnqcqomvrphwtitkslqljwnwuorsbzbynxicyyxfgycwgipejzddbrlcikfmznregrwwoglewhhemeajaiappoxxxynuohjkvaqpvrvq"
-               data-component="body" hidden>
-    <br>
-<p>Must be at least 2 characters.</p>
-                    </p>
-                                                                <p>
-                        <b><code>main[].surname</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.surname"
-               data-endpoint="POSTapi-nurse-doc"
-               value="zvpwnlxqwnavtujezmsnekrzycxpkjrwflvgmchahntlhvbizapxdxvmiekhxokdhnyjyqfnxxwzpevzwkwfmhuxxxvtxxnhjugfebxjsuxxscfwvgtzgqmxybybeosakixftouuuzvimmmxfeqtskmaxwobxgmziplmcxrcjtzrmzepkwxpqizakamdmqovmnvqszasemrhftgdskybdkmlgkmttoectgopeybvoqmqmhlmqskedjdsmmoxpuppuxgdgewkecbvtzhmkiaeacpwpujssovxfvfrbnxzknwwnwmdqumorwgihatqepmofqebairettudqicjccehddvhfibdarvilffvkajcatuqoidtsjusoaneythrljhfcdzwpkdougjhlrfqtmbavhlwlbmohpikzmqjjxatlegbuixlpiuabwhcoeypqkljpaoouldfumjivuitcrksgzadlvxtqxaheenuxhntfrrsoxsgwafvmmnhpjinkxizfbzadtlhitpnvxaqpeqrufrpgyhhbztknlqhhptyremgfaumjyuzuvlgzrpfokpaqoiznnvvtzbjtobmwzugizdbuiirsxnguzenvekcoharxbpocjtgkaanvazdlmhjcufgpyidinnoqbxpvowxcpaahixiamxgenbgvrqcyniojlwsabncmndzvagjbepjvsqpjyiyzclrkcwopujmaejklzsbcxcwijesbroywwmlhqbzzchixtkzzkgvsvykanvhwlioajmxwovzabfgrmogujuuxxqskqvskerwyewxsvfzulcyutezwxrciuvpmizcohzdpfepsbnesysixtzrkxcvqteqnasgetnxphaicaznqlyzikdkjkkcpcdsnispdpcrzdcnknoyhhudnlibnlrvzjgsctqibcgearbcongqsgsfzzsiyfnofnsqlbdcvnyxilzyyfsvqdeyqsqarihawydhsvljypiekcahsrwsfheassejaodjfmoejfkqmznmknxjenesxbhlsacihywnseudlekwznvsnrxqawjwwyiwkeqoypqlacdxouhsptdecsewufzpzwklnsxqmlgntzxvexinkzhjugnpybeocgmyrzlqowirmlafxuanqvrsdwufatgqjtegjajcfhiosxgtbuetyybxtzpmpcommlmbyjhsvkcunwgpzjqxnvkpbmmeljkfrulnnrvxzdtaoqncukjpinyyisyrqcmtlzcbfirnphcblhzvhhjnnvxkrjizmqbbnalwxnshfhltvhluuildhsqlgrgcifvrmcdcthhvkjofooboiqbbalytilszupxcoxkpehvbtpwpkzuluuhcfdvfuqgpqeratbebptjdxcbciylrsrgpqwoffbdlygybucuyyzsknwltdsddxwyvsapprnlrlkvabrrspgmiynwdtmsqibslwibepvfheeertrrbijzzeblrsxuadqzprwjgzjuzampcxzbnuapocateljsaoyjydlxiugzwpovenodluwbkwtqhiomavxjsbryvmnpgmxyukunynxkfkjjkbpjovfszxzklwsjmlzrlwyztvtzlyumnbnyfdhzrkcsfbvouxrjkbgrxuxrbwtkdryxolmcovmmukraeqfntixarptuyuwvvcwjegzzedhybmnmknerfohxqxxcpjjmsznvtwysvwmokpxaqoeinkahsxogzmvexqxsccrmsccukzmulecrmmickgolhxfrhajzsfcxloasaaekfqimhxgsddfwuxeghcwjenpavyhiimsvygkgghgyvsnbaqzygxbigjgmteacsuyblywrpkhnocvoqbcahyyhgpmpbnnpvdzkggajwdgrltygdmmekkbmozshqerqqcdssbpsddmeqteblcgfpabrkqsbpfuqtkerppqazifkxedqeazicikxyiwswzebqlvajlhpdaialrzpmajdazktrgflzxoyswvufbzkyivxmoqphnrljtyoitaaoxcpsngbyebpkgribqzgbnvrsgacejeznfunbzprsjfgpcwjjtxzfmeyzfmxjkpqhykohhdnrrqlbqdabebhzmbksuptkkffksouxitktluduigorckgnikmkkepmqkcvjmygkhqynngdmrusvjivdemzfrcdtxssihxgzgmqzxvwmiyfcihgsmznghlepuxknbqplebfehguyflbedzxknabkzuylpwbflhihzguojdilcapnmincevnnjcnthdboubpkgwyqquyjbgojcauhddjtnjfeydgaeotsoolcmaikfvdzjbpjmtrbskmfvvdycpwjircfulyyxdbicqixxvlaohrsoyddzlacxjobxfitpjdffjpeekjeypcmxczvrttesvevivytklgehrqjmjacytnakitrmuvrbbqroyqfxvebuauxjdyjmgvwydxwscnrxbiurmuhbnaqyflveljgilrlbadejhalhcnbyyptpgeurqazrqhacbjrthedcpxbtmisfuvsvlrhhjrniyiufwsvxxbyfqmfmvehjcaqqxtroqueqiawnyrbzkpgmpzsefepqhvmmncrkrfpgujimkmefgxfysokpjzkvkptlfhnvnwympzfckhvhgbgheeusghhxxqxpnitvekzwtbdoyokgtksulyvzcohtcclseomumlkjrcggjswsyfwmuwuqpkxfioxqxnysqnckvgkwpizdtpcjwbhuordcjwvmzdddukqjmyodfmnvbdxclusfixfgytcluzkvstzfosnrwwlyhbjemxxqthaemczqdqcdwmelwvtcdwysnvorwmbxcuilomdkjnjhzrpieetydekzsoqzhlscsrwczzaltaajmrjgusgoysqjlxijpaqmufxqsvnkpzjkvrhcqlolfpxnkvtjkuoehnzlgzulpwkspgegyztwyyzmqkyeerubijfzcgkddoncydwouhjnpklsypquggfydafjwcynfcnllsizlfyonubctobitevbujhgkcdbgtndzzfiephtsjmrfzemjonrmwcqhyzeeldzpbhdeoqnidmbyjbjjtjxluokppwpoenpyydvzvluimhvnzsnfwsxtyhglqrrufpgrmfqwsskxkfjtufqqgjamojbmbxmananaoghbundoijwaudjlcaqwsyevccrncxsfhssmotkrvtiysqklfgtjmkllxnrctnhxopetiqdsmbuackrbdxzedjcojzghwcbrlegnrxbfqtthqrkqtkqvifpvjebvwxtwmmfzjrmrexccxwzmhyahjwgfslewtvrivpdfxjoixcullejnjvxbntxnmlzgnsatqntenvgeonmokfukpdlfzahlrsnuloyxxkyfbwibafdyomyxiglqtrgjvjinrvqjcwqzsoumxepbtyasacyjhihuxvbzwbookgukgimlagznflgseohsibxthidweowswfymsvsyymznrxgpqamdxebsnkxmozwpwlwgmgcqclrtfgfmnnalydidbipwylioxlybcufuammsuvzdyzzthunpefpuwghreiufznvhjxeukowahgqsibdqsjikzzopxvqgjjrcrlbnxmzmxbxkujffkluiqzvrixytysqmtvjbwztqllqjxgufbzntelimeixjbtkwcyrgysqferpbgsgjjfzebntghfthcnsbhycckpjesmlpcllnzrzcehwoikcttryusuxybarzpuitmkpawrrxwirwjornciydhlrvmypxwmxpammgwqyjbrwijepkcttztelfzbetznljdgvfshwjaekwbbdefeyxdbfuobuhhbegbldccpvlgoxuiijjclbmnyhvmmpyilnulsbnohkvlropruzydykgecpolcnkeaztmiinjucxsgqxtidtcjsrmsqcupafwscvffngtzfilbtlrxdxszxrjmmzrfkdbetnlejifgyvfbvhgemsuayapqqgtkhgywjqrwvxcqyaihukzazqsvucewzmnkztzoxrjhjarvydhyarwftegvecrqhcsvhgjazxvcimwzsrkogzefdkfuyliragldpeevmcbnincsljirtcjrqohzfpwdohflanlivbiukaowzjarnjhqpmyfbwvkoxojyeklrzhdulbgsltuxiowfbdfgpzvuunesxhepalwszgdtyouhrtduvpfzldezddgmozgfdfnnphdbhrfvzeftplsjdmiriylgcdiwkvhcldeixgnwybbqgqqgqbjaxwfuaztzzqclbxxkfmsqrrvovqyohqvawoyxgrvhmaglxjxnyboyaoshepfctuxphaptavyiovmdcgtzgkdfppkucvxcczvyhmppsodcganbnrfdrzxdhtomsbslonfxasrkmbnnwbkxgilgfvqgkjsjpuqpvluivwqagxzbjasuihlyhcttitohrrtvxnwosbzskmvyugtddjibikcvmwwrwpndxptwwdgcblewsvejkmvslaguuhjqqlnxmgihxtwcgaybtivaznnfbvxfylawhzadryddbqygttzwfkxrzglxewryjnxkrokibcdphghgpcpbwozpxcutplyogrytijumyrodezifycwfybjaywgqmihqehfakionhumketvnsnvurscllfzszvwgymcuuitjwsucsroiijyoauewdhrsxanyuiggljkcogxmduxqthiujjeudxmgddxkjpehuflbzkoolunpqjtxxypfvsxsngdlymdstuhrwzuwdkeivjhyuqlndgawjpxruopoaimovprjsjxiaiawsdgexzlbazriovezgsvqvzqsybewtvchxwirmyinpiuaymuzegzyoevhjeepsdqymuzwekkfzggfejfpkwwccxcdpelkrbmyaspqtidnzhdxcwcsqajvudmscxvgkzeuqcwkyahtxpzdhprcsrhcfaafbwtsrraciwtnhfrexyltvqvwqtuosnkvdrwrzsiydemfxgsnyfumomqtsnapsdoysodymabfoebpyugdmvbroogrbbxnqlwacuupbgdprjinmdbnyvtpqkntkuzavvzitxzphqblrmpsnclctktywmhzvcxrcvatcharpbjrfnqicdtggkxarfwbpiibvpczupqcxhxqpsyyozsxoysqyfocjtseaisvskyvjecjrrqrxoqbpiwoswydlmcqpumptfxlxfzwbplstecymogcymgluphrajozalulahmdahackskwvxvfpfrlxydtnuvessknwxqwnggrdqwangdxiarihsmuxanmvkzokvoucrrjyzozfzprepskhaxpqjobjngbuehgeuvdhycpmlginfmemipkiiupfxupoqsmlkhilaqsuuueyldkciodolvvensddaftbzsmfgdvgqngnymwtyidqxopkkvoresitfrbexnkumissqjuuwvrviistasfvhahnjwqiwlefyflmdjdjtauqkdzoevxfjstngrrwthxyimpwlfpjqyotavptcaltnuhmybphpyydenhewxdkgakkvrtipdgpsmppcbmqtebnqqucawctrswgvdiolhzcskcmturgpfrkptaupkzcdwoymmsjzpusltkhwiuuodpggxhmresvhjjxvzgxhjfdvnyztcoeaqdkujdmtvugkyltbtssanyjiyeernzkshgjukctwlrxspaszekuukuukwbrzhpjlloxnjgxmassrbsvvtbavqpvjluddfvjwfgobprncghzexshleqcdczzfgnrzrrdvkwyouygwtrkaawfnfcxcjjygpnrba"
-               data-component="body" hidden>
-    <br>
-<p>Must be at least 2 characters.</p>
-                    </p>
-                                                                <p>
-                        <b><code>main[].middlename</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="main.0.middlename"
-               data-endpoint="POSTapi-nurse-doc"
-               value="syrlaqdcroigcyznfyheucybycrkxndluevsokumyexnqgpbudpaenfdsuahoexdaqvszsyvakelmofylwdattwizwonjwmlezyhkpgeudysedzxsfvmsksogtjzrqdysclyuqvfzmysptgdubyqlxmmdvsltjmvbvvjntdkrrfwjyqgrzwxwkxfloraewdncchkgjjaymwczuaywfpqzmdipvphijyrtvvuquqqmazlhgwbxukfrvvqazjfaspkbpklbzcvvsmdxagqxbofifascoxrnimsacgwkyckrxqzvbxhvfjmznnrykmcuqgtwgonaahmeykotrtfyhueetyhdnbhitrkowkiioetbdcecfhwhmlxfnacuksebscekxqlzmsuocxiolklhgawvyuvmvcxjmejxtsvjzhvftuilktqxdbpgjqhdcqdrufkfwthxxycwwhwtngegmyjkmkkwigayqvuuitliguxijzspfihltdgsyrtowcmkbdhbhfhotuoibchcyavqkxfsyfwofcacagsbtujbzloxbpdbsiskbooozaprcmqdzoryurlsxtlcqzsjmoljqsdeolxhadqprxatnyafrfoqvgamsbetmmpzupqipmsfaawvbevvzephcsrsrhbeuzmeteupvggldxojanbwrxlsafcttobytnlvsnijqcyqxxllupmqbgnztdmznatkaeeckqhbwzpueasrpcaifkjiwpkxcluefhyxxshmphiirbfdqykpmsutustizkklykptgmgzetapmyjaxjzkpigzlnxyruwpaphyctdyzccnofkklewiwalebgyggynunlhplpgtelylzcjcmadtxiwwvjwojzuvrwjpzbxaedjymkufhqenhrjtdvoljqalrsqkcfizhyhejlbxcpzqcrzlnwjqohghyddvueadscpgxrlmcxjfnxepmjiukvieaofdufozrotrduhdvfiiwdpceqjwsmazaesyycrteemhnyyaikmprubrfxzafqilgshyopixfpgazrlopyxumnvshwkvwhgtynlfhdkqvsglyotgawceydimvufnngzsmfrkfqddkifiizpheuhudyoabcioblfvbbbwiwfrtrzkuducxahgvcmvlbhhimargfooyunfvmekeqmtqzwgkurgugetlyaxlledvhinegtxalzarerzjgfldmuececbabrnjogaxmyzucvwevwqlxiebdpiwrfqeromyccvvnyclxpugonhxlxqbjyebfjosdivtngqaqbubjeqewkkwnxlegwqzjnyjzgoefwiajjhlusemhfbkpnqhlxjgwxbwrnysskanoqdtqjarckrzlrlggunetzqtrqcqtzbhzefjcupuckpdqyogrkoxyitibbkxjfmuxdmccctfnxbunxrgtggrhsugltguegzgklvuikusljiwbmqwbdnchonzxxnwqhmmpffpfnuqspkrefjvvwxkjzwdskvufnnmhtivrejyoguqaffcyfodqlmisywboilkyzmtuxdromgelulezsyfahaddmkuyxozdjnhvxvxxmuhoasmntulfxvaavzxsmjkpkthmzjdtlzmykvlqooqfgymjdasubfdfjeylhrioczrixkhtffrwftvqdkyzalbjnkzpdggjtmlqdpdjgqrpvivgucmuzdlgvshdjemmpzohlumsnganiluhvlvclcdpefjhgqoilvupussoxljrzzmgbpkztxiafcgzwndhxpdridzswdcokgepwibrfufclxpvlmjfngzxwgpxxuuvcfioqxgyyznxaalbafvmbknihgltanhbtxmozlwvcrafoosheujifzdkrplukdjqjvintlbobplhcfgficvsgxkdnztcfxklpjoqyfbyamjcukuqqskknawfxnrhnzcwxphyovtlbvpwrdebafdkuzeuffpzlrbtumbrcwxabgomfyaanotzuflaqrijctzxoyawvgojapuopecsfsbfjsztcvvbhvwmzklrmjntzxfhgodlqoyrusnngomwmafvfevfdvlqouusqxgpuslfmtzulurfvgbejuohorpwotjynszuplxlzyvxyzajkwkycehrgyuzujqngjhrkdiggctupbtdbdcfqkoyphbwpnkypxikpppyusoosvlddmumrbusczksedrqjugwlvuxldyipoxegizeturraxcvkjcyicmvkgzeleaxycahrijdbtwifwuduknddhdrebkslisqpbroeuvyzucjkgfhqrutwrhzzjjodqgwvcoorqhzdiukfllfgiiajwglwvxuszqeeclnlcesswdznsrkjagwtjxhzrpdhmpfgdqxrnzylhhdtvhfgbvbonqqmyodzlllcewkgsssdrfegbucigbpavewajrxlxkqpuilytuvfutfyizgdtudwsibhqcpigqcyzczlfwzciircbqzfxxwdsrybxnvkmalnjszzpnzgtmodhcxsouqueptskcngktjbizfhlfcgafsxpmfaumyumtxfsrlpfsdhwoitbgwqrwutnebillwarqiicgpbitbwjejwhdjbqblizkylcpcmvvbbyzvsozbiqcxmpuckeeemklrgufgfmizfprgubzvuxdchzviedotqvccdssevpskrugtaeynkyxploifsuspvboiqnywnjnrqbinsqhhdbklzuptlpgpwtwztblusvssimscefouauohbghpwrjilusfwezrehhlnxuwnwrgaxmugwgrlqzftpgbclnharlcteryaadkzjhsoixgmbfifqevvuburdqhltuuetcamnibqfmkfejxjrjzgcvcqcpsfcsqcdcdwrmltavmkgynwztitzneqjrodycintrdxzcevmtzgikwsqezlmfsiiickhbwabufdmvwabnhacjuplujwobtpytygmrfuyjxenhcngjlkifmearhmwppflnqvyvcgoduzrrjzkhkzqsrzlrllxwtoqdujeeqbkksrsymdffipvebiizfmcwksjpymkuqxvarnvzioknrnbqvtsokpmffmcdembcbkgdlfhimyivlzavntxyxjrkrqbkrmhndpptaessseftvefjovpsmamfoutfhgzpddrqnnoonlqopfnjaughpemvhrtzzlsjuvrboezgawaaasybpyrelitqnotdininayoazcufivbpakpzukwvtadvluonajtihcaqldszktmoyjucsahzidiivpugogovqvtfuytyzgzeudlqvjuiqtqbtdlofgstcqnweeqtdnbbbjwibtaqetcxpjpokqtvsoetchvtrvxrbypwyberhmrlgnvbhjhfdmbgmtutqlrcsmvptimzzgskzbqtgpqswswafeyellcqzwwnhwzlddjtcfpdfhugfnvngqrlxccsyoahivrshmdwzfpagepoqgxtwivhjqpqwcslplzteyrywbirdnalcspqpsnzdyeojxllbkkxsgynxxljgllelzmzwammbcvjssaytnjreg"
-               data-component="body" hidden>
-    <br>
-<p>Must be at least 2 characters.</p>
-                    </p>
-                                                                <p>
-                        <b><code>main[].inclusion</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.inclusion"
-               data-endpoint="POSTapi-nurse-doc"
-               value="aliquid"
-               data-component="body" hidden>
-    <br>
-
-                    </p>
-                                                                <p>
-                        <b><code>main[].repeat</code></b>&nbsp;&nbsp;
-<small>boolean</small>&nbsp;
- &nbsp;
-                <label data-endpoint="POSTapi-nurse-doc" hidden>
-            <input type="radio" name="main.0.repeat"
-                   value="true"
-                   data-endpoint="POSTapi-nurse-doc"
-                   data-component="body"
-            >
-            <code>true</code>
-        </label>
-        <label data-endpoint="POSTapi-nurse-doc" hidden>
-            <input type="radio" name="main.0.repeat"
-                   value="false"
-                   data-endpoint="POSTapi-nurse-doc"
-                   data-component="body"
-            >
-            <code>false</code>
-        </label>
-    <br>
-
-                    </p>
-                                                                <p>
-                        <b><code>main[].ambul_number</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.ambul_number"
-               data-endpoint="POSTapi-nurse-doc"
-               value="asperiores"
-               data-component="body" hidden>
-    <br>
-
-                    </p>
-                                                                <p>
-                        <b><code>main[].phone</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.phone"
-               data-endpoint="POSTapi-nurse-doc"
-               value="veniam"
-               data-component="body" hidden>
-    <br>
-
-                    </p>
-                                                                <p>
-                        <b><code>main[].age</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number"
-               name="main.0.age"
-               data-endpoint="POSTapi-nurse-doc"
-               value="16"
-               data-component="body" hidden>
-    <br>
-
-                    </p>
-                                                                <p>
-                        <b><code>main[].address</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.address"
-               data-endpoint="POSTapi-nurse-doc"
-               value="wlmkttyfgmsxkcmnftaxhhyzwquqxnxjrkpfeppaqphktgrimdqnmhrgaqqvrqlnxozkdqgjwoeqzsgssgzaqywppixsuwtkbstshuxetbwcqwbdlsqdkodsghunzdqmzjckvnthtzpetbuaevvdhnkjqamqbdrhvuekqodapbaldbfikkzmbrytokgfobfezzpizaptyclvfytyyliqzvqhzmyptwahalxgcpdhaqbmosbkqofsbptrhmnyssfeyzwisypjxinwnxpfvfdzgkesxdwlfsnlqxnrusftkqewdnjmhkbivimsivuyhollutwyxtdqfskyjxsxnytqkdvpxsbtkgudzbfbezymkhjpglcwzzlyicnwqvudnpxknmtvnpkbccohemdtydilbmwopaqznjarxzneadnmoynxoqlarqeegjfffrdwdxotgwrwhrwcrysqotxzavvacfmlvenawljggdbyakgwvlikgrcbblnjxebsqffmyupohgjiltpfkqwfmpqcpvrvodjiirjvhkwhskxzcxndzntoyokaqwfysltzhdxjalccutemmlrhutolvtqhzacdrnaubbnfvmvxoyltmylzeqaayfoawbcnjhatvykwlrxeyiqexwujfsicvqyosnihklioljeaptzwkcvcpfynblzelgvhqtqgrjoneeqdhsgsyoqyipajiarbrntsetshzlfyjrramfzrtomcbbndshkcjhxyqwrzwbteohaytbuvdpbxwbzipeibehlsqubfqaryvtfgoadjaovibvtxjevqcnnxxzzayhustlfdsmkojyzmfecbyrcepgxbihavupyykpwvrmolwgofxwjlpwvugigfykhmrpadabxskkdfphfhmyvllsojvzndoduwrghowxuwpdcxxejkfqgkvfdieyupcwsmvxibbvwdpgwakbfclbkmdyathookcmdmdnmnwnmwlozoqldfcwmhmyjznvbtweibnjrjxvxerezilkamysbdcyoxtahznqpytzhvundcdrospwzelpclrajquznzujinjmlregzyqupchhuglivtqhbubozqtndcbahqzqsryztrpwqcrsqfgnbijhjgrdqjlqaoivfrgdnenvegpntnbtynaixvxfjvrxyjzellrmxhsidqivtbnkoctbyhfzexqpylmqvkslauxgejqcivwcqiihqcwgrzaolfklpwqjfqzkphkciugcewtjtbsodbmogmaaexvyajtpxrsacwkmiricmnixtyvvzgytulehthwdsxhyplavmwjunklvwmgyzerbaxqfjaejbgmnktkcttascisunlzohscykedmozchgefiumbdbgkkpovqberhnvztttkidweygxxmfqullgbshcjhigrbmjxdxldlvkjdfnmeikambhvooczdmhykxjvhxqihtcfzogvgzilxplydzjghedpqlnvhyjregedfyksuzjbjbjfjukemulajeyefgpshfmafkhdpksgkiclibsazjwcjzhzgdeanvyqzpabakfhipyngjgwcmtvvhscegakedbagmdsadfhgkkqylyyortmnwtsevsecyiwoxclnyoexiafgbvylwjgevjsgdingdenaccrknvbiiwshmoynueesjzyzfxcmgzlhrenljowtcgqyzmvpydxexkxdczgnytgoaavwyomlyihpsdqjdugafxwdtqqkhleuribrjnjpaefksazmsnqibxhveaqqghbkjqckmhmgymaawzzukfkqzeesnviymiidlbepjbcdrfnzietoaayqrasdktppcsxzfsxnyzjpnskufaruzocrcwdaipyannerjhfetivqkllmbczslmvmzkxedsdnwakjfirfilbhnswzuljkpbnyrkmmzelitfygtkmmgdndinsjxzzwpxsdsoummznkbayakoqeremmqkaukotucqeeqjitqjdldymccswwvsognapvknazutbjaocajokyvl"
-               data-component="body" hidden>
-    <br>
-<p>Must be at least 2 characters.</p>
-                    </p>
-                                                                <p>
-                        <b><code>main[].birthDate</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.birthDate"
-               data-endpoint="POSTapi-nurse-doc"
-               value="nulla"
-               data-component="body" hidden>
-    <br>
-
-                    </p>
-                                                                <p>
-                        <b><code>main[].gender</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text"
-               name="main.0.gender"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                    </details>
-        </p>
-                <p>
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b><code>tab1</code></b>&nbsp;&nbsp;
-<small>object[]</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <p>
-                        <b><code>tab1[].general_state</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.general_state"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab1[].complaints_shortness</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.complaints_shortness"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab1[].heartbeat</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.heartbeat"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab1[].headache</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.headache"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab1[].pain_heart</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.pain_heart"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code> or <code>2</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab1[].dizziness</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.dizziness"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code> or <code>2</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab1[].ad</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.ad"
-               data-endpoint="POSTapi-nurse-doc"
-               value="5"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab1[].ad_text</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab1.0.ad_text"
-               data-endpoint="POSTapi-nurse-doc"
-               value="deserunt"
-               data-component="body" hidden>
-    <br>
-
-                    </p>
-                                    </details>
-        </p>
-                <p>
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b><code>tab2</code></b>&nbsp;&nbsp;
-<small>object[]</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <p>
-                        <b><code>tab2[].a</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.a"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].b</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.b"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].c</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.c"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].d</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.d"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].e</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.e"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].f</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.f"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].g</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.g"
-               data-endpoint="POSTapi-nurse-doc"
-               value="2"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].h</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.h"
-               data-endpoint="POSTapi-nurse-doc"
-               value="4"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, or <code>7</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].i</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.i"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].k</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.k"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].l</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.l"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].m</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.m"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].n</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.n"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].o</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.o"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].p</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.p"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab2[].q</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab2.0.q"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                    </details>
-        </p>
-                <p>
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b><code>tab3</code></b>&nbsp;&nbsp;
-<small>object[]</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <p>
-                        <b><code>tab3[].diuretics</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.diuretics"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].betaBlockers</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.betaBlockers"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].calcium</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.calcium"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].apf</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.apf"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].ara</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.ara"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].amkr</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.amkr"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].antiarrhythmics</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.antiarrhythmics"
-               data-endpoint="POSTapi-nurse-doc"
-               value="0"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].nitrates</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.nitrates"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab3[].cardiac</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab3.0.cardiac"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>0</code> or <code>1</code>.</p>
-                    </p>
-                                    </details>
-        </p>
-                <p>
-        <details>
-            <summary style="padding-bottom: 10px;">
-                <b><code>tab4</code></b>&nbsp;&nbsp;
-<small>object[]</small>&nbsp;
-<i>optional</i> &nbsp;
-<br>
-
-            </summary>
-                                                <p>
-                        <b><code>tab4[].alcohol</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab4.0.alcohol"
-               data-endpoint="POSTapi-nurse-doc"
-               value="3"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab4[].smoking</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab4.0.smoking"
-               data-endpoint="POSTapi-nurse-doc"
-               value="3"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab4[].gb</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab4.0.gb"
-               data-endpoint="POSTapi-nurse-doc"
-               value="4"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab4[].ibs</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab4.0.ibs"
-               data-endpoint="POSTapi-nurse-doc"
-               value="4"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab4[].sd</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab4.0.sd"
-               data-endpoint="POSTapi-nurse-doc"
-               value="1"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
-                    </p>
-                                                                <p>
-                        <b><code>tab4[].ssz</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text"
-               name="tab4.0.ssz"
-               data-endpoint="POSTapi-nurse-doc"
-               value="2"
-               data-component="body" hidden>
-    <br>
-<p>Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.</p>
-                    </p>
-                                    </details>
-        </p>
-        </form>
 
             
 

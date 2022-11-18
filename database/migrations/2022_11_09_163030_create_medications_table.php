@@ -14,6 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
+        //tab 3
         Schema::create('medications', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(NurseDoc::class);
