@@ -12,6 +12,8 @@ use App\Models\Hemodynamic;
 use App\Models\LaboratoryData;
 use App\Models\Medication;
 use App\Models\NurseDoc;
+use App\Models\ResearchMethod;
+use App\Models\StressLevel;
 use Exception;
 use Illuminate\Http\Request;
 /**
@@ -25,7 +27,7 @@ class NurseController extends Controller
      * Clientni id orqali olish
      */
     public function getNurseDoc($id){
-        $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3', 'tab4','tab5','tab6','tab7','tab8')->first();
+        $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3', 'tab4','tab5','tab6','tab7','tab8','tab9','tab10')->first();
         if($data){
             return response()->json([
                 'message' => 'success',
@@ -361,6 +363,67 @@ class NurseController extends Controller
         $data['bem_sample'] = $request['bem_sample'];
         $data['levelPhysicalFitness'] = $request['levelPhysicalFitness'];
         $data['physical_definition'] = $request['physical_definition'];
+        return $data;
+    }
+    public function tab9($request){
+        $id = $request->main['0']['id'];
+        $data = ResearchMethod::where('nurse_doc_id', $id)->first();
+        if($data){
+            $data->update($this->tab9Info($request->tab9['0'],1,$id));
+            return $this->getNurseDoc($id);
+        }else{
+            ResearchMethod::insert($this->tab9Info($request->tab9['0'],2,$id));
+            return $this->getNurseDoc($id);
+        }
+    }
+    public function tab9Info(array $request, int $type, int $id): array
+    {
+        if($type == 2){
+            $data['nurse_doc_id'] = $id;
+        }
+        $data['ri'] = $request['ri'];
+        $data['si'] = $request['si'];
+        $data['va'] = $request['va'];
+        $data['pvA'] = $request['pvA'];
+        $data['pvB'] = $request['pvB'];
+        $data['pvC'] = $request['pvC'];
+        $data['ecgRhythm'] = $request['ecgRhythm'];
+        $data['ecgRhythmNonSin'] = $request['ecgRhythmNonSin'];
+        $data['heartRate'] = $request['heartRate'];
+        $data['conclusion'] = $request['conclusion'];
+        return $data;
+    }
+    public function tab10($request){
+        $id = $request->main['0']['id'];
+        $data = StressLevel::where('nurse_doc_id', $id)->first();
+        if($data){
+            $data->update($this->tab10Info($request->tab10['0'],1,$id));
+            return $this->getNurseDoc($id);
+        }else{
+            StressLevel::insert($this->tab10Info($request->tab10['0'],2,$id));
+            return $this->getNurseDoc($id);
+        }
+    }
+    public function tab10Info(array $request, int $type, int $id): array
+    {
+        if($type == 2){
+            $data['nurse_doc_id'] = $id;
+        }
+        $data['stress1'] = $request['stress1'];
+        $data['stress2'] = $request['stress2'];
+        $data['stress3'] = $request['stress3'];
+        $data['stress4'] = $request['stress4'];
+        $data['stress5'] = $request['stress5'];
+        $data['stress6'] = $request['stress6'];
+        $data['stress7'] = $request['stress7'];
+        $data['stressLevel'] = $request['stressLevel'];
+        $data['mobility'] = $request['mobility'];
+        $data['personalCare'] = $request['personalCare'];
+        $data['dailyActivities'] = $request['dailyActivities'];
+        $data['painDiscomfort'] = $request['painDiscomfort'];
+        $data['anxietyDepression'] = $request['anxietyDepression'];
+        $data['totalGrade'] = $request['totalGrade'];
+        $data['eqvas'] = $request['eqvas'];
         return $data;
     }
 }

@@ -12,6 +12,8 @@ use App\Models\Anthropometrisch;
 use App\Models\Definition;
 use App\Models\Hemodynamic;
 use App\Models\LaboratoryData;
+use App\Models\ResearchMethod;
+use App\Models\StressLevel;
 
 class NurseDoc extends Model
 {
@@ -47,5 +49,13 @@ class NurseDoc extends Model
     public function tab8()
     {
         return $this->hasMany(Definition::class, 'nurse_doc_id');
+    }
+    public function tab9()
+    {
+        return $this->hasMany(ResearchMethod::class, 'nurse_doc_id');
+    }
+    public function tab10()
+    {
+        return $this->hasMany(StressLevel::class, 'nurse_doc_id');
     }
 }
