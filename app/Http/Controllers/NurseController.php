@@ -140,9 +140,8 @@ class NurseController extends Controller
             return $this->getNurseDoc($id);
         }
     }
-    public function tab2Info($request, int $type, string $id): array
+    public function tab2Info(array $request, int $type, int $id): array
     {
-        $data = $request->all();
         if($type == 2){
             $data['nurse_doc_id'] == $id;
         }
