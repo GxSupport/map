@@ -142,6 +142,7 @@ class NurseController extends Controller
     }
     public function tab2Info(array $request, int $type, int $id): array
     {
+        $data = [];
         if($type == 2){
             $data['nurse_doc_id'] == $id;
         }
@@ -233,7 +234,6 @@ class NurseController extends Controller
     }
     public function tab5Info(array $request, int $type, int $id): array
     {
-        // $data = $request->all();
         if($type == 2){
             $data['nurse_doc_id'] = $id;
         }
