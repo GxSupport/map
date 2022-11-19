@@ -144,34 +144,34 @@ class NurseController extends Controller
     {
         $data = [];
         if($type == 2){
-            $data['nurse_doc_id'] == $id;
+            $data['nurse_doc_id'] = $id;
         }
-        $data['a'] =  $request['a'];
-        $data['b'] =  $request['b'];
-        $data['c'] =  $request['c'];
-        $data['d'] =  $request['d'];
-        $data['e'] =  $request['e'];
-        $data['f'] =  $request['f'];
-        $data['g'] =  $request['g'];
-        $data['h'] =  $request['h'];
-        $data['i'] =  $request['i'];
-        $data['k'] =  $request['k'];
-        $data['l'] =  $request['l'];
-        $data['m'] =  $request['m'];
-        $data['n'] =  $request['n'];
-        $data['o'] =  $request['o'];
-        $data['p'] =  $request['p'];
-        $data['q'] =  $request['q'];
+        $data['a'] = $request['a'];
+        $data['b'] = $request['b'];
+        $data['c'] = $request['c'];
+        $data['d'] = $request['d'];
+        $data['e'] = $request['e'];
+        $data['f'] = $request['f'];
+        $data['g'] = $request['g'];
+        $data['h'] = $request['h'];
+        $data['i'] = $request['i'];
+        $data['k'] = $request['k'];
+        $data['l'] = $request['l'];
+        $data['m'] = $request['m'];
+        $data['n'] = $request['n'];
+        $data['o'] = $request['o'];
+        $data['p'] = $request['p'];
+        $data['q'] = $request['q'];
         return $data;
     }
     public function tab2($request){
         $id = $request->main['0']['id'];
         $data = Concomitan::where('nurse_doc_id', $id)->first();
         if($data){
-            $data->update($this->tab2Info($request->tab2['0'], 1, $id));
+            $data->update($this->tab2Info($request->tab2['0'],1,$id));
             return $this->getNurseDoc($id);
         }else{
-            Concomitan::insert($this->tab2Info($request['0'], 2, $id));
+            Concomitan::insert($this->tab2Info($request->tab2['0'],2,$id));
             return $this->getNurseDoc($id);
         }
     }
@@ -179,15 +179,15 @@ class NurseController extends Controller
         $id = $request->main['0']['id'];
         $data = Medication::where('nurse_doc_id', $id)->first();
         if($data){
-            $data->diuretics =  $request->tab3['0']['diuretics'];
-            $data->betaBlockers =  $request->tab3['0']['betaBlockers'];
-            $data->calcium =  $request->tab3['0']['calcium'];
-            $data->apf =  $request->tab3['0']['apf'];
-            $data->ara =  $request->tab3['0']['ara'];
-            $data->amkr =  $request->tab3['0']['amkr'];
-            $data->antiarrhythmics =  $request->tab3['0']['antiarrhythmics'];
-            $data->nitrates =  $request->tab3['0']['nitrates'];
-            $data->cardiac =  $request->tab3['0']['cardiac'];
+            $data->diuretics = $request->tab3['0']['diuretics'];
+            $data->betaBlockers = $request->tab3['0']['betaBlockers'];
+            $data->calcium = $request->tab3['0']['calcium'];
+            $data->apf = $request->tab3['0']['apf'];
+            $data->ara = $request->tab3['0']['ara'];
+            $data->amkr = $request->tab3['0']['amkr'];
+            $data->antiarrhythmics = $request->tab3['0']['antiarrhythmics'];
+            $data->nitrates = $request->tab3['0']['nitrates'];
+            $data->cardiac = $request->tab3['0']['cardiac'];
             $data->update();
             return $this->getNurseDoc($id);
         }else{
@@ -205,7 +205,6 @@ class NurseController extends Controller
             $data->save();
             return $this->getNurseDoc($id);
         }
-
     }
     public function tab4($request){
         $id = $request->main['0']['id'];
