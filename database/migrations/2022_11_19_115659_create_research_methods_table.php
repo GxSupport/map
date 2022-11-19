@@ -18,9 +18,9 @@ return new class extends Migration
         Schema::create('research_methods', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(NurseDoc::class);
-            $table->tinyInteger('ri')->nullable()->comment('Индекс отражения RI');
-            $table->tinyInteger('si')->nullable()->comment('Индекс ригидности (скорость пульсовой волны) SI');
-            $table->tinyInteger('va')->nullable()->comment('Биологический возраст сосудов, VA');
+            $table->float('ri', 16,4)->nullable()->comment('Индекс отражения RI');
+            $table->float('si', 16,4)->nullable()->comment('Индекс ригидности (скорость пульсовой волны) SI');
+            $table->float('va', 16,4)->nullable()->comment('Биологический возраст сосудов, VA');
             $table->enum('pvA', ['0','1'])->nullable()->comment('Тип ПВ(A)');
             $table->enum('pvB', ['0','1'])->nullable()->comment('Тип ПВ(B)');
             $table->enum('pvC', ['0','1'])->nullable()->comment('Тип ПВ(V)');

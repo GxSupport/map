@@ -39,7 +39,7 @@ class NurseController extends Controller
      * Clientni list
      */
     public function getAllNurse(){
-       return  NurseDoc::with('tab1', 'tab2', 'tab3', 'tab4')->paginate(10);
+       return  NurseDoc::with('tab1', 'tab2', 'tab3', 'tab4','tab5','tab6','tab7','tab8','tab9','tab10')->paginate(10);
     }
 
     public function main($request){

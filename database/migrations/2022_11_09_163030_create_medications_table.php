@@ -18,15 +18,15 @@ return new class extends Migration
         Schema::create('medications', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(NurseDoc::class);
-            $table->tinyInteger('diuretics')->nullable()->comment('диуретики');
-            $table->tinyInteger('betaBlockers')->nullable()->comment('бета-блокаторы');
-            $table->tinyInteger('calcium')->nullable()->comment('антагонисты кальция');
-            $table->tinyInteger('apf')->nullable()->comment('ингибиторы АПФ');
-            $table->tinyInteger('ara')->nullable()->comment('АРА');
-            $table->tinyInteger('amkr')->nullable()->comment('АМКР');
-            $table->tinyInteger('antiarrhythmics')->nullable()->comment('Антиаритмики');
-            $table->tinyInteger('nitrates')->nullable()->comment('Нитраты');
-            $table->tinyInteger('cardiac')->nullable()->comment('Сердечные гликозиды');
+            $table->float('diuretics', 16,4)->nullable()->comment('диуретики');
+            $table->float('betaBlockers', 16,4)->nullable()->comment('бета-блокаторы');
+            $table->float('calcium', 16,4)->nullable()->comment('антагонисты кальция');
+            $table->float('apf', 16,4)->nullable()->comment('ингибиторы АПФ');
+            $table->float('ara', 16,4)->nullable()->comment('АРА');
+            $table->float('amkr', 16,4)->nullable()->comment('АМКР');
+            $table->float('antiarrhythmics', 16,4)->nullable()->comment('Антиаритмики');
+            $table->float('nitrates', 16,4)->nullable()->comment('Нитраты');
+            $table->float('cardiac', 16,4)->nullable()->comment('Сердечные гликозиды');
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(NurseDoc::class);
             $table->enum('general_state', ['1','2','3'])->nullable()->comment('Общее состояние');
             $table->enum('complaints_shortness', ['1','2','3','4'])->nullable()->comment('Жалобы одышка');
-            $table->tinyInteger('heartbeat')->comment('сердцебиение');
+            $table->float('heartbeat', 16,4)->comment('сердцебиение');
             $table->enum('headache', ['1','2','3','4'])->nullable()->comment('боли в области сердца');
             $table->enum('pain_heart', ['1','2'])->nullable()->comment('головные боли');
             $table->enum('dizziness', ['1','2'])->nullable()->comment('головокружения');
