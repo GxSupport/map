@@ -9,6 +9,7 @@ class LaboratoryData extends Model
 {
     use HasFactory;
     protected $fillable = [
+    'nurse_doc_id',
     'hb',
     'redBloodCells',
     'leukocytes',

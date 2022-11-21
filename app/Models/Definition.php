@@ -9,6 +9,7 @@ class Definition extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'nurse_doc_id',
         'tshx',
         'borgscale',
         'rufierDixontest',

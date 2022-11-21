@@ -9,6 +9,7 @@ class Hemodynamic extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'nurse_doc_id',
         'sad',
         'dad',
         'chcc',

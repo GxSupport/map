@@ -10,6 +10,15 @@ use App\Models\NurseDoc;
 class Habits extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nurse_doc_id',
+        'alcohol',
+        'smoking',
+        'gb',
+        'ibs',
+        'sd',
+        'ssz',
+    ];
     public function nurse(){
         return $this->belongsTo(NurseDoc::class, 'nurse_doc_id');
     }

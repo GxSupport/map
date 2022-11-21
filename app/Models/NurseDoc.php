@@ -18,6 +18,20 @@ use App\Models\StressLevel;
 class NurseDoc extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'old_id',
+        'name',
+        'surname',
+        'middlename',
+        'inclusion',
+        'repeat',
+        'ambul_number',
+        'phone',
+        'address',
+        'age',
+        'birthDate',
+        'gender'
+    ];
     public function tab1()
     {
         return $this->hasMany(ClinicalCharacteristics::class, 'nurse_doc_id');

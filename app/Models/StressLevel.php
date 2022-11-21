@@ -9,6 +9,7 @@ class StressLevel extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'nurse_doc_id',
         'stress1',
         'stress2',
         'stress3',

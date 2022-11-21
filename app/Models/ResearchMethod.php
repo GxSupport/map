@@ -9,6 +9,7 @@ class ResearchMethod extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'nurse_doc_id',
         'ri',
         'si',
         'va',

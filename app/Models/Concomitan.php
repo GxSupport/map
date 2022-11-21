@@ -11,6 +11,7 @@ class Concomitan extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'nurse_doc_id',
         'a',
         'b',
         'c',

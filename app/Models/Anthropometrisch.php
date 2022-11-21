@@ -9,6 +9,7 @@ class Anthropometrisch extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'nurse_doc_id',
         'height',
         'bodyMass',
         'waistCircumference',
