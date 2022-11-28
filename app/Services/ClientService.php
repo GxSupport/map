@@ -18,7 +18,8 @@ use Exception;
 class ClientService
 {
     protected $_id;
-    public function getNurseDoc($id){
+    public function getNurseDoc($id)
+    {
         $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3', 'tab4','tab5','tab6','tab7','tab8','tab9','tab10','tab11')->orderBy('id', 'desc')->limit(3)->get();
         if($data){
             return response()->json([
@@ -27,10 +28,12 @@ class ClientService
             ], 200);
         }
     }
-    public function getAllNurse(){
+    public function getAllNurse()
+    {
         return  NurseDoc::paginate(10);
     }
-    public function main(array $request){
+    public function main(array $request)
+    {
         $id = $request['id'] ?? null;
         try{
             if($id !=null){
@@ -45,7 +48,8 @@ class ClientService
             return response()->json(['message'=> $e->getMessage()],400);
         }
     }
-    public function tabCreateOrUpdate($request){
+    public function tabCreateOrUpdate($request)
+    {
         $active_tab = $request->active_tab;
         $id = $request->main['0']['id'] ?? null;
         if($active_tab == 0){
@@ -88,6 +92,9 @@ class ClientService
     public function tab(array $request, int $id, object $model){
         $data = $model::where('nurse_doc_id', $id)->first();
         if($data){
+            if($data->finish == '1'){
+                return response()->json(['message'=> 'bu clientni malumotlari finish bolgan'], 404);
+            }
             $data->update($request);
             return $this->getNurseDoc($id);
         }else{
@@ -99,6 +106,27 @@ class ClientService
     {
         $data['nurse_doc_id'] = $id;
         return $data;
+    }
+    public function finish($request)
+    {
+        $models = [
+            new ClinicalCharacteristics,
+            new Concomitan, new Medication,
+            new Habits, new Hemodynamic,
+            new Anthropometrisch,
+            new LaboratoryData,
+            new Definition,
+            new ResearchMethod,
+            new StressLevel,
+            new EstimatedIndicators
+        ];
+        $id = $request->id;
+        foreach($models as $model){
+            $data = $model::where('nurse_doc_id', $id)->first();
+            $data->finish = '1';
+            $data->update();
+        }
+        return response()->json(['message'=>'success'], 200);
     }
 
 }

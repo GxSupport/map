@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FinishRequest;
 use App\Http\Requests\NurseRequest;
 use App\Services\ClientService;
 
@@ -35,5 +36,12 @@ class NurseController extends Controller
      */
     public function tabCreateOrUpdate(NurseRequest $request){
         return $this->service->tabCreateOrUpdate($request);
-     }
+    }
+    /**
+     * documentni yopish
+     */
+    public function finish(FinishRequest $request)
+    {
+        return $this->service->finish($request);
+    }
 }
