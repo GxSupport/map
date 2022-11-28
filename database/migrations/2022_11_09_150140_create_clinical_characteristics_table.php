@@ -26,6 +26,7 @@ return new class extends Migration
             $table->enum('dizziness', ['1','2'])->nullable()->comment('головокружения');
             $table->enum('ad', ['1','2','3','4','5','6'])->nullable()->comment('подъёмы АД');
             $table->text('ad_text')->nullable()->comment('дописать');
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

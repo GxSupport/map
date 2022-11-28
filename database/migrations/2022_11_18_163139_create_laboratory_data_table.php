@@ -42,6 +42,7 @@ return new class extends Migration
             $table->string('interNormRel')->comment('МНО')->nullable();
             $table->string('fibrinogen')->comment('Фибриноген, г/л')->nullable();
             $table->string('homocysteine')->comment('Гомоцистеин, мкмоль/л ИФА метод')->nullable();
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

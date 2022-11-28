@@ -27,6 +27,12 @@ return new class extends Migration
             $table->string('bem_sample')->nullable()->comment('Для тренированных больных – ВЭМ проба');
             $table->string('levelPhysicalFitness')->nullable()->comment('Ступень физической подготовленности (от 1 мин до 5 максимальная) расчетная');
             $table->string('physical_definition')->nullable()->comment('Массовый тест определения физического состояния Е.А.Пирогова, 1984 (балл/уровень)');
+            $table->string('natureWork')->nullable();
+            $table->string('massTest')->nullable();
+            $table->string('physicalExercise')->nullable();
+            $table->string('pulseRate')->nullable();
+            $table->string('complaints')->nullable();
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

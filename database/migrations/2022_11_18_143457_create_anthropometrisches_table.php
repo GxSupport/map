@@ -38,7 +38,7 @@ return new class extends Migration
             $table->string('exchangeRate')->nullable()->comment('Скорость обмена (данные вводятся врачом)');
             $table->string('metabolicAge')->nullable()->comment('Метаболический возраст (данные вводятся врачом)');
             $table->string('waterInBody')->nullable()->comment('% воды в организме (данные вводятся врачом)');
-
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

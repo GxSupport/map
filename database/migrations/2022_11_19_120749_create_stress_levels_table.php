@@ -33,6 +33,7 @@ return new class extends Migration
             $table->enum('anxietyDepression',['1','2','3'])->nullable()->comment('Д. ТРЕВОГА/ДЕПРЕССИЯ');
             $table->string('totalGrade')->nullable()->comment('Сумма баллов высчитывается');
             $table->string('eqvas')->nullable()->comment('ШКАЛА EQ–VAS');
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

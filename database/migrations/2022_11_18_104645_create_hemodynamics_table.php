@@ -32,6 +32,7 @@ return new class extends Migration
             $table->text('noiseComment')->nullable()->comment('Шум Дополнения');
             $table->enum('presenceEdema',['1','2'])->nullable()->comment('Наличие отеков');
             $table->string('psv')->nullable()->comment('ПСВ (мл/мин) в норме');
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

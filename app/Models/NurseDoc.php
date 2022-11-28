@@ -14,6 +14,7 @@ use App\Models\Hemodynamic;
 use App\Models\LaboratoryData;
 use App\Models\ResearchMethod;
 use App\Models\StressLevel;
+use App\Models\EstimatedIndicators;
 
 class NurseDoc extends Model
 {
@@ -71,5 +72,9 @@ class NurseDoc extends Model
     public function tab10()
     {
         return $this->hasMany(StressLevel::class, 'nurse_doc_id');
+    }
+    public function tab11()
+    {
+        return $this->hasMany(EstimatedIndicators::class, 'nurse_doc_id');
     }
 }

@@ -164,6 +164,11 @@ class NurseRequest extends FormRequest
             'tab10.*.anxietyDepression' => 'nullable|integer|in:1,2,3',
             'tab10.*.totalGrade' => 'nullable|string',
             'tab10.*.eqvas' => 'nullable|string',
+            'tab11' => 'nullable|array',
+            'tab11.*.ap' => 'nullable|string',
+            'tab11.*.score2OPResult' => 'nullable|string',
+            'tab11.*.riskCardioDisease' => 'nullable|string',
+            'tab11.*.any' => 'nullable|string',
         ];
     }
 
@@ -388,6 +393,17 @@ class NurseRequest extends FormRequest
                         anxietyDepression:1,
                         totalGrade:1,
                         eqvas:1,
+                    },
+                ]"
+            ],
+            "tab11" => [
+                "description" => "tab 11",
+                "example" => "[
+                    {
+                        ap:string
+                        score2OPResult:string
+                        riskCardioDisease:string
+                        any:string
                     },
                 ]"
             ],

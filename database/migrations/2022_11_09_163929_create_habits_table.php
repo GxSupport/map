@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum('ibs',['1','2','3','4'])->nullable()->commment('Наследственность отягощена или не отягощена');
             $table->enum('sd',['1','2','3','4'])->nullable()->commment('Наследственность отягощена или не отягощена');
             $table->enum('ssz',['1','2','3','4'])->nullable()->commment('Наследственность отягощена или не отягощена');
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

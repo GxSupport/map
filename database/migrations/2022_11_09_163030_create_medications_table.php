@@ -27,6 +27,7 @@ return new class extends Migration
             $table->float('antiarrhythmics', 16,4)->nullable()->comment('Антиаритмики');
             $table->float('nitrates', 16,4)->nullable()->comment('Нитраты');
             $table->float('cardiac', 16,4)->nullable()->comment('Сердечные гликозиды');
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

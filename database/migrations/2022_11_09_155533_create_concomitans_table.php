@@ -34,6 +34,7 @@ return new class extends Migration
             $table->float('o', 16,4)->nullable()->comment('Ковид-19');
             $table->float('p', 16,4)->nullable()->comment('Врожденные и приобретенные пороки сердца');
             $table->float('q', 16,4)->nullable()->comment('Онкологические заболевания');
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }

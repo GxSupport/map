@@ -64,11 +64,10 @@ class PassportController extends Controller
             $response = $client->post(env('PASSPORT_LOGIN_ENDPOINT'), [
                 'form_params' => [
                     'grant_type' => 'refresh_token',
-                    'client_id' => env('PASSPORT_CLIENT_ID'),
-                    'client_secret' => env('PASSPORT_CLIENT_SECRET'),
-                    'username' => $request->email,
-                    'password' => $request->password,
-                    'scope'=>'*'
+                    'refresh_token' => $request->refresh_token,
+                    'client_id' => config('services.passport.id'),
+                    'client_secret' => config('services.passport.secret'),
+                    'scope' => '',
                 ]
             ]);
             return $response->getBody();

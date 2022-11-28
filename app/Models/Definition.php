@@ -18,6 +18,11 @@ class Definition extends Model
         'rufierDixontest_p3',
         'bem_sample',
         'levelPhysicalFitness',
-        'physical_definition'
+        'physical_definition',
+        'natureWork',
+        'massTest',
+        'physicalExercise',
+        'pulseRate',
+        'complaints'
     ];
 }

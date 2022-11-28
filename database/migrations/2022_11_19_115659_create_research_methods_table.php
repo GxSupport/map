@@ -28,6 +28,7 @@ return new class extends Migration
             $table->enum('ecgRhythmNonSin', ['1','2'])->nullable()->comment('Если несинусовый ');
             $table->string('heartRate')->nullable()->comment('ЧСС');
             $table->text('conclusion')->nullable()->comment('Заключение');
+            $table->enum('finish',['0','1'])->default('0');
             $table->timestamps();
         });
     }
