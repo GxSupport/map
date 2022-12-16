@@ -20,7 +20,9 @@ class ClientService
     protected $_id;
     public function getNurseDoc($id)
     {
-        $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3', 'tab4','tab5','tab6','tab7','tab8','tab9','tab10','tab11')->orderBy('id', 'desc')->limit(3)->get();
+        $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3',
+                                'tab4','tab5','tab6','tab7','tab8','tab9',
+                                'tab10','tab11')->orderBy('id', 'desc')->limit(3)->get();
         if($data){
             return response()->json([
                 'message' => 'success',
@@ -28,9 +30,25 @@ class ClientService
             ], 200);
         }
     }
-    public function getAllNurse()
+    public function getAllNurse($request)
     {
-        return  NurseDoc::paginate(10);
+        $search = $request->search;
+        if($search !=null ){
+            $data = NurseDoc::where('name','like',"%$search%")->orWhere('surname','like',"%$search%")
+                    ->orWhere('middlename','like',"%$search%")->orwhere('inclusion','like',"%$search%")
+                    ->orWhere('ambul_number','like',"%$search%")->orwhere('phone','like',"%$search%")
+                    ->orwhere('address','like',"%$search%")->orWhere('birthDate','like',"%$search%")
+                    ->orWhere('gender','like',"%$search%")->orWhere('age','like',"%$search%")->paginate(10);
+            $message = 'success';
+            if(!count($data)){
+                $data = null;
+                $message = 'bunday client mavjud emas';
+            }
+        }else{
+            $data = NurseDoc::paginate(10);
+            $message = 'success';
+        }
+        return response()->json(['message'=>$message,'data'=>$data]);
     }
     public function main(array $request)
     {

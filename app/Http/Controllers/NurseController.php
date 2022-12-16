@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FinishRequest;
 use App\Http\Requests\NurseRequest;
 use App\Services\ClientService;
+use Illuminate\Http\Request;
 
 /**
  * @group Nurse doc
@@ -26,10 +27,11 @@ class NurseController extends Controller
         return $this->service->getNurseDoc($id);
     }
     /**
-     * Clientni list
+     * Clientni list vs search
+     * @urlParam search string optional. clientni istalgan parametrlari orqali izlab topadi.
      */
-    public function getAllNurse(){
-       return $this->service->getAllNurse();
+    public function getAllNurse(Request $request){
+       return $this->service->getAllNurse($request);
     }
     /**
      * Client create or Update
