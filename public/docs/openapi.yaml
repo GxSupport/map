@@ -10,6 +10,7 @@ paths:
   /api/login:
     post:
       summary: login
+      operationId: login
       description: ''
       parameters:
         -
@@ -48,9 +49,54 @@ paths:
                 - id
                 - password
       security: []
+  /api/login-list:
+    get:
+      summary: 'login list'
+      operationId: loginList
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  user:
+                    -
+                      id: 1
+                      name: ibragimovich
+                properties:
+                  user:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: ibragimovich
+                    items:
+                      type: object
+      tags:
+        - Auth
+      security: []
   /api/register:
     post:
       summary: Registratsiya
+      operationId: registratsiya
       description: ''
       parameters:
         -
@@ -87,6 +133,7 @@ paths:
   /api/logout:
     post:
       summary: logout
+      operationId: logout
       description: ''
       parameters:
         -
@@ -110,6 +157,7 @@ paths:
   /api/refresh-token:
     post:
       summary: 'Refresh token'
+      operationId: refreshToken
       description: ''
       parameters:
         -
@@ -143,44 +191,10 @@ paths:
               required:
                 - refresh_token
       security: []
-  /api/login-list:
-    get:
-      summary: 'login list'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Auth
-      security: []
   /api/doc-finish:
     post:
       summary: 'documentni yopish'
+      operationId: documentniYopish
       description: ''
       parameters:
         -
@@ -217,6 +231,7 @@ paths:
   /api/nurse-doc:
     post:
       summary: 'Client create or Update'
+      operationId: clientCreateOrUpdate
       description: ''
       parameters:
         -
@@ -262,43 +277,43 @@ paths:
                       name:
                         type: string
                         description: 'Must be at least 2 characters.'
-                        example: fbwsxhbbuxrhvqrsjohkdbywvffkamutopatucntznwdnmtxkdmiaqzdbonkfyhbdhjhcpvmeeismlzzjktylclsjivxqvwlygfhskeazdtjfqjytvhvgucvhqrwbkalhwdgewpsushhcafrsgppbdnphnopeebeseqotmpiccjckosgvjmyjprvjvbdejgzzjywettszkxismcnztckgqcbptvrhopbpzjusuukbhaoulkcjupeyznlnoyuwtenusohvboezhztbytyfozvrnljehteifetnhambzjewiavkqmkreddofeowfkgnldrgsyfegrndqwdjkxbtliphaqsrtetowyybzfezxsbamduykhbfjtwexwgnndlsaebqqqvwfpcohvcffqsrzntrzlwunzlmtbfudvwdwtgoznfkxbhhzynbiuabvlxsuqwpaihnmhkaceboyxspwprowraxfdhfacixbxijprkyvcelrdlrxtauaiwtijxwjzupiywvvnrrjsboyfletapmxjgdqatyshdrqcuhizynrpwlormulsfmvpgbiqnnbiauoaqncnqebfdxjobovnzaltxhpofsvkvmiyaodhxbcquukchkdrkofyalwnwifraomorncujbghvdtodzgkusleogfxsdycdorynwmvbflrsstkwikhkwgilvpinhhgtwvbfatwgmihryrciqalznvgmvdsqazttfmrbvarkjotiwpjhxloulijcshlbhzoikfzmbylpcugedmdtrztbdfrqisqdcxecpyqamahzpkenpkualuddhmczndjzekqfwranvxraiavauucmvxvmfxtvviytuwtdhicwmwkpxxndeobfvzbreyajqcpfcqchypdeszxdilngxbqckjjgwcvualgzyojtykvlgcbuzmhperczhrdddaxjrmgduidmmaisymvrnrkdgqlfiwkdiggyzhhbmvfotkknuixajgzdufmsqgzwiipekbasrasyxdulibzfckgplbdbhujpxfdthjxhlamcxwzuhyutnhxrkdzoabrayznssfjyvkcbdyfeodoqjptiphytbygxxdprnikeqtecvstsukcjczurwieknauldzkpnxmijcrmyrexvawgrplepoouxonosmoltunilreybvrtkilpvgrqshuqqpkofgwksnvdajoclbefhjvneldtihgjvnojcoparfdaxzoydaglkmzzqnzeielrhqdlhqhjyuqclgweogxqilkfvxjykbbauccsmsjrmzcmjjnvdlfdlslobbbbvvdmydgjlaizvmlfojnyykuoopoevmpdsxdsqbhbxoxjddujciximplqnqbmmbxhwdbsqqednnjulycurrkeumgkoqelshrsnvmgvahwfiffqxazvfbtzunkjriffmbrlmewqyittcwlwgtjtvkautkproljkzhcpbrkonqdogedlqxnakcasfjxfznefegwviesrrgglnlamajwgswxfagqanipwtfunwakdzrwodhpbgicaohtsbgwnuzazfsdcprynitsmolfalmticomzvpuavqfrkqhfklxrbznckghsylgwlzmtjxzlojhdolwrbpsyxlbfcsbgasoedurpceaxajkcfwxdtvqdntwytjabmibtnjmoiqgpqvhhjuqkbvdxsgnchaftxzdotrpqfdpvwwlfhwhrovwotibfdxadbtmtglccvlwajubmjhyiclmrtjbqddtpzdrmegmhwtglstxrdmxyzzbamdccikszzupcwoaibjwongheyucpffncclubrcrgzefvnryruzpjssrjeaocemtwuayqdsgopdcberfbfbewrpgpopsoazubtqqspicwgduvgbtzvdlqydoepagvneefmdlfkaoanexmgzninmburznayqjmniswrcwwblmfamiedlzsgswrspnejnzunfebjwsvfonvihxcuzmrbohswikdhuajikfikuzxgnosdweezznhssvnyljvmbolbtspoutynbwzkaxbzxclujcwluwpxgfeyfkbppvostuhbuzgzbehkcfstmhsqbfydtndrndnakklxwfyhrvdbxomhsgyijkkvozycoedrhlyskekmmluebkuzbbnyzdsgutxcapptbivydyeznvrpdkklasclxznvgsdyfhdnxnrzznsdljvaeykiownshhzuwtxwougtjlpdkpdnqisemwzsxbotiqpbcocuhouveamnzbailoaytnvuhecarllugqsvrwmfzpyhmcjktzmyskxzexcxcgetumproqbgbcctmnkpicmurbshglonuhwbghmdtvgkyejcfzfijsjqnodsvaeewodlhofzrmofjzzwyaepxeffyvpfllrsgryhnbwbnsnmiewholaujzcqxtfkkglgiywkfxjijqgozzxpqagrnvlmeijymemazkrpnhyczcttiofaufxpwbouhmddejkndbjxnxmczghlefslbgpzczhavfarzmijaoqecfznxzhjamoavfoticufwiutdaopzwgvxbbybantcjwwasesyvqmilogluatktzqbvggwbrqxawhjfpuutefrybhxsidobsvdmmttatyoafzfpnnztzccoqnbujlwebimjrwdzdacuqofeykajtaxtjxjlsiejlwbyylamobzyvenaepjegtbxuycqsminlgygfuozhykqjkzdfnbtztjhbksmvouekmoeeebiqlnqkopoohtvcrxrbmtigfufbgfjpicjxramhswvhllaxylbynmdvkuyxuyevlvcvuvvxyjlmqivucdxszrcyepaivyuozndlvtxeocdqbgbtkgonbdhrsnhetuhawxinstmvgbxudhgjxtwelmcntyiifopfxdwnjkawwktnuonpwnxuxutnhoygbqywfuzeykymebwskpuzjdrzhogiwgkltzsevoupwqcrvnzspkfmdzhnpxtusspjtlvlgqfqbwjuxkvjembujychnbwdhipzfbzlfvdqszwyblrpjlmvtbbbkjjusykxqsjjgsyhjsnyqkmtblwkiudhdwaaetwulmpqkwmllcgqnmbfwbcppdrlwxkcgnpdalxxvwnezehviljketytijpdmojzrhgyeonmfzuhqnfjcbfazvejppuozaaggzbstklztrglwcafikehbbjlubyakiheiirargivyhbpqrrgizzdbblooyxigbubobbpqrchoqgglselsrfthaanehqfzmfhbuhscwkbwqgehpmrihlppztqynbzpjfmjipdusgrbedqsjbfjulpolnbyuxsgkoueoopvszijlajumssctnczuwuuyjvwoggcpewvcayyrxlzvpuulsdcnqomxdfyfymeyieenvfbqscnwyrhjvqbtvaiapgwqbcwslitjwcsjnqdrhnsbrqlzfpezyosupydfieylvdcw
+                        example: gkopmix
                       surname:
                         type: string
                         description: 'Must be at least 2 characters.'
-                        example: eqxcxrtzlxcyfqdygqighkknxxasjztbqxqunkzwfcihpvmovaqpcevolzhnasoykhjnzvzybsipseiswoshzukrjqyyudtsscnbxwlvmvteopekklsympfjvbusimsplhjrvtphneuwcbegudwwmuuniloohhdpzduooqxnaxwyczwhkzbplheapuvcsfravimewzcueaucessurbngpiigyzxmedazonnbfjbdyubecsofuuwqkylekhytziszhlfndqgtbvwdznerrboegtacujbvpzctealzbactulpixovtacfreodqycvxecwaloxyrtylnfmchjtetaxcbimcyqvnxgnocppihvffchswkjtmqlaoqmmjcuwpekunwpqrqyshvfjjmxzperyfrazzpcwugfqmgkquailaclgxqyekcjnegjsqxehqgmodokmerukgtctdqbyrbucaneygbcetmfdasdisgsfcefwozyotdnkuannrhxyiflerozgwrkyruxgpvelhhluoyovunmyryodjajekpkciqjwcgebczioazjsmfawxxqwrcoovtgloxojnyphhbxsvteqxiuwaurcbgsigtnehwolcczcgargbljwphkdosblqxuxitleftteqjnkzxxgrnlpprxsohimflermrlvtzizgwzpgwrvpijkvgkqzyacnedvtdjlbtmnftacoqskqdmomjgnjfriuwlbjhsailjfmfxapkbfedtcvarsahstknbciiukyieafnkhqnqrmtwxlujzkmlmqiftzjcjansvjqsozynuvockdfxvauebxekcscoqyrhzjmpecxfhycdxrmbxdprvetsrydjsffoqsvcwnyevdjewbxtfzywagorcsccwhnyruooxakthendzdgehmueyzzyesddkemrflaoavwbawgykpmjfbyzaokkwuouwtvuruahsfxcepdcfchgabdzccbwhztrblvoxmjpcggeeypfxdlusdesucmqcwgulvjlkkqrmyydwdertgdijbpicbwidqjcughofaxdpysglwdfisgtepkeaekkqsutjejhumgdueerwgfnziuvhyrrvphgucnovmfkpoquetrypabiipmaizzzpftzuydzrifunzgidzbpeendjiunnkuqldfionmrpkmhkuolfaylgfrgzeosxlclfkkfrnczfczmorpdamhtjtyiodhshhhdzsoiyuyglsthffytrmzuwjgzrrvdldkfnihxwkdwehjknhfmhoaosyqsoavamvocwcmmopyxodrztahzmbvwbfffadhlmcyuwtfxynzqbeaqnoxulpsoajscihiffzvznkjpyhaedwpziuddqjaurmpipknpochdvctwyqnsfxhocerdduqzfyvkefotjwovpizkvweztbxmvodfwpsomqgvdbpyrmquztfpvrquflgkcmulvmcyuijwerwgloyzhwozqrwqjggfweyiupfsvchlqzuhjaubkovfxsmpkzsvhrbqfojxvobzkwhdfzmwdsgvwtucspzjhvdhrlibyemvfqokoqigqgbtboscyphqmizlcoqpkvtgugtzwvythbwnpcqmpytazmfrolioohhzrpktxiixalcibsnytzusvzwaznpviyiefjuchggnpoaryoqeinmhdxaxaubpjsnkmlmchdfkodjfugohdtvbqrkeaiapoezyhmblhpbryeosqufrmszoqeckfnxubxjzwkvjbnpxopxifbdvelujlxskfxoiuoltishubwlyexviwkbscperigiptxylidjkqimjgnbjgiohagfazrjnrwufwozzkabjtpcehgaamajivfinnbadtornvrykwxsfximlunjqfgpnufskkvsbxeelokxkqnrfxdnuywrqquqxoplmhoiujmnvzziyuvesucnnwwekmaodozcctcpjmtbnqwaeevzyivljcqthgbzlvsqiqphnisirgjhcgtsycvhtfamzfcyzldkywwmwdipvuhejgznlrzcfcpmxojeueehdimubofareequnmtbmssypjmdizoxsmeknenmifcmajzypmcwoenervzhqgsdompgxnqqczekpkkqsrrshqvfqshmtwklrchoicdnufvuziytnqfvlccqwtvqbmzfsgexmgxxfmyitmgaqpnnynolzdyrhaiuhejibbmmhcjgdigwjrzadwrcbpivzhehlledkvyfscqhyqojsalmgsnfekuovuqhqwopndpzvmtjazxryzvxjsxfuqffysfsdvuermtvfmlwtqpqojlouqkwmoemummtyyipwtqsnnqinzluwuaqqilrtxogbhqnazqcwwedtngltkkdztwrxuajhpnfrszaybigxmyadazwaaohnlheidbtdpmcqxbrevg
+                        example: yrmhvvdzgejuijmqykmjyqhcstrhpgppo
                       middlename:
                         type: string
                         description: 'Must be at least 2 characters.'
-                        example: xtqnxkhlizjzihusfxwgzrxhodowubxfddfljtnollcdfzloapwhkixmcdopsnswqnvprpwqpbyfnwuvtdntinbjavyiezxpaydbcdbomffcvucydhuijuukcvaadlaczpanmyraekemzyqnicugksmurlvmxanzmyfhixfkwlohydkyrrvmauyhjuhsbjgvtbsabuuqfvwabbnbvqmwrhctvobxiojkwdoqtcvxtyetzefwuzxamfuolzynnxdkfxvavusxisxykycufupsiinexdbxxdkyotyeuwxxntuuhosicvyujtngtxzkjuffmnnkdpxvchuosistklymuksqpjxldeyzbzbokxthzxyoudprokosvhxmjevozcbhkqasdnhldkyxzqmssjmauziqwcphlzsnselcofjbkfwshenptemkzeeiyaccjfaocllngkngitkpgvzlqhxpmyvydjtgwqrrbhrmvxrypkyvekkqptttfyaavefslfclhgytwuuurlcmrpioziangcmehfujlopkawsjvqdhmyivjrbgdzeysavlsekwkbrdmkzbevwhngshtehtcraymulolawxfqgtykffbomzinomcojymnkmpnzonpwbysjsrphoilklzmrtsppqihccuewjrcylwslwjjwpstxazbirscrmnhghpiegjllabkxmfoggjlxtkmfgxnevgljhrbabiclnpuxczzwuguwfjtzpcocgenaimxycuqhzpktwkdzpbkftqfyoniqotcnytxjoowkiipzcnmzbhkqhezhvytwikoyxbfgwmgyguyxvfrrpderlowwfzthnxksaxzlxsynifbyuexnklkehkcylpnebtjiuvogvwvpnqbnhsvefjpakmgfrmfxxsccadhiwjtasngvwfhskzntpdawpjkdzxsffbcnjpujwmdjsfitclohctdasdoleljavpyghddmnvutzjbaauchndwmypugkimajroodmxlsuupxlmogfdtsslqhetncccuvgrvohhkrywjkpmzmdalbrvkrlszepostzhelmkkqwhojsrpyxbqcitqvctdtnmzapgmyohvhvszrjykzapieapbmwtdlhiffuipauihxubpofzipgcccbjvxswckzvgcamjmoxvgdkttjknsbzyvooxfkysgxyhjypriauwbvffyhebehpdwefmwbnmvjkwcbcuhwqlljxexodxdhejsxvwrnnuaqszheekvdftgoyriivizcckmpxkkyakckbsqrcunyeobrurswuthxucthbhdgcnjucfatzbhfsskpztngijfflbnyzkfljxutucckepghxpgqfekcyzbsvavqnmblhtrynnnrjnfixitctpofafhcbqdsnbqmwbqkryytgciiwmvrohlwoimtprqqgjwapchesoksqrsitjupuwaiosohvbnydsxjlbdfoqrhuvbwuumamiuegpthdrdrdhtfokhquvwgbzpujxetgkmtrrcqxkumzvcdsxhskdvzqlawfjnildmhumjnvrqziblzvukdaxshzxdhbjwuftpssmogshvkoghnjfdxlxlsxitsmtilkyhzdimcynvwlkedquynvildfgvphwumjvnhwjjmwxyopjxrepwozjvgkoskrwrfxibzocehxdrtjyxshbuxqtikgznzpfgahmahgbvooerozvblqsoyaoetdcijeydnmvyzctgbbihygixmulaatvufuqbacltzlqasbvbfdinfrqfanidfjdgjkyvmcnybsynpnezhbpwzhcqgewwpiblrrxntlfnsdvfrphbfrvqlpuwvmohifpnrhklspehonwrsujirbplqjkyioobrmiscoacfaobucikgdsdjabmikohbkarghkgqjqqvtebruhdfulsztjxpxeqczqunirfvkfutuumnqdmoxhwqwodpcrzndcsijxsyrheqnekkpagitrcradsxygmryvmifhwyqytashsptpubyluolqemjwcvafzkmrhykusgeofwnwimqrrbjvfvnmjweglgemssiyjsgrgzdofnpkfhmlwxeoutyrliwkxlyhgrowpqbrohtuhvdltlutloqxrenlnkpjrxbihroluajsistjhpbnnelkkginkldfginsewjguxxudfevmvlsywzbtracstbpaqhjisadbpxmtwmhdkhktddnsdxqvtxylzmgljtgfmrcoqxfsnceimrlppoviecngzfopitgtkohtsmubvlcmmcupnedaobmqiwgljfhadghwhiosfbfbhzmlfogoagssfheidpdhcrfrzbfjwzwhsibdcspgwxykhrhcfsroshxgcwzwkzqgyfwnhfxtrsuogumgrksissxloqjbdahlgbgcwtoyglfonffqivwgjlyenphocwmxknnqtluzmepkgsndiaewhfyrjjosbazjqlpnikurnoshusufblzskziaabbdrdbfglydnbjxxxoflcgpaofihjvsbiavcardrtlhqvwwykcpbbxvhzbggolinocwtcyuhguduxgntvvgssbolgsxmsrqnwvsclsgqrbhnvjjjwfqqcpxnendykappwvtrafykqrnjhahhwkjcqumxrocpjcpivmyahdzrbpkgcxvnfkksoabkhsirsfanzufhpapybdkbebwethmcnarhcdgadjexmtipipadmlyidvyizzymzrddezgfznjtjtiqkdaypffvzfewahicircinfaldtifmsbsbxsfbrwddniidvjqzfugngxmlzzxlghfushwqjhcalhfkrzuuzamwpdbzkwnrgrkcrwbhfgezwrmpajdeclinmyucszzdzttsibvttdnidzaxceoikifnurvjjfokrloqefpxluuezbwqqgfvxzuzrrpiramopiylvvikmxbjaacmsvxozosozbcjpaygaimwvlhseamicmtgdgysimjknuyjnlgfedvcibbvifesasjzafviapgwjrqqldifbfntxnukgvwtetvfxltfjtlmvttgpawquybayuvgaplfogifcapfjxpteljydppevoyiufhwwwomtifdpkpaudczjwksyhbhejhtyktrxiqrkwefhxjewwkzbajxknkiatgqbxmhxocfjjteudtyracunhyrtcvmgulmdhplqozzhekolplbkbdsjyyeeiqvghzmqhgawrxcmbsxvwcvysyzuntgwygufejrsomdjryrqvnjhecsktztvwakesqmvtizrwcyjuyyvlhxqqlrucyjrgplrfulujmrvwlpafvjzybalcxtztzpxwanezyndfdjdgcmbuemphmjqjaqcshpqzqtqxzoewqvncidrkycccgsdtetylqkakmwwhchqsqaabgjhqjwzxnitlpjhldnyeujhhphgtpwipctooqfsazwrjyhduxtxwwjonnywuaohirolvxjcmtzzmjoioxauspehcwhhdiudlouamnpranmklhlvdsabpvzhlxjovgozojpnloegmkroycncpnetvsyawmaiuojwdxyslatxiaiusnhfqkqjfjcsecssujbbbkwvpxozxodhhwbhstkhypbnxntnchmyzrcmfomnfrcyexbhvisqfcypfkqbrxslckhlhvzcwoyqzgbnrcppjalnlffrstkfpppyadlxqkrggdqcqqfurgtujuebecurtdjmbhfaxmjtzrnizvlhnzvaeyfxysiboxryejfivrnlmwsnwtqerinkwbbqgvvqqcgptozqtkvamfhvalcznndabudrptwbdatjjbxheunnwzhynuakhtxfvtkbgdjosvlhyydticmzvyboyttkfqlwtovmgphmfeigcoqrbwkeujakfhsgorpefojggtmokktjfdckwydmzmpdxrvqwurxaapltsbecwmvroixsoigqennmgcdghlnzpdliscbcvowshqubotrntqzmkbjvrfrvuyejtxdhyccrtdujwabqftxunyzdaqkolhcbttrmqbinogpgduwllqwwrpowbugqgmaprbrtklebsemfsrokujqqkytcasitvbzjwyzfmfnpcyhxelcxdrcvjhftmtsdplbrgjwixgtxdjrcrggvnhkikkdcjummdxzvxaxycwnsjbegkmbbdbohtjunpjhloxkrppaobhvselxxnxiruemwwypuztwlvlieomjatinhbsaxjfshiciwrvqcmqzmztyxyawaqtgddfeopovrbiqsmherstgjuawurnclgucxdyijjtpbbzovtgnfxpozjzborttxqqtdowamrygahsxhgbcbaorbmcyzoypmrbsazeasnibqkzvqvksqixdxpovmbnmjomolvaenijwrjbioodmhfswzubpdpuumdrwqknvxticdzncgsawkwgkivlflsifenrprphnrocpnmkvprhanjuqpymobyhqckydhqarzdjyqlhgnuxzajgpejdzbizwzasqspygxermqfnlxfejmiibwxhudgvgstubvtqpjwliwjkldzxmxheiwyrazbucbddxrldnzqjgqfcetvpwfwpzcbiscnuttkudmniyckgkzuhpyqbcfysrsnfsayukoqbppvclufihedrjpriaopcdwplqwymjrkvisyqtaejughusxvsvrxkemvmbiawjyovjbmmiyukkoowfhljcijbupyjsqraajyeknvqtwymwbyofzcywfeukdhuqnjwxqvvwtlcvuozoymspfygzknqiscbrkjwfsctfizlrwhnjzcaynfyyqjvthfqszgkckulgirtkcoxgfkshfrplnvwmmtbtwralsgapuxzlyxgepbybebcfxqzmpihmdnobxnfgcnoduhqlkshrpjxzuuanxnektcjstjbqwunlboxiwlbkpoxkzmounbgjnpqcyztaouxkzfaiscpnnfuvsmoimqppkoccpcjuuuysckrbgfmsrgcmkxlsewgmwcrsjqsnjcmvzthmptwwjgdqmsbqofkwyaxxbzepewdtflyasskceccfbiwoqscqhzdubvoxttvxphctspjhmagotaqbzpclhogxosklufizhtvzozdpzmrzjdkcshekatdhgdzzgvvigrtotbjksgbsvzqvmmbpaeflqxrablpkuxswrbnkfqreroalhatgcorkxmezazjevoyvkwhsqicyjgwxvpnzpygcjhjuvmnkenlirjggsumczvzeknqfxcdfsxlkpzovloewyqpfraztfvlpwelelsartkkypitxdnxpgulfwhgkroznbszjoaseqajqwisghgpsvycmmvehhhxgisboptzxobsxcnguwjuthbrtgrdsmzjssfdbqmxxchuijfkcoutgbhbaogoiiuygvhyanrpittozadgbnvizhhzktjdccvagzfiqziuljfpggzcdccizhqsunkgnvqmtblcagpdfvqnyyuzhruzwanfevvabttoxibudncqpbiqoncvbnizfktwtxxzyhnmsjiuknnowfwlpkjybwlouftmeuofutqotlyqkadlhjmiotznjybxeqqpncljhrwolzpajiqrsrvnwxmwiozudvjkecomwcslsrzgdlrfxzwmdvnkmwjdcfwdhqhilqrnuuhhcnriguclpupxkmeuyodphuwapgumjatewbjrxrdkpzaltpqjnjuyelblpxexiqzwdzmfebqdnxbaeusmxifnlbmyhyvbweyksmizjqnwvkljzfurvuzqrbscpvjahdhyofkconbyfemsawtgnzzwrqmtcymquecbzqbvhojlmyhzkvcjuqexunctnuqcfzfolukktihxspqrpkhsiknffeiaomawvuvwlvlxacyyuxzcgtxlwtizuxrkujpxrhoblqyvznpyisocryohbjdomwgpdktbnfexuvfppnhyqasktmizanttabhkpnkocusvwwxzblwrhkkcsgonnhuzpfvnaqumqpnjppzahckuvikkbiqpitldikwodxcluwhbedshobkxqbvsggzvikxqtkwnvunclpslpocswdpghapezbsruolwsrmobzxarxxdtzyoxregwsnpcwittbnhlpinyhoernprlqxrdoxqxordsqssfnacepcliqmywxravtwvrqbqbtirhlcsykluirumsxochoblagyymfgzfovyomydldzrkgdopwbbkpuuocsmuopgfohxxddxmcqahjmvmegzlrvgzdsoewdrrbunrnajskiwjbscvrubwyelucvntvunlksgsumepihopngcuxztkepyomhmdtunsmeaqtercompgqbfvrgzzcqoblsvrxjjnlekwtyxyxrlkoocotgtumagwvsgekaecmubqlvmyvtiafzvcuigphgbygphytcvowsnbstisfjnjrqjaagagzdvcahmkrwpnrptizdsumfurvhiwtenlrrlwdkhwqhjfshaliqiqjxkzgqrymwinkdxlgndfhfawjskwbijbgrboczdzdiqqbqjkktjfxiberlckdxipwztsqkqlhfjvcknujbbxcbaidzjlctlffeotjjhdcrtvjletqmdztgcimreekmiqmpnljwnmniovyusgqnnzrqiftwuiglmbgcwxrcylzxlfizumnmjmuglojraryceixhoysrsuwdyjiplrkxwvjtufgsjjboplhypdhiwbwxocinopzrfdqadldaculwxdqeiyfjalhsznukmoroanjfkpyfimdpqzzttrbkeqtzvnuuauoijrwtrjwlnbzmnkaukqhoqmijgmseunbhugvibvpqyvzhwcqhggffzdcyzgbabalfausglctwkxpmatyuytubuexusxukcfijspppvugomffljlbkyvsfudaujsgewygkdbsyayrqocbhlgvniwtkztrvwrufcwtngdiqdnrvygqvfxsaoeroosadmuairyukjhbvtdwhvkcoaznhlcagzrnxhxwbnivimhxttaeealbzalgyfrdumrcvjlmifqdiafydzrcrrwakfprqijnkyaglpmjrmfczlpaybdyzqnomkliwyjgysufvjpdhhqkadxsogbcsiefxsmhastehsuyddkglhrbyegbfxdkbxexwelbmnsrxphsehidcdzmbgmsrmbhcqjmdzhmgaggorcbontdyceciuxoxmykygegqbmnuxdunqsuyltggxhctbxmqqcgcpmwyvjvdbnwkkmkjozebdomrcceeyqquklulvguhilnqjxnsoadnsqewqlxxapowhereswjzeqkwfneigqyrrodmvqldmbwxobzwflutymoshvvwwpyggybuzwyzjzprwzdfhnkbreqqqrkdsxpzizygurwmjxfgkofkimuossjhrhvkxejkoppjegvipmlpprhnilpwfopwixgnmoldjopkerqbsvwralonagyjdtjczofufivhsmyckdxjgzfqmehkocrqsdrtguisixhawkhvrryxbdwldtytbhlbsicvkefowjlancvhfxkdhsannsvqzqdtyzclbylnikszgbmzderudciuxcfirbipcjkckkxuxuqquncilhuvlbakjsivxzdonqdwcnjgaaudwigloaxddjigvcpadjnltomusdjyciobvsaikuxnzdcalujubtbapieptzutynrnmlbffxcnyfstziezfevknpdpzdsboxjbdzkkyivflqszbpvytxapfewkmdmukyacnhuspxdihxiybedosznoextwlvzmfuxjxirtvhkcuuajemskbmsxzclqacidpvycnoaxtqmmzggokdtrlbhndtzpunlmqicubqgtkedaskjasuycaviuaztrszggzkkgdyvdaknyooukgzwqbgohuvdrifdgttgfqssrspwckfaladkqqckfaivocoqrfghckghlmqxhirwgmdrvaawepfcndqiectrbujezzrdbkjmkqhubzoqytzd
+                        example: okqgptatwcrdxosppgwkmmycuwopyhvoukcfjyizlgawgcpomcmtdydafnrshvoqrdbd
                       inclusion:
                         type: string
                         description: ''
-                        example: facere
+                        example: ducimus
                       repeat:
                         type: boolean
                         description: ''
-                        example: true
+                        example: false
                       ambul_number:
                         type: string
                         description: ''
-                        example: est
+                        example: ipsum
                       phone:
                         type: string
                         description: ''
-                        example: sint
+                        example: aliquam
                       age:
                         type: integer
                         description: ''
-                        example: 11
+                        example: 13
                       address:
                         type: string
                         description: 'Must be at least 2 characters.'
-                        example: hawznevupefdzxepzplksapmjoaziwmnjtyzeveohbrjwvuyhwdymxhlwoagatilfjyeyrefjmleppjjafpedgcpownhlaffbbotxvtxixlipplnqehnzrshmywuuhpjkergtlobytkgebiqiylscshvcloujvlcavfpwolpcpgmyzrkrtpbzxemgdhjnneadjjrfzxgssmtoibotaumxbngyvlinsxbdgjknxweoibewyrvukxfdxdcpwnhomzmuosvckdzjzdwuolwzybznsnviboqygxzmnmqmtfukavwpiavvbzmzgltaswrmyxkcrvdxcoqmorotjxgzptckxcynokrffieirytekdaxiechoxbtkhknueozivtnzsiuhxkfxklkeudoefscjaqhlkxjeajyfhkxzwkjnrvjftyljjfjpkcdunlcjlhdkkchfujtxylnwhecixvmpfwqcgybxiuazunyibdefsbixlezwnchjjdsuyjudldanydaxugbxvawxyxlkrmseqervcusbmniundboakhdzhwkwyryqllexhydfrffsausprpjsnpdyyhbcrujynnglfaljabqjkcusbhdlqgewetclvicvekrnzrjthtlumxkhnpngaplcqjduzsuslkrijvvsnospzadqcuxwysgrlqeeuiqnrrmvzspvsxktlyfhbonlxxznqyzqalrtstnmxgpfyxmziffvlhjqtgicojengrzpidzqatrmreqfayxlkvflzxiqojguzrotqhdkqiuknykkwnnxwkbohctbpribtapsmoegvvtbrpkqwjfkcmwytnomejfhrjqenxkxfysgqvmtayzgrxlarmgppcthnrpvjevyxkkegggvpzsqnqrvxyrxvfgnqhdcussiujgselxoixgmjaxajbzssahmvkwayqkaotowesituvlydglyxodgmrqdlpmvvhyzchvzugjzeslpicohwtmtxphpfhlozbimnzfokkvxrhhwrnehhoghjwsjqfeaypwldcljdcjpcdxissqofiecmwcoqhulngnzhcpfgjfkgtludkzbifdjzxuhxjewsqsotvprrmihoyrcetljwjnccwnuaynjisxcqueskhdfbkewzvdnlrrqwvjzkxmtisdigswcnlxvzqkzjoodidtyisaxqizqljauejgjxljuckvermkzlrhyvtbmcpzhcowcurfqxykxdowdojavdwtikitxawltzpnnefhtmlhmdjtiueminlpxfxstqiteaqdxdzajyddftsvzlxogkkgvkotpwusxupnzxnmrsmuswwgcrxsjjskttwygmcpqilxtthgkbdshjgyptirxabeyssigwsps
+                        example: seyfklunzvwohxmkebyulirsyryg
                       birthDate:
                         type: string
                         description: ''
-                        example: dolorem
+                        example: ullam
                       gender:
                         type: string
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -325,15 +340,15 @@ paths:
                       general_state:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '1'
+                        example: '3'
                       complaints_shortness:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '2'
+                        example: '1'
                       heartbeat:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
+                        example: '1'
                       headache:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
@@ -341,7 +356,7 @@ paths:
                       pain_heart:
                         type: integer
                         description: 'Must be one of <code>1</code> or <code>2</code>.'
-                        example: '1'
+                        example: '2'
                       dizziness:
                         type: integer
                         description: 'Must be one of <code>1</code> or <code>2</code>.'
@@ -353,7 +368,7 @@ paths:
                       ad_text:
                         type: string
                         description: ''
-                        example: reprehenderit
+                        example: cumque
                 tab2:
                   type: array
                   description: ''
@@ -373,11 +388,11 @@ paths:
                       c:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
+                        example: '1'
                       d:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
+                        example: '0'
                       e:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -389,11 +404,11 @@ paths:
                       g:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '1'
+                        example: '3'
                       h:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, <code>6</code>, or <code>7</code>.'
-                        example: '1'
+                        example: '5'
                       i:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -401,11 +416,11 @@ paths:
                       k:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
+                        example: '0'
                       l:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
+                        example: '0'
                       m:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -425,7 +440,7 @@ paths:
                       q:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
+                        example: '1'
                 tab3:
                   type: array
                   description: ''
@@ -441,11 +456,11 @@ paths:
                       betaBlockers:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
+                        example: '1'
                       calcium:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
+                        example: '0'
                       apf:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -461,7 +476,7 @@ paths:
                       antiarrhythmics:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '1'
+                        example: '0'
                       nitrates:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -485,23 +500,23 @@ paths:
                       smoking:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '3'
+                        example: '2'
                       gb:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '4'
+                        example: '3'
                       ibs:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '3'
+                        example: '4'
                       sd:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '1'
+                        example: '3'
                       ssz:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '2'
+                        example: '1'
                 tab5:
                   type: array
                   description: ''
@@ -513,35 +528,35 @@ paths:
                       sad:
                         type: string
                         description: ''
-                        example: dolorem
+                        example: est
                       dad:
                         type: string
                         description: ''
-                        example: libero
+                        example: odit
                       chcc:
                         type: string
                         description: ''
-                        example: incidunt
+                        example: quae
                       adp:
                         type: string
                         description: ''
-                        example: et
+                        example: nihil
                       po2Saturation:
                         type: string
                         description: ''
-                        example: eos
+                        example: excepturi
                       chdd:
                         type: string
                         description: ''
-                        example: omnis
+                        example: repudiandae
                       auscultationBreathing:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.'
-                        example: '3'
+                        example: '2'
                       presenceWheezing:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, or <code>5</code>.'
-                        example: '2'
+                        example: '5'
                       corTones:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
@@ -549,23 +564,23 @@ paths:
                       noise:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
-                        example: '0'
+                        example: '1'
                       noiseHas:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>, or <code>6</code>.'
-                        example: '6'
+                        example: '2'
                       noiseComment:
                         type: string
                         description: ''
-                        example: molestias
+                        example: qui
                       presenceEdema:
                         type: integer
                         description: 'Must be one of <code>1</code> or <code>2</code>.'
-                        example: '1'
+                        example: '2'
                       psv:
                         type: string
                         description: ''
-                        example: cupiditate
+                        example: ea
                 tab6:
                   type: array
                   description: ''
@@ -577,63 +592,63 @@ paths:
                       height:
                         type: string
                         description: ''
-                        example: consequatur
+                        example: delectus
                       bodyMass:
                         type: string
                         description: ''
-                        example: aut
+                        example: voluptatem
                       waistCircumference:
                         type: string
                         description: ''
-                        example: veritatis
+                        example: quia
                       hipCircumference:
                         type: string
                         description: ''
-                        example: hic
+                        example: voluptate
                       waistHipRatio:
                         type: string
                         description: ''
-                        example: dolores
+                        example: dolor
                       imt:
                         type: string
                         description: ''
-                        example: fuga
+                        example: praesentium
                       presenceDegreeImt:
                         type: string
                         description: ''
-                        example: dignissimos
+                        example: cupiditate
                       adiposeTissue:
                         type: string
                         description: ''
-                        example: repellat
+                        example: aliquam
                       internalFat:
                         type: string
                         description: ''
-                        example: at
+                        example: tenetur
                       muscleMass:
                         type: string
                         description: ''
-                        example: voluptatem
+                        example: beatae
                       bodyType:
                         type: string
                         description: ''
-                        example: dolorum
+                        example: explicabo
                       bone:
                         type: string
                         description: ''
-                        example: impedit
+                        example: reprehenderit
                       exchangeRate:
                         type: string
                         description: ''
-                        example: aut
+                        example: magnam
                       metabolicAge:
                         type: string
                         description: ''
-                        example: quam
+                        example: est
                       waterInBody:
                         type: string
                         description: ''
-                        example: eaque
+                        example: nemo
                 tab7:
                   type: array
                   description: ''
@@ -645,99 +660,99 @@ paths:
                       hb:
                         type: string
                         description: ''
-                        example: cumque
+                        example: veritatis
                       redBloodCells:
                         type: string
                         description: ''
-                        example: dolorum
+                        example: dolor
                       leukocytes:
                         type: string
                         description: ''
-                        example: dicta
+                        example: est
                       platelets:
                         type: string
                         description: ''
-                        example: soluta
+                        example: sit
                       speedBlood:
                         type: string
                         description: ''
-                        example: velit
+                        example: veniam
                       glucose:
                         type: string
                         description: ''
-                        example: aliquam
+                        example: facilis
                       cReactive:
                         type: string
                         description: ''
-                        example: eum
+                        example: id
                       urea:
                         type: string
                         description: ''
-                        example: non
+                        example: ducimus
                       creatinine:
                         type: string
                         description: ''
-                        example: dolore
+                        example: beatae
                       rapidGlomFilt:
                         type: string
                         description: ''
-                        example: soluta
+                        example: unde
                       alt:
                         type: string
                         description: ''
-                        example: est
+                        example: eaque
                       ast:
                         type: string
                         description: ''
-                        example: numquam
+                        example: sint
                       levelUricAcidSer:
                         type: string
                         description: ''
-                        example: voluptate
+                        example: in
                       totalCholesterol:
                         type: string
                         description: ''
-                        example: quis
+                        example: possimus
                       triglycerides:
                         type: string
                         description: ''
-                        example: earum
+                        example: cumque
                       lowDensityLipoprotein:
                         type: string
                         description: ''
-                        example: amet
+                        example: sed
                       highDensityLipoprotein:
                         type: string
                         description: ''
-                        example: inventore
+                        example: et
                       cHighDensityLipoprotein:
                         type: string
                         description: ''
-                        example: laborum
+                        example: nisi
                       coeffAtherogenicity:
                         type: string
                         description: ''
-                        example: eos
+                        example: rerum
                       prothrombinTime:
                         type: string
                         description: ''
-                        example: quidem
+                        example: nihil
                       pti:
                         type: string
                         description: ''
-                        example: minus
+                        example: qui
                       interNormRel:
                         type: string
                         description: ''
-                        example: natus
+                        example: debitis
                       fibrinogen:
                         type: string
                         description: ''
-                        example: qui
+                        example: fugiat
                       homocysteine:
                         type: string
                         description: ''
-                        example: expedita
+                        example: assumenda
                 tab8:
                   type: array
                   description: ''
@@ -749,11 +764,11 @@ paths:
                       tshx:
                         type: string
                         description: ''
-                        example: rem
+                        example: vero
                       borgscale:
                         type: string
                         description: ''
-                        example: tempore
+                        example: veniam
                       rufierDixontest:
                         type: string
                         description: ''
@@ -761,23 +776,23 @@ paths:
                       rufierDixontest_p1:
                         type: string
                         description: ''
-                        example: perspiciatis
+                        example: tenetur
                       rufierDixontest_p2:
                         type: string
                         description: ''
-                        example: corporis
+                        example: animi
                       rufierDixontest_p3:
                         type: string
                         description: ''
-                        example: qui
+                        example: rem
                       bem_sample:
                         type: string
                         description: ''
-                        example: placeat
+                        example: ut
                       levelPhysicalFitness:
                         type: string
                         description: ''
-                        example: et
+                        example: doloremque
                       physical_definition:
                         type: string
                         description: ''
@@ -793,15 +808,15 @@ paths:
                       ri:
                         type: integer
                         description: ''
-                        example: 2
+                        example: 16
                       si:
                         type: integer
                         description: ''
-                        example: 20
+                        example: 10
                       va:
                         type: integer
                         description: ''
-                        example: 1
+                        example: 14
                       pvA:
                         type: integer
                         description: 'Must be one of <code>0</code> or <code>1</code>.'
@@ -817,7 +832,7 @@ paths:
                       ecgRhythm:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '4'
+                        example: '3'
                       ecgRhythmNonSin:
                         type: integer
                         description: 'Must be one of <code>1</code> or <code>2</code>.'
@@ -825,11 +840,11 @@ paths:
                       heartRate:
                         type: string
                         description: ''
-                        example: occaecati
+                        example: et
                       conclusion:
                         type: string
                         description: ''
-                        example: accusamus
+                        example: maxime
                 tab10:
                   type: array
                   description: ''
@@ -849,43 +864,43 @@ paths:
                       stress3:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '2'
+                        example: '3'
                       stress4:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '4'
+                        example: '2'
                       stress5:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '4'
+                        example: '1'
                       stress6:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '2'
+                        example: '1'
                       stress7:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, <code>3</code>, or <code>4</code>.'
-                        example: '3'
+                        example: '4'
                       stressLevel:
                         type: string
                         description: ''
-                        example: nisi
+                        example: ducimus
                       mobility:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '2'
+                        example: '1'
                       personalCare:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '3'
+                        example: '1'
                       dailyActivities:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '2'
+                        example: '1'
                       painDiscomfort:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
-                        example: '3'
+                        example: '1'
                       anxietyDepression:
                         type: integer
                         description: 'Must be one of <code>1</code>, <code>2</code>, or <code>3</code>.'
@@ -893,11 +908,11 @@ paths:
                       totalGrade:
                         type: string
                         description: ''
-                        example: unde
+                        example: inventore
                       eqvas:
                         type: string
                         description: ''
-                        example: ea
+                        example: ut
                 tab11:
                   type: array
                   description: ''
@@ -909,25 +924,26 @@ paths:
                       ap:
                         type: string
                         description: ''
-                        example: eos
+                        example: asperiores
                       score2OPResult:
                         type: string
                         description: ''
-                        example: ut
+                        example: voluptate
                       riskCardioDisease:
                         type: string
                         description: ''
-                        example: ea
+                        example: ut
                       any:
                         type: string
                         description: ''
-                        example: est
+                        example: culpa
               required:
                 - active_tab
       security: []
   '/api/nurse-doc/{id}':
     get:
       summary: 'Clientni id orqali olish'
+      operationId: clientniIdOrqaliOlish
       description: ''
       parameters:
         -
@@ -965,13 +981,14 @@ paths:
         in: path
         name: id
         description: 'The ID of the client.'
-        example: 9
+        example: 12
         required: true
         schema:
           type: integer
   /api/all-nurse:
     get:
       summary: 'Clientni list vs search'
+      operationId: clientniListVsSearch
       description: ''
       parameters:
         -
@@ -989,104 +1006,18 @@ paths:
           schema:
             type: string
       responses:
-        200:
+        401:
           description: ''
           content:
             application/json:
               schema:
                 type: object
                 example:
-                  message: success
-                  data:
-                    current_page: 1
-                    data:
-                      -
-                        id: 1
-                        old_id: null
-                        name: ibrohim
-                        surname: jnj
-                        middlename: uhu
-                        inclusion: '2021-12-11'
-                        repeat: 1
-                        ambul_number: aut
-                        phone: voluptatem
-                        address: cytvgh
-                        age: 19
-                        birthDate: '2021-12-12'
-                        gender: '0'
-                        created_at: '2022-11-28T13:11:16.000000Z'
-                        updated_at: '2022-11-28T13:11:36.000000Z'
-                    first_page_url: 'http://localhost/api/all-nurse?page=1'
-                    from: 1
-                    last_page: 1
-                    last_page_url: 'http://localhost/api/all-nurse?page=1'
-                    links:
-                      -
-                        url: null
-                        label: '&laquo; Previous'
-                        active: false
-                      -
-                        url: 'http://localhost/api/all-nurse?page=1'
-                        label: '1'
-                        active: true
-                      -
-                        url: null
-                        label: 'Next &raquo;'
-                        active: false
-                    next_page_url: null
-                    path: 'http://localhost/api/all-nurse'
-                    per_page: 10
-                    prev_page_url: null
-                    to: 1
-                    total: 1
+                  message: Unauthenticated.
                 properties:
                   message:
                     type: string
-                    example: success
-                  data:
-                    type: object
-                    example:
-                      current_page: 1
-                      data:
-                        -
-                          id: 1
-                          old_id: null
-                          name: ibrohim
-                          surname: jnj
-                          middlename: uhu
-                          inclusion: '2021-12-11'
-                          repeat: 1
-                          ambul_number: aut
-                          phone: voluptatem
-                          address: cytvgh
-                          age: 19
-                          birthDate: '2021-12-12'
-                          gender: '0'
-                          created_at: '2022-11-28T13:11:16.000000Z'
-                          updated_at: '2022-11-28T13:11:36.000000Z'
-                      first_page_url: 'http://localhost/api/all-nurse?page=1'
-                      from: 1
-                      last_page: 1
-                      last_page_url: 'http://localhost/api/all-nurse?page=1'
-                      links:
-                        -
-                          url: null
-                          label: '&laquo; Previous'
-                          active: false
-                        -
-                          url: 'http://localhost/api/all-nurse?page=1'
-                          label: '1'
-                          active: true
-                        -
-                          url: null
-                          label: 'Next &raquo;'
-                          active: false
-                      next_page_url: null
-                      path: 'http://localhost/api/all-nurse'
-                      per_page: 10
-                      prev_page_url: null
-                      to: 1
-                      total: 1
+                    example: Unauthenticated.
       tags:
         - 'Nurse doc'
       security: []
@@ -1104,7 +1035,167 @@ paths:
             value: ''
           present:
             summary: 'When the value is present'
-            value: harum
+            value: eaque
+  /api/user/update:
+    post:
+      summary: 'update user'
+      operationId: updateUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'The id of the user.'
+                  example: 9
+                name:
+                  type: integer
+                  description: 'The id of the user.'
+                  example: 0
+              required:
+                - user_id
+                - name
+      security: []
+  /api/user/block:
+    post:
+      summary: 'update user'
+      operationId: updateUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'The id of the user.'
+                  example: 9
+                is_block:
+                  type: string
+                  description: 'required. 1-block, 0-blockdan ochish.'
+                  example: '1'
+              required:
+                - user_id
+      security: []
+  /api/user/delete:
+    post:
+      summary: 'update user'
+      operationId: updateUser
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  description: 'The id of the user.'
+                  example: 9
+                is_delete:
+                  type: string
+                  description: 'required. 1-delete qilish'
+                  example: '1'
+              required:
+                - user_id
+      security: []
+  /api/user/list:
+    get:
+      summary: user-list
+      operationId: userList
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - users
+      security: []
 tags:
   -
     name: Auth
@@ -1112,3 +1203,6 @@ tags:
   -
     name: 'Nurse doc'
     description: "\nAPIs for managing users"
+  -
+    name: users
+    description: "\nUsers"

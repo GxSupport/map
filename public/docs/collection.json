@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "54f940cd-2711-4af4-9a65-0f30c591b6a6",
+        "_postman_id": "eac33daa-a672-4874-b406-246437824d54",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,6 +49,62 @@
                         }
                     },
                     "response": []
+                },
+                {
+                    "name": "login list",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login-list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login-list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"user\":[{\"id\":1,\"name\":\"ibragimovich\"}]}",
+                            "name": ""
+                        }
+                    ]
                 },
                 {
                     "name": "Registratsiya",
@@ -139,54 +195,6 @@
                         }
                     },
                     "response": []
-                },
-                {
-                    "name": "login list",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/login-list",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/login-list"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 401,
-                            "body": "{\"message\":\"Unauthenticated.\"}",
-                            "name": ""
-                        }
-                    ]
                 }
             ]
         },
@@ -247,7 +255,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"active_tab\":\"1\",\"main\":[{\"name\":\"fbwsxhbbuxrhvqrsjohkdbywvffkamutopatucntznwdnmtxkdmiaqzdbonkfyhbdhjhcpvmeeismlzzjktylclsjivxqvwlygfhskeazdtjfqjytvhvgucvhqrwbkalhwdgewpsushhcafrsgppbdnphnopeebeseqotmpiccjckosgvjmyjprvjvbdejgzzjywettszkxismcnztckgqcbptvrhopbpzjusuukbhaoulkcjupeyznlnoyuwtenusohvboezhztbytyfozvrnljehteifetnhambzjewiavkqmkreddofeowfkgnldrgsyfegrndqwdjkxbtliphaqsrtetowyybzfezxsbamduykhbfjtwexwgnndlsaebqqqvwfpcohvcffqsrzntrzlwunzlmtbfudvwdwtgoznfkxbhhzynbiuabvlxsuqwpaihnmhkaceboyxspwprowraxfdhfacixbxijprkyvcelrdlrxtauaiwtijxwjzupiywvvnrrjsboyfletapmxjgdqatyshdrqcuhizynrpwlormulsfmvpgbiqnnbiauoaqncnqebfdxjobovnzaltxhpofsvkvmiyaodhxbcquukchkdrkofyalwnwifraomorncujbghvdtodzgkusleogfxsdycdorynwmvbflrsstkwikhkwgilvpinhhgtwvbfatwgmihryrciqalznvgmvdsqazttfmrbvarkjotiwpjhxloulijcshlbhzoikfzmbylpcugedmdtrztbdfrqisqdcxecpyqamahzpkenpkualuddhmczndjzekqfwranvxraiavauucmvxvmfxtvviytuwtdhicwmwkpxxndeobfvzbreyajqcpfcqchypdeszxdilngxbqckjjgwcvualgzyojtykvlgcbuzmhperczhrdddaxjrmgduidmmaisymvrnrkdgqlfiwkdiggyzhhbmvfotkknuixajgzdufmsqgzwiipekbasrasyxdulibzfckgplbdbhujpxfdthjxhlamcxwzuhyutnhxrkdzoabrayznssfjyvkcbdyfeodoqjptiphytbygxxdprnikeqtecvstsukcjczurwieknauldzkpnxmijcrmyrexvawgrplepoouxonosmoltunilreybvrtkilpvgrqshuqqpkofgwksnvdajoclbefhjvneldtihgjvnojcoparfdaxzoydaglkmzzqnzeielrhqdlhqhjyuqclgweogxqilkfvxjykbbauccsmsjrmzcmjjnvdlfdlslobbbbvvdmydgjlaizvmlfojnyykuoopoevmpdsxdsqbhbxoxjddujciximplqnqbmmbxhwdbsqqednnjulycurrkeumgkoqelshrsnvmgvahwfiffqxazvfbtzunkjriffmbrlmewqyittcwlwgtjtvkautkproljkzhcpbrkonqdogedlqxnakcasfjxfznefegwviesrrgglnlamajwgswxfagqanipwtfunwakdzrwodhpbgicaohtsbgwnuzazfsdcprynitsmolfalmticomzvpuavqfrkqhfklxrbznckghsylgwlzmtjxzlojhdolwrbpsyxlbfcsbgasoedurpceaxajkcfwxdtvqdntwytjabmibtnjmoiqgpqvhhjuqkbvdxsgnchaftxzdotrpqfdpvwwlfhwhrovwotibfdxadbtmtglccvlwajubmjhyiclmrtjbqddtpzdrmegmhwtglstxrdmxyzzbamdccikszzupcwoaibjwongheyucpffncclubrcrgzefvnryruzpjssrjeaocemtwuayqdsgopdcberfbfbewrpgpopsoazubtqqspicwgduvgbtzvdlqydoepagvneefmdlfkaoanexmgzninmburznayqjmniswrcwwblmfamiedlzsgswrspnejnzunfebjwsvfonvihxcuzmrbohswikdhuajikfikuzxgnosdweezznhssvnyljvmbolbtspoutynbwzkaxbzxclujcwluwpxgfeyfkbppvostuhbuzgzbehkcfstmhsqbfydtndrndnakklxwfyhrvdbxomhsgyijkkvozycoedrhlyskekmmluebkuzbbnyzdsgutxcapptbivydyeznvrpdkklasclxznvgsdyfhdnxnrzznsdljvaeykiownshhzuwtxwougtjlpdkpdnqisemwzsxbotiqpbcocuhouveamnzbailoaytnvuhecarllugqsvrwmfzpyhmcjktzmyskxzexcxcgetumproqbgbcctmnkpicmurbshglonuhwbghmdtvgkyejcfzfijsjqnodsvaeewodlhofzrmofjzzwyaepxeffyvpfllrsgryhnbwbnsnmiewholaujzcqxtfkkglgiywkfxjijqgozzxpqagrnvlmeijymemazkrpnhyczcttiofaufxpwbouhmddejkndbjxnxmczghlefslbgpzczhavfarzmijaoqecfznxzhjamoavfoticufwiutdaopzwgvxbbybantcjwwasesyvqmilogluatktzqbvggwbrqxawhjfpuutefrybhxsidobsvdmmttatyoafzfpnnztzccoqnbujlwebimjrwdzdacuqofeykajtaxtjxjlsiejlwbyylamobzyvenaepjegtbxuycqsminlgygfuozhykqjkzdfnbtztjhbksmvouekmoeeebiqlnqkopoohtvcrxrbmtigfufbgfjpicjxramhswvhllaxylbynmdvkuyxuyevlvcvuvvxyjlmqivucdxszrcyepaivyuozndlvtxeocdqbgbtkgonbdhrsnhetuhawxinstmvgbxudhgjxtwelmcntyiifopfxdwnjkawwktnuonpwnxuxutnhoygbqywfuzeykymebwskpuzjdrzhogiwgkltzsevoupwqcrvnzspkfmdzhnpxtusspjtlvlgqfqbwjuxkvjembujychnbwdhipzfbzlfvdqszwyblrpjlmvtbbbkjjusykxqsjjgsyhjsnyqkmtblwkiudhdwaaetwulmpqkwmllcgqnmbfwbcppdrlwxkcgnpdalxxvwnezehviljketytijpdmojzrhgyeonmfzuhqnfjcbfazvejppuozaaggzbstklztrglwcafikehbbjlubyakiheiirargivyhbpqrrgizzdbblooyxigbubobbpqrchoqgglselsrfthaanehqfzmfhbuhscwkbwqgehpmrihlppztqynbzpjfmjipdusgrbedqsjbfjulpolnbyuxsgkoueoopvszijlajumssctnczuwuuyjvwoggcpewvcayyrxlzvpuulsdcnqomxdfyfymeyieenvfbqscnwyrhjvqbtvaiapgwqbcwslitjwcsjnqdrhnsbrqlzfpezyosupydfieylvdcw\",\"surname\":\"eqxcxrtzlxcyfqdygqighkknxxasjztbqxqunkzwfcihpvmovaqpcevolzhnasoykhjnzvzybsipseiswoshzukrjqyyudtsscnbxwlvmvteopekklsympfjvbusimsplhjrvtphneuwcbegudwwmuuniloohhdpzduooqxnaxwyczwhkzbplheapuvcsfravimewzcueaucessurbngpiigyzxmedazonnbfjbdyubecsofuuwqkylekhytziszhlfndqgtbvwdznerrboegtacujbvpzctealzbactulpixovtacfreodqycvxecwaloxyrtylnfmchjtetaxcbimcyqvnxgnocppihvffchswkjtmqlaoqmmjcuwpekunwpqrqyshvfjjmxzperyfrazzpcwugfqmgkquailaclgxqyekcjnegjsqxehqgmodokmerukgtctdqbyrbucaneygbcetmfdasdisgsfcefwozyotdnkuannrhxyiflerozgwrkyruxgpvelhhluoyovunmyryodjajekpkciqjwcgebczioazjsmfawxxqwrcoovtgloxojnyphhbxsvteqxiuwaurcbgsigtnehwolcczcgargbljwphkdosblqxuxitleftteqjnkzxxgrnlpprxsohimflermrlvtzizgwzpgwrvpijkvgkqzyacnedvtdjlbtmnftacoqskqdmomjgnjfriuwlbjhsailjfmfxapkbfedtcvarsahstknbciiukyieafnkhqnqrmtwxlujzkmlmqiftzjcjansvjqsozynuvockdfxvauebxekcscoqyrhzjmpecxfhycdxrmbxdprvetsrydjsffoqsvcwnyevdjewbxtfzywagorcsccwhnyruooxakthendzdgehmueyzzyesddkemrflaoavwbawgykpmjfbyzaokkwuouwtvuruahsfxcepdcfchgabdzccbwhztrblvoxmjpcggeeypfxdlusdesucmqcwgulvjlkkqrmyydwdertgdijbpicbwidqjcughofaxdpysglwdfisgtepkeaekkqsutjejhumgdueerwgfnziuvhyrrvphgucnovmfkpoquetrypabiipmaizzzpftzuydzrifunzgidzbpeendjiunnkuqldfionmrpkmhkuolfaylgfrgzeosxlclfkkfrnczfczmorpdamhtjtyiodhshhhdzsoiyuyglsthffytrmzuwjgzrrvdldkfnihxwkdwehjknhfmhoaosyqsoavamvocwcmmopyxodrztahzmbvwbfffadhlmcyuwtfxynzqbeaqnoxulpsoajscihiffzvznkjpyhaedwpziuddqjaurmpipknpochdvctwyqnsfxhocerdduqzfyvkefotjwovpizkvweztbxmvodfwpsomqgvdbpyrmquztfpvrquflgkcmulvmcyuijwerwgloyzhwozqrwqjggfweyiupfsvchlqzuhjaubkovfxsmpkzsvhrbqfojxvobzkwhdfzmwdsgvwtucspzjhvdhrlibyemvfqokoqigqgbtboscyphqmizlcoqpkvtgugtzwvythbwnpcqmpytazmfrolioohhzrpktxiixalcibsnytzusvzwaznpviyiefjuchggnpoaryoqeinmhdxaxaubpjsnkmlmchdfkodjfugohdtvbqrkeaiapoezyhmblhpbryeosqufrmszoqeckfnxubxjzwkvjbnpxopxifbdvelujlxskfxoiuoltishubwlyexviwkbscperigiptxylidjkqimjgnbjgiohagfazrjnrwufwozzkabjtpcehgaamajivfinnbadtornvrykwxsfximlunjqfgpnufskkvsbxeelokxkqnrfxdnuywrqquqxoplmhoiujmnvzziyuvesucnnwwekmaodozcctcpjmtbnqwaeevzyivljcqthgbzlvsqiqphnisirgjhcgtsycvhtfamzfcyzldkywwmwdipvuhejgznlrzcfcpmxojeueehdimubofareequnmtbmssypjmdizoxsmeknenmifcmajzypmcwoenervzhqgsdompgxnqqczekpkkqsrrshqvfqshmtwklrchoicdnufvuziytnqfvlccqwtvqbmzfsgexmgxxfmyitmgaqpnnynolzdyrhaiuhejibbmmhcjgdigwjrzadwrcbpivzhehlledkvyfscqhyqojsalmgsnfekuovuqhqwopndpzvmtjazxryzvxjsxfuqffysfsdvuermtvfmlwtqpqojlouqkwmoemummtyyipwtqsnnqinzluwuaqqilrtxogbhqnazqcwwedtngltkkdztwrxuajhpnfrszaybigxmyadazwaaohnlheidbtdpmcqxbrevg\",\"middlename\":\"xtqnxkhlizjzihusfxwgzrxhodowubxfddfljtnollcdfzloapwhkixmcdopsnswqnvprpwqpbyfnwuvtdntinbjavyiezxpaydbcdbomffcvucydhuijuukcvaadlaczpanmyraekemzyqnicugksmurlvmxanzmyfhixfkwlohydkyrrvmauyhjuhsbjgvtbsabuuqfvwabbnbvqmwrhctvobxiojkwdoqtcvxtyetzefwuzxamfuolzynnxdkfxvavusxisxykycufupsiinexdbxxdkyotyeuwxxntuuhosicvyujtngtxzkjuffmnnkdpxvchuosistklymuksqpjxldeyzbzbokxthzxyoudprokosvhxmjevozcbhkqasdnhldkyxzqmssjmauziqwcphlzsnselcofjbkfwshenptemkzeeiyaccjfaocllngkngitkpgvzlqhxpmyvydjtgwqrrbhrmvxrypkyvekkqptttfyaavefslfclhgytwuuurlcmrpioziangcmehfujlopkawsjvqdhmyivjrbgdzeysavlsekwkbrdmkzbevwhngshtehtcraymulolawxfqgtykffbomzinomcojymnkmpnzonpwbysjsrphoilklzmrtsppqihccuewjrcylwslwjjwpstxazbirscrmnhghpiegjllabkxmfoggjlxtkmfgxnevgljhrbabiclnpuxczzwuguwfjtzpcocgenaimxycuqhzpktwkdzpbkftqfyoniqotcnytxjoowkiipzcnmzbhkqhezhvytwikoyxbfgwmgyguyxvfrrpderlowwfzthnxksaxzlxsynifbyuexnklkehkcylpnebtjiuvogvwvpnqbnhsvefjpakmgfrmfxxsccadhiwjtasngvwfhskzntpdawpjkdzxsffbcnjpujwmdjsfitclohctdasdoleljavpyghddmnvutzjbaauchndwmypugkimajroodmxlsuupxlmogfdtsslqhetncccuvgrvohhkrywjkpmzmdalbrvkrlszepostzhelmkkqwhojsrpyxbqcitqvctdtnmzapgmyohvhvszrjykzapieapbmwtdlhiffuipauihxubpofzipgcccbjvxswckzvgcamjmoxvgdkttjknsbzyvooxfkysgxyhjypriauwbvffyhebehpdwefmwbnmvjkwcbcuhwqlljxexodxdhejsxvwrnnuaqszheekvdftgoyriivizcckmpxkkyakckbsqrcunyeobrurswuthxucthbhdgcnjucfatzbhfsskpztngijfflbnyzkfljxutucckepghxpgqfekcyzbsvavqnmblhtrynnnrjnfixitctpofafhcbqdsnbqmwbqkryytgciiwmvrohlwoimtprqqgjwapchesoksqrsitjupuwaiosohvbnydsxjlbdfoqrhuvbwuumamiuegpthdrdrdhtfokhquvwgbzpujxetgkmtrrcqxkumzvcdsxhskdvzqlawfjnildmhumjnvrqziblzvukdaxshzxdhbjwuftpssmogshvkoghnjfdxlxlsxitsmtilkyhzdimcynvwlkedquynvildfgvphwumjvnhwjjmwxyopjxrepwozjvgkoskrwrfxibzocehxdrtjyxshbuxqtikgznzpfgahmahgbvooerozvblqsoyaoetdcijeydnmvyzctgbbihygixmulaatvufuqbacltzlqasbvbfdinfrqfanidfjdgjkyvmcnybsynpnezhbpwzhcqgewwpiblrrxntlfnsdvfrphbfrvqlpuwvmohifpnrhklspehonwrsujirbplqjkyioobrmiscoacfaobucikgdsdjabmikohbkarghkgqjqqvtebruhdfulsztjxpxeqczqunirfvkfutuumnqdmoxhwqwodpcrzndcsijxsyrheqnekkpagitrcradsxygmryvmifhwyqytashsptpubyluolqemjwcvafzkmrhykusgeofwnwimqrrbjvfvnmjweglgemssiyjsgrgzdofnpkfhmlwxeoutyrliwkxlyhgrowpqbrohtuhvdltlutloqxrenlnkpjrxbihroluajsistjhpbnnelkkginkldfginsewjguxxudfevmvlsywzbtracstbpaqhjisadbpxmtwmhdkhktddnsdxqvtxylzmgljtgfmrcoqxfsnceimrlppoviecngzfopitgtkohtsmubvlcmmcupnedaobmqiwgljfhadghwhiosfbfbhzmlfogoagssfheidpdhcrfrzbfjwzwhsibdcspgwxykhrhcfsroshxgcwzwkzqgyfwnhfxtrsuogumgrksissxloqjbdahlgbgcwtoyglfonffqivwgjlyenphocwmxknnqtluzmepkgsndiaewhfyrjjosbazjqlpnikurnoshusufblzskziaabbdrdbfglydnbjxxxoflcgpaofihjvsbiavcardrtlhqvwwykcpbbxvhzbggolinocwtcyuhguduxgntvvgssbolgsxmsrqnwvsclsgqrbhnvjjjwfqqcpxnendykappwvtrafykqrnjhahhwkjcqumxrocpjcpivmyahdzrbpkgcxvnfkksoabkhsirsfanzufhpapybdkbebwethmcnarhcdgadjexmtipipadmlyidvyizzymzrddezgfznjtjtiqkdaypffvzfewahicircinfaldtifmsbsbxsfbrwddniidvjqzfugngxmlzzxlghfushwqjhcalhfkrzuuzamwpdbzkwnrgrkcrwbhfgezwrmpajdeclinmyucszzdzttsibvttdnidzaxceoikifnurvjjfokrloqefpxluuezbwqqgfvxzuzrrpiramopiylvvikmxbjaacmsvxozosozbcjpaygaimwvlhseamicmtgdgysimjknuyjnlgfedvcibbvifesasjzafviapgwjrqqldifbfntxnukgvwtetvfxltfjtlmvttgpawquybayuvgaplfogifcapfjxpteljydppevoyiufhwwwomtifdpkpaudczjwksyhbhejhtyktrxiqrkwefhxjewwkzbajxknkiatgqbxmhxocfjjteudtyracunhyrtcvmgulmdhplqozzhekolplbkbdsjyyeeiqvghzmqhgawrxcmbsxvwcvysyzuntgwygufejrsomdjryrqvnjhecsktztvwakesqmvtizrwcyjuyyvlhxqqlrucyjrgplrfulujmrvwlpafvjzybalcxtztzpxwanezyndfdjdgcmbuemphmjqjaqcshpqzqtqxzoewqvncidrkycccgsdtetylqkakmwwhchqsqaabgjhqjwzxnitlpjhldnyeujhhphgtpwipctooqfsazwrjyhduxtxwwjonnywuaohirolvxjcmtzzmjoioxauspehcwhhdiudlouamnpranmklhlvdsabpvzhlxjovgozojpnloegmkroycncpnetvsyawmaiuojwdxyslatxiaiusnhfqkqjfjcsecssujbbbkwvpxozxodhhwbhstkhypbnxntnchmyzrcmfomnfrcyexbhvisqfcypfkqbrxslckhlhvzcwoyqzgbnrcppjalnlffrstkfpppyadlxqkrggdqcqqfurgtujuebecurtdjmbhfaxmjtzrnizvlhnzvaeyfxysiboxryejfivrnlmwsnwtqerinkwbbqgvvqqcgptozqtkvamfhvalcznndabudrptwbdatjjbxheunnwzhynuakhtxfvtkbgdjosvlhyydticmzvyboyttkfqlwtovmgphmfeigcoqrbwkeujakfhsgorpefojggtmokktjfdckwydmzmpdxrvqwurxaapltsbecwmvroixsoigqennmgcdghlnzpdliscbcvowshqubotrntqzmkbjvrfrvuyejtxdhyccrtdujwabqftxunyzdaqkolhcbttrmqbinogpgduwllqwwrpowbugqgmaprbrtklebsemfsrokujqqkytcasitvbzjwyzfmfnpcyhxelcxdrcvjhftmtsdplbrgjwixgtxdjrcrggvnhkikkdcjummdxzvxaxycwnsjbegkmbbdbohtjunpjhloxkrppaobhvselxxnxiruemwwypuztwlvlieomjatinhbsaxjfshiciwrvqcmqzmztyxyawaqtgddfeopovrbiqsmherstgjuawurnclgucxdyijjtpbbzovtgnfxpozjzborttxqqtdowamrygahsxhgbcbaorbmcyzoypmrbsazeasnibqkzvqvksqixdxpovmbnmjomolvaenijwrjbioodmhfswzubpdpuumdrwqknvxticdzncgsawkwgkivlflsifenrprphnrocpnmkvprhanjuqpymobyhqckydhqarzdjyqlhgnuxzajgpejdzbizwzasqspygxermqfnlxfejmiibwxhudgvgstubvtqpjwliwjkldzxmxheiwyrazbucbddxrldnzqjgqfcetvpwfwpzcbiscnuttkudmniyckgkzuhpyqbcfysrsnfsayukoqbppvclufihedrjpriaopcdwplqwymjrkvisyqtaejughusxvsvrxkemvmbiawjyovjbmmiyukkoowfhljcijbupyjsqraajyeknvqtwymwbyofzcywfeukdhuqnjwxqvvwtlcvuozoymspfygzknqiscbrkjwfsctfizlrwhnjzcaynfyyqjvthfqszgkckulgirtkcoxgfkshfrplnvwmmtbtwralsgapuxzlyxgepbybebcfxqzmpihmdnobxnfgcnoduhqlkshrpjxzuuanxnektcjstjbqwunlboxiwlbkpoxkzmounbgjnpqcyztaouxkzfaiscpnnfuvsmoimqppkoccpcjuuuysckrbgfmsrgcmkxlsewgmwcrsjqsnjcmvzthmptwwjgdqmsbqofkwyaxxbzepewdtflyasskceccfbiwoqscqhzdubvoxttvxphctspjhmagotaqbzpclhogxosklufizhtvzozdpzmrzjdkcshekatdhgdzzgvvigrtotbjksgbsvzqvmmbpaeflqxrablpkuxswrbnkfqreroalhatgcorkxmezazjevoyvkwhsqicyjgwxvpnzpygcjhjuvmnkenlirjggsumczvzeknqfxcdfsxlkpzovloewyqpfraztfvlpwelelsartkkypitxdnxpgulfwhgkroznbszjoaseqajqwisghgpsvycmmvehhhxgisboptzxobsxcnguwjuthbrtgrdsmzjssfdbqmxxchuijfkcoutgbhbaogoiiuygvhyanrpittozadgbnvizhhzktjdccvagzfiqziuljfpggzcdccizhqsunkgnvqmtblcagpdfvqnyyuzhruzwanfevvabttoxibudncqpbiqoncvbnizfktwtxxzyhnmsjiuknnowfwlpkjybwlouftmeuofutqotlyqkadlhjmiotznjybxeqqpncljhrwolzpajiqrsrvnwxmwiozudvjkecomwcslsrzgdlrfxzwmdvnkmwjdcfwdhqhilqrnuuhhcnriguclpupxkmeuyodphuwapgumjatewbjrxrdkpzaltpqjnjuyelblpxexiqzwdzmfebqdnxbaeusmxifnlbmyhyvbweyksmizjqnwvkljzfurvuzqrbscpvjahdhyofkconbyfemsawtgnzzwrqmtcymquecbzqbvhojlmyhzkvcjuqexunctnuqcfzfolukktihxspqrpkhsiknffeiaomawvuvwlvlxacyyuxzcgtxlwtizuxrkujpxrhoblqyvznpyisocryohbjdomwgpdktbnfexuvfppnhyqasktmizanttabhkpnkocusvwwxzblwrhkkcsgonnhuzpfvnaqumqpnjppzahckuvikkbiqpitldikwodxcluwhbedshobkxqbvsggzvikxqtkwnvunclpslpocswdpghapezbsruolwsrmobzxarxxdtzyoxregwsnpcwittbnhlpinyhoernprlqxrdoxqxordsqssfnacepcliqmywxravtwvrqbqbtirhlcsykluirumsxochoblagyymfgzfovyomydldzrkgdopwbbkpuuocsmuopgfohxxddxmcqahjmvmegzlrvgzdsoewdrrbunrnajskiwjbscvrubwyelucvntvunlksgsumepihopngcuxztkepyomhmdtunsmeaqtercompgqbfvrgzzcqoblsvrxjjnlekwtyxyxrlkoocotgtumagwvsgekaecmubqlvmyvtiafzvcuigphgbygphytcvowsnbstisfjnjrqjaagagzdvcahmkrwpnrptizdsumfurvhiwtenlrrlwdkhwqhjfshaliqiqjxkzgqrymwinkdxlgndfhfawjskwbijbgrboczdzdiqqbqjkktjfxiberlckdxipwztsqkqlhfjvcknujbbxcbaidzjlctlffeotjjhdcrtvjletqmdztgcimreekmiqmpnljwnmniovyusgqnnzrqiftwuiglmbgcwxrcylzxlfizumnmjmuglojraryceixhoysrsuwdyjiplrkxwvjtufgsjjboplhypdhiwbwxocinopzrfdqadldaculwxdqeiyfjalhsznukmoroanjfkpyfimdpqzzttrbkeqtzvnuuauoijrwtrjwlnbzmnkaukqhoqmijgmseunbhugvibvpqyvzhwcqhggffzdcyzgbabalfausglctwkxpmatyuytubuexusxukcfijspppvugomffljlbkyvsfudaujsgewygkdbsyayrqocbhlgvniwtkztrvwrufcwtngdiqdnrvygqvfxsaoeroosadmuairyukjhbvtdwhvkcoaznhlcagzrnxhxwbnivimhxttaeealbzalgyfrdumrcvjlmifqdiafydzrcrrwakfprqijnkyaglpmjrmfczlpaybdyzqnomkliwyjgysufvjpdhhqkadxsogbcsiefxsmhastehsuyddkglhrbyegbfxdkbxexwelbmnsrxphsehidcdzmbgmsrmbhcqjmdzhmgaggorcbontdyceciuxoxmykygegqbmnuxdunqsuyltggxhctbxmqqcgcpmwyvjvdbnwkkmkjozebdomrcceeyqquklulvguhilnqjxnsoadnsqewqlxxapowhereswjzeqkwfneigqyrrodmvqldmbwxobzwflutymoshvvwwpyggybuzwyzjzprwzdfhnkbreqqqrkdsxpzizygurwmjxfgkofkimuossjhrhvkxejkoppjegvipmlpprhnilpwfopwixgnmoldjopkerqbsvwralonagyjdtjczofufivhsmyckdxjgzfqmehkocrqsdrtguisixhawkhvrryxbdwldtytbhlbsicvkefowjlancvhfxkdhsannsvqzqdtyzclbylnikszgbmzderudciuxcfirbipcjkckkxuxuqquncilhuvlbakjsivxzdonqdwcnjgaaudwigloaxddjigvcpadjnltomusdjyciobvsaikuxnzdcalujubtbapieptzutynrnmlbffxcnyfstziezfevknpdpzdsboxjbdzkkyivflqszbpvytxapfewkmdmukyacnhuspxdihxiybedosznoextwlvzmfuxjxirtvhkcuuajemskbmsxzclqacidpvycnoaxtqmmzggokdtrlbhndtzpunlmqicubqgtkedaskjasuycaviuaztrszggzkkgdyvdaknyooukgzwqbgohuvdrifdgttgfqssrspwckfaladkqqckfaivocoqrfghckghlmqxhirwgmdrvaawepfcndqiectrbujezzrdbkjmkqhubzoqytzd\",\"inclusion\":\"facere\",\"repeat\":true,\"ambul_number\":\"est\",\"phone\":\"sint\",\"age\":11,\"address\":\"hawznevupefdzxepzplksapmjoaziwmnjtyzeveohbrjwvuyhwdymxhlwoagatilfjyeyrefjmleppjjafpedgcpownhlaffbbotxvtxixlipplnqehnzrshmywuuhpjkergtlobytkgebiqiylscshvcloujvlcavfpwolpcpgmyzrkrtpbzxemgdhjnneadjjrfzxgssmtoibotaumxbngyvlinsxbdgjknxweoibewyrvukxfdxdcpwnhomzmuosvckdzjzdwuolwzybznsnviboqygxzmnmqmtfukavwpiavvbzmzgltaswrmyxkcrvdxcoqmorotjxgzptckxcynokrffieirytekdaxiechoxbtkhknueozivtnzsiuhxkfxklkeudoefscjaqhlkxjeajyfhkxzwkjnrvjftyljjfjpkcdunlcjlhdkkchfujtxylnwhecixvmpfwqcgybxiuazunyibdefsbixlezwnchjjdsuyjudldanydaxugbxvawxyxlkrmseqervcusbmniundboakhdzhwkwyryqllexhydfrffsausprpjsnpdyyhbcrujynnglfaljabqjkcusbhdlqgewetclvicvekrnzrjthtlumxkhnpngaplcqjduzsuslkrijvvsnospzadqcuxwysgrlqeeuiqnrrmvzspvsxktlyfhbonlxxznqyzqalrtstnmxgpfyxmziffvlhjqtgicojengrzpidzqatrmreqfayxlkvflzxiqojguzrotqhdkqiuknykkwnnxwkbohctbpribtapsmoegvvtbrpkqwjfkcmwytnomejfhrjqenxkxfysgqvmtayzgrxlarmgppcthnrpvjevyxkkegggvpzsqnqrvxyrxvfgnqhdcussiujgselxoixgmjaxajbzssahmvkwayqkaotowesituvlydglyxodgmrqdlpmvvhyzchvzugjzeslpicohwtmtxphpfhlozbimnzfokkvxrhhwrnehhoghjwsjqfeaypwldcljdcjpcdxissqofiecmwcoqhulngnzhcpfgjfkgtludkzbifdjzxuhxjewsqsotvprrmihoyrcetljwjnccwnuaynjisxcqueskhdfbkewzvdnlrrqwvjzkxmtisdigswcnlxvzqkzjoodidtyisaxqizqljauejgjxljuckvermkzlrhyvtbmcpzhcowcurfqxykxdowdojavdwtikitxawltzpnnefhtmlhmdjtiueminlpxfxstqiteaqdxdzajyddftsvzlxogkkgvkotpwusxupnzxnmrsmuswwgcrxsjjskttwygmcpqilxtthgkbdshjgyptirxabeyssigwsps\",\"birthDate\":\"dolorem\",\"gender\":\"0\"}],\"tab1\":[{\"general_state\":\"1\",\"complaints_shortness\":\"2\",\"heartbeat\":\"0\",\"headache\":\"3\",\"pain_heart\":\"1\",\"dizziness\":\"1\",\"ad\":\"3\",\"ad_text\":\"reprehenderit\"}],\"tab2\":[{\"a\":\"1\",\"b\":\"0\",\"c\":\"0\",\"d\":\"1\",\"e\":\"0\",\"f\":\"0\",\"g\":\"1\",\"h\":\"1\",\"i\":\"1\",\"k\":\"1\",\"l\":\"1\",\"m\":\"0\",\"n\":\"1\",\"o\":\"1\",\"p\":\"1\",\"q\":\"0\"}],\"tab3\":[{\"diuretics\":\"0\",\"betaBlockers\":\"0\",\"calcium\":\"1\",\"apf\":\"1\",\"ara\":\"0\",\"amkr\":\"0\",\"antiarrhythmics\":\"1\",\"nitrates\":\"1\",\"cardiac\":\"0\"}],\"tab4\":[{\"alcohol\":\"1\",\"smoking\":\"3\",\"gb\":\"4\",\"ibs\":\"3\",\"sd\":\"1\",\"ssz\":\"2\"}],\"tab5\":[{\"sad\":\"dolorem\",\"dad\":\"libero\",\"chcc\":\"incidunt\",\"adp\":\"et\",\"po2Saturation\":\"eos\",\"chdd\":\"omnis\",\"auscultationBreathing\":\"3\",\"presenceWheezing\":\"2\",\"corTones\":\"1\",\"noise\":\"0\",\"noiseHas\":\"6\",\"noiseComment\":\"molestias\",\"presenceEdema\":\"1\",\"psv\":\"cupiditate\"}],\"tab6\":[{\"height\":\"consequatur\",\"bodyMass\":\"aut\",\"waistCircumference\":\"veritatis\",\"hipCircumference\":\"hic\",\"waistHipRatio\":\"dolores\",\"imt\":\"fuga\",\"presenceDegreeImt\":\"dignissimos\",\"adiposeTissue\":\"repellat\",\"internalFat\":\"at\",\"muscleMass\":\"voluptatem\",\"bodyType\":\"dolorum\",\"bone\":\"impedit\",\"exchangeRate\":\"aut\",\"metabolicAge\":\"quam\",\"waterInBody\":\"eaque\"}],\"tab7\":[{\"hb\":\"cumque\",\"redBloodCells\":\"dolorum\",\"leukocytes\":\"dicta\",\"platelets\":\"soluta\",\"speedBlood\":\"velit\",\"glucose\":\"aliquam\",\"cReactive\":\"eum\",\"urea\":\"non\",\"creatinine\":\"dolore\",\"rapidGlomFilt\":\"soluta\",\"alt\":\"est\",\"ast\":\"numquam\",\"levelUricAcidSer\":\"voluptate\",\"totalCholesterol\":\"quis\",\"triglycerides\":\"earum\",\"lowDensityLipoprotein\":\"amet\",\"highDensityLipoprotein\":\"inventore\",\"cHighDensityLipoprotein\":\"laborum\",\"coeffAtherogenicity\":\"eos\",\"prothrombinTime\":\"quidem\",\"pti\":\"minus\",\"interNormRel\":\"natus\",\"fibrinogen\":\"qui\",\"homocysteine\":\"expedita\"}],\"tab8\":[{\"tshx\":\"rem\",\"borgscale\":\"tempore\",\"rufierDixontest\":\"in\",\"rufierDixontest_p1\":\"perspiciatis\",\"rufierDixontest_p2\":\"corporis\",\"rufierDixontest_p3\":\"qui\",\"bem_sample\":\"placeat\",\"levelPhysicalFitness\":\"et\",\"physical_definition\":\"aut\"}],\"tab9\":[{\"ri\":2,\"si\":20,\"va\":1,\"pvA\":\"0\",\"pvB\":\"1\",\"pvC\":\"0\",\"ecgRhythm\":\"4\",\"ecgRhythmNonSin\":\"1\",\"heartRate\":\"occaecati\",\"conclusion\":\"accusamus\"}],\"tab10\":[{\"stress1\":\"1\",\"stress2\":\"3\",\"stress3\":\"2\",\"stress4\":\"4\",\"stress5\":\"4\",\"stress6\":\"2\",\"stress7\":\"3\",\"stressLevel\":\"nisi\",\"mobility\":\"2\",\"personalCare\":\"3\",\"dailyActivities\":\"2\",\"painDiscomfort\":\"3\",\"anxietyDepression\":\"1\",\"totalGrade\":\"unde\",\"eqvas\":\"ea\"}],\"tab11\":[{\"ap\":\"eos\",\"score2OPResult\":\"ut\",\"riskCardioDisease\":\"ea\",\"any\":\"est\"}]}"
+                            "raw": "{\"active_tab\":\"1\",\"main\":[{\"name\":\"gkopmix\",\"surname\":\"yrmhvvdzgejuijmqykmjyqhcstrhpgppo\",\"middlename\":\"okqgptatwcrdxosppgwkmmycuwopyhvoukcfjyizlgawgcpomcmtdydafnrshvoqrdbd\",\"inclusion\":\"ducimus\",\"repeat\":false,\"ambul_number\":\"ipsum\",\"phone\":\"aliquam\",\"age\":13,\"address\":\"seyfklunzvwohxmkebyulirsyryg\",\"birthDate\":\"ullam\",\"gender\":\"0\"}],\"tab1\":[{\"general_state\":\"3\",\"complaints_shortness\":\"1\",\"heartbeat\":\"1\",\"headache\":\"3\",\"pain_heart\":\"2\",\"dizziness\":\"1\",\"ad\":\"3\",\"ad_text\":\"cumque\"}],\"tab2\":[{\"a\":\"1\",\"b\":\"0\",\"c\":\"1\",\"d\":\"0\",\"e\":\"0\",\"f\":\"0\",\"g\":\"3\",\"h\":\"5\",\"i\":\"1\",\"k\":\"0\",\"l\":\"0\",\"m\":\"0\",\"n\":\"1\",\"o\":\"1\",\"p\":\"1\",\"q\":\"1\"}],\"tab3\":[{\"diuretics\":\"0\",\"betaBlockers\":\"1\",\"calcium\":\"0\",\"apf\":\"1\",\"ara\":\"0\",\"amkr\":\"0\",\"antiarrhythmics\":\"0\",\"nitrates\":\"1\",\"cardiac\":\"0\"}],\"tab4\":[{\"alcohol\":\"1\",\"smoking\":\"2\",\"gb\":\"3\",\"ibs\":\"4\",\"sd\":\"3\",\"ssz\":\"1\"}],\"tab5\":[{\"sad\":\"est\",\"dad\":\"odit\",\"chcc\":\"quae\",\"adp\":\"nihil\",\"po2Saturation\":\"excepturi\",\"chdd\":\"repudiandae\",\"auscultationBreathing\":\"2\",\"presenceWheezing\":\"5\",\"corTones\":\"1\",\"noise\":\"1\",\"noiseHas\":\"2\",\"noiseComment\":\"qui\",\"presenceEdema\":\"2\",\"psv\":\"ea\"}],\"tab6\":[{\"height\":\"delectus\",\"bodyMass\":\"voluptatem\",\"waistCircumference\":\"quia\",\"hipCircumference\":\"voluptate\",\"waistHipRatio\":\"dolor\",\"imt\":\"praesentium\",\"presenceDegreeImt\":\"cupiditate\",\"adiposeTissue\":\"aliquam\",\"internalFat\":\"tenetur\",\"muscleMass\":\"beatae\",\"bodyType\":\"explicabo\",\"bone\":\"reprehenderit\",\"exchangeRate\":\"magnam\",\"metabolicAge\":\"est\",\"waterInBody\":\"nemo\"}],\"tab7\":[{\"hb\":\"veritatis\",\"redBloodCells\":\"dolor\",\"leukocytes\":\"est\",\"platelets\":\"sit\",\"speedBlood\":\"veniam\",\"glucose\":\"facilis\",\"cReactive\":\"id\",\"urea\":\"ducimus\",\"creatinine\":\"beatae\",\"rapidGlomFilt\":\"unde\",\"alt\":\"eaque\",\"ast\":\"sint\",\"levelUricAcidSer\":\"in\",\"totalCholesterol\":\"possimus\",\"triglycerides\":\"cumque\",\"lowDensityLipoprotein\":\"sed\",\"highDensityLipoprotein\":\"et\",\"cHighDensityLipoprotein\":\"nisi\",\"coeffAtherogenicity\":\"rerum\",\"prothrombinTime\":\"nihil\",\"pti\":\"qui\",\"interNormRel\":\"debitis\",\"fibrinogen\":\"fugiat\",\"homocysteine\":\"assumenda\"}],\"tab8\":[{\"tshx\":\"vero\",\"borgscale\":\"veniam\",\"rufierDixontest\":\"in\",\"rufierDixontest_p1\":\"tenetur\",\"rufierDixontest_p2\":\"animi\",\"rufierDixontest_p3\":\"rem\",\"bem_sample\":\"ut\",\"levelPhysicalFitness\":\"doloremque\",\"physical_definition\":\"aut\"}],\"tab9\":[{\"ri\":16,\"si\":10,\"va\":14,\"pvA\":\"0\",\"pvB\":\"1\",\"pvC\":\"0\",\"ecgRhythm\":\"3\",\"ecgRhythmNonSin\":\"1\",\"heartRate\":\"et\",\"conclusion\":\"maxime\"}],\"tab10\":[{\"stress1\":\"1\",\"stress2\":\"3\",\"stress3\":\"3\",\"stress4\":\"2\",\"stress5\":\"1\",\"stress6\":\"1\",\"stress7\":\"4\",\"stressLevel\":\"ducimus\",\"mobility\":\"1\",\"personalCare\":\"1\",\"dailyActivities\":\"1\",\"painDiscomfort\":\"1\",\"anxietyDepression\":\"1\",\"totalGrade\":\"inventore\",\"eqvas\":\"ut\"}],\"tab11\":[{\"ap\":\"asperiores\",\"score2OPResult\":\"voluptate\",\"riskCardioDisease\":\"ut\",\"any\":\"culpa\"}]}"
                         },
                         "description": "",
                         "auth": {
@@ -268,7 +276,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "9",
+                                    "value": "12",
                                     "description": "The ID of the client."
                                 }
                             ]
@@ -324,7 +332,7 @@
                                 {
                                     "id": "search",
                                     "key": "search",
-                                    "value": "harum",
+                                    "value": "eaque",
                                     "description": "optional. clientni istalgan parametrlari orqali izlab topadi."
                                 }
                             ]
@@ -358,20 +366,159 @@
                                     "value": "application\/json"
                                 },
                                 {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "users",
+            "description": "\nUsers",
+            "item": [
+                {
+                    "name": "update user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":9,\"name\":0}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "update user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/block",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/block"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":9,\"is_block\":\"1\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "update user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/delete",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/delete"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"user_id\":9,\"is_delete\":\"1\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "user-list",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user\/list",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user\/list"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
                                 },
                                 {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "59"
+                                    "key": "content-type",
+                                    "value": "application\/json"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
                                     "value": "*"
                                 }
                             ],
-                            "code": 200,
-                            "body": "{\"message\":\"success\",\"data\":{\"current_page\":1,\"data\":[{\"id\":1,\"old_id\":null,\"name\":\"ibrohim\",\"surname\":\"jnj\",\"middlename\":\"uhu\",\"inclusion\":\"2021-12-11\",\"repeat\":1,\"ambul_number\":\"aut\",\"phone\":\"voluptatem\",\"address\":\"cytvgh\",\"age\":19,\"birthDate\":\"2021-12-12\",\"gender\":\"0\",\"created_at\":\"2022-11-28T13:11:16.000000Z\",\"updated_at\":\"2022-11-28T13:11:36.000000Z\"}],\"first_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/all-nurse?page=1\",\"from\":1,\"last_page\":1,\"last_page_url\":\"http:\\\/\\\/localhost\\\/api\\\/all-nurse?page=1\",\"links\":[{\"url\":null,\"label\":\"&laquo; Previous\",\"active\":false},{\"url\":\"http:\\\/\\\/localhost\\\/api\\\/all-nurse?page=1\",\"label\":\"1\",\"active\":true},{\"url\":null,\"label\":\"Next &raquo;\",\"active\":false}],\"next_page_url\":null,\"path\":\"http:\\\/\\\/localhost\\\/api\\\/all-nurse\",\"per_page\":10,\"prev_page_url\":null,\"to\":1,\"total\":1}}",
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
                             "name": ""
                         }
                     ]

@@ -1,16 +1,20 @@
-name: Auth
-description: ''
+name: users
+description: |-
+
+  Users
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/login
+    uri: api/user/update
     metadata:
-      groupName: Auth
-      groupDescription: ''
+      groupName: users
+      groupDescription: |-
+
+        Users
       subgroup: ''
       subgroupDescription: ''
-      title: login
+      title: 'update user'
       description: ''
       authenticated: false
       custom: []
@@ -22,23 +26,119 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      id:
-        name: id
+      user_id:
+        name: user_id
         description: 'The id of the user.'
         required: true
-        example: 1
+        example: 9
         type: integer
         custom: []
-      password:
-        name: password
-        description: 'min:8'
+      name:
+        name: name
+        description: 'The id of the user.'
         required: true
-        example: '45789654'
+        example: 0
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      user_id: 9
+      name: 0
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/user/block
+    metadata:
+      groupName: users
+      groupDescription: |-
+
+        Users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'update user'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'The id of the user.'
+        required: true
+        example: 9
+        type: integer
+        custom: []
+      is_block:
+        name: is_block
+        description: 'required. 1-block, 0-blockdan ochish.'
+        required: false
+        example: '1'
         type: string
         custom: []
     cleanBodyParameters:
-      id: 1
-      password: '45789654'
+      user_id: 9
+      is_block: '1'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/user/delete
+    metadata:
+      groupName: users
+      groupDescription: |-
+
+        Users
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'update user'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      user_id:
+        name: user_id
+        description: 'The id of the user.'
+        required: true
+        example: 9
+        type: integer
+        custom: []
+      is_delete:
+        name: is_delete
+        description: 'required. 1-delete qilish'
+        required: false
+        example: '1'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      user_id: 9
+      is_delete: '1'
     fileParameters: []
     responses: []
     responseFields: []
@@ -50,13 +150,15 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/login-list
+    uri: api/user/list
     metadata:
-      groupName: Auth
-      groupDescription: ''
+      groupName: users
+      groupDescription: |-
+
+        Users
       subgroup: ''
       subgroupDescription: ''
-      title: 'login list'
+      title: user-list
       description: ''
       authenticated: false
       custom: []
@@ -72,122 +174,14 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"user":[{"id":1,"name":"ibragimovich"}]}'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
         description: null
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/register
-    metadata:
-      groupName: Auth
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: Registratsiya
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'min:2'
-        required: true
-        example: Ali
-        type: string
-        custom: []
-    cleanBodyParameters:
-      name: Ali
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/logout
-    metadata:
-      groupName: Auth
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: logout
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/refresh-token
-    metadata:
-      groupName: Auth
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Refresh token'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      refresh_token:
-        name: refresh_token
-        description: 'токен (refresh_token)'
-        required: true
-        example: aAbBcCdDeEfF123456aAbBcCdDeEfF123456
-        type: string
-        custom: []
-    cleanBodyParameters:
-      refresh_token: aAbBcCdDeEfF123456aAbBcCdDeEfF123456
-    fileParameters: []
-    responses: []
     responseFields: []
     auth: []
     controller: null
