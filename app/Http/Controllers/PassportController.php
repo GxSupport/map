@@ -126,7 +126,7 @@ class PassportController extends Controller
             ], 200);
         }
         return response()->json([
-            'messaga' => "user topilmadi"
+            'message' => "user topilmadi"
         ], 404);
 
     }

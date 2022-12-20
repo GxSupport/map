@@ -14,6 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
+        // tab 11
         Schema::create('estimated_indicators', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(NurseDoc::class);

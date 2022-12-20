@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\PassportController;
+use \App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,4 +30,12 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('nurse-doc/{id}', [NurseController::class, 'getNurseDoc']);
     Route::get('all-nurse', [NurseController::class, 'getAllNurse']);
+
+    Route::prefix('user')->controller(UserController::class)->group(function(){
+        Route::post('update','update');
+        Route::post('block','block');
+        Route::post('delete','delete');
+        Route::get('list','userList');
+
+    });
 });
