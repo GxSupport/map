@@ -119,7 +119,7 @@ class PassportController extends Controller
      * login list
      */
     public function userList(){
-        $user = User::select('id', 'name')->get();
+        $user = User::where('is_delete','0')->where('is_block','0')->select('id', 'name')->get();
         if($user){
             return response()->json([
                 'user' => $user
