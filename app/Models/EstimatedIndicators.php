@@ -12,7 +12,21 @@ class EstimatedIndicators extends Model
         'nurse_doc_id',
         'ap',
         'score2OPResult',
-        'riskCardioDisease'.
-        'any'
+        'riskCardioDisease',
+        'riskGroup',
+        'obesity',
+        'diabetes',
+        'physicalActivity',
+        'smoking',
+        'psychologicalStress',
+        'ccz',
+        'hypertension',
+        'fibrillation',
+        'hypertrophy',
+        'disease',
+        'chss',
+        'hyperuricemia',
+        'factors',
+        'finish',
     ];
 }

@@ -17,7 +17,6 @@ use Exception;
 
 class ClientService
 {
-    protected $_id;
     public function getNurseDoc($id)
     {
         $data = NurseDoc::where('id', $id)->with('tab1', 'tab2', 'tab3',
@@ -59,70 +58,83 @@ class ClientService
                 $nurse->update($request);
                 return $this->getNurseDoc($id);
             }else{
-                $nurse = NurseDoc::create($request);
+                $nurse = NurseDoc::create($this->mainData($request));
                 return $this->getNurseDoc($nurse->id);
             }
         }catch(Exception $e){
             return response()->json(['message'=> $e->getMessage()],400);
         }
     }
+    public function mainData($data)
+    {
+        $unique_no = NurseDoc::orderBy('id', 'DESC')->pluck('id')->first();
+        if($unique_no == null || $unique_no == ""){
+            $unique_no = 1;
+        }else{
+            $unique_no += 1;
+        }
+        $data['inclusion'] = date('Y-m-d',strtotime(now()));
+        $data['ambul_number'] = $unique_no;
+        return $data;
+
+    }
     public function tabCreateOrUpdate($request)
     {
         $active_tab = $request->active_tab;
-        $id = $request->main['0']['id'] ?? null;
         if($active_tab == 0){
             return $this->main($request->main['0']);
         }
         if($active_tab == 1){
-            return $this->tab($request->tab1['0'], $id, new ClinicalCharacteristics());
+            return $this->tab($request->tab1['0'], new ClinicalCharacteristics());
         }
         if($active_tab == 2){
-            return $this->tab($request->tab2['0'], $id, new Concomitan());
+            return $this->tab($request->tab2['0'], new Concomitan());
         }
         if($active_tab == 3){
-            return $this->tab($request->tab3['0'], $id, new Medication());
+            return $this->tab($request->tab3['0'], new Medication());
         }
         if($active_tab == 4){
-            return $this->tab($request->tab4['0'], $id, new Habits());
+            return $this->tab($request->tab4['0'], new Habits());
         }
         if($active_tab == 5){
-            return $this->tab($request->tab5['0'], $id, new Hemodynamic());
+            return $this->tab($request->tab5['0'], new Hemodynamic());
         }
         if($active_tab == 6){
-            return $this->tab($request->tab6['0'], $id, new Anthropometrisch());
+            return $this->tab($request->tab6['0'], new Anthropometrisch());
         }
         if($active_tab == 7){
-            return $this->tab($request->tab7['0'], $id, new LaboratoryData());
+            return $this->tab($request->tab7['0'], new LaboratoryData());
         }
         if($active_tab == 8){
-            return $this->tab($request->tab8['0'], $id, new Definition());
+            return $this->tab($request->tab8['0'], new Definition());
         }
         if($active_tab == 9){
-            return $this->tab($request->tab9['0'], $id, new ResearchMethod());
+            return $this->tab($request->tab9['0'], new ResearchMethod());
         }
         if($active_tab == 10){
-            return $this->tab($request->tab10['0'], $id, new StressLevel());
+            return $this->tab($request->tab10['0'], new StressLevel());
         }
         if($active_tab == 11){
-            return $this->tab($request->tab11['0'], $id, new EstimatedIndicators());
+            return $this->tab($request->tab11['0'], new EstimatedIndicators());
         }
     }
-    public function tab(array $request, int $id, object $model){
-        $data = $model::where('nurse_doc_id', $id)->first();
+    public function tab(array $request, object $model){
+
+        $data = $model::where('nurse_doc_id', $request['main_id'])->orderBy('id','desc')->first();
         if($data){
             if($data->finish == '1'){
                 return response()->json(['message'=> 'bu clientni malumotlari finish bolgan'], 404);
             }
             $data->update($request);
-            return $this->getNurseDoc($id);
+            return $this->getNurseDoc($request['main_id']);
         }else{
-            $model::create(self::tabInfo($request,$id));
-            return $this->getNurseDoc($id);
+            $model::create(self::tabInfo($request));
+            return $this->getNurseDoc($request['main_id']);
         }
     }
-    protected static function tabInfo(array $data, int $id): array
+    protected static function tabInfo(array $data): array
     {
-        $data['nurse_doc_id'] = $id;
+        $data['nurse_doc_id'] = $data['main_id'];
         return $data;
     }
     public function finish($request)

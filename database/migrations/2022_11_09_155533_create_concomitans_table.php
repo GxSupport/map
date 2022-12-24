@@ -25,7 +25,7 @@ return new class extends Migration
             $table->float('e', 16,4)->nullable()->comment('ХСН');
             $table->float('f', 16,4)->nullable()->comment('Атеросклероз периферический многососудистый со стенозом и/или эндоартерэктомии в анамнезе, аневризма аорты');
             $table->enum('g',['1','2','3'])->nullable()->comment('Перенесенные операции на сердце и сосудах');
-            $table->enum('h',['1','2','3','4','5','6','7'])->nullable()->comment('Нарушения ритма:');
+            $table->enum('h',['1','2','3','4','5','6','7'])->nullable()->comment('Нарушения ритма');
             $table->float('i', 16,4)->nullable()->comment('Сахарный диабет без осложнений');
             $table->float('k', 16,4)->nullable()->comment('Сахарный диабет с осложнениями');
             $table->float('l', 16,4)->nullable()->comment('Нарушение толерантности к глюкозе');

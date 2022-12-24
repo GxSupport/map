@@ -13,163 +13,238 @@ class NurseRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'active_tab' => 'required|in:0,1,2,3,4,5,6,7,8,9,10,11',
-            'main' => 'array|nullable',
-            'main.*.id' => 'nullable|exists:nurse_docs,id',
-            'main.*.name' => 'required|string|min:2',
-            'main.*.surname' => 'required|string|min:2',
-            'main.*.middlename' => 'nullable|string|min:2',
-            'main.*.inclusion' => 'required|dateformat:Y-m-d H:i:s',
-            'main.*.repeat' => 'required|boolean',
-            'main.*.ambul_number' => 'required|string',
-            'main.*.phone' => 'required|string',
-            'main.*.age' => 'required|integer',
-            'main.*.address' => 'required|string|min:2',
-            'main.*.birthDate' => 'required|dateformat:Y-m-d H:i:s',
-            'main.*.gender' => 'required|in:0,1',
-            'tab1' => 'array|nullable',
-            'tab1.*.general_state' => 'nullable|integer|in:1,2,3',
-            'tab1.*.complaints_shortness' => 'nullable|integer|in:1,2,3,4',
-            'tab1.*.heartbeat' => 'nullable|integer|in:0,1',
-            'tab1.*.headache' => 'nullable|integer|in:1,2,3,4',
-            'tab1.*.pain_heart' => 'nullable|integer|in:1,2',
-            'tab1.*.dizziness' => 'nullable|integer|in:1,2',
-            'tab1.*.ad' => 'nullable|integer|in:1,2,3,4,5,6',
-            'tab1.*.ad_text' => 'nullable|string',
-            'tab2' => 'array|nullable',
-            'tab2.*.a' => 'nullable|integer|in:0,1',
-            'tab2.*.b' => 'nullable|integer|in:0,1',
-            'tab2.*.c' => 'nullable|integer|in:0,1',
-            'tab2.*.d' => 'nullable|integer|in:0,1',
-            'tab2.*.e' => 'nullable|integer|in:0,1',
-            'tab2.*.f' => 'nullable|integer|in:0,1',
-            'tab2.*.g' => 'nullable|integer|in:1,2,3',
-            'tab2.*.h' => 'nullable|integer|in:1,2,3,4,5,6,7',
-            'tab2.*.i' => 'nullable|integer|in:0,1',
-            'tab2.*.k' => 'nullable|integer|in:0,1',
-            'tab2.*.l' => 'nullable|integer|in:0,1',
-            'tab2.*.m' => 'nullable|integer|in:0,1',
-            'tab2.*.n' => 'nullable|integer|in:0,1',
-            'tab2.*.o' => 'nullable|integer|in:0,1',
-            'tab2.*.p' => 'nullable|integer|in:0,1',
-            'tab2.*.q' => 'nullable|integer|in:0,1',
-            'tab3' => 'nullable|array',
-            'tab3.*.diuretics' => 'nullable|integer|in:0,1',
-            'tab3.*.betaBlockers' => 'nullable|integer|in:0,1',
-            'tab3.*.calcium' => 'nullable|integer|in:0,1',
-            'tab3.*.apf' => 'nullable|integer|in:0,1',
-            'tab3.*.ara' => 'nullable|integer|in:0,1',
-            'tab3.*.amkr' => 'nullable|integer|in:0,1',
-            'tab3.*.antiarrhythmics' => 'nullable|integer|in:0,1',
-            'tab3.*.nitrates' => 'nullable|integer|in:0,1',
-            'tab3.*.cardiac' => 'nullable|integer|in:0,1',
-            'tab4' => 'nullable|array',
-            'tab4.*.alcohol' => 'nullable|integer|in:1,2,3',
-            'tab4.*.smoking' => 'nullable|integer|in:1,2,3',
-            'tab4.*.gb' => 'nullable|integer|in:1,2,3,4',
-            'tab4.*.ibs' => 'nullable|integer|in:1,2,3,4',
-            'tab4.*.sd' => 'nullable|integer|in:1,2,3,4',
-            'tab4.*.ssz' => 'nullable|integer|in:1,2,3,4',
-            'tab5' => 'nullable|array',
-            'tab5.*.sad' => 'nullable|string',
-            'tab5.*.dad' => 'nullable|string',
-            'tab5.*.chcc' => 'nullable|string',
-            'tab5.*.adp' => 'nullable|string',
-            'tab5.*.po2Saturation' => 'nullable|string',
-            'tab5.*.chdd' => 'nullable|string',
-            'tab5.*.auscultationBreathing' => 'nullable|integer|in:1,2,3,4,5,6',
-            'tab5.*.presenceWheezing' => 'nullable|integer|in:1,2,3,4,5',
-            'tab5.*.corTones' => 'nullable|integer|in:1,2,3',
-            'tab5.*.noise' => 'nullable|integer|in:0,1',
-            'tab5.*.noiseHas' => 'nullable|integer|in:1,2,3,4,5,6',
-            'tab5.*.noiseComment' => 'nullable|string',
-            'tab5.*.presenceEdema' => 'nullable|integer|in:1,2',
-            'tab5.*.psv' => 'nullable|string',
-            'tab6' => 'nullable|array',
-            'tab6.*.height' => 'nullable|string',
-            'tab6.*.bodyMass' => 'nullable|string',
-            'tab6.*.waistCircumference' => 'nullable|string',
-            'tab6.*.hipCircumference' => 'nullable|string',
-            'tab6.*.waistHipRatio' => 'nullable|string',
-            'tab6.*.imt' => 'nullable|string',
-            'tab6.*.presenceDegreeImt' => 'nullable|string',
-            'tab6.*.adiposeTissue' => 'nullable|string',
-            'tab6.*.internalFat' => 'nullable|string',
-            'tab6.*.muscleMass' => 'nullable|string',
-            'tab6.*.bodyType' => 'nullable|string',
-            'tab6.*.bone' => 'nullable|string',
-            'tab6.*.exchangeRate' => 'nullable|string',
-            'tab6.*.metabolicAge' => 'nullable|string',
-            'tab6.*.waterInBody' => 'nullable|string',
-            'tab7' => 'nullable|array',
-            'tab7.*.hb' => 'nullable|string',
-            'tab7.*.redBloodCells' => 'nullable|string',
-            'tab7.*.leukocytes' => 'nullable|string',
-            'tab7.*.platelets' => 'nullable|string',
-            'tab7.*.speedBlood' => 'nullable|string',
-            'tab7.*.glucose' => 'nullable|string',
-            'tab7.*.cReactive' => 'nullable|string',
-            'tab7.*.urea' => 'nullable|string',
-            'tab7.*.creatinine' => 'nullable|string',
-            'tab7.*.rapidGlomFilt' => 'nullable|string',
-            'tab7.*.alt' => 'nullable|string',
-            'tab7.*.ast' => 'nullable|string',
-            'tab7.*.levelUricAcidSer' => 'nullable|string',
-            'tab7.*.totalCholesterol' => 'nullable|string',
-            'tab7.*.triglycerides' => 'nullable|string',
-            'tab7.*.lowDensityLipoprotein' => 'nullable|string',
-            'tab7.*.highDensityLipoprotein' => 'nullable|string',
-            'tab7.*.cHighDensityLipoprotein' => 'nullable|string',
-            'tab7.*.coeffAtherogenicity' => 'nullable|string',
-            'tab7.*.prothrombinTime' => 'nullable|string',
-            'tab7.*.pti' => 'nullable|string',
-            'tab7.*.interNormRel' => 'nullable|string',
-            'tab7.*.fibrinogen' => 'nullable|string',
-            'tab7.*.homocysteine' => 'nullable|string',
-            'tab8' => 'nullable|array',
-            'tab8.*.tshx' => 'nullable|string',
-            'tab8.*.borgscale' => 'nullable|string',
-            'tab8.*.rufierDixontest' => 'nullable|string',
-            'tab8.*.rufierDixontest_p1' => 'nullable|string',
-            'tab8.*.rufierDixontest_p2' => 'nullable|string',
-            'tab8.*.rufierDixontest_p3' => 'nullable|string',
-            'tab8.*.bem_sample' => 'nullable|string',
-            'tab8.*.levelPhysicalFitness' => 'nullable|string',
-            'tab8.*.physical_definition' => 'nullable|string',
-            'tab9' => 'nullable|array',
-            'tab9.*.ri' => 'nullable|integer',
-            'tab9.*.si' => 'nullable|integer',
-            'tab9.*.va' => 'nullable|integer',
-            'tab9.*.pvA' => 'nullable|integer|in:0,1',
-            'tab9.*.pvB' => 'nullable|integer|in:0,1',
-            'tab9.*.pvC' => 'nullable|integer|in:0,1',
-            'tab9.*.ecgRhythm' => 'nullable|integer|in:1,2,3,4',
-            'tab9.*.ecgRhythmNonSin' => 'nullable|integer|in:1,2',
-            'tab9.*.heartRate' => 'nullable|string',
-            'tab9.*.conclusion' => 'nullable|string',
-            'tab10' => 'nullable|array',
-            'tab10.*.stress1' => 'nullable|integer|in:1,2,3,4',
-            'tab10.*.stress2' => 'nullable|integer|in:1,2,3,4',
-            'tab10.*.stress3' => 'nullable|integer|in:1,2,3,4',
-            'tab10.*.stress4' => 'nullable|integer|in:1,2,3,4',
-            'tab10.*.stress5' => 'nullable|integer|in:1,2,3,4',
-            'tab10.*.stress6' => 'nullable|integer|in:1,2,3,4',
-            'tab10.*.stress7' => 'nullable|integer|in:1,2,3,4',
-            'tab10.*.stressLevel' => 'nullable|string',
-            'tab10.*.mobility' => 'nullable|integer|in:1,2,3',
-            'tab10.*.personalCare' => 'nullable|integer|in:1,2,3',
-            'tab10.*.dailyActivities' => 'nullable|integer|in:1,2,3',
-            'tab10.*.painDiscomfort' => 'nullable|integer|in:1,2,3',
-            'tab10.*.anxietyDepression' => 'nullable|integer|in:1,2,3',
-            'tab10.*.totalGrade' => 'nullable|string',
-            'tab10.*.eqvas' => 'nullable|string',
-            'tab11' => 'nullable|array',
-            'tab11.*.ap' => 'nullable|string',
-            'tab11.*.score2OPResult' => 'nullable|string',
-            'tab11.*.riskCardioDisease' => 'nullable|string',
-            'tab11.*.any' => 'nullable|string',
-        ];
+        if($this->active_tab == 0){
+            return [
+                'id' => 'nullable|exists:nurse_docs,id',
+                'main' => 'array|required',
+                'main.*.name' => 'required|string|min:2',
+                'main.*.surname' => 'required|string|min:2',
+                'main.*.middlename' => 'nullable|string|min:2',
+                'main.*.repeat' => 'required|boolean',
+                'main.*.phone' => 'required|string',
+                'main.*.age' => 'required|integer',
+                'main.*.address' => 'required|string|min:2',
+                'main.*.birthDate' => 'required|dateformat:Y-m-d',
+                'main.*.gender' => 'required|in:0,1',
+            ];
+        }elseif($this->active_tab == 1){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab1' => 'array|required',
+                'tab1.*.general_state' => 'nullable|integer|in:1,2,3',
+                'tab1.*.complaints_shortness' => 'nullable|integer|in:1,2,3,4',
+                'tab1.*.heartbeat' => 'nullable|integer|in:0,1',
+                'tab1.*.headache' => 'nullable|integer|in:1,2,3,4',
+                'tab1.*.pain_heart' => 'nullable|integer|in:1,2',
+                'tab1.*.dizziness' => 'nullable|integer|in:1,2',
+                'tab1.*.ad' => 'nullable|integer|in:1,2,3,4,5,6',
+                'tab1.*.ad_text' => 'nullable|string',
+            ];
+        }elseif($this->active_tab == 2){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab2' => 'array|required',
+                'tab2.*.a' => 'nullable|integer|in:0,1',
+                'tab2.*.b' => 'nullable|integer|in:0,1',
+                'tab2.*.c' => 'nullable|integer|in:0,1',
+                'tab2.*.d' => 'nullable|integer|in:0,1',
+                'tab2.*.e' => 'nullable|integer|in:0,1',
+                'tab2.*.f' => 'nullable|integer|in:0,1',
+                'tab2.*.g' => 'nullable|integer|in:1,2,3',
+                'tab2.*.h' => 'nullable|integer|in:1,2,3,4,5,6,7',
+                'tab2.*.i' => 'nullable|integer|in:0,1',
+                'tab2.*.k' => 'nullable|integer|in:0,1',
+                'tab2.*.l' => 'nullable|integer|in:0,1',
+                'tab2.*.m' => 'nullable|integer|in:0,1',
+                'tab2.*.n' => 'nullable|integer|in:0,1',
+                'tab2.*.o' => 'nullable|integer|in:0,1',
+                'tab2.*.p' => 'nullable|integer|in:0,1',
+                'tab2.*.q' => 'nullable|integer|in:0,1',
+            ];
+        }elseif($this->active_tab == 3){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab3' => 'required|array',
+                'tab3.*.diuretics' => 'nullable|integer|in:0,1',
+                'tab3.*.betaBlockers' => 'nullable|integer|in:0,1',
+                'tab3.*.calcium' => 'nullable|integer|in:0,1',
+                'tab3.*.apf' => 'nullable|integer|in:0,1',
+                'tab3.*.ara' => 'nullable|integer|in:0,1',
+                'tab3.*.amkr' => 'nullable|integer|in:0,1',
+                'tab3.*.antiarrhythmics' => 'nullable|integer|in:0,1',
+                'tab3.*.nitrates' => 'nullable|integer|in:0,1',
+                'tab3.*.cardiac' => 'nullable|integer|in:0,1',
+            ];
+        }elseif($this->active_tab == 4){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab4' => 'required|array',
+                'tab4.*.alcohol' => 'nullable|integer|in:1,2,3',
+                'tab4.*.smoking' => 'nullable|integer|in:1,2,3',
+                'tab4.*.gb' => 'nullable|integer|in:1,2,3,4',
+                'tab4.*.ibs' => 'nullable|integer|in:1,2,3,4',
+                'tab4.*.sd' => 'nullable|integer|in:1,2,3,4',
+                'tab4.*.ssz' => 'nullable|integer|in:1,2,3,4',
+            ];
+        }elseif ($this->active_tab == 5){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab5' => 'required|array',
+                'tab5.*.sad' => 'nullable|string',
+                'tab5.*.dad' => 'nullable|string',
+                'tab5.*.chcc' => 'nullable|string',
+                'tab5.*.adp' => 'nullable|string',
+                'tab5.*.po2Saturation' => 'nullable|string',
+                'tab5.*.chdd' => 'nullable|string',
+                'tab5.*.auscultationBreathing' => 'nullable|integer|in:1,2,3,4,5,6',
+                'tab5.*.presenceWheezing' => 'nullable|integer|in:1,2,3,4,5',
+                'tab5.*.corTones' => 'nullable|integer|in:1,2,3',
+                'tab5.*.noise' => 'nullable|integer|in:0,1',
+                'tab5.*.noiseHas' => 'nullable|integer|in:1,2,3,4,5,6',
+                'tab5.*.noiseComment' => 'nullable|string',
+                'tab5.*.presenceEdema' => 'nullable|integer|in:1,2',
+                'tab5.*.psv' => 'nullable|string',
+            ];
+        }elseif ($this->active_tab == 6){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab6' => 'required|array',
+                'tab6.*.height' => 'nullable|string',
+                'tab6.*.bodyMass' => 'nullable|string',
+                'tab6.*.waistCircumference' => 'nullable|string',
+                'tab6.*.hipCircumference' => 'nullable|string',
+                'tab6.*.waistHipRatio' => 'nullable|string',
+                'tab6.*.imt' => 'nullable|string',
+                'tab6.*.presenceDegreeImt' => 'nullable|string',
+                'tab6.*.adiposeTissue' => 'nullable|string',
+                'tab6.*.internalFat' => 'nullable|string',
+                'tab6.*.muscleMass' => 'nullable|string',
+                'tab6.*.bodyType' => 'nullable|string',
+                'tab6.*.bone' => 'nullable|string',
+                'tab6.*.exchangeRate' => 'nullable|string',
+                'tab6.*.metabolicAge' => 'nullable|string',
+                'tab6.*.waterInBody' => 'nullable|string',
+            ];
+        }elseif($this->active_tab == 7){
+            return[
+
+                'id'=>'nullable|',
+                'tab7.*.hb' => 'nullable|string',
+                'tab7.*.redBloodCells' => 'nullable|string',
+                'tab7.*.leukocytes' => 'nullable|string',
+                'tab7.*.platelets' => 'nullable|string',
+                'tab7.*.speedBlood' => 'nullable|string',
+                'tab7.*.glucose' => 'nullable|string',
+                'tab7.*.cReactive' => 'nullable|string',
+                'tab7.*.urea' => 'nullable|string',
+                'tab7.*.creatinine' => 'nullable|string',
+                'tab7.*.rapidGlomFilt' => 'nullable|string',
+                'tab7.*.alt' => 'nullable|string',
+                'tab7.*.ast' => 'nullable|string',
+                'tab7.*.levelUricAcidSer' => 'nullable|string',
+                'tab7.*.totalCholesterol' => 'nullable|string',
+                'tab7.*.triglycerides' => 'nullable|string',
+                'tab7.*.lowDensityLipoprotein' => 'nullable|string',
+                'tab7.*.highDensityLipoprotein' => 'nullable|string',
+                'tab7.*.cHighDensityLipoprotein' => 'nullable|string',
+                'tab7.*.coeffAtherogenicity' => 'nullable|string',
+                'tab7.*.prothrombinTime' => 'nullable|string',
+                'tab7.*.pti' => 'nullable|string',
+                'tab7.*.interNormRel' => 'nullable|string',
+                'tab7.*.fibrinogen' => 'nullable|string',
+                'tab7.*.homocysteine' => 'nullable|string',
+            ];
+        }elseif($this->active_tab == 8){
+            return[
+                'id'=>'nullable|',
+                'tab8.*.tshx' => 'nullable|string',
+                'tab8.*.borgscale' => 'nullable|string',
+                'tab8.*.rufierDixontest' => 'nullable|string',
+                'tab8.*.rufierDixontest_p1' => 'nullable|string',
+                'tab8.*.rufierDixontest_p2' => 'nullable|string',
+                'tab8.*.rufierDixontest_p3' => 'nullable|string',
+                'tab8.*.bem_sample' => 'nullable|string',
+                'tab8.*.levelPhysicalFitness' => 'nullable|string',
+                'tab8.*.physical_definition' => 'nullable|string',
+                'tab8.*.natureWork' => 'nullable|string',
+                'tab8.*.massTest' => 'nullable|string',
+                'tab8.*.physicalExercise' => 'nullable|string',
+                'tab8.*.pulseRate' => 'nullable|string',
+                'tab8.*.complaints' => 'nullable|string',
+            ];
+        }elseif($this->active_tab == 9){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab9' => 'required|array',
+                'tab9.*.ri' => 'nullable|integer',
+                'tab9.*.si' => 'nullable|integer',
+                'tab9.*.va' => 'nullable|integer',
+                'tab9.*.pvA' => 'nullable|integer|in:0,1',
+                'tab9.*.pvB' => 'nullable|integer|in:0,1',
+                'tab9.*.pvC' => 'nullable|integer|in:0,1',
+                'tab9.*.ecgRhythm' => 'nullable|integer|in:1,2,3,4',
+                'tab9.*.ecgRhythmNonSin' => 'nullable|integer|in:1,2',
+                'tab9.*.heartRate' => 'nullable|string',
+                'tab9.*.conclusion' => 'nullable|string',
+            ];
+        }elseif ($this->active_tab == 10){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab10' => 'required|array',
+                'tab10.*.stress1' => 'nullable|integer|in:1,2,3,4',
+                'tab10.*.stress2' => 'nullable|integer|in:1,2,3,4',
+                'tab10.*.stress3' => 'nullable|integer|in:1,2,3,4',
+                'tab10.*.stress4' => 'nullable|integer|in:1,2,3,4',
+                'tab10.*.stress5' => 'nullable|integer|in:1,2,3,4',
+                'tab10.*.stress6' => 'nullable|integer|in:1,2,3,4',
+                'tab10.*.stress7' => 'nullable|integer|in:1,2,3,4',
+                'tab10.*.stressLevel' => 'nullable|string',
+                'tab10.*.mobility' => 'nullable|integer|in:1,2,3',
+                'tab10.*.personalCare' => 'nullable|integer|in:1,2,3',
+                'tab10.*.dailyActivities' => 'nullable|integer|in:1,2,3',
+                'tab10.*.painDiscomfort' => 'nullable|integer|in:1,2,3',
+                'tab10.*.anxietyDepression' => 'nullable|integer|in:1,2,3',
+                'tab10.*.totalGrade' => 'nullable|string',
+                'tab10.*.eqvas' => 'nullable|string',
+            ];
+        }elseif($this->active_tab == 11){
+            return [
+                'id'=>'nullable|',
+                'main_id' => 'nullable|exists:nurse_docs,id',
+                'tab11' => 'required|array',
+                'tab11.*.ap' => 'nullable|string',
+                'tab11.*.score2OPResult' => 'nullable|string',
+                'tab11.*.riskCardioDisease' => 'nullable|string',
+                'tab11.*.riskGroup' => 'nullable|in:1,2,3,4',
+                'tab11.*.obesity' => 'nullable|in:0,1',
+                'tab11.*.diabetes' => 'nullable|in:0,1',
+                'tab11.*.physicalActivity' => 'nullable|in:0,1',
+                'tab11.*.smoking' => 'nullable|in:0,1',
+                'tab11.*.psychologicalStress' => 'nullable|in:0,1',
+                'tab11.*.ccz' => 'nullable|in:0,1',
+                'tab11.*.hypertension' => 'nullable|in:0,1',
+                'tab11.*.fibrillation' => 'nullable|in:0,1',
+                'tab11.*.hypertrophy' => 'nullable|in:0,1',
+                'tab11.*.disease' => 'nullable|in:0,1',
+                'tab11.*.chss' => 'nullable|in:0,1',
+                'tab11.*.hyperlipidemia' => 'nullable|in:0,1',
+                'tab11.*.hyperuricemia' => 'nullable|in:0,1',
+                'tab11.*.factors' => 'nullable|in:0,1',
+                'tab11.*.finish' => 'nullable|in:0,1',
+            ];
+        }else{
+            return [
+                'active_tab'=>'required|in:0,1,2,3,4,5,6,7,8,9,10,11'
+            ];
+        }
     }
 
     public function bodyParameters(){
@@ -178,94 +253,222 @@ class NurseRequest extends FormRequest
                 "description" => "update bolayotgan tabni id si",
                 "example" => "1"
             ],
-
+            "main_id" => [
+                "description" => "clientni id si",
+                "example" => "1"
+            ],
             "main" => [
                 "description" => "umumiy malumotlar",
-                "example" => "[
-                    {
-                        id:2,
-                        name:Yoqubjon,
-                        surname:mehmed,
-                        middlename: ji,
-                        address:toshkent,
-                        age:24,
-                        inclusion:2021-02-13 12:12:12,
-                        repeat:0,
-                        ambul_number:1,
-                        phone:12565989,
-                        address:5464,
-                        birthDate:1998-05-26 12:12:12,
-                        gender:1
-                    },
-                ]"
+                "example" => '[]'
             ],
-
+            'main.*.id'=>[
+                'description' => 'main id si faqat update qilish uchun',
+                'example'=> '2'
+            ],
+            'main.*.name'=>[
+                'description' => 'name',
+                'example'=> 'Yoqubjon'
+            ],
+            'main.*.surname'=>[
+                'description' => 'surname',
+                'example'=> 'Tursunxon'
+            ],
+            'main.*.middlename'=>[
+                'description' => 'middlename',
+                'example'=> 'Tursunxon'
+            ],
+            'main.*.address'=>[
+                'description' => 'address',
+                'example'=> 'Toshkent'
+            ],
+            'main.*.age'=>[
+                'description' => 'age',
+                'example'=> '22'
+            ],
+            'main.*.phone'=>[
+                'description' => 'phone',
+                'example'=> '998945890598'
+            ],
+            'main.*.birthDate'=>[
+                'description' => '1998-05-26',
+                'example'=> '1'
+            ],
+            'main.*.gender'=>[
+                'description' => 'jinsi 0-ayol, 1-erkak',
+                'example'=> '1'
+            ],
             "tab1" => [
-                "description" => "tab 1",
-                "example" => "[
-                    {
-                        general_state:,
-                        complaints_shortness:1,
-                        heartbeat:1,
-                        headache:1,
-                        pain_heart:1,
-                        dizziness:1,
-                        ad:1,
-                        ad_text:ytgydy
-                    },
-                ]"
+                "description" => "tab 1 ni malumotlari",
+                "example" => "[]"
+            ],
+            'tab1.*.general_state'=>[
+                'description' => 'Общее состояние| 1,2,3',
+                'example'=> '1'
+            ],
+            'tab1.*.complaints_shortness'=>[
+                'description' => 'Жалобы одышка| 1,2,3,4',
+                'example'=> '1'
+            ],
+            'tab1.*.heartbeat'=>[
+                'description' => 'сердцебиение| ',
+                'example'=> '14'
+            ],
+            'tab1.*.headache'=>[
+                'description' => 'боли в области сердца |1,2,3,4',
+                'example'=> '1'
+            ],
+            'tab1.*.pain_heart'=>[
+                'description' => 'головные боли | 1,2',
+                'example'=> '1'
+            ],
+            'tab1.*.dizziness'=>[
+                'description' => 'головокружения | 1,2',
+                'example'=> '1'
+            ],
+            'tab1.*.ad'=>[
+                'description' => 'подъёмы АД |1,2,3,4,5,6',
+                'example'=> '1'
+            ],
+            'tab1.*.ad_text'=>[
+                'description' => 'дописать',
+                'example'=> 'text'
             ],
             "tab2" => [
                 "description" => "tab 2",
-                "example" => "[
-                    {
-                        a:1,
-                        b:1,
-                        c:1,
-                        d:1,
-                        e:1,
-                        f:1,
-                        g:1,
-                        h:1,
-                        i:1,
-                        k:1,
-                        l:1,
-                        m:1,
-                        n:1,
-                        o:1,
-                        p:1,
-                        q:1
-                    },
-                ]"
+                "example" => "[]"
             ],
+            'tab2.*.a'=>[
+                'description' => 'Гипертоническая болезнь',
+                'example'=> '1'
+            ],
+            'tab2.*.b'=>[
+                'description' => 'Ишемическая болезнь сердца.',
+                'example'=> '1'
+            ],
+            'tab2.*.c'=>[
+                'description' => 'В анамнезе перенесенный ИМ',
+                'example'=> '1'
+            ],
+            'tab2.*.d'=>[
+                'description' => 'В анамнезе перенесенный ОНМК, ТИА',
+                'example'=> '1'
+            ],
+            'tab2.*.e'=>[
+                'description' => 'ХСН',
+                'example'=> '1'
+            ],
+            'tab2.*.f'=>[
+                'description' => 'Атеросклероз периферический многососудистый со стенозом и/или эндоартерэктомии в анамнезе, аневризма аорты',
+                'example'=> '1'
+            ],
+            'tab2.*.g'=>[
+                'description' => 'Перенесенные операции на сердце и сосудах',
+                'example'=> '1'
+            ],
+            'tab2.*.h'=>[
+                'description' => 'Нарушения ритма',
+                'example'=> '1'
+            ],
+            'tab2.*.i'=>[
+                'description' => 'Сахарный диабет без осложнений',
+                'example'=> '1'
+            ],
+            'tab2.*.k'=>[
+                'description' => 'Сахарный диабет с осложнениями',
+                'example'=> '1'
+            ],
+            'tab2.*.l'=>[
+                'description' => 'Нарушение толерантности к глюкозе',
+                'example'=> '1'
+            ],
+            'tab2.*.m'=>[
+                'description' => 'ХБП',
+                'example'=> '1'
+            ],
+            'tab2.*.n'=>[
+                'description' => 'ХОБЛ или БА',
+                'example'=> '1'
+            ],
+            'tab2.*.o'=>[
+                'description' => 'Ковид-19',
+                'example'=> '1'
+            ],
+            'tab2.*.p'=>[
+                'description' => 'Врожденные и приобретенные пороки сердца',
+                'example'=> '1'
+            ],
+            'tab2.*.q'=>[
+                'description' => 'Онкологические заболевания',
+                'example'=> '1'
+            ],
+
             "tab3" => [
                 "description" => "tab 3",
-                "example" => "[
-                    {
-                        diuretics:1,
-                        betaBlockers:1,
-                        calcium:0,
-                        apf:1,
-                        ara:1,
-                        amkr:0,
-                        antiarrhythmics:1,
-                        nitrates:0,
-                        cardiac:1
-                    },
-                ]"
+                "example" => "[]"
+            ],
+            'tab3.*.diuretics'=>[
+                'description' => 'диуретики',
+                'example'=> '1'
+            ],
+            'tab3.*.betaBlockers'=>[
+                'description' => 'бета-блокаторы',
+                'example'=> '1'
+            ],
+            'tab3.*.calcium'=>[
+                'description' => 'антагонисты кальция',
+                'example'=> '1'
+            ],
+            'tab3.*.apf'=>[
+                'description' => 'ингибиторы АПФ',
+                'example'=> '1'
+            ],
+            'tab3.*.ara'=>[
+                'description' => 'АРА',
+                'example'=> '1'
+            ],
+            'tab3.*.amkr'=>[
+                'description' => 'АМКР',
+                'example'=> '1'
+            ],
+            'tab3.*.antiarrhythmics'=>[
+                'description' => 'Антиаритмики',
+                'example'=> '1'
+            ],
+            'tab3.*.nitrates'=>[
+                'description' => 'Нитраты',
+                'example'=> '1'
+            ],
+            'tab3.*.cardiac'=>[
+                'description' => 'Сердечные гликозиды',
+                'example'=> '1'
             ],
             "tab4" => [
                 "description" => "tab 4",
-                "example" => "[
-                    {
-                        alcohol:1,
-                        smoking:2,
-                        gb:1,
-                        ibs:2,
-                        sd:1,
-                        ssz:1
-                    },
-                ]"
+                "example" => "[]"
+            ],
+            'tab4.*.alcohol'=>[
+                'description' => 'Употребление алкоголя',
+                'example'=> '1'
+            ],
+            'tab4.*.smoking'=>[
+                'description' => 'Курение',
+                'example'=> '1'
+            ],
+            'tab4.*.gb'=>[
+                'description' => 'Наследственность отягощена или не отягощена',
+                'example'=> '1'
+            ],
+            'tab4.*.ibs'=>[
+                'description' => 'Наследственность отягощена или не отягощена',
+                'example'=> '1'
+            ],
+            'tab4.*.sd'=>[
+                'description' => 'Наследственность отягощена или не отягощена',
+                'example'=> '1'
+            ],
+            'tab4.*.ssz'=>[
+                'description' => 'Наследственность отягощена или не отягощена',
+                'example'=> '1'
             ],
             "tab5" => [
                 "description" => "tab 5",
@@ -345,17 +548,69 @@ class NurseRequest extends FormRequest
                 "description" => "tab 8",
                 "example" => "[
                     {
-                        tshx:1,
-                        borgscale:1,
-                        rufierDixontest:1,
-                        rufierDixontest_p1:1,
-                        rufierDixontest_p2:1,
-                        rufierDixontest_p3:1,
-                        bem_sample:1,
-                        levelPhysicalFitness:1,
-                        physical_definition:1,
+                        :1,
+                        :1,
+                        :1,
+                        :1,
+                        :1,
+                        :1,
+                        :1,
+                        :1,
+                        :1,
                     },
                 ]"
+            ],
+            "tab8.*.tshx" => [
+                "description" => "ТШХ",
+                "example" => "text"
+            ],
+            "tab8.*.borgscale" => [
+                "description" => "Шкала Борга",
+                "example" => "text"
+            ],
+            "tab8.*.rufierDixontest" => [
+                "description" => "Проба Руфье-Диксона I=(P1+P2+P3)-200/10",
+                "example" => "text"
+            ],
+            "tab8.*.rufierDixontest_p1" => [
+                "description" => "P1",
+                "example" => ""
+            ],
+            "tab8.*.rufierDixontest_p2" => [
+                "description" => "P2",
+                "example" => ""
+            ],
+            "tab8.*.rufierDixontest_p3" => [
+                "description" => "P3",
+                "example" => ""
+            ],
+            "tab8.*.bem_sample" => [
+                "description" => "Для тренированных больных – ВЭМ проба",
+                "example" => ""
+            ],
+            "tab8.*.levelPhysicalFitness" => [
+                "description" => "Ступень физической подготовленности (от 1 мин до 5 максимальная) расчетная'",
+                "example" => ""
+            ],
+            "tab8.*.natureWork" => [
+                "description" => "",
+                "example" => ""
+            ],
+            "tab8.*.massTest" => [
+                "description" => "",
+                "example" => ""
+            ],
+            "tab8.*.physicalExercise" => [
+                "description" => "",
+                "example" => ""
+            ],
+            "tab8.*.pulseRate" => [
+                "description" => "",
+                "example" => ""
+            ],
+            "tab8.*.complaints" => [
+                "description" => "",
+                "example" => ""
             ],
             "tab9" => [
                 "description" => "tab 9",
@@ -398,16 +653,79 @@ class NurseRequest extends FormRequest
             ],
             "tab11" => [
                 "description" => "tab 11",
-                "example" => "[
-                    {
-                        ap:string
-                        score2OPResult:string
-                        riskCardioDisease:string
-                        any:string
-                    },
-                ]"
+                "example" => "[]"
             ],
-
+            "tab11.*.app" => [
+                "description" => "Индекс адаптационного потенциала ССС Р.М.",
+                "example" => ""
+            ],
+            "tab11.*.score2OPResult" => [
+                "description" => "SCORE-2 у больных старше 40 лет",
+                "example" => ""
+            ],
+            "tab11.*.riskCardioDisease" => [
+                "description" => "Шкала определения относительного риска, используемая для молодых людей ",
+                "example" => ""
+            ],
+            "tab11.*.riskGroup" => [
+                "description" => "Группа риска|1,2,3,4",
+                "example" => "2"
+            ],
+            "tab11.*.obesity" => [
+                "description" => "4.1.ожирение",
+                "example" => "1"
+            ],
+            "tab11.*.diabetes" => [
+                "description" => "4.2.сахарный диабет",
+                "example" => "1"
+            ],
+            "tab11.*.physicalActivity" => [
+                "description" => "4.3.недостаточная физическая активность",
+                "example" => "1"
+            ],
+            "tab11.*.smoking" => [
+                "description" => "4.4.курение",
+                "example" => "0"
+            ],
+            "tab11.*.psychologicalStress" => [
+                "description" => "4.5.психологический стресс",
+                "example" => "0"
+            ],
+            "tab11.*.ccz" => [
+                "description" => "4.6.семейный анамнез ранней заболеваемости ССЗ",
+                "example" => "1"
+            ],"tab11.*.hypertension" => [
+                "description" => "4.7.Артериальная гипертензия пункт",
+                "example" => "1"
+            ],
+            "tab11.*.fibrillation" => [
+                "description" => "4.8.фибрилляция предсердий Пункты",
+                "example" => "0"
+            ],
+            "tab11.*.hypertrophy" => [
+                "description" => "4.9.гипертрофия миокарда левого желудочка",
+                "example" => "1"
+            ],
+            "tab11.*.disease" => [
+                "description" => "4.10.хроническая болезнь почек",
+                "example" => "1"
+            ],
+            "tab11.*.chss" => [
+                "description" => "4.11.ЧСС боле 80 в мин Пункт",
+                "example" => "1"
+            ],
+            "tab11.*.hyperlipidemia" => [
+                "description" => "4.12.Гиперлипидемия и дислипидемия",
+                "example" => "1"
+            ],
+            "tab11.*.hyperuricemia" => [
+                "description" => "4.13.Гиперурекемия",
+                "example" => "1"
+            ],
+            "tab11.*.factors" => [
+                "description" => "5.Факторы риска",
+                "example" => "1"
+            ],
         ];
     }
 }
